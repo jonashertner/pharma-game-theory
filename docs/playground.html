@@ -6,6 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/passcode.js"></script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap');
 
@@ -472,10 +474,51 @@
     main.pg-main > section { padding: 16px 18px; }
   }
 </style>
-<script src="assets/passcode.js"></script>
 </head>
 <body>
-<header class="site-header" style="position: static;"><div class="inner"><a href="index.html" class="brand" style="text-decoration:none;">Roche pricing negotiation <span class="accent">simulation</span></a><nav><a href="index.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Overview</a><a href="recommendation.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Recommendation</a><a href="adversarial.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Red team</a><a href="dynamics.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Dynamics</a><a href="disclosures.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Disclosures</a><a href="mfn-deals.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">MFN deals</a><a href="global-pricing.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Global pricing</a><a href="simulation.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Live simulation</a><a href="playground.html" style="color:#e6e8eb" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Playground</a><a href="actors.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Actors</a><a href="positions.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Positions</a><a href="prompts.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Prompts</a><a href="glossary.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Glossary</a><a href="method.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Method</a></nav><div class="meta">snapshot 2026-05-19</div></div></header><div style="background:linear-gradient(135deg,rgba(122,162,247,0.08) 0%,rgba(187,154,247,0.06) 100%);border-bottom:1px solid #2a2f37;padding:11px 22px;color:#e6e8eb;font-size:13px;line-height:1.5;"><strong style="color:#7aa2f7;font-family:ui-monospace,Menlo,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;">How to use this:</strong> Pick a scenario from the dropdown above to preview a named state. Drag the sliders to test &quot;what-if&quot; deal vectors. Actor surplus updates live; red &quot;walk&quot; warnings appear as you cross any actor&#39;s red line. Use the <em>novelty prompt</em> panel to paste collision prompts into Claude.</div>
+<input type="checkbox" id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle menu">
+<header class="site-header" style="position: static;">
+  <div class="inner">
+    <a href="index.html" class="brand">Roche negotiation</a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="index.html">Overview</a>
+        <a href="recommendation.html">Recommendation</a>
+        <a href="simulation.html">Live simulation</a>
+        <a href="playground.html" class="active">Playground</a>
+        <a href="actors.html">Actors</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="palette-trigger" class="palette-trigger" type="button" aria-label="Search the site">
+        <span class="label">Search</span><kbd>⌘K</kbd>
+      </button>
+      <label for="mobile-menu-toggle" class="menu-toggle" aria-label="Open menu" role="button" tabindex="0">
+        <span class="menu-toggle-label">Menu</span>
+        <span class="bars" aria-hidden="true"></span>
+      </label>
+    </div>
+  </div>
+</header>
+<nav class="mobile-nav" aria-label="Sections navigation">
+      <div class="mobile-group-head">Read</div>
+      <a href="index.html">Overview</a>
+      <a href="recommendation.html">Recommendation</a>
+      <a href="adversarial.html">Red team</a>
+      <a href="dynamics.html">Dynamics</a>
+      <a href="disclosures.html">Disclosures</a>
+      <a href="mfn-deals.html">MFN deals</a>
+      <a href="global-pricing.html">Global pricing</a>
+      <div class="mobile-group-head">Explore</div>
+      <a href="simulation.html">Live simulation</a>
+      <a href="playground.html" class="active">Playground</a>
+      <div class="mobile-group-head">Reference</div>
+      <a href="actors.html">Actors</a>
+      <a href="positions.html">Positions</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="method.html">Method</a>
+      <div class="meta-line">snapshot 19 May 2026</div>
+</nav>
+
 
 <main class="pg-main">
   <div class="pg-toolbar">
@@ -1034,6 +1077,14 @@ document.getElementById("copy-novelty").addEventListener("click", () => {
 
 applyScenario("status_quo");
 
+</script>
+<script>
+document.querySelectorAll(".mobile-nav a").forEach(a => {
+  a.addEventListener("click", () => {
+    const t = document.getElementById("mobile-menu-toggle");
+    if (t) t.checked = false;
+  });
+});
 </script>
 </body>
 </html>

@@ -784,41 +784,6 @@ def build_playground() -> str:
     return out
 
 
-def build_playground() -> str:
-    raw = PLAYGROUND_SRC.read_text()
-    nav_parts = []
-    for href, label in NAV_LINKS:
-        active = ' style="color:#e6e8eb"' if href == "playground.html" else ""
-        nav_parts.append(
-            f'<a href="{href}"{active} style="color:#8b94a3;font-size:12px;'
-            f'text-decoration:none;margin-right:18px;">{label}</a>'
-        )
-    nav_strip = (
-        '<header class="site-header" style="position: static;">'
-        '<div class="inner">'
-        '<a href="index.html" class="brand" style="text-decoration:none;">Roche pricing negotiation <span class="accent">simulation</span></a>'
-        '<nav>' + ''.join(nav_parts) + '</nav>'
-        '<div class="meta">snapshot 2026-05-19</div>'
-        '</div></header>'
-    )
-    # Compact exec-summary strip below the nav, before the playground panes
-    exec_strip = (
-        '<div style="background:linear-gradient(135deg,rgba(122,162,247,0.08) 0%,rgba(187,154,247,0.06) 100%);'
-        'border-bottom:1px solid #2a2f37;padding:11px 22px;color:#e6e8eb;font-size:13px;line-height:1.5;">'
-        '<strong style="color:#7aa2f7;font-family:ui-monospace,Menlo,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;">How to use this:</strong> '
-        'Pick a scenario from the dropdown above to preview a named state. '
-        'Drag the sliders to test &quot;what-if&quot; deal vectors. Actor surplus updates live; '
-        'red &quot;walk&quot; warnings appear as you cross any actor&#39;s red line. '
-        'Use the <em>novelty prompt</em> panel to paste collision prompts into Claude.'
-        '</div>'
-    )
-    passcode_tag = '<script src="assets/passcode.js"></script>'
-    out = raw.replace("</head>", f"{passcode_tag}\n</head>")
-    out = out.replace("<body>", "<body>\n" + nav_strip + exec_strip, 1)
-    out = out.replace("height: calc(100vh - 50px);", "height: calc(100vh - 140px);")
-    return out
-
-
 def build_actors() -> str:
     data = load_data()
     snapshots = load_actor_snapshots()
