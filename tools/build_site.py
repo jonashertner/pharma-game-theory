@@ -61,26 +61,31 @@ DISPLAY_NAMES = {
 }
 
 
+# Each nav entry: (href, label, primary?). Primary items are shown inline
+# on wide laptops; all items are accessible via the Menu overlay and Cmd+K.
 NAV_GROUPS = [
     ("Read", [
-        ("index.html", "Overview"),
-        ("recommendation.html", "Recommendation"),
-        ("dynamics.html", "Dynamics"),
-        ("disclosures.html", "Disclosures"),
-        ("global-pricing.html", "Global pricing"),
+        ("index.html", "Overview", True),
+        ("recommendation.html", "Recommendation", True),
+        ("adversarial.html", "Red team", False),
+        ("dynamics.html", "Dynamics", False),
+        ("disclosures.html", "Disclosures", False),
+        ("mfn-deals.html", "MFN deals", False),
+        ("global-pricing.html", "Global pricing", False),
     ]),
     ("Explore", [
-        ("simulation.html", "Live simulation"),
-        ("playground.html", "Playground"),
+        ("simulation.html", "Live simulation", True),
+        ("playground.html", "Playground", True),
     ]),
     ("Reference", [
-        ("actors.html", "Actors"),
-        ("positions.html", "Positions"),
-        ("prompts.html", "Prompts"),
-        ("method.html", "Method"),
+        ("actors.html", "Actors", True),
+        ("positions.html", "Positions", False),
+        ("prompts.html", "Prompts", False),
+        ("glossary.html", "Glossary", False),
+        ("method.html", "Method", False),
     ]),
 ]
-NAV_LINKS = [link for _, group in NAV_GROUPS for link in group]
+NAV_LINKS = [(href, label) for _, group in NAV_GROUPS for href, label, _ in group]
 
 
 def _pagination(page_id: str) -> str:
@@ -118,21 +123,21 @@ def _pagination(page_id: str) -> str:
 
 def layout(*, title: str, page_id: str, body: str, main_class: str = "prose",
            extra_head: str = "", include_pagination: bool = True) -> str:
-    # Desktop nav grouped by category
-    desktop_groups = []
-    mobile_groups = []
+    # Inline desktop nav shows PRIMARY items only (compact even on laptops).
+    # Menu overlay (formerly mobile-nav) shows everything grouped.
+    inline_links = []
+    overlay_groups = []
     for gname, group in NAV_GROUPS:
-        d_links = []
         m_links = [f'<div class="mobile-group-head">{gname}</div>']
-        for href, label in group:
+        for href, label, primary in group:
             active = ' class="active"' if href == page_id else ""
-            d_links.append(f'<a href="{href}"{active}>{label}</a>')
+            if primary:
+                inline_links.append(f'<a href="{href}"{active}>{label}</a>')
             m_links.append(f'<a href="{href}"{active}>{label}</a>')
-        desktop_groups.append(f'<div class="nav-group">{"".join(d_links)}</div>')
-        mobile_groups.append("\n      ".join(m_links))
-    desktop_nav = "\n        ".join(desktop_groups)
-    mobile_nav = "\n      ".join(mobile_groups)
-    snapshot = "2026-05-19"
+        overlay_groups.append("\n      ".join(m_links))
+    desktop_nav = "\n        ".join(inline_links)
+    mobile_nav = "\n      ".join(overlay_groups)
+    snapshot = "19 May 2026"
 
     pagination = _pagination(page_id) if include_pagination and page_id != "index.html" else ""
 
@@ -157,17 +162,20 @@ def layout(*, title: str, page_id: str, body: str, main_class: str = "prose",
 
 <header class="site-header">
   <div class="inner">
-    <a href="index.html" class="brand">Roche pricing negotiation <span class="accent">simulation</span></a>
+    <a href="index.html" class="brand">Roche negotiation</a>
     <nav class="desktop-nav" aria-label="Primary navigation">
         {desktop_nav}
     </nav>
-    <button id="palette-trigger" class="palette-trigger" type="button" aria-label="Search the site">
-      <span class="label">Search</span>
-      <kbd>⌘K</kbd>
-    </button>
-    <label for="mobile-menu-toggle" class="hamburger" aria-label="Open menu" role="button" tabindex="0">
-      <span class="bars" aria-hidden="true"></span>
-    </label>
+    <div class="nav-actions">
+      <button id="palette-trigger" class="palette-trigger" type="button" aria-label="Search the site">
+        <span class="label">Search</span>
+        <kbd>⌘K</kbd>
+      </button>
+      <label for="mobile-menu-toggle" class="menu-toggle" aria-label="Open menu" role="button" tabindex="0">
+        <span class="menu-toggle-label">Menu</span>
+        <span class="bars" aria-hidden="true"></span>
+      </label>
+    </div>
   </div>
 </header>
 
@@ -331,29 +339,29 @@ def build_index() -> str:
   <figcaption>Click any actor for the sourced profile. Issues connecting them are documented in <a href="positions.html">the positions matrix</a>.</figcaption>
 </figure>
 
-<div class="board-decisions">
-  <div class="head">Decisions before the board</div>
-  <h2 class="no-rule" style="margin-top:6px;">What the executive committee is being asked to do</h2>
+<section class="board-decisions" id="agenda" aria-label="Board agenda">
+  <div class="head">Board agenda</div>
+  <h2 class="no-rule" style="margin-top:6px;">Items for the next board meeting</h2>
   <ol class="decision-list">
     <li class="required">
-      <span class="tag-label accent">Decision required</span>
-      <strong>Endorse the firewall-annex approach</strong> as the primary 2026 negotiating priority, explicitly above MFN-coverage expansion or TrumpRx SKU growth.
+      <span class="tag-label accent">Item 1 · Decision required</span>
+      <strong>Endorse the firewall-annex approach</strong> as the primary 2026 negotiating priority &mdash; explicitly above MFN-coverage expansion or TrumpRx SKU growth.
     </li>
     <li class="required">
-      <span class="tag-label accent">Decision required</span>
-      <strong>Authorize capital-allocation flexibility</strong> for capex milestone acceleration (up to +$5B over 2025–2027) to enable EPC-milestone-gated Section 232 protection.
+      <span class="tag-label accent">Item 2 · Decision required</span>
+      <strong>Authorize capital-allocation flexibility</strong> for capex milestone acceleration (up to +$5B over 2025–2027) to enable EPC-milestone-gated Section&nbsp;232 protection.
     </li>
     <li class="discretionary">
-      <span class="tag-label warn">Discretionary</span>
-      <strong>Defer or commit on patient-access OOP cap</strong> for Genentech specialty drugs &gt;$30K list. Defer to Q4 2026 pending CMS rulemaking signals, or commit early at executive discretion.
+      <span class="tag-label warn">Item 3 · Discussion</span>
+      <strong>Decide or defer on the patient-access OOP cap</strong> for Genentech specialty drugs above $30K list. Defer to Q4 2026 pending CMS rulemaking signals, or commit early at executive discretion.
     </li>
     <li class="note-only">
-      <span class="tag-label">Note only</span>
-      <strong>Note the tail-risk hedge structure</strong> (reinsurance-style global-spillover insurance) as an exploratory workstream for Q1 2027 framework adoption.
+      <span class="tag-label">Item 4 · For information</span>
+      <strong>Note the tail-risk hedge structure</strong> (reinsurance-style global-spillover insurance) as an exploratory Q1 2027 workstream.
     </li>
   </ol>
-  <p style="margin-top:18px;font-size:14px;color:var(--muted);">Full reasoning, named risks, and the generationalist re-framing: <a href="recommendation.html">read the recommendation</a>. The substrate beneath these decisions — each actor's telos, contradictions to exploit, and three unexpected alliances the standard frame misses: <a href="dynamics.html">read the strategic dynamics</a>.</p>
-</div>
+  <p style="margin-top:18px;font-size:14px;color:var(--muted);">Pre-read for items 1–4: the board memo at <a href="recommendation.html">recommendation</a>. Adversarial review of each item with named contingencies: <a href="adversarial.html">red team</a>. The actor-level substrate &mdash; telos, contradictions, unexpected alliances: <a href="dynamics.html">strategic dynamics</a>.</p>
+</section>
 
 <h2 style="margin-top: 14px;">Where to go</h2>
 
@@ -576,6 +584,66 @@ def build_global_pricing() -> str:
                   body=body, main_class="prose")
 
 
+def build_adversarial() -> str:
+    """Adversarial review — devil's-advocate against the recommendation."""
+    adv_path = ROOT / "memo" / "adversarial-review.md"
+    rendered = render_md(adv_path.read_text())
+    body = f"""
+<div class="callout warn">
+  A red-team attack on the board recommendation. Each section names the
+  strongest objection a hostile critic would make, what evidence would settle
+  the question, and the current verdict. Read this <em>after</em> the
+  <a href="recommendation.html">recommendation</a> — it makes more sense
+  with the original argument in mind.
+</div>
+
+<div class="prose-article">
+{rendered}
+</div>
+"""
+    return layout(title="Adversarial review", page_id="adversarial.html",
+                  body=body, main_class="prose")
+
+
+def build_glossary() -> str:
+    """Glossary of every acronym and term-of-art used on the site."""
+    gloss_path = ROOT / "memo" / "glossary.md"
+    rendered = render_md(gloss_path.read_text())
+    body = f"""
+<div class="callout">
+  Plain-English definitions for every acronym, programme, and term-of-art
+  used elsewhere on the site &mdash; organised by category and linked
+  from any page that introduces a new term.
+</div>
+
+<div class="prose-article">
+{rendered}
+</div>
+"""
+    return layout(title="Glossary", page_id="glossary.html",
+                  body=body, main_class="prose")
+
+
+def build_mfn_deals() -> str:
+    """MFN signatories — at-a-glance table of all 17 voluntary agreements."""
+    mfn_path = ROOT / "memo" / "mfn-deals-table.md"
+    rendered = render_md(mfn_path.read_text())
+    body = f"""
+<div class="callout">
+  All 17 voluntary MFN agreements signed with the Trump administration,
+  sorted by date. For full filing-level detail (8-K accession numbers,
+  risk-factor language, dated permalinks), see the
+  <a href="disclosures.html">disclosures register</a>.
+</div>
+
+<div class="prose-article">
+{rendered}
+</div>
+"""
+    return layout(title="MFN deals", page_id="mfn-deals.html",
+                  body=body, main_class="prose")
+
+
 def build_model_data_json() -> str:
     """Build a JSON blob for embedding in simulation.html — mirrors the
     JS data structures the playground uses, but loaded from the source YAML."""
@@ -631,34 +699,40 @@ def build_model_data_json() -> str:
 
 
 def _shared_nav_html(active_page: str) -> str:
-    """Build the shared sticky-header + mobile-nav HTML used for simulation
-    and playground inlines (these pages need it inside <body> as plain HTML
-    because they have their own inline <style>).
-    """
+    """Sticky-header + menu overlay used inside simulation and playground
+    pages (which have their own inline styles)."""
     desktop_parts = []
-    mobile_parts = []
-    for href, label in NAV_LINKS:
-        active = ' class="active"' if href == active_page else ""
-        desktop_parts.append(f'<a href="{href}"{active}>{label}</a>')
-        mobile_parts.append(f'<a href="{href}"{active}>{label}</a>')
+    overlay_parts = []
+    for gname, group in NAV_GROUPS:
+        overlay_parts.append(f'<div class="mobile-group-head">{gname}</div>')
+        for href, label, primary in group:
+            active = ' class="active"' if href == active_page else ""
+            if primary:
+                desktop_parts.append(f'<a href="{href}"{active}>{label}</a>')
+            overlay_parts.append(f'<a href="{href}"{active}>{label}</a>')
     desktop_nav = '\n        '.join(desktop_parts)
-    mobile_nav = '\n      '.join(mobile_parts)
+    mobile_nav = '\n      '.join(overlay_parts)
 
     return (
         '<input type="checkbox" id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle menu">\n'
         '<header class="site-header" style="position: static;">\n'
         '  <div class="inner">\n'
-        '    <a href="index.html" class="brand">Roche pricing negotiation <span class="accent">simulation</span></a>\n'
+        '    <a href="index.html" class="brand">Roche negotiation</a>\n'
         f'    <nav class="desktop-nav" aria-label="Primary navigation">\n        {desktop_nav}\n    </nav>\n'
-        '    <div class="meta">snapshot 2026-05-19</div>\n'
-        '    <label for="mobile-menu-toggle" class="hamburger" aria-label="Open menu" role="button" tabindex="0">\n'
-        '      <span class="bars" aria-hidden="true"></span>\n'
-        '    </label>\n'
+        '    <div class="nav-actions">\n'
+        '      <button id="palette-trigger" class="palette-trigger" type="button" aria-label="Search the site">\n'
+        '        <span class="label">Search</span><kbd>⌘K</kbd>\n'
+        '      </button>\n'
+        '      <label for="mobile-menu-toggle" class="menu-toggle" aria-label="Open menu" role="button" tabindex="0">\n'
+        '        <span class="menu-toggle-label">Menu</span>\n'
+        '        <span class="bars" aria-hidden="true"></span>\n'
+        '      </label>\n'
+        '    </div>\n'
         '  </div>\n'
         '</header>\n'
-        '<nav class="mobile-nav" aria-label="Mobile navigation">\n'
+        '<nav class="mobile-nav" aria-label="Sections navigation">\n'
         f'      {mobile_nav}\n'
-        '      <div class="meta-line">snapshot 2026-05-19</div>\n'
+        '      <div class="meta-line">snapshot 19 May 2026</div>\n'
         '</nav>\n'
     )
 
@@ -1196,8 +1270,10 @@ def main() -> int:
         "index.html": build_index(),
         "recommendation.html": build_recommendation(),
         "recommendation-detail.html": build_recommendation_detail(),
+        "adversarial.html": build_adversarial(),
         "dynamics.html": build_dynamics(),
         "disclosures.html": build_disclosures(),
+        "mfn-deals.html": build_mfn_deals(),
         "global-pricing.html": build_global_pricing(),
         "simulation.html": build_simulation(),
         "playground.html": build_playground(),
@@ -1205,6 +1281,7 @@ def main() -> int:
         "positions.html": build_positions(),
         "prompts.html": build_prompts(),
         "transcripts.html": build_transcripts(),
+        "glossary.html": build_glossary(),
         "method.html": build_method(),
     }
     for filename, content in pages.items():

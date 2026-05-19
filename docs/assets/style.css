@@ -107,10 +107,11 @@ body {
 .site-header .brand:hover { border: none; }
 .site-header .brand .accent { color: var(--accent); font-weight: 500; }
 
-/* Desktop nav (visible >= 880px) */
+/* Desktop nav — primary items inline, only visible on wide laptops+ */
 .site-header nav.desktop-nav {
   display: flex; gap: var(--s-5); flex: 1;
   font-family: var(--font-sans);
+  margin-left: var(--s-5);
 }
 .site-header nav.desktop-nav a {
   color: var(--muted);
@@ -120,6 +121,7 @@ body {
   letter-spacing: -0.005em;
   transition: color 150ms ease;
   border: none;
+  white-space: nowrap;
 }
 .site-header nav.desktop-nav a:hover { color: var(--ink); border: none; }
 .site-header nav.desktop-nav a.active { color: var(--ink); font-weight: 500; }
@@ -130,35 +132,54 @@ body {
   letter-spacing: 0.02em;
   margin-left: auto;
 }
-
-/* Mobile nav: hamburger toggle + slide-down menu (pure CSS) */
-.mobile-toggle { display: none; }
-.hamburger {
-  display: none;
-  width: 44px; height: 44px;
+/* The actions cluster on the right: search + menu button. */
+.site-header .nav-actions {
+  display: flex; align-items: center; gap: 8px;
   margin-left: auto;
-  cursor: pointer;
-  align-items: center; justify-content: center;
-  border-radius: var(--radius);
-  transition: background 150ms ease;
+  flex-shrink: 0;
 }
-.hamburger:hover { background: var(--surface-2); }
-.hamburger .bars {
+
+/* Menu toggle — visible at ALL sizes (button-style, not iconic-hamburger) */
+.mobile-toggle { display: none; }
+.menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 12px 0 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--hairline);
+  border-radius: 99px;
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: border-color 150ms ease, color 150ms ease;
+  user-select: none;
+}
+.menu-toggle:hover { border-color: var(--ink); color: var(--ink); }
+.menu-toggle .menu-toggle-label { letter-spacing: -0.005em; }
+.menu-toggle .bars {
   position: relative;
-  width: 20px; height: 2px;
+  width: 14px; height: 2px;
   background: var(--ink);
   transition: background 200ms ease;
+  display: inline-block;
 }
-.hamburger .bars::before, .hamburger .bars::after {
+.menu-toggle .bars::before, .menu-toggle .bars::after {
   content: ""; position: absolute; left: 0; right: 0; height: 2px;
   background: var(--ink);
   transition: transform 250ms cubic-bezier(0.4, 0.0, 0.2, 1), top 250ms ease;
 }
-.hamburger .bars::before { top: -7px; }
-.hamburger .bars::after  { top:  7px; }
-.mobile-toggle:checked ~ .site-header .hamburger .bars { background: transparent; }
-.mobile-toggle:checked ~ .site-header .hamburger .bars::before { top: 0; transform: rotate(45deg); }
-.mobile-toggle:checked ~ .site-header .hamburger .bars::after  { top: 0; transform: rotate(-45deg); }
+.menu-toggle .bars::before { top: -5px; }
+.menu-toggle .bars::after  { top:  5px; }
+.mobile-toggle:checked ~ .site-header .menu-toggle .bars { background: transparent; }
+.mobile-toggle:checked ~ .site-header .menu-toggle .bars::before { top: 0; transform: rotate(45deg); }
+.mobile-toggle:checked ~ .site-header .menu-toggle .bars::after  { top: 0; transform: rotate(-45deg); }
+
+/* Legacy alias — older simulation/playground inline HTML may still reference .hamburger */
+.hamburger { display: none; }
 
 .mobile-nav {
   display: none;
@@ -198,14 +219,17 @@ body {
   font-size: 12px;
 }
 
-@media (max-width: 879px) {
+/* Inline desktop-nav only on wide laptops+; Menu button is always visible */
+@media (max-width: 1199px) {
   .site-header nav.desktop-nav { display: none; }
-  .site-header .meta { display: none; }
-  .hamburger { display: flex; }
-  .mobile-toggle:checked ~ .mobile-nav { display: flex; }
-  .mobile-toggle:checked ~ .site-header { border-bottom-color: transparent; }
-  body.has-mobile-toggle { overflow: hidden; }
 }
+@media (max-width: 879px) {
+  .site-header .brand { font-size: 13.5px; }
+  .menu-toggle .menu-toggle-label { display: none; }
+  .menu-toggle { padding: 0 11px; }
+}
+.mobile-toggle:checked ~ .mobile-nav { display: flex; }
+.mobile-toggle:checked ~ .site-header { border-bottom-color: transparent; }
 
 /* -----------------------------------------------------------------------------
  * Sub-page navigation aids

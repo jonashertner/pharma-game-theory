@@ -122,6 +122,57 @@
 ]
 },
 {
+"page": "adversarial.html",
+"title": "Adversarial review",
+"sections": [
+{
+"id": "how-to-read-this-page",
+"label": "How to read this page",
+"level": 2
+},
+{
+"id": "objection-1-the-firewall-annex-is-unachievable-politically",
+"label": "Objection 1 \u2014 The firewall annex is unachievable politically",
+"level": 2
+},
+{
+"id": "objection-2-the-trump-administrations-preference-for-eo-form-is-misread",
+"label": "Objection 2 \u2014 The Trump administration's preference for EO form is misread",
+"level": 2
+},
+{
+"id": "objection-3-the-hoffmann-eu-alliance-is-operationally-vague",
+"label": "Objection 3 \u2014 The Hoffmann-EU alliance is operationally vague",
+"level": 2
+},
+{
+"id": "objection-4-the-model-overweights-the-multi-generational-asymmetry",
+"label": "Objection 4 \u2014 The model overweights the multi-generational asymmetry",
+"level": 2
+},
+{
+"id": "objection-5-the-non-principals-at-batna-are-not-a-fragile-equilibrium",
+"label": "Objection 5 \u2014 The non-principals at BATNA are not a \"fragile equilibrium\"",
+"level": 2
+},
+{
+"id": "objection-6-the-section-232-sunset-is-not-actually-a-cliff",
+"label": "Objection 6 \u2014 The Section 232 sunset is not actually a cliff",
+"level": 2
+},
+{
+"id": "objection-7-the-novelty-engines-suggestions-are-clever-but-untested",
+"label": "Objection 7 \u2014 The novelty engine's suggestions are clever but untested",
+"level": 2
+},
+{
+"id": "summary-what-survives-the-red-team",
+"label": "Summary: what survives the red team",
+"level": 2
+}
+]
+},
+{
 "page": "dynamics.html",
 "title": "Strategic dynamics",
 "sections": [
@@ -560,6 +611,32 @@
 "id": "honest-gap-list",
 "label": "Honest gap list",
 "level": 2
+}
+]
+},
+{
+"page": "mfn-deals.html",
+"title": "MFN deals",
+"sections": [
+{
+"id": "the-seventeen",
+"label": "The seventeen",
+"level": 2
+},
+{
+"id": "roche-relevant-signatories-highlighted",
+"label": "Roche-relevant signatories highlighted",
+"level": 3
+},
+{
+"id": "common-structural-features-per-hhs-scoping",
+"label": "Common structural features (per HHS scoping)",
+"level": 3
+},
+{
+"id": "what-this-table-makes-visible",
+"label": "What this table makes visible",
+"level": 3
 }
 ]
 },
@@ -1419,6 +1496,42 @@
 "page": "transcripts.html",
 "title": "Transcripts",
 "sections": []
+},
+{
+"page": "glossary.html",
+"title": "Glossary",
+"sections": [
+{
+"id": "us-drug-pricing-programmes",
+"label": "US drug-pricing programmes",
+"level": 2
+},
+{
+"id": "swiss-drug-pricing-system",
+"label": "Swiss drug-pricing system",
+"level": 2
+},
+{
+"id": "eu-drug-pricing-regulatory",
+"label": "EU drug-pricing &amp; regulatory",
+"level": 2
+},
+{
+"id": "china-drug-pricing",
+"label": "China drug-pricing",
+"level": 2
+},
+{
+"id": "game-theoretic-concepts",
+"label": "Game-theoretic concepts",
+"level": 2
+},
+{
+"id": "other-terms-of-art",
+"label": "Other terms-of-art",
+"level": 2
+}
+]
 },
 {
 "page": "method.html",

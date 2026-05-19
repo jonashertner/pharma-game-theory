@@ -19,19 +19,24 @@
 
 <header class="site-header">
   <div class="inner">
-    <a href="index.html" class="brand">Roche pricing negotiation <span class="accent">simulation</span></a>
+    <a href="index.html" class="brand">Roche negotiation</a>
     <nav class="desktop-nav" aria-label="Primary navigation">
-        <div class="nav-group"><a href="index.html" class="active">Overview</a><a href="recommendation.html">Recommendation</a><a href="dynamics.html">Dynamics</a><a href="disclosures.html">Disclosures</a><a href="global-pricing.html">Global pricing</a></div>
-        <div class="nav-group"><a href="simulation.html">Live simulation</a><a href="playground.html">Playground</a></div>
-        <div class="nav-group"><a href="actors.html">Actors</a><a href="positions.html">Positions</a><a href="prompts.html">Prompts</a><a href="method.html">Method</a></div>
+        <a href="index.html" class="active">Overview</a>
+        <a href="recommendation.html">Recommendation</a>
+        <a href="simulation.html">Live simulation</a>
+        <a href="playground.html">Playground</a>
+        <a href="actors.html">Actors</a>
     </nav>
-    <button id="palette-trigger" class="palette-trigger" type="button" aria-label="Search the site">
-      <span class="label">Search</span>
-      <kbd>⌘K</kbd>
-    </button>
-    <label for="mobile-menu-toggle" class="hamburger" aria-label="Open menu" role="button" tabindex="0">
-      <span class="bars" aria-hidden="true"></span>
-    </label>
+    <div class="nav-actions">
+      <button id="palette-trigger" class="palette-trigger" type="button" aria-label="Search the site">
+        <span class="label">Search</span>
+        <kbd>⌘K</kbd>
+      </button>
+      <label for="mobile-menu-toggle" class="menu-toggle" aria-label="Open menu" role="button" tabindex="0">
+        <span class="menu-toggle-label">Menu</span>
+        <span class="bars" aria-hidden="true"></span>
+      </label>
+    </div>
   </div>
 </header>
 
@@ -39,8 +44,10 @@
       <div class="mobile-group-head">Read</div>
       <a href="index.html" class="active">Overview</a>
       <a href="recommendation.html">Recommendation</a>
+      <a href="adversarial.html">Red team</a>
       <a href="dynamics.html">Dynamics</a>
       <a href="disclosures.html">Disclosures</a>
+      <a href="mfn-deals.html">MFN deals</a>
       <a href="global-pricing.html">Global pricing</a>
       <div class="mobile-group-head">Explore</div>
       <a href="simulation.html">Live simulation</a>
@@ -49,8 +56,9 @@
       <a href="actors.html">Actors</a>
       <a href="positions.html">Positions</a>
       <a href="prompts.html">Prompts</a>
+      <a href="glossary.html">Glossary</a>
       <a href="method.html">Method</a>
-      <div class="meta-line">snapshot 2026-05-19</div>
+      <div class="meta-line">snapshot 19 May 2026</div>
 </nav>
 
 <main id="main-content" class="prose" tabindex="-1">
@@ -121,29 +129,29 @@
   <figcaption>Click any actor for the sourced profile. Issues connecting them are documented in <a href="positions.html">the positions matrix</a>.</figcaption>
 </figure>
 
-<div class="board-decisions">
-  <div class="head">Decisions before the board</div>
-  <h2 class="no-rule" style="margin-top:6px;">What the executive committee is being asked to do</h2>
+<section class="board-decisions" id="agenda" aria-label="Board agenda">
+  <div class="head">Board agenda</div>
+  <h2 class="no-rule" style="margin-top:6px;">Items for the next board meeting</h2>
   <ol class="decision-list">
     <li class="required">
-      <span class="tag-label accent">Decision required</span>
-      <strong>Endorse the firewall-annex approach</strong> as the primary 2026 negotiating priority, explicitly above MFN-coverage expansion or TrumpRx SKU growth.
+      <span class="tag-label accent">Item 1 · Decision required</span>
+      <strong>Endorse the firewall-annex approach</strong> as the primary 2026 negotiating priority &mdash; explicitly above MFN-coverage expansion or TrumpRx SKU growth.
     </li>
     <li class="required">
-      <span class="tag-label accent">Decision required</span>
-      <strong>Authorize capital-allocation flexibility</strong> for capex milestone acceleration (up to +$5B over 2025–2027) to enable EPC-milestone-gated Section 232 protection.
+      <span class="tag-label accent">Item 2 · Decision required</span>
+      <strong>Authorize capital-allocation flexibility</strong> for capex milestone acceleration (up to +$5B over 2025–2027) to enable EPC-milestone-gated Section&nbsp;232 protection.
     </li>
     <li class="discretionary">
-      <span class="tag-label warn">Discretionary</span>
-      <strong>Defer or commit on patient-access OOP cap</strong> for Genentech specialty drugs &gt;$30K list. Defer to Q4 2026 pending CMS rulemaking signals, or commit early at executive discretion.
+      <span class="tag-label warn">Item 3 · Discussion</span>
+      <strong>Decide or defer on the patient-access OOP cap</strong> for Genentech specialty drugs above $30K list. Defer to Q4 2026 pending CMS rulemaking signals, or commit early at executive discretion.
     </li>
     <li class="note-only">
-      <span class="tag-label">Note only</span>
-      <strong>Note the tail-risk hedge structure</strong> (reinsurance-style global-spillover insurance) as an exploratory workstream for Q1 2027 framework adoption.
+      <span class="tag-label">Item 4 · For information</span>
+      <strong>Note the tail-risk hedge structure</strong> (reinsurance-style global-spillover insurance) as an exploratory Q1 2027 workstream.
     </li>
   </ol>
-  <p style="margin-top:18px;font-size:14px;color:var(--muted);">Full reasoning, named risks, and the generationalist re-framing: <a href="recommendation.html">read the recommendation</a>. The substrate beneath these decisions — each actor's telos, contradictions to exploit, and three unexpected alliances the standard frame misses: <a href="dynamics.html">read the strategic dynamics</a>.</p>
-</div>
+  <p style="margin-top:18px;font-size:14px;color:var(--muted);">Pre-read for items 1–4: the board memo at <a href="recommendation.html">recommendation</a>. Adversarial review of each item with named contingencies: <a href="adversarial.html">red team</a>. The actor-level substrate &mdash; telos, contradictions, unexpected alliances: <a href="dynamics.html">strategic dynamics</a>.</p>
+</section>
 
 <h2 style="margin-top: 14px;">Where to go</h2>
 
@@ -264,7 +272,7 @@ where political pressure will appear (PBMs, patient advocacy, EU, biosimilars).
 
 <footer class="site-footer">
   <div class="inner">
-    <span>Independent public-source analysis · snapshot 2026-05-19 · restricted access</span>
+    <span>Independent public-source analysis · snapshot 19 May 2026 · restricted access</span>
     <span>Not an official Roche document · <a href="method.html">method &amp; limits</a></span>
   </div>
 </footer>

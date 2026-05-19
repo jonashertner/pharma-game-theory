@@ -7,19 +7,32 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="stylesheet" href="assets/style.css">
 <style>
-  /* Simulation page — uses tokens from shared style.css. */
-  body { overflow: hidden; height: 100vh; background: var(--canvas); }
-  main { padding: 0; max-width: none; height: calc(100vh - 50px); }
+  /* Simulation page — uses tokens from shared style.css.
+   * Default state is the MOBILE chat layout (works on every device).
+   * Desktop 3-column grid only activates above a confirmed wide viewport.
+   * This prevents iOS Safari 100vh-clipping bugs on iPhone landscape / iPad. */
+  body { background: var(--canvas); }
+  main { padding: 0; max-width: none; }
   .back-link { display: none; }   /* handled by external chrome instead */
 
-  .sim-shell {
-    display: grid;
-    grid-template-columns: 280px 1fr 340px;
-    grid-template-rows: auto auto 1fr auto;
-    height: 100%;
-    gap: 0;
-    background: var(--canvas);
+  /* DEFAULT: show chat layout on every device. */
+  .sim-shell { display: none; }
+  .sim-chat  { display: block; }
+
+  /* DESKTOP override: 3-column grid above 1024px on pointer-fine devices. */
+  @media (min-width: 1025px) {
+    body { overflow: hidden; height: 100vh; }
+    main { height: calc(100vh - 50px); }
+    .sim-shell {
+      display: grid;
+      grid-template-columns: 280px 1fr 340px;
+      grid-template-rows: auto auto 1fr auto;
+      height: 100%;
+      background: var(--canvas);
+    }
+    .sim-chat { display: none; }
   }
+
   .sim-topbar {
     grid-column: 1 / -1;
     background: var(--surface);
@@ -386,25 +399,18 @@
     margin: 0;
   }
 
-  /* Responsive */
-  @media (max-width: 1100px) {
+  /* Desktop-only responsive refinements (within the 1025px+ band) */
+  @media (min-width: 1025px) and (max-width: 1200px) {
     .sim-shell { grid-template-columns: 240px 1fr 300px; }
     .statement-col { padding: 24px 28px; }
     .statement-frame { padding: 26px 30px; }
     .statement-frame .quote { font-size: 19px; }
   }
-  @media (max-width: 880px) {
-    body { overflow-y: auto; height: auto; }
-    main { height: auto; }
-    /* On mobile we replace the desktop grid with a chat-style stream */
-    .sim-shell { display: none; }
-    .sim-chat  { display: block; }
-  }
 
   /* -------------------------------------------------------------------------
    * Chat-style mobile layout — sequential message feed for the simulation
+   * (default; shown on all viewports below 1025px)
    * ------------------------------------------------------------------------- */
-  .sim-chat { display: none; }
   .sim-chat .chat-header {
     position: sticky; top: 0; z-index: 30;
     background: rgba(250, 250, 249, 0.94);

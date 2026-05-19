@@ -7,19 +7,32 @@
 <meta name="robots" content="noindex, nofollow">
 
 <style>
-  /* Simulation page — uses tokens from shared style.css. */
-  body { overflow: hidden; height: 100vh; background: var(--canvas); }
-  main { padding: 0; max-width: none; height: calc(100vh - 50px); }
+  /* Simulation page — uses tokens from shared style.css.
+   * Default state is the MOBILE chat layout (works on every device).
+   * Desktop 3-column grid only activates above a confirmed wide viewport.
+   * This prevents iOS Safari 100vh-clipping bugs on iPhone landscape / iPad. */
+  body { background: var(--canvas); }
+  main { padding: 0; max-width: none; }
   .back-link { display: none; }   /* handled by external chrome instead */
 
-  .sim-shell {
-    display: grid;
-    grid-template-columns: 280px 1fr 340px;
-    grid-template-rows: auto auto 1fr auto;
-    height: 100%;
-    gap: 0;
-    background: var(--canvas);
+  /* DEFAULT: show chat layout on every device. */
+  .sim-shell { display: none; }
+  .sim-chat  { display: block; }
+
+  /* DESKTOP override: 3-column grid above 1024px on pointer-fine devices. */
+  @media (min-width: 1025px) {
+    body { overflow: hidden; height: 100vh; }
+    main { height: calc(100vh - 50px); }
+    .sim-shell {
+      display: grid;
+      grid-template-columns: 280px 1fr 340px;
+      grid-template-rows: auto auto 1fr auto;
+      height: 100%;
+      background: var(--canvas);
+    }
+    .sim-chat { display: none; }
   }
+
   .sim-topbar {
     grid-column: 1 / -1;
     background: var(--surface);
@@ -386,25 +399,18 @@
     margin: 0;
   }
 
-  /* Responsive */
-  @media (max-width: 1100px) {
+  /* Desktop-only responsive refinements (within the 1025px+ band) */
+  @media (min-width: 1025px) and (max-width: 1200px) {
     .sim-shell { grid-template-columns: 240px 1fr 300px; }
     .statement-col { padding: 24px 28px; }
     .statement-frame { padding: 26px 30px; }
     .statement-frame .quote { font-size: 19px; }
   }
-  @media (max-width: 880px) {
-    body { overflow-y: auto; height: auto; }
-    main { height: auto; }
-    /* On mobile we replace the desktop grid with a chat-style stream */
-    .sim-shell { display: none; }
-    .sim-chat  { display: block; }
-  }
 
   /* -------------------------------------------------------------------------
    * Chat-style mobile layout — sequential message feed for the simulation
+   * (default; shown on all viewports below 1025px)
    * ------------------------------------------------------------------------- */
-  .sim-chat { display: none; }
   .sim-chat .chat-header {
     position: sticky; top: 0; z-index: 30;
     background: rgba(250, 250, 249, 0.94);
@@ -633,39 +639,44 @@
 <input type="checkbox" id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle menu">
 <header class="site-header" style="position: static;">
   <div class="inner">
-    <a href="index.html" class="brand">Roche pricing negotiation <span class="accent">simulation</span></a>
+    <a href="index.html" class="brand">Roche negotiation</a>
     <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="index.html">Overview</a>
         <a href="recommendation.html">Recommendation</a>
-        <a href="dynamics.html">Dynamics</a>
-        <a href="disclosures.html">Disclosures</a>
-        <a href="global-pricing.html">Global pricing</a>
         <a href="simulation.html" class="active">Live simulation</a>
         <a href="playground.html">Playground</a>
         <a href="actors.html">Actors</a>
-        <a href="positions.html">Positions</a>
-        <a href="prompts.html">Prompts</a>
-        <a href="method.html">Method</a>
     </nav>
-    <div class="meta">snapshot 2026-05-19</div>
-    <label for="mobile-menu-toggle" class="hamburger" aria-label="Open menu" role="button" tabindex="0">
-      <span class="bars" aria-hidden="true"></span>
-    </label>
+    <div class="nav-actions">
+      <button id="palette-trigger" class="palette-trigger" type="button" aria-label="Search the site">
+        <span class="label">Search</span><kbd>⌘K</kbd>
+      </button>
+      <label for="mobile-menu-toggle" class="menu-toggle" aria-label="Open menu" role="button" tabindex="0">
+        <span class="menu-toggle-label">Menu</span>
+        <span class="bars" aria-hidden="true"></span>
+      </label>
+    </div>
   </div>
 </header>
-<nav class="mobile-nav" aria-label="Mobile navigation">
+<nav class="mobile-nav" aria-label="Sections navigation">
+      <div class="mobile-group-head">Read</div>
       <a href="index.html">Overview</a>
       <a href="recommendation.html">Recommendation</a>
+      <a href="adversarial.html">Red team</a>
       <a href="dynamics.html">Dynamics</a>
       <a href="disclosures.html">Disclosures</a>
+      <a href="mfn-deals.html">MFN deals</a>
       <a href="global-pricing.html">Global pricing</a>
+      <div class="mobile-group-head">Explore</div>
       <a href="simulation.html" class="active">Live simulation</a>
       <a href="playground.html">Playground</a>
+      <div class="mobile-group-head">Reference</div>
       <a href="actors.html">Actors</a>
       <a href="positions.html">Positions</a>
       <a href="prompts.html">Prompts</a>
+      <a href="glossary.html">Glossary</a>
       <a href="method.html">Method</a>
-      <div class="meta-line">snapshot 2026-05-19</div>
+      <div class="meta-line">snapshot 19 May 2026</div>
 </nav>
 
 
