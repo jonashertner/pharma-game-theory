@@ -1,0 +1,200 @@
+# Deadlines and dated events relevant to the negotiation.
+#
+# Used by:
+#   - model/payoffs.py — discount factors (closer events have lower discounting)
+#   - agents/runner.py — actors' time-pressure modeling
+#   - playground — visible timeline
+#
+# Each event:
+#   date          — ISO date
+#   event         — short label
+#   description   — one-line explanation
+#   affects       — list of actor ids materially affected
+#   issue_links   — list of issue ids the event constrains
+#   source        — primary citation URL
+
+snapshot_date: 2026-05-19
+
+events:
+
+  - date: 2025-05-12
+    event: MFN executive order signed
+    description: Trump signs "Delivering Most-Favored-Nation Prescription Drug Pricing to American Patients" EO.
+    affects: [roche, us-executive, novartis, biosimilars-competitors, patient-advocacy]
+    issue_links: [mfn_coverage, trumprx_skus, intl_ref_pricing_protection]
+    source: https://www.whitehouse.gov/presidential-actions/2025/05/
+
+  - date: 2025-04-22
+    event: Roche announces $50B US investment pledge
+    description: Roche commits $50B US capex over 5 years across manufacturing and R&D.
+    affects: [roche, us-executive, swiss-cantons-basel, investors]
+    issue_links: [us_manufacturing_share, rnd_commitment, section_232_rate]
+    source: https://www.roche.com/media/releases/
+
+  - date: 2025-11-14
+    event: US-Switzerland-Liechtenstein Joint Statement
+    description: Framework caps Swiss pharma tariffs at 15% (down from 39%); ~$200B Swiss investment pledge inside it including Roche's $50B and Novartis's $23B.
+    affects: [roche, novartis, swiss-federal-council, swiss-cantons-basel, us-executive]
+    issue_links: [section_232_rate, swiss_diplomatic_carveout, us_manufacturing_share]
+    source: https://www.seco.admin.ch
+
+  - date: 2025-12-19
+    event: Nine pharma MFN deals announced (incl. Genentech, Novartis)
+    description: White House announces voluntary MFN agreements with Amgen, BMS, Boehringer Ingelheim, Genentech, Gilead, GSK, Merck, Novartis, Sanofi; ~$150B onshoring pledged.
+    affects: [roche, novartis, us-executive, biosimilars-competitors, investors]
+    issue_links: [mfn_coverage, trumprx_skus, swiss_diplomatic_carveout]
+    source: https://www.whitehouse.gov/fact-sheets/2025/12/
+
+  - date: 2026-01-01
+    event: IRA Round 1 negotiated prices effective
+    description: Negotiated Medicare prices for 10 drugs (Eliquis, Jardiance, etc.) take effect; ~57% weighted average discount.
+    affects: [patient-advocacy, pbms-and-payers, us-executive, biosimilars-competitors]
+    issue_links: [ira_mfp_discount]
+    source: https://www.cms.gov/inflation-reduction-act-and-medicare/medicare-drug-price-negotiation
+
+  - date: 2026-01-14
+    event: Swiss Federal Council adopts US-deal mandate
+    description: Bundesrat adopts negotiating mandate for ongoing US framework implementation; consults APK-N, APK-S, KdK.
+    affects: [swiss-federal-council, swiss-cantons-basel, roche]
+    issue_links: [swiss_diplomatic_carveout, section_232_rate]
+    source: https://www.admin.ch
+
+  - date: 2026-01-27
+    event: IRA Round 3 drugs selected (incl. Xolair)
+    description: CMS announces 15 drugs for IPAY 2028 negotiation including Xolair (Roche/Novartis co-marketed), Cosentyx (Novartis), Botox (AbbVie).
+    affects: [roche, novartis, patient-advocacy, us-executive]
+    issue_links: [ira_mfp_discount, mfn_coverage]
+    source: https://www.cms.gov
+
+  - date: 2026-02-03
+    event: Consolidated Appropriations Act 2026 signed (Part D PBM delinking)
+    description: Major PBM reform: Medicare Part D PBM compensation delinked from rebates, effective 2028-29.
+    affects: [pbms-and-payers, us-congress, us-executive]
+    issue_links: []   # not directly an issue in this model but reshapes payer landscape
+    source: https://www.congress.gov
+
+  - date: 2026-02-05
+    event: TrumpRx.gov launched
+    description: Direct-to-consumer drug pricing platform launches with 43 initial drugs; Pfizer and AstraZeneca as first signatories. Xofluza (Roche) included.
+    affects: [roche, novartis, us-executive, pbms-and-payers, patient-advocacy]
+    issue_links: [trumprx_skus, mfn_coverage]
+    source: https://trumprx.gov
+
+  - date: 2026-02-28
+    event: IRA Round 3 manufacturer opt-in deadline
+    description: All 15 manufacturers signed agreements to participate in Round 3 negotiation by 2026-03-13.
+    affects: [roche, novartis, us-executive]
+    issue_links: [ira_mfp_discount]
+    source: https://www.cms.gov
+
+  - date: 2026-03-10
+    event: Roche AGM — Schwan re-elected chair
+    description: Severin Schwan re-elected board chair with 97.75% support; 39th consecutive dividend increase to CHF 9.80/share.
+    affects: [roche, investors]
+    issue_links: []
+    source: https://www.roche.com/investors/
+
+  - date: 2026-03-17
+    event: Roche Genussschein → ROP Participation Certificate conversion
+    description: Final Genussschein day 2026-03-16; first ROP day 2026-03-17 (new ISIN CH1499059983).
+    affects: [roche, investors]
+    issue_links: []
+    source: https://www.roche.com/investors/
+
+  - date: 2026-04-02
+    event: Section 232 pharma tariff proclamation
+    description: Tiered Section 232 tariffs (100/20/15/0%) on patented pharma imports; Swiss firms qualify for 0% via MFN-deal + US-capacity track through 2029-01-20.
+    affects: [roche, novartis, swiss-federal-council, us-executive]
+    issue_links: [section_232_rate, us_manufacturing_share, swiss_diplomatic_carveout]
+    source: https://www.whitehouse.gov
+
+  - date: 2026-04-23
+    event: Regeneron MFN deal (17th manufacturer)
+    description: Cumulative MFN-deal coverage reaches 17 manufacturers / 86% of branded drug market.
+    affects: [us-executive, biosimilars-competitors]
+    issue_links: [mfn_coverage]
+    source: https://www.whitehouse.gov
+
+  - date: 2026-05-12
+    event: FDA Commissioner Makary resigns
+    description: Creates near-term leadership gap one week before snapshot; affects FDA-throughput sub-coalition of US executive.
+    affects: [us-executive]
+    issue_links: []
+    source: https://www.fda.gov
+
+  - date: 2026-05-12
+    event: EU Critical Medicines Act provisional deal
+    description: Trilogue agreement on supply-resilience instrument; relevant for EU reference-pricing actor's structural response to MFN.
+    affects: [eu-reference-pricing]
+    issue_links: [intl_ref_pricing_protection]
+    source: https://ec.europa.eu/
+
+  - date: 2026-05-16
+    event: Sen. Cassidy loses LA primary
+    description: Pharma-friendly Republican defeated in MAGA/MAHA-aligned primary; concrete demonstration of cost of brand-pharma alignment.
+    affects: [us-congress, roche, novartis]
+    issue_links: []
+    source: https://www.statnews.com/
+
+  - date: 2026-05-19
+    event: ★ SNAPSHOT DATE — model baseline
+    description: This is the reference state. All "default" values in issues.yaml correspond to this date.
+    affects: []
+    issue_links: []
+    source: ""
+
+  - date: 2026-07-31
+    event: Section 232 tariffs become effective
+    description: 100/20/15/0% tariff tiers begin to apply; firms in 0% track must demonstrate compliance.
+    affects: [roche, novartis, swiss-federal-council, us-executive]
+    issue_links: [section_232_rate, us_manufacturing_share]
+    source: https://www.whitehouse.gov
+
+  - date: 2026-09-01
+    event: Celltrion Omlyclo (Xolair biosimilar) US launch
+    description: Settlement-permitted biosimilar entry — first direct biosimilar threat to Xolair (which is also in IRA Round 3).
+    affects: [roche, novartis, biosimilars-competitors, patient-advocacy]
+    issue_links: [patent_exclusivity, ira_mfp_discount]
+    source: https://www.celltrion.com
+
+  - date: 2026-11-03
+    event: US midterm elections
+    description: Changes congressional balance; sets political conditions for any post-2026 statutory changes to MFN/IRA.
+    affects: [us-congress, us-executive]
+    issue_links: []
+    source: https://www.fec.gov
+
+  - date: 2026-11-30
+    event: IRA Round 2 negotiated prices published
+    description: CMS publishes negotiated prices for the 15 Round 2 drugs (selected Jan 2025).
+    affects: [patient-advocacy, pbms-and-payers, us-executive]
+    issue_links: [ira_mfp_discount]
+    source: https://www.cms.gov
+
+  - date: 2027-01-01
+    event: IRA Round 2 prices effective
+    description: Negotiated prices for Round 2 drugs (incl. Xolair NOT in this round — see Round 3) take effect.
+    affects: [pbms-and-payers, patient-advocacy]
+    issue_links: [ira_mfp_discount]
+    source: https://www.cms.gov
+
+  - date: 2028-01-01
+    event: IRA Round 3 prices effective (incl. Xolair)
+    description: Negotiated prices for the 15 Round 3 drugs (incl. Xolair, Cosentyx) take effect.
+    affects: [roche, novartis, pbms-and-payers, patient-advocacy]
+    issue_links: [ira_mfp_discount, mfn_coverage]
+    source: https://www.cms.gov
+
+  - date: 2029-01-20
+    event: Section 232 MFN-deal exemption sunset
+    description: 0% tariff track for firms with MFN deal + US-capacity build expires; non-renewal default reverts to tier-2 (15-20%) rate.
+    affects: [roche, novartis, swiss-federal-council, us-executive, investors]
+    issue_links: [section_232_rate, us_manufacturing_share]
+    source: https://www.whitehouse.gov
+
+  - date: 2029-03-28
+    event: Ocrevus US patent expiry
+    description: Next-generation biosimilar entry window opens for Roche's largest current MS revenue driver.
+    affects: [roche, biosimilars-competitors, investors]
+    issue_links: [patent_exclusivity]
+    source: https://www.uspto.gov

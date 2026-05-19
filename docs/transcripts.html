@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Transcripts — Roche pharma-pricing negotiation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/passcode.js"></script>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a href="index.html" class="brand" style="text-decoration:none;">Roche pricing negotiation <span class="accent">simulation</span></a>
+    <nav>
+        <a href="index.html">Overview</a>
+        <a href="recommendation.html">Recommendation</a>
+        <a href="simulation.html">Live simulation</a>
+        <a href="playground.html">Playground</a>
+        <a href="actors.html">Actors</a>
+        <a href="positions.html">Positions</a>
+        <a href="prompts.html">Prompts</a>
+        <a href="transcripts.html" class="active">Transcripts</a>
+        <a href="method.html">Method</a>
+    </nav>
+    <div class="meta">snapshot 2026-05-19</div>
+  </div>
+</header>
+
+<main class="wide">
+
+<h1>Simulation transcripts</h1>
+<p class="subtitle">Multi-agent negotiation runs · heuristic or live (Claude API) modes · JSON + Markdown</p>
+
+
+<div class="exec-summary">
+  <div class="head">Two kinds of simulation</div>
+  <h3>Voiced vs. structural — pick by purpose</h3>
+  
+<ul>
+<li><strong>Voiced simulation</strong> (<a href="simulation.html">live simulation</a> page) &mdash; the hand-curated 18-event trilateral negotiation. Use this for the board: each statement is written to match a sourced position; the deal vector animates in real time. This is the <em>presentation</em> artifact.</li>
+<li><strong>Structural simulations</strong> (this page) &mdash; mechanical multi-agent runs over the payoff model. Heuristic mode is deterministic and useful for stress-tests. <code>--live</code> mode uses Claude as each actor (non-deterministic; treat as exploratory).</li>
+</ul>
+<p>When a counterparty challenges the recommendation, run a structural simulation under the new scenario (e.g., <code>mfn_hardline</code>, <code>basel_relocation_stress</code>, <code>full_multilateral</code>) and compare the transcript to predicted equilibria.</p>
+
+</div>
+
+
+<div class="callout">
+  These are <strong>structural</strong> simulation runs from <code>agents/runner.py</code> &mdash;
+  the heuristic mode applies a deterministic step-toward-preferred-direction
+  per actor, useful for sanity-checking the model. For the <strong>voiced</strong>
+  trilateral simulation (with full actor statements), see the <a href="simulation.html">live simulation</a> page.
+</div>
+
+<table>
+  <tr><th>Timestamp</th><th>Scenario</th><th>Protocol</th><th>Mode</th><th class="num">Bytes</th><th>File</th></tr>
+  <tr><td>20260519-173736</td><td><code>status_quo</code></td><td><code>trilateral_us_ch_roche</code></td><td><code>heuristic</code></td><td class="num">4,053</td><td><code>agents/transcripts/status_quo-trilateral_us_ch_roche-heuristic-20260519-173736.md</code></td></tr>
+</table>
+
+<h2>How to generate more</h2>
+
+<pre><code># Heuristic (no API key needed)
+python -m agents.runner --scenario status_quo --protocol trilateral_us_ch_roche
+python -m agents.runner --scenario basel_relocation_stress --protocol swiss_internal
+python -m agents.runner --scenario mfn_hardline --protocol full_multilateral
+
+# Live mode (requires ANTHROPIC_API_KEY env var; one Claude session per actor)
+pip install -e '.[agents]'
+export ANTHROPIC_API_KEY=...
+python -m agents.runner --mode live --protocol trilateral_us_ch_roche</code></pre>
+
+<p>Available scenarios: <code>status_quo</code>, <code>mfn_hardline</code>, <code>swiss_carveout</code>, <code>ira_escalation</code>, <code>basel_relocation_stress</code>, <code>trade_war_collapse</code>.</p>
+<p>Available protocols: <code>bilateral_us_roche</code>, <code>trilateral_us_ch_roche</code>, <code>swiss_internal</code>, <code>full_multilateral</code>, <code>coalition_formation</code>.</p>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <span>Independent public-source analysis · snapshot 2026-05-19 · restricted access</span>
+    <span>Not an official Roche document · <a href="method.html">method &amp; limits</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Roche pharma-pricing negotiation — playground</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --bg: #0b0d10;
+    --bg-2: #14171c;
+    --bg-3: #1c2128;
+    --border: #2a2f37;
+    --fg: #e6e8eb;
+    --muted: #8b94a3;
+    --accent: #7aa2f7;
+    --accent-2: #bb9af7;
+    --positive: #9ece6a;
+    --negative: #f7768e;
+    --warning: #e0af68;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  header {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--bg-2);
+  }
+  header h1 { font-size: 16px; font-weight: 600; margin: 0; }
+  header .meta { color: var(--muted); font-size: 12px; font-family: var(--mono); }
+  header select {
+    margin-left: auto; background: var(--bg-3); color: var(--fg);
+    border: 1px solid var(--border); padding: 5px 10px;
+    border-radius: 6px; font-size: 13px; font-family: inherit;
+  }
+  main {
+    display: grid; grid-template-columns: 280px 1fr 380px;
+    height: calc(100vh - 140px); overflow: hidden;
+  }
+  section { overflow-y: auto; border-right: 1px solid var(--border); padding: 14px 18px; }
+  section:last-child { border-right: none; }
+  h2 {
+    font-size: 11px; font-weight: 600; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 10px 0;
+  }
+  .actor {
+    padding: 7px 10px; border-radius: 6px; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px;
+  }
+  .actor:hover { background: var(--bg-3); }
+  .actor.selected { background: var(--bg-3); color: var(--accent); }
+  .actor .name { font-size: 13px; }
+  .actor .payoff { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+  .actor .payoff.pos { color: var(--positive); }
+  .actor .payoff.neg { color: var(--negative); }
+  .issue { margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .issue:last-child { border-bottom: none; }
+  .issue-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+  .issue-head .name { font-size: 13px; font-weight: 500; }
+  .issue-head .value { font-family: var(--mono); color: var(--accent); font-size: 12px; }
+  .issue-head .value .default { color: var(--muted); font-size: 11px; margin-left: 6px; }
+  .issue-desc { color: var(--muted); font-size: 11px; margin-bottom: 8px; }
+  .issue input[type="range"] { width: 100%; accent-color: var(--accent); }
+  .issue-units { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-top: 3px; }
+  .panel {
+    background: var(--bg-2); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 14px; margin-bottom: 12px;
+  }
+  .panel h3 {
+    font-size: 12px; font-weight: 600; margin: 0 0 8px 0; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .deal-text { font-size: 13px; line-height: 1.55; color: var(--fg); }
+  .deal-text .v { color: var(--accent); font-family: var(--mono); }
+  .deal-text .empty { color: var(--muted); font-style: italic; }
+  .feasibility-ok { color: var(--positive); font-weight: 500; font-size: 13px; }
+  .feasibility-bad { color: var(--negative); font-weight: 500; font-size: 13px; }
+  .feasibility-detail { color: var(--muted); font-size: 12px; margin-top: 4px; }
+  .payoff-bar {
+    display: grid; grid-template-columns: 130px 1fr 50px;
+    gap: 6px; align-items: center; font-size: 11px; margin-bottom: 4px;
+  }
+  .payoff-bar .label { color: var(--muted); font-size: 11px; }
+  .payoff-bar .bar-track {
+    background: var(--bg-3); height: 10px; border-radius: 3px;
+    position: relative; overflow: visible;
+  }
+  .payoff-bar .bar-fill { height: 100%; border-radius: 3px; background: var(--accent); position: absolute; top: 0; bottom: 0; }
+  .payoff-bar .bar-fill.pos { background: var(--positive); }
+  .payoff-bar .bar-fill.neg { background: var(--negative); }
+  .payoff-bar .bar-fill.below-batna { background: var(--warning); }
+  .payoff-bar .batna-marker {
+    position: absolute; top: -3px; bottom: -3px; width: 2px;
+    background: var(--muted); opacity: 0.6;
+  }
+  .payoff-bar .v { font-family: var(--mono); text-align: right; font-size: 11px; }
+  button {
+    background: var(--bg-3); border: 1px solid var(--border); color: var(--fg);
+    padding: 7px 12px; border-radius: 5px; cursor: pointer; font-size: 12px;
+    font-family: inherit; transition: background 0.1s ease;
+  }
+  button:hover { background: var(--border); }
+  button.primary {
+    background: var(--accent); color: #001a33; border-color: var(--accent); font-weight: 500;
+  }
+  button.primary:hover { background: #5d8ddb; }
+  .actor-detail {
+    background: var(--bg-3); border-radius: 6px; padding: 10px 12px;
+    margin-top: 12px; font-size: 12px; line-height: 1.5;
+  }
+  .actor-detail .section-title {
+    color: var(--accent-2); font-weight: 600; margin-top: 8px;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .actor-detail .section-title:first-child { margin-top: 0; }
+  .actor-detail .position-issue { color: var(--fg); margin-top: 6px; }
+  .actor-detail .position-issue .label {
+    color: var(--accent); font-family: var(--mono); font-size: 10px;
+  }
+  .actor-detail .position-issue .meta {
+    color: var(--muted); font-size: 11px; font-style: italic; margin-top: 2px;
+  }
+  .actor-detail .file-hint { margin-top: 10px; color: var(--muted); font-size: 11px; }
+  .actor-detail .file-hint code { font-family: var(--mono); }
+  textarea.novelty-prompt {
+    width: 100%; height: 140px; background: var(--bg-3); color: var(--fg);
+    border: 1px solid var(--border); border-radius: 5px; padding: 9px 11px;
+    font-family: var(--mono); font-size: 11px; line-height: 1.5; resize: vertical;
+  }
+  .copy-feedback {
+    color: var(--positive); font-size: 11px; margin-left: 8px;
+    opacity: 0; transition: opacity 0.2s ease;
+  }
+  .copy-feedback.show { opacity: 1; }
+  .novelty-prompt-controls {
+    margin-top: 8px; display: flex; align-items: center; gap: 8px;
+  }
+  .novelty-prompt-controls select {
+    background: var(--bg-3); color: var(--fg); border: 1px solid var(--border);
+    padding: 5px; border-radius: 5px; font-size: 11px;
+  }
+  .novelty-blurb { color: var(--muted); font-size: 11px; margin: 0 0 8px 0; }
+</style>
+<script src="assets/passcode.js"></script>
+</head>
+<body>
+<header class="site-header" style="position: static;"><div class="inner"><a href="index.html" class="brand" style="text-decoration:none;">Roche pricing negotiation <span class="accent">simulation</span></a><nav><a href="index.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Overview</a><a href="recommendation.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Recommendation</a><a href="simulation.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Live simulation</a><a href="playground.html" style="color:#e6e8eb" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Playground</a><a href="actors.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Actors</a><a href="positions.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Positions</a><a href="prompts.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Prompts</a><a href="transcripts.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Transcripts</a><a href="method.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Method</a></nav><div class="meta">snapshot 2026-05-19</div></div></header><div style="background:linear-gradient(135deg,rgba(122,162,247,0.08) 0%,rgba(187,154,247,0.06) 100%);border-bottom:1px solid #2a2f37;padding:11px 22px;color:#e6e8eb;font-size:13px;line-height:1.5;"><strong style="color:#7aa2f7;font-family:ui-monospace,Menlo,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;">How to use this:</strong> Pick a scenario from the dropdown above to preview a named state. Drag the sliders to test &quot;what-if&quot; deal vectors. Actor surplus updates live; red &quot;walk&quot; warnings appear as you cross any actor&#39;s red line. Use the <em>novelty prompt</em> panel to paste collision prompts into Claude.</div>
+
+<header>
+  <h1>Roche pharma-pricing negotiation playground</h1>
+  <span class="meta">snapshot 2026-05-19 · 12 actors · 13 issues</span>
+  <select id="scenario-select"></select>
+</header>
+
+<main>
+  <section id="actors">
+    <h2>Actors — payoff vs BATNA</h2>
+    <div id="actor-list"></div>
+    <div id="actor-detail" class="actor-detail" style="display:none"></div>
+  </section>
+
+  <section id="issues">
+    <h2>Negotiation issues</h2>
+    <div id="issue-list"></div>
+  </section>
+
+  <section id="output">
+    <div class="panel">
+      <h3>Current deal — plain English</h3>
+      <div id="deal-text" class="deal-text"></div>
+    </div>
+
+    <div class="panel">
+      <h3>Feasibility</h3>
+      <div id="feasibility"></div>
+    </div>
+
+    <div class="panel">
+      <h3>Payoffs vs BATNA</h3>
+      <div id="payoff-bars"></div>
+    </div>
+
+    <div class="panel">
+      <h3>Novelty prompt — collide a domain</h3>
+      <p class="novelty-blurb">
+        Paste into Claude to generate non-obvious negotiation moves by
+        colliding the current scenario with a distant analogue domain.
+      </p>
+      <textarea id="novelty-prompt" class="novelty-prompt" readonly></textarea>
+      <div class="novelty-prompt-controls">
+        <button id="copy-novelty" class="primary">Copy prompt</button>
+        <select id="novelty-domain"></select>
+        <span id="copy-feedback" class="copy-feedback">Copied!</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+"use strict";
+
+// ============================================================================
+// DATA — embedded snapshot of issues + positions (mirrors data/*.yaml).
+// Keep in sync manually when YAML changes. This is the Phase C JS port.
+// ============================================================================
+
+const ACTORS = [
+  {id:"roche", name:"Roche / Genentech"},
+  {id:"us-executive", name:"US Executive"},
+  {id:"us-congress", name:"US Congress"},
+  {id:"swiss-federal-council", name:"Swiss Federal Council"},
+  {id:"swiss-cantons-basel", name:"Swiss Cantons (Basel)"},
+  {id:"swiss-public-and-domestic-payers", name:"Swiss public & payers"},
+  {id:"novartis", name:"Novartis"},
+  {id:"pbms-and-payers", name:"US PBMs & payers"},
+  {id:"patient-advocacy", name:"US patient advocacy"},
+  {id:"eu-reference-pricing", name:"EU reference pricing"},
+  {id:"biosimilars-competitors", name:"Biosimilars"},
+  {id:"investors", name:"Investors"}
+];
+
+const ISSUES = [
+  {id:"mfn_coverage", name:"MFN benchmark coverage", units:"# Roche SKUs under MFN matching", lo:0, hi:50, dflt:4,
+    desc:"How many Roche drugs are subject to MFN-style price matching across US channels."},
+  {id:"ira_mfp_discount", name:"IRA MFP discount", units:"% off pre-IRA list price", lo:0, hi:80, dflt:55,
+    desc:"Weighted-average discount from list across all Roche IRA-selected drugs (Rounds 1-3+)."},
+  {id:"section_232_rate", name:"Section 232 tariff rate", units:"% ad valorem", lo:0, hi:100, dflt:0,
+    desc:"Effective tariff on Roche-Genentech pharma imports from Switzerland. 0% under MFN-deal exemption."},
+  {id:"us_manufacturing_share", name:"US manufacturing share", units:"% of Roche global capacity", lo:20, hi:70, dflt:40,
+    desc:"Roche's installed pharma capacity in the US — bidirectional (US win = Basel loss)."},
+  {id:"rnd_commitment", name:"US R&D commitment", units:"USD billion/year", lo:3, hi:15, dflt:8,
+    desc:"Annual US R&D spend committed by Roche."},
+  {id:"trumprx_skus", name:"TrumpRx.gov SKUs", units:"# Roche SKUs on platform", lo:0, hi:30, dflt:5,
+    desc:"DTC platform participation — visible-win lever for the administration."},
+  {id:"intl_ref_pricing_protection", name:"Intl ref-pricing protection", units:"ordinal 0-10", lo:0, hi:10, dflt:3,
+    desc:"Confidential-net-price firewall protecting EU/UK/CH prices from US contagion."},
+  {id:"patient_access", name:"Patient access mechanisms", units:"ordinal 0-10", lo:0, hi:10, dflt:5,
+    desc:"OOP caps, patient-assistance program scope, coverage guarantees."},
+  {id:"pipeline_pricing_protocol", name:"Pipeline pricing protocol", units:"ordinal 0-10", lo:0, hi:10, dflt:0,
+    desc:"Forward-looking framework for negotiating pre-launch ceiling prices."},
+  {id:"patent_exclusivity", name:"Patent / exclusivity preservation", units:"ordinal 0-10", lo:0, hi:10, dflt:7,
+    desc:"Preservation of IRA pill-penalty + biologic exclusivity windows."},
+  {id:"ip_innovation_protection", name:"IP / innovation protection", units:"ordinal 0-10", lo:0, hi:10, dflt:7,
+    desc:"Treatment of march-in rights, compulsory licensing, biosimilar pathway."},
+  {id:"swiss_diplomatic_carveout", name:"Swiss diplomatic carve-out", units:"ordinal 0-10", lo:0, hi:10, dflt:6,
+    desc:"Swiss-specific framework provisions shielding Roche/Novartis (vs general WTO MFN)."},
+  {id:"swiss_domestic_pricing", name:"Swiss domestic pricing change", units:"% vs May-2026 baseline", lo:-20, hi:20, dflt:0,
+    desc:"Change to BAG/SL Roche prices in Switzerland — captures two-way MFN spillover risk."}
+];
+
+const DIRECTION = {
+  mfn_coverage:                {"roche":-1,"us-executive":+1,"us-congress":0,"swiss-federal-council":-1,"swiss-cantons-basel":-1,"swiss-public-and-domestic-payers":-1,"novartis":-1,"pbms-and-payers":-1,"patient-advocacy":+1,"eu-reference-pricing":-1,"biosimilars-competitors":-1,"investors":-1},
+  ira_mfp_discount:            {"roche":-1,"us-executive":+1,"us-congress":0,"swiss-federal-council":-1,"swiss-cantons-basel":-1,"swiss-public-and-domestic-payers":0,"novartis":-1,"pbms-and-payers":-1,"patient-advocacy":+1,"eu-reference-pricing":0,"biosimilars-competitors":-1,"investors":-1},
+  section_232_rate:            {"roche":-1,"us-executive":0,"us-congress":0,"swiss-federal-council":-1,"swiss-cantons-basel":-1,"swiss-public-and-domestic-payers":-1,"novartis":-1,"pbms-and-payers":0,"patient-advocacy":-1,"eu-reference-pricing":0,"biosimilars-competitors":0,"investors":-1},
+  us_manufacturing_share:      {"roche":0,"us-executive":+1,"us-congress":+1,"swiss-federal-council":-1,"swiss-cantons-basel":-1,"swiss-public-and-domestic-payers":0,"novartis":0,"pbms-and-payers":0,"patient-advocacy":0,"eu-reference-pricing":0,"biosimilars-competitors":0,"investors":0},
+  rnd_commitment:              {"roche":0,"us-executive":+1,"us-congress":+1,"swiss-federal-council":-1,"swiss-cantons-basel":-1,"swiss-public-and-domestic-payers":0,"novartis":0,"pbms-and-payers":0,"patient-advocacy":+1,"eu-reference-pricing":-1,"biosimilars-competitors":0,"investors":0},
+  trumprx_skus:                {"roche":-1,"us-executive":+1,"us-congress":0,"swiss-federal-council":0,"swiss-cantons-basel":0,"swiss-public-and-domestic-payers":0,"novartis":0,"pbms-and-payers":-1,"patient-advocacy":+1,"eu-reference-pricing":-1,"biosimilars-competitors":0,"investors":-1},
+  intl_ref_pricing_protection: {"roche":+1,"us-executive":-1,"us-congress":0,"swiss-federal-council":+1,"swiss-cantons-basel":0,"swiss-public-and-domestic-payers":0,"novartis":+1,"pbms-and-payers":+1,"patient-advocacy":-1,"eu-reference-pricing":+1,"biosimilars-competitors":-1,"investors":+1},
+  patient_access:              {"roche":0,"us-executive":+1,"us-congress":+1,"swiss-federal-council":0,"swiss-cantons-basel":0,"swiss-public-and-domestic-payers":0,"novartis":0,"pbms-and-payers":0,"patient-advocacy":+1,"eu-reference-pricing":0,"biosimilars-competitors":0,"investors":0},
+  pipeline_pricing_protocol:   {"roche":-1,"us-executive":+1,"us-congress":+1,"swiss-federal-council":0,"swiss-cantons-basel":0,"swiss-public-and-domestic-payers":0,"novartis":-1,"pbms-and-payers":0,"patient-advocacy":+1,"eu-reference-pricing":0,"biosimilars-competitors":0,"investors":-1},
+  patent_exclusivity:          {"roche":+1,"us-executive":0,"us-congress":0,"swiss-federal-council":+1,"swiss-cantons-basel":+1,"swiss-public-and-domestic-payers":0,"novartis":+1,"pbms-and-payers":0,"patient-advocacy":-1,"eu-reference-pricing":0,"biosimilars-competitors":-1,"investors":+1},
+  ip_innovation_protection:    {"roche":+1,"us-executive":-1,"us-congress":0,"swiss-federal-council":+1,"swiss-cantons-basel":+1,"swiss-public-and-domestic-payers":0,"novartis":+1,"pbms-and-payers":0,"patient-advocacy":-1,"eu-reference-pricing":0,"biosimilars-competitors":-1,"investors":+1},
+  swiss_diplomatic_carveout:   {"roche":+1,"us-executive":-1,"us-congress":0,"swiss-federal-council":+1,"swiss-cantons-basel":+1,"swiss-public-and-domestic-payers":0,"novartis":+1,"pbms-and-payers":0,"patient-advocacy":0,"eu-reference-pricing":-1,"biosimilars-competitors":0,"investors":+1},
+  swiss_domestic_pricing:      {"roche":+1,"us-executive":-1,"us-congress":0,"swiss-federal-council":0,"swiss-cantons-basel":+1,"swiss-public-and-domestic-payers":-1,"novartis":+1,"pbms-and-payers":0,"patient-advocacy":0,"eu-reference-pricing":-1,"biosimilars-competitors":0,"investors":+1}
+};
+
+const WEIGHTS = {
+  "roche": {mfn_coverage:9, ira_mfp_discount:9, section_232_rate:8, us_manufacturing_share:4, rnd_commitment:3, trumprx_skus:6, intl_ref_pricing_protection:10, patient_access:3, pipeline_pricing_protocol:6, patent_exclusivity:9, ip_innovation_protection:8, swiss_diplomatic_carveout:8, swiss_domestic_pricing:6},
+  "us-executive": {mfn_coverage:10, ira_mfp_discount:9, section_232_rate:6, us_manufacturing_share:8, rnd_commitment:5, trumprx_skus:9, intl_ref_pricing_protection:6, patient_access:6, pipeline_pricing_protocol:5, patent_exclusivity:4, ip_innovation_protection:5, swiss_diplomatic_carveout:5, swiss_domestic_pricing:4},
+  "us-congress": {mfn_coverage:4, ira_mfp_discount:6, section_232_rate:4, us_manufacturing_share:7, rnd_commitment:6, trumprx_skus:3, intl_ref_pricing_protection:3, patient_access:7, pipeline_pricing_protocol:5, patent_exclusivity:5, ip_innovation_protection:4, swiss_diplomatic_carveout:3},
+  "swiss-federal-council": {mfn_coverage:6, section_232_rate:9, us_manufacturing_share:7, rnd_commitment:6, intl_ref_pricing_protection:7, patent_exclusivity:5, ip_innovation_protection:6, swiss_diplomatic_carveout:10, swiss_domestic_pricing:3},
+  "swiss-cantons-basel": {mfn_coverage:5, section_232_rate:7, us_manufacturing_share:9, rnd_commitment:8, intl_ref_pricing_protection:4, patent_exclusivity:6, ip_innovation_protection:7, swiss_diplomatic_carveout:8, swiss_domestic_pricing:7},
+  "swiss-public-and-domestic-payers": {mfn_coverage:3, section_232_rate:4, intl_ref_pricing_protection:3, swiss_diplomatic_carveout:3, swiss_domestic_pricing:9},
+  "novartis": {mfn_coverage:8, ira_mfp_discount:8, section_232_rate:7, us_manufacturing_share:4, rnd_commitment:3, trumprx_skus:5, intl_ref_pricing_protection:9, patient_access:3, pipeline_pricing_protocol:6, patent_exclusivity:8, ip_innovation_protection:7, swiss_diplomatic_carveout:8, swiss_domestic_pricing:5},
+  "pbms-and-payers": {mfn_coverage:6, ira_mfp_discount:7, trumprx_skus:8, intl_ref_pricing_protection:8, ip_innovation_protection:4},
+  "patient-advocacy": {mfn_coverage:5, ira_mfp_discount:8, section_232_rate:5, rnd_commitment:5, trumprx_skus:6, intl_ref_pricing_protection:5, patient_access:9, pipeline_pricing_protocol:5},
+  "eu-reference-pricing": {mfn_coverage:5, section_232_rate:3, rnd_commitment:5, trumprx_skus:6, intl_ref_pricing_protection:9, swiss_diplomatic_carveout:6, swiss_domestic_pricing:4},
+  "biosimilars-competitors": {mfn_coverage:6, ira_mfp_discount:4, intl_ref_pricing_protection:5, patent_exclusivity:9, ip_innovation_protection:8},
+  "investors": {mfn_coverage:8, ira_mfp_discount:8, section_232_rate:8, us_manufacturing_share:4, trumprx_skus:5, intl_ref_pricing_protection:9, pipeline_pricing_protocol:5, patent_exclusivity:8, ip_innovation_protection:7, swiss_diplomatic_carveout:7, swiss_domestic_pricing:5}
+};
+
+const BATNA = {
+  "roche": {mfn_coverage:4, ira_mfp_discount:55, section_232_rate:15, us_manufacturing_share:40, rnd_commitment:8, trumprx_skus:5, intl_ref_pricing_protection:3, patient_access:5, pipeline_pricing_protocol:0, patent_exclusivity:7, ip_innovation_protection:7, swiss_diplomatic_carveout:6, swiss_domestic_pricing:0},
+  "us-executive": {mfn_coverage:4, ira_mfp_discount:55, section_232_rate:0, us_manufacturing_share:40, rnd_commitment:8, trumprx_skus:5, intl_ref_pricing_protection:3, patient_access:5, pipeline_pricing_protocol:0, patent_exclusivity:7, ip_innovation_protection:7, swiss_diplomatic_carveout:6, swiss_domestic_pricing:0},
+  "us-congress": {mfn_coverage:4, ira_mfp_discount:55, section_232_rate:0, us_manufacturing_share:40, rnd_commitment:8, trumprx_skus:5, intl_ref_pricing_protection:3, patient_access:5, pipeline_pricing_protocol:0, patent_exclusivity:7, ip_innovation_protection:7, swiss_diplomatic_carveout:6},
+  "swiss-federal-council": {mfn_coverage:4, section_232_rate:15, us_manufacturing_share:40, rnd_commitment:8, intl_ref_pricing_protection:3, patent_exclusivity:7, ip_innovation_protection:7, swiss_diplomatic_carveout:6, swiss_domestic_pricing:0},
+  "swiss-cantons-basel": {mfn_coverage:4, section_232_rate:15, us_manufacturing_share:40, rnd_commitment:8, intl_ref_pricing_protection:3, patent_exclusivity:7, ip_innovation_protection:7, swiss_diplomatic_carveout:6, swiss_domestic_pricing:0},
+  "swiss-public-and-domestic-payers": {mfn_coverage:4, section_232_rate:15, intl_ref_pricing_protection:3, swiss_diplomatic_carveout:6, swiss_domestic_pricing:0},
+  "novartis": {mfn_coverage:4, ira_mfp_discount:55, section_232_rate:15, us_manufacturing_share:40, rnd_commitment:8, trumprx_skus:5, intl_ref_pricing_protection:3, patient_access:5, pipeline_pricing_protocol:0, patent_exclusivity:7, ip_innovation_protection:7, swiss_diplomatic_carveout:6, swiss_domestic_pricing:0},
+  "pbms-and-payers": {mfn_coverage:4, ira_mfp_discount:55, trumprx_skus:5, intl_ref_pricing_protection:3, ip_innovation_protection:7},
+  "patient-advocacy": {mfn_coverage:4, ira_mfp_discount:55, section_232_rate:0, rnd_commitment:8, trumprx_skus:5, intl_ref_pricing_protection:3, patient_access:5, pipeline_pricing_protocol:0},
+  "eu-reference-pricing": {mfn_coverage:4, section_232_rate:0, rnd_commitment:8, trumprx_skus:5, intl_ref_pricing_protection:3, swiss_diplomatic_carveout:6, swiss_domestic_pricing:0},
+  "biosimilars-competitors": {mfn_coverage:4, ira_mfp_discount:55, intl_ref_pricing_protection:3, patent_exclusivity:7, ip_innovation_protection:7},
+  "investors": {mfn_coverage:4, ira_mfp_discount:55, section_232_rate:15, us_manufacturing_share:40, trumprx_skus:5, intl_ref_pricing_protection:3, pipeline_pricing_protocol:0, patent_exclusivity:7, ip_innovation_protection:7, swiss_diplomatic_carveout:6, swiss_domestic_pricing:0}
+};
+
+const RED_LINES = {
+  "roche": {mfn_coverage:20, ira_mfp_discount:75, section_232_rate:50, intl_ref_pricing_protection:1, patent_exclusivity:3, ip_innovation_protection:3, swiss_diplomatic_carveout:2, swiss_domestic_pricing:-15},
+  "us-executive": {mfn_coverage:1, ira_mfp_discount:20, us_manufacturing_share:30, intl_ref_pricing_protection:9, swiss_diplomatic_carveout:9},
+  "us-congress": {patient_access:1},
+  "swiss-federal-council": {section_232_rate:50, swiss_diplomatic_carveout:2},
+  "swiss-cantons-basel": {us_manufacturing_share:65, swiss_diplomatic_carveout:2},
+  "swiss-public-and-domestic-payers": {swiss_domestic_pricing:15},
+  "novartis": {mfn_coverage:25, ira_mfp_discount:75, section_232_rate:50, intl_ref_pricing_protection:1, swiss_diplomatic_carveout:2},
+  "pbms-and-payers": {intl_ref_pricing_protection:1},
+  "patient-advocacy": {patient_access:1},
+  "eu-reference-pricing": {intl_ref_pricing_protection:1, swiss_domestic_pricing:15},
+  "biosimilars-competitors": {patent_exclusivity:9, ip_innovation_protection:9},
+  "investors": {ira_mfp_discount:75, intl_ref_pricing_protection:1, section_232_rate:50}
+};
+
+const SCENARIOS = {
+  status_quo: {label:"Status quo (2026-05-19)", overrides:{}},
+  mfn_hardline: {label:"MFN hardline", overrides:{mfn_coverage:20, ira_mfp_discount:70, section_232_rate:15, trumprx_skus:20, intl_ref_pricing_protection:1, swiss_diplomatic_carveout:2}},
+  swiss_carveout: {label:"Swiss diplomatic carve-out", overrides:{mfn_coverage:4, section_232_rate:0, swiss_diplomatic_carveout:9, intl_ref_pricing_protection:8, us_manufacturing_share:50, rnd_commitment:12}},
+  ira_escalation: {label:"IRA escalation", overrides:{ira_mfp_discount:65, mfn_coverage:8, pipeline_pricing_protocol:6, patent_exclusivity:4, ip_innovation_protection:5}},
+  basel_relocation_stress: {label:"Basel-relocation stress test", overrides:{us_manufacturing_share:60, rnd_commitment:13, swiss_diplomatic_carveout:7, section_232_rate:0}},
+  trade_war_collapse: {label:"Trade-war collapse", overrides:{section_232_rate:50, mfn_coverage:1, swiss_diplomatic_carveout:1, intl_ref_pricing_protection:2, us_manufacturing_share:35}}
+};
+
+const NOVELTY_DOMAINS = [
+  "climate finance NDC bargaining",
+  "reinsurance pooling",
+  "antitrust consent decrees",
+  "sovereign debt restructuring",
+  "emissions trading",
+  "patent pools / MPP",
+  "WTO TRIPS flexibilities",
+  "insurance reinsurance / quota share",
+  "critical minerals supply agreements",
+  "hostage crisis negotiation"
+];
+
+const RED_LINE_PENALTY = -1000;
+
+// ============================================================================
+// MODEL — JS port of model/payoffs.py
+// ============================================================================
+
+function clipNormalize(issue, value) {
+  const w = issue.hi - issue.lo;
+  if (w === 0) return 0;
+  const clipped = Math.max(issue.lo, Math.min(issue.hi, value));
+  return (clipped - issue.lo) / w;
+}
+
+function violatesRedLine(actorId, issueId, value) {
+  const rl = (RED_LINES[actorId] || {})[issueId];
+  if (rl === undefined) return false;
+  const dir = (DIRECTION[issueId] || {})[actorId] || 0;
+  if (dir === 0) return false;
+  if (dir > 0) return value < rl;
+  return value > rl;
+}
+
+function payoffFor(actorId, deal) {
+  let total = 0;
+  let redLineHit = false;
+  for (const issue of ISSUES) {
+    const value = deal[issue.id];
+    if (violatesRedLine(actorId, issue.id, value)) redLineHit = true;
+    const dir = (DIRECTION[issue.id] || {})[actorId] || 0;
+    const w = (WEIGHTS[actorId] || {})[issue.id] || 0;
+    if (dir === 0 || w === 0) continue;
+    total += w * dir * clipNormalize(issue, value);
+  }
+  return redLineHit ? RED_LINE_PENALTY : total;
+}
+
+function batnaPayoffFor(actorId) {
+  const batnaDeal = {};
+  for (const issue of ISSUES) {
+    const v = (BATNA[actorId] || {})[issue.id];
+    batnaDeal[issue.id] = v !== undefined ? v : issue.dflt;
+  }
+  return payoffFor(actorId, batnaDeal);
+}
+
+const BATNA_PAYOFFS = {};
+ACTORS.forEach(a => { BATNA_PAYOFFS[a.id] = batnaPayoffFor(a.id); });
+
+// ============================================================================
+// STATE
+// ============================================================================
+
+const state = { deal: {}, selectedActor: null };
+
+function fmt(v, decimals) {
+  decimals = decimals === undefined ? 1 : decimals;
+  if (Math.abs(v) >= 10) return v.toFixed(0);
+  return v.toFixed(decimals);
+}
+
+// Safe DOM construction helpers — never use innerHTML on dynamic content.
+function el(tag, opts, children) {
+  const node = document.createElement(tag);
+  if (opts) {
+    if (opts.className) node.className = opts.className;
+    if (opts.text !== undefined) node.textContent = opts.text;
+    if (opts.title) node.title = opts.title;
+    if (opts.style) Object.assign(node.style, opts.style);
+    if (opts.attrs) {
+      for (const [k, v] of Object.entries(opts.attrs)) node.setAttribute(k, v);
+    }
+    if (opts.dataset) Object.assign(node.dataset, opts.dataset);
+    if (opts.value !== undefined) node.value = opts.value;
+  }
+  if (children) {
+    for (const c of children) {
+      if (c == null) continue;
+      node.appendChild(c instanceof Node ? c : document.createTextNode(String(c)));
+    }
+  }
+  return node;
+}
+
+function clear(parent) { while (parent.firstChild) parent.removeChild(parent.firstChild); }
+
+// ============================================================================
+// RENDER
+// ============================================================================
+
+function renderScenarioSelect() {
+  const sel = document.getElementById("scenario-select");
+  clear(sel);
+  for (const [k, v] of Object.entries(SCENARIOS)) {
+    sel.appendChild(el("option", {value: k, text: v.label}));
+  }
+}
+
+function renderNoveltyDomainSelect() {
+  const sel = document.getElementById("novelty-domain");
+  clear(sel);
+  for (const d of NOVELTY_DOMAINS) {
+    sel.appendChild(el("option", {value: d, text: d}));
+  }
+}
+
+function applyScenario(name) {
+  const scenario = SCENARIOS[name] || {overrides:{}};
+  const overrides = scenario.overrides;
+  for (const issue of ISSUES) {
+    state.deal[issue.id] = overrides[issue.id] !== undefined ? overrides[issue.id] : issue.dflt;
+  }
+  renderIssues();
+  renderAll();
+}
+
+function renderActorList() {
+  const list = document.getElementById("actor-list");
+  clear(list);
+  for (const a of ACTORS) {
+    const p = payoffFor(a.id, state.deal);
+    const b = BATNA_PAYOFFS[a.id];
+    const surplus = p - b;
+    const isRedLine = p <= RED_LINE_PENALTY / 2;
+    const sign = isRedLine ? "neg" : (surplus > 0.01 ? "pos" : (surplus < -0.01 ? "neg" : ""));
+    const surplusStr = isRedLine ? "✗" : ((surplus >= 0 ? "+" : "") + fmt(surplus, 1));
+    const isSelected = state.selectedActor === a.id;
+    const row = el("div",
+      {className: "actor" + (isSelected ? " selected" : ""), dataset: {actor: a.id}},
+      [
+        el("span", {className: "name", text: a.name}),
+        el("span", {className: "payoff " + sign, text: surplusStr}),
+      ]
+    );
+    row.addEventListener("click", () => {
+      state.selectedActor = a.id;
+      renderActorList();
+      renderActorDetail();
+    });
+    list.appendChild(row);
+  }
+}
+
+function renderActorDetail() {
+  const div = document.getElementById("actor-detail");
+  clear(div);
+  if (!state.selectedActor) { div.style.display = "none"; return; }
+  div.style.display = "block";
+  const a = ACTORS.find(x => x.id === state.selectedActor);
+  const weights = WEIGHTS[a.id] || {};
+  const stake = ISSUES
+    .filter(i => (DIRECTION[i.id]||{})[a.id] && (weights[i.id]||0) > 0)
+    .sort((x, y) => (weights[y.id]||0) - (weights[x.id]||0));
+
+  div.appendChild(el("div", {className: "section-title", text: a.name + " — top stakes"}));
+  for (const i of stake) {
+    const dir = (DIRECTION[i.id]||{})[a.id];
+    const w = weights[i.id] || 0;
+    const dirStr = dir > 0 ? "wants higher" : "wants lower";
+    const rl = (RED_LINES[a.id]||{})[i.id];
+    const metaStr = dirStr + (rl !== undefined ? " · red line at " + fmt(rl) : "");
+    const issueDiv = el("div", {className: "position-issue"}, [
+      el("span", {className: "label", text: "w=" + w}),
+      document.createTextNode(" · " + i.name),
+      el("div", {className: "meta", text: metaStr}),
+    ]);
+    div.appendChild(issueDiv);
+  }
+  const hint = el("div", {className: "file-hint"}, [
+    document.createTextNode("See "),
+    el("code", {text: "data/actors/" + a.id + ".md"}),
+    document.createTextNode(" for full sourced profile."),
+  ]);
+  div.appendChild(hint);
+}
+
+function renderIssues() {
+  const list = document.getElementById("issue-list");
+  clear(list);
+  for (const i of ISSUES) {
+    const v = state.deal[i.id];
+    const isDefault = Math.abs(v - i.dflt) < 1e-9;
+    const w = i.hi - i.lo;
+    const step = w < 5 ? 0.5 : (w <= 20 ? 1 : (w <= 100 ? 1 : 5));
+
+    const valueSpan = el("span", {className: "value"}, [
+      el("span", {dataset: {val: i.id}, text: fmt(v)}),
+      document.createTextNode(" "),
+      el("span", {className: "default", text: isDefault ? "(default)" : "(default " + fmt(i.dflt) + ")"}),
+    ]);
+
+    const head = el("div", {className: "issue-head"}, [
+      el("span", {className: "name", text: i.name}),
+      valueSpan,
+    ]);
+
+    const input = el("input", {attrs: {type:"range", min:String(i.lo), max:String(i.hi), step:String(step)}, value: String(v), dataset:{input:i.id}});
+    input.addEventListener("input", e => {
+      const id = e.target.dataset.input;
+      state.deal[id] = parseFloat(e.target.value);
+      const valEl = document.querySelector('[data-val="' + id + '"]');
+      if (valEl) valEl.textContent = fmt(state.deal[id]);
+      renderAll();
+    });
+
+    const item = el("div", {className: "issue", dataset: {issue: i.id}}, [
+      head,
+      el("div", {className: "issue-desc", text: i.desc}),
+      input,
+      el("div", {className: "issue-units", text: i.units + " · range [" + i.lo + ", " + i.hi + "]"}),
+    ]);
+    list.appendChild(item);
+  }
+}
+
+function renderDealText() {
+  const div = document.getElementById("deal-text");
+  clear(div);
+  const lines = [];
+  for (const issue of ISSUES) {
+    const v = state.deal[issue.id];
+    if (Math.abs(v - issue.dflt) < 0.5) continue;
+    const dir = v > issue.dflt ? "↑" : "↓";
+    lines.push({issue, v, dir});
+  }
+  if (lines.length === 0) {
+    div.appendChild(el("em", {className: "empty", text: "All issues at status-quo defaults. Adjust sliders or pick a scenario above."}));
+    return;
+  }
+  for (const ln of lines) {
+    const row = el("div", null, [
+      document.createTextNode("· " + ln.issue.name + " " + ln.dir + " to "),
+      el("span", {className: "v", text: fmt(ln.v)}),
+      document.createTextNode(" " + ln.issue.units),
+    ]);
+    div.appendChild(row);
+  }
+}
+
+function renderFeasibility() {
+  const div = document.getElementById("feasibility");
+  clear(div);
+  const blockers = [];
+  for (const a of ACTORS) {
+    const p = payoffFor(a.id, state.deal);
+    const b = BATNA_PAYOFFS[a.id];
+    if (p <= RED_LINE_PENALTY / 2) blockers.push(a.name + " (RED LINE)");
+    else if (p < b) blockers.push(a.name);
+  }
+  if (blockers.length === 0) {
+    div.appendChild(el("span", {className: "feasibility-ok", text: "✓ Feasible — every actor strictly above BATNA, no red lines crossed."}));
+  } else {
+    div.appendChild(el("span", {className: "feasibility-bad", text: "✗ " + blockers.length + " actor(s) would walk:"}));
+    const detail = el("div", {className: "feasibility-detail"});
+    blockers.forEach((b, i) => {
+      if (i > 0) detail.appendChild(el("br"));
+      detail.appendChild(document.createTextNode(b));
+    });
+    div.appendChild(detail);
+  }
+}
+
+function renderPayoffs() {
+  const div = document.getElementById("payoff-bars");
+  clear(div);
+  let absMax = 1;
+  for (const a of ACTORS) {
+    const p = payoffFor(a.id, state.deal);
+    const b = BATNA_PAYOFFS[a.id];
+    if (Math.abs(p) <= Math.abs(RED_LINE_PENALTY / 2)) absMax = Math.max(absMax, Math.abs(p));
+    absMax = Math.max(absMax, Math.abs(b));
+  }
+  for (const a of ACTORS) {
+    const p = payoffFor(a.id, state.deal);
+    const b = BATNA_PAYOFFS[a.id];
+    const surplus = p - b;
+    const redLine = p <= RED_LINE_PENALTY / 2;
+    let cls = surplus > 0.01 ? "pos" : (surplus < -0.01 ? "neg" : "");
+    if (redLine) cls = "neg";
+    else if (p < b) cls = "below-batna";
+    const total = absMax * 2;
+    const fillPct = redLine ? 100 : Math.min(100, Math.abs(p) / total * 100);
+    const offsetPct = redLine ? 0 : (absMax + Math.min(0, p)) / total * 100;
+    const batnaPct = (absMax + b) / total * 100;
+
+    const bar = el("div", {className: "payoff-bar"}, [
+      el("span", {className: "label", text: a.name}),
+      el("div", {className: "bar-track"}, [
+        el("div", {className: "bar-fill " + cls, style: {left: offsetPct + "%", width: fillPct + "%"}}),
+        el("div", {className: "batna-marker", style: {left: batnaPct + "%"}}),
+      ]),
+      el("span", {className: "v", text: redLine ? "RED LINE" : fmt(surplus, 1)}),
+    ]);
+    div.appendChild(bar);
+  }
+}
+
+function buildNoveltyPrompt() {
+  const domain = document.getElementById("novelty-domain").value || NOVELTY_DOMAINS[0];
+  const dealLines = [];
+  for (const issue of ISSUES) {
+    const v = state.deal[issue.id];
+    if (Math.abs(v - issue.dflt) < 0.5) continue;
+    dealLines.push("  " + issue.name + ": " + fmt(v) + " " + issue.units);
+  }
+  const dealSummary = dealLines.length ? dealLines.join("\n") : "  (every issue at 2026-05-19 status quo)";
+  const below = ACTORS.filter(a => payoffFor(a.id, state.deal) < BATNA_PAYOFFS[a.id]);
+  const stuckOn = below.length
+    ? "Actors currently below BATNA: " + below.map(a => a.name).join(", ")
+    : "All actors above BATNA. The challenge is finding strict improvements without trade-offs.";
+
+  return [
+    "You are a strategic-novelty engine. Treat the following pharma-pricing negotiation as if it were a " + domain + " problem.",
+    "",
+    "CURRENT DEAL VECTOR (deviations from 2026-05-19 status quo):",
+    dealSummary,
+    "",
+    "PROBLEM: " + stuckOn,
+    "",
+    "TASK:",
+    "1) Name 2-3 specific mechanisms from " + domain + " that address structurally analogous problems (asymmetric ambition, tail-risk transfer, compliance monitoring, ratchet, sunset, etc.).",
+    "2) For each mechanism, translate it into a concrete negotiation move in pharma-pricing terms. Be specific: WHO proposes it, on WHICH of the 13 issues, on what TIMELINE, with what COMPLIANCE TEST.",
+    "3) For each move, check feasibility against known red lines:",
+    "   - Roche: ex-US net-price firewall, no compulsory licensing.",
+    "   - US Executive: visible price-cut commitment, US-manufacturing build.",
+    "   - Swiss Federal Council: no concession of BAG statutory authority.",
+    "   - Swiss Cantons (Basel): no commitment to wind down a specific Basel site.",
+    "   - Patient advocacy: cannot reduce access to currently covered drugs.",
+    "",
+    "Output as a numbered list. Be terse. Don't propose moves any red line forbids.",
+  ].join("\n");
+}
+
+function renderNoveltyPrompt() {
+  document.getElementById("novelty-prompt").value = buildNoveltyPrompt();
+}
+
+function renderAll() {
+  renderActorList();
+  renderActorDetail();
+  renderDealText();
+  renderFeasibility();
+  renderPayoffs();
+  renderNoveltyPrompt();
+}
+
+// ============================================================================
+// WIRE-UP
+// ============================================================================
+
+renderScenarioSelect();
+renderNoveltyDomainSelect();
+
+document.getElementById("scenario-select").addEventListener("change", e => {
+  applyScenario(e.target.value);
+});
+document.getElementById("novelty-domain").addEventListener("change", renderNoveltyPrompt);
+document.getElementById("copy-novelty").addEventListener("click", () => {
+  const ta = document.getElementById("novelty-prompt");
+  ta.select();
+  navigator.clipboard.writeText(ta.value);
+  const fb = document.getElementById("copy-feedback");
+  fb.classList.add("show");
+  setTimeout(() => fb.classList.remove("show"), 1400);
+});
+
+applyScenario("status_quo");
+
+</script>
+</body>
+</html>

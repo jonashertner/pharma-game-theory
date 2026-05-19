@@ -1,0 +1,97 @@
+# Executive snapshots: 12 actors, 5 fields each.
+# These are intentionally terse. Each line is a board-ready summary line.
+#
+# Schema:
+#   one_liner             — role in one sentence
+#   top_priority          — what the actor most wants (highest-weight interest)
+#   walks_if              — the most binding red line, in concrete terms
+#   leverage              — what they hold that others want
+#   what_roche_should_do  — actionable line for Roche's negotiating posture
+#
+# Sourcing: every line is derivable from data/actors/<actor>.md.
+
+snapshots:
+
+  roche:
+    one_liner: "Swiss-HQ pharma giant; US subsidiary Genentech is already inside the December 2025 MFN tent and the Hoffmann/Oeri family voting block (45.01%) absorbs activist pressure."
+    top_priority: "Block international reference-pricing spillover — protect ex-US net prices from US-MFN-basket erosion. This is Roche's highest-weight issue (10/10) and currently underused (floor at 3/10)."
+    walks_if: "Compulsory licensing invoked, OR US-list-price transparency breaks confidential ex-US net-price arrangements, OR Section 232 reverts beyond 50%."
+    leverage: "$50B US capex pledge (announced April 2025); Genentech US R&D ecosystem; Vabysmo / Hemlibra / Ocrevus pipeline; Swiss diplomatic muscle behind the November framework."
+    what_roche_should_do: "Lock the Section-232 0% track with EPC-style milestone gating. Push the international-ref-pricing firewall through the Swiss annex using the German MRA template. Avoid volunteering MFN-coverage expansion — it costs unforced losses."
+
+  us-executive:
+    one_liner: "Coalition of White House + HHS/CMS + USTR + Commerce + FDA + career civil service. Trump's second-term drug-pricing platform: MFN by EO + Section 232 + retain IRA Rounds 1-3."
+    top_priority: "Visible deliverables for the political narrative — MFN coverage expansion, deeper IRA discounts, more TrumpRx SKUs. The MFN program is the centerpiece win to defend."
+    walks_if: "Roche refuses any visible price-cut commitment (mfn_coverage <1 or ira_discount <20%) — the administration cannot be seen losing to a Swiss firm pre-midterm."
+    leverage: "Section 232 tariff authority (effective July 31 2026); IRA selection list (Rounds 4+ pending); FDA approval timing; the bully pulpit."
+    what_roche_should_do: "Give the administration symmetric (not Roche-specific) firewall language they can sell as cross-cutting. Trade TrumpRx-SKU visibility for ex-US protection. Coordinate the announcement choreography so AARP and PBM-reform coalition see parallel wins."
+
+  us-congress:
+    one_liner: "119th Congress, 53R-47D Senate, 220R-215D House. Bipartisan PBM-reform coalition active (signed February 2026); MFN codification stalled; IRA retained."
+    top_priority: "PBM reform extension to commercial/ERISA (the next fight); state-cluster pharma-employment defense (NJ, MA, NC, IN, IL members on both sides)."
+    walks_if: "A trade-deal back-door amends IRA without congressional involvement — institutional prerogative violation."
+    leverage: "Statutory authority over Medicare, Medicaid, FDA, USTR, Commerce. Power of the purse. Senate confirmation power. Oversight hearings as bully pulpit."
+    what_roche_should_do: "Stay out of MFN codification debates. Engage on PBM reform's commercial-side fight (Roche net-pricing benefits if commercial delinking happens). Maintain bipartisan member relations across pharma-state caucuses."
+
+  swiss-federal-council:
+    one_liner: "Bundesrat acting through SECO + FDFA, with Parmelin as 2026 President leading WBF/SECO. Mandate adopted January 14 2026; framework signed November 14 2025."
+    top_priority: "Preserving the November framework — the 15% tariff cap and 0% MFN-deal track is the achievement Bern cannot lose."
+    walks_if: "US asks for concession of BAG/FOPH statutory authority over LAMal pricing (constitutional limit) OR Swiss-diplomatic-carveout drops below 2/10."
+    leverage: "Swiss diplomatic credibility; ~$200B Swiss US-investment pledge (Roche $50B + Novartis $23B inside); Swiss financial-sector relevance to US Treasury; honest-broker positioning."
+    what_roche_should_do: "Frame asks as bilateral-Swiss-annex amendments, not Roche-specific carve-outs. Keep BAG list-price questions off the trade table — they live in the Spezialitätenliste triennial review under domestic law."
+
+  swiss-cantons-basel:
+    one_liner: "Basel-Stadt + Basel-Landschaft host cantons. Roche+Novartis ≈1/3 of BS corporate tax revenue; ~11,900 Roche Basel employees; OECD Pillar 2 floor at 15%."
+    top_priority: "Preserving the Basel pharma cluster — corporate tax base, R&D ecosystem, university partnerships, and real-estate values."
+    walks_if: "US-manufacturing share rises above 65% (signaling structural Basel relocation) OR Roche commits to wind down a specific Basel site."
+    leverage: "Cantonal tax-design flexibility (OECD Pillar 2 Standortpaket recycles ~CHF 270-310m/year back to large pharma); zoning + permitting authority; university research partnerships."
+    what_roche_should_do: "Cap US-manufacturing-share growth at 50% in the framework annex. Make Basel-side investments (Bau 12 through Q4 2029) visibly parallel to US capex pledge. Engage Basel Handelskammer to back the deal publicly."
+
+  swiss-public-and-domestic-payers:
+    one_liner: "Swiss citizens-as-patients (~8.8M under LAMal), BAG/FOPH (drug-pricing authority), Santésuisse + curafutura (insurer associations). 2024 cost-cap initiatives defeated 62.8% Nein."
+    top_priority: "No raise to Swiss domestic prices to subsidise US MFN benchmarks. The 'don't raise our prices to help theirs' line is the binding domestic constraint."
+    walks_if: "swiss_domestic_pricing rises beyond +15% under any treaty mechanism — triggers premium-initiative re-mobilisation."
+    leverage: "Statutory BAG authority over the Spezialitätenliste (triennial review); referendum threat on any treaty implementation; consumer-press megaphone (K-Tipp, Beobachter, 20min)."
+    what_roche_should_do: "Confirm swiss_domestic_pricing locks at zero in the framework annex. Avoid Schinecker-style public asks for higher Swiss prices — the political cost outweighs the revenue. Frame Roche's contribution to Swiss tax base separately from drug pricing."
+
+  novartis:
+    one_liner: "Basel-peer pharma; signed MFN December 2025; Pluvicto + Cosentyx + Kisqali on IRA Round 3 (effective January 2028). Narasimhan chairs PhRMA in 2026."
+    top_priority: "Lock favourable MFN treatment now that they've signed; protect Pluvicto/Lutathera radioligand margins where no biosimilar threat exists."
+    walks_if: "MFN coverage expands past 25 SKUs OR ex-US firewall drops below 1/10."
+    leverage: "PhRMA chairmanship 2026 (industry-coordination platform); $23B US capex pledge; Sandoz spin-off (separate biosimilars exposure)."
+    what_roche_should_do: "Coordinate joint Swiss-pharma front with Novartis on framework-annex language. Don't let competition over Xolair (jointly marketed; Round 3 selection) bleed into framework-level disagreement."
+
+  pbms-and-payers:
+    one_liner: "Big 3 PBMs (Caremark, Express Scripts, OptumRx) cover ~80% of US claims. Medicare Part D delinking signed February 3 2026; commercial/ERISA delinking is the next fight."
+    top_priority: "Block extension of delinking to commercial/ERISA — the rebate-arbitrage business model is on the table."
+    walks_if: "Federal mandate requires full rebate transparency at the contract level (destroys the existing arbitrage)."
+    leverage: "Formulary control; vertical integration with major insurers; pharmacy network bargaining power; congressional connections (especially Senate Finance)."
+    what_roche_should_do: "Use the PBM commercial fight as cover — Roche net-pricing improves if commercial delinking passes. Don't formally side with PBMs publicly (politically toxic) but don't oppose them either."
+
+  patient-advocacy:
+    one_liner: "AARP (~38M members; pro-IRA), P4AD (independent reformist, refuses pharma money), industry-funded disease groups (≥83% take industry money per KFF). Three sub-factions with divergent positions."
+    top_priority: "Lower out-of-pocket costs (universal); maintaining access to innovative therapies (varies); industry-funded groups quietly favour brand pricing protection."
+    walks_if: "Any deal reduces access to currently covered drugs (would lose patient trust)."
+    leverage: "Media credibility (patient stories); congressional testimony; AARP's ~38M membership ground game in midterm elections."
+    what_roche_should_do: "Pre-announce specialty-drug OOP cap (e.g., $1,500 on Genentech specialty drugs >$30K list). Coordinate AARP endorsement on Day 1 of the framework annex. Avoid framing that triggers P4AD's 'front group' criticism of industry-funded disease groups."
+
+  eu-reference-pricing:
+    one_liner: "EMA + Germany G-BA/IQWiG + France HAS + UK NICE + Commission DG SANTE. Joint Clinical Assessment live Jan 2025 (oncology + ATMPs); German MRA confidential Erstattungsbetrag in force Jan 2025."
+    top_priority: "Prevent US MFN benchmarking from causing upward EU price pressure; preserve confidential-net-price methodologies."
+    walks_if: "Treaty-level disclosure of EU confidential net prices required to satisfy US MFN basket calculation."
+    leverage: "EU market size (~440M); EMA regulatory approval timing; G-BA / NICE methodology that other countries copy; Critical Medicines Act (provisional May 12 2026)."
+    what_roche_should_do: "Mirror the German MRA template (confidential Erstattungsbetrag + 9% discount + R&D-in-Germany requirement) in the Swiss firewall annex. Coordinate with EFPIA on cross-cutting language so EU institutions can claim the framework as their methodology too."
+
+  biosimilars-competitors:
+    one_liner: "Sandoz + Celltrion + Samsung Bioepis + Amgen-biosimilars + Boehringer + Teva. HHS scoped MFN to single-source brands only (biosimilars outside scope)."
+    top_priority: "Maximize biosimilar uptake/share; protect BPCIA 180-day interchangeable exclusivity; oppose patent_exclusivity / IP protection above 9/10."
+    walks_if: "Federal legislation collapses BPCIA interchangeability pathway OR strengthens brand-IP above current."
+    leverage: "Celltrion Omlyclo (Xolair biosimilar) US launch September 1 2026 — direct threat to Roche; demonstrable 30-80% price cuts; 340B program leverage."
+    what_roche_should_do: "Carve Xolair out of the firewall annex (it's biosimilar-exposed in two months anyway). Don't pick patent-exclusivity / IP-strength fights with biosimilars at the same time as defending MFN posture — sequential, not simultaneous."
+
+  investors:
+    one_liner: "Hoffmann/Oeri family voting pool (45.01%) constrains traditional activism; institutional investors via sell-side analysts; Schwan re-elected chair March 10 2026 with 97.75%."
+    top_priority: "Margin protection (MFN tail risk); dividend continuity (39th consecutive increase); US capex efficiency."
+    walks_if: "ira_mfp_discount above 75% OR firewall collapse (intl_ref_pricing <1) OR dividend cut signal."
+    leverage: "Stock-price feedback to management; AGM votes; ESG-engagement; sell-side narrative shaping (UBS Buy CHF 384; Berenberg Hold CHF 320)."
+    what_roche_should_do: "Communicate Section-232 0% track and firewall annex as Q1 2027 investor-day deliverables. Quantify the tail-risk hedging value of the firewall using reinsurance-style language analysts already understand."

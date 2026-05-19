@@ -1,0 +1,837 @@
+# Positions matrix — synthesis of each actor's stance per negotiation issue.
+#
+# For each (actor, issue) pair where the actor has a meaningful stake:
+#   position        — one-sentence stance, preferred direction or target
+#   batna_value     — value of the parameter under no-deal (concrete, in issue units)
+#   red_line_value  — value beyond which actor cannot accept any deal; null if none
+#   weight          — 0-10 importance/intensity for this actor
+#   citation        — actor-file relative path + section anchor
+#   inferred        — true if no direct public statement supports the stance
+#
+# Snapshot date: 2026-05-19
+# Issue units recap (from issues.yaml):
+#   mfn_coverage:                 count Roche SKUs under MFN, range [0,50], default 4
+#   ira_mfp_discount:             % discount from list, range [0,80], default 55
+#   section_232_rate:             % ad valorem, range [0,100], default 0 (Genentech 0% track)
+#   us_manufacturing_share:       % of Roche global capacity, range [20,70], default 40
+#   rnd_commitment:               USD bn/yr US R&D, range [3,15], default 8
+#   trumprx_skus:                 count Roche SKUs on TrumpRx, range [0,30], default 5
+#   intl_ref_pricing_protection:  ordinal 0-10, default 3
+#   patient_access:               ordinal 0-10, default 5
+#   pipeline_pricing_protocol:    ordinal 0-10, default 0
+#   patent_exclusivity:           ordinal 0-10, default 7
+#   ip_innovation_protection:     ordinal 0-10, default 7
+#   swiss_diplomatic_carveout:    ordinal 0-10, default 6 (Nov 2025 framework: 15% cap + 0% MFN-deal track)
+#   swiss_domestic_pricing:       % change vs 2026-05-19 baseline, range [-20,+20], default 0
+
+snapshot_date: 2026-05-19
+
+positions:
+
+  roche:
+    mfn_coverage:
+      position: "Cap coverage at the current Dec-2025 deal scope (Xofluza + initial SKUs); resist scope creep into Tecentriq/Perjeta/Phesgo Part B oncology."
+      batna_value: 4
+      red_line_value: 15
+      weight: 9
+      citation: actors/roche.md#red-lines
+      inferred: false
+    ira_mfp_discount:
+      position: "Accept statutorily-compelled IRA participation (Xolair Round 3) but litigate/contain weighted discount near Round 1 ~57% benchmark; resist deeper haircuts."
+      batna_value: 55
+      red_line_value: 75
+      weight: 8
+      citation: actors/roche.md#constraints
+      inferred: false
+    section_232_rate:
+      position: "Lock in 0% tariff via the MFN-deal track through 20 Jan 2029; walk-away is the 15% Swiss-framework cap."
+      batna_value: 15
+      red_line_value: 25
+      weight: 10
+      citation: actors/roche.md#batna
+      inferred: false
+    us_manufacturing_share:
+      position: "Deliver the $50B/5-year onshoring envelope; raise US share modestly above current ~40% baseline as Indianapolis/PA/MA/CA build out."
+      batna_value: 40
+      red_line_value: null
+      weight: 6
+      citation: actors/roche.md#positions-public
+      inferred: false
+    rnd_commitment:
+      position: "Hold/grow Genentech South San Francisco R&D footprint as discovery anchor; maintain current ~$8B/yr US R&D run-rate."
+      batna_value: 8
+      red_line_value: null
+      weight: 7
+      citation: actors/roche.md#interests-private
+      inferred: true
+    trumprx_skus:
+      position: "Minimal SKU participation (Xofluza demonstrated); resist platform expansion that disintermediates PBM/Part D channels."
+      batna_value: 5
+      red_line_value: 15
+      weight: 7
+      citation: actors/roche.md#positions-public
+      inferred: true
+    intl_ref_pricing_protection:
+      position: "Maximize confidentiality firewall (target 8+); block US net-price disclosure piercing EU/CH/JP rebate confidentiality."
+      batna_value: 3
+      red_line_value: 2
+      weight: 10
+      citation: actors/roche.md#red-lines
+      inferred: false
+    patient_access:
+      position: "Support PAP/copay programs as MFN political cover; neutral on OOP-cap depth so long as it doesn't bind net price."
+      batna_value: 5
+      red_line_value: null
+      weight: 4
+      citation: actors/roche.md#leverage
+      inferred: true
+    pipeline_pricing_protocol:
+      position: "Resist any pre-launch CMS ceiling-price negotiation framework; protect trontinemab/next-gen oncology launch flexibility."
+      batna_value: 0
+      red_line_value: 5
+      weight: 9
+      citation: actors/roche.md#interests-private
+      inferred: false
+    patent_exclusivity:
+      position: "Defend current 13-year biologic / 9-year small-molecule timelines; support EPIC Act pill-penalty equalization."
+      batna_value: 7
+      red_line_value: 4
+      weight: 8
+      citation: actors/roche.md#red-lines
+      inferred: false
+    ip_innovation_protection:
+      position: "Treat any Bayh-Dole march-in or compulsory licensing on Genentech IP as expropriation; defend 7+ baseline."
+      batna_value: 7
+      red_line_value: 4
+      weight: 9
+      citation: actors/roche.md#red-lines
+      inferred: false
+    swiss_diplomatic_carveout:
+      position: "Strengthen Swiss-specific carve-outs (target 8+); the 0% MFN-deal track + 15% cap is the foundation of Roche's BATNA arithmetic."
+      batna_value: 6
+      red_line_value: 3
+      weight: 9
+      citation: actors/roche.md#leverage
+      inferred: false
+    swiss_domestic_pricing:
+      position: "Schinecker publicly raised the possibility of higher Swiss prices to protect MFN benchmark; targets modest positive change."
+      batna_value: 0
+      red_line_value: -10
+      weight: 7
+      citation: actors/roche.md#interests-private
+      inferred: false
+
+  us-executive:
+    mfn_coverage:
+      position: "Expand MFN coverage well beyond current 4 SKUs; closeout banner of 17-of-17 manufacturers covers 86% of branded market, drives toward broad Roche-portfolio inclusion."
+      batna_value: 4
+      red_line_value: null
+      weight: 10
+      citation: actors/us-executive.md#positions-public
+      inferred: false
+    ira_mfp_discount:
+      position: "Maintain statutory IRA Round 1-3 discounts (Round 1 averaged 38-79%); continue running negotiation cycle on schedule."
+      batna_value: 55
+      red_line_value: null
+      weight: 8
+      citation: actors/us-executive.md#positions-public
+      inferred: false
+    section_232_rate:
+      position: "Use 100/20/15/0% tiered structure as discrimination engine; 0% only for firms with MFN deal + onshoring agreement."
+      batna_value: 15
+      red_line_value: null
+      weight: 9
+      citation: actors/us-executive.md#leverage
+      inferred: false
+    us_manufacturing_share:
+      position: "Maximize US share via $200B Swiss-framework investment pledge and $150B Dec-2025 deal commitments; reward onshoring with tariff exemption."
+      batna_value: 40
+      red_line_value: null
+      weight: 9
+      citation: actors/us-executive.md#interests-private
+      inferred: false
+    rnd_commitment:
+      position: "Bank US R&D commitments as part of onshoring narrative; FDA CNPV voucher pilot rewards US trial siting."
+      batna_value: 8
+      red_line_value: null
+      weight: 6
+      citation: actors/us-executive.md#interests-private
+      inferred: false
+    trumprx_skus:
+      position: "Expand TrumpRx aggressively — May 2026 fact sheet pushed beyond original 43-drug specialty launch into 'everyday medicines'; brand is personal to President."
+      batna_value: 5
+      red_line_value: null
+      weight: 10
+      citation: actors/us-executive.md#red-lines
+      inferred: false
+    intl_ref_pricing_protection:
+      position: "Oppose firewall; prefer transparent low US prices flowing globally as policy lever — 'foreign freeloading' framing."
+      batna_value: 3
+      red_line_value: null
+      weight: 7
+      citation: actors/us-executive.md#positions-public
+      inferred: false
+    patient_access:
+      position: "Stage visible patient-access wins ahead of Nov 2026 midterms; layered atop IRA Part D $2K OOP cap."
+      batna_value: 5
+      red_line_value: null
+      weight: 8
+      citation: actors/us-executive.md#interests-private
+      inferred: false
+    pipeline_pricing_protocol:
+      position: "Inferred preference for a pre-launch MFN/ceiling-price framework on next-gen biologics to bank forward wins."
+      batna_value: 0
+      red_line_value: null
+      weight: 5
+      citation: actors/us-executive.md#interests-private
+      inferred: true
+    patent_exclusivity:
+      position: "Politically split — supportive rhetoric on innovation but not actively defending current scheme; tolerant of erosion."
+      batna_value: 7
+      red_line_value: null
+      weight: 3
+      citation: actors/us-executive.md#notes-on-intra-actor-coalitions
+      inferred: true
+    ip_innovation_protection:
+      position: "Periodically references march-in rights as MFN-enforcement threat; willing to use IP leverage to force pricing concessions."
+      batna_value: 7
+      red_line_value: null
+      weight: 6
+      citation: actors/us-executive.md#leverage
+      inferred: false
+    swiss_diplomatic_carveout:
+      position: "Tolerate Swiss-specific carve-out only insofar as it produces investment + MFN deals; resist further expansion vs US firms."
+      batna_value: 6
+      red_line_value: null
+      weight: 6
+      citation: actors/us-executive.md#red-lines
+      inferred: false
+    swiss_domestic_pricing:
+      position: "Prefer lower Swiss prices so MFN reference basket falls with them; oppose any Roche-induced Swiss price rise."
+      batna_value: 0
+      red_line_value: 10
+      weight: 7
+      citation: actors/us-executive.md#interests-private
+      inferred: true
+
+  us-congress:
+    mfn_coverage:
+      position: "Split: Meuser H.R.7837 would codify MFN with teeth by Dec 2028; pharma-state GOP and Sanders/Warren progressives diverge on means; no consensus to legislate before midterms."
+      batna_value: 4
+      red_line_value: null
+      weight: 5
+      citation: actors/us-congress.md#positions-public
+      inferred: false
+    ira_mfp_discount:
+      position: "Democratic ranking members defend IRA Round 1-3 discount levels as their 2022 achievement; pharma-state Rs back EPIC Act to soften timeline, not depth."
+      batna_value: 55
+      red_line_value: 75
+      weight: 8
+      citation: actors/us-congress.md#red-lines
+      inferred: false
+    section_232_rate:
+      position: "Largely deferential to executive Section 232 action; pharma-state Rs quietly uneasy if rates trigger shortages/layoffs."
+      batna_value: 15
+      red_line_value: null
+      weight: 4
+      citation: actors/us-congress.md#timeline-pressures
+      inferred: true
+    us_manufacturing_share:
+      position: "Pharma-state delegations (NJ/MA/NC/IN/PA/IL) favor higher US share to protect employment; bipartisan support for onshoring."
+      batna_value: 40
+      red_line_value: null
+      weight: 7
+      citation: actors/us-congress.md#interests-private
+      inferred: false
+    rnd_commitment:
+      position: "Bipartisan support for higher US R&D commitment via IRC Section 174 fix and biotech-state lobbying."
+      batna_value: 8
+      red_line_value: null
+      weight: 5
+      citation: actors/us-congress.md#interests-private
+      inferred: true
+    trumprx_skus:
+      position: "Neutral institutionally; Dems demand unredacted MFN agreement texts (5 Mar 2026 Pallone/Wyden/Neal/Scott letter) before codification."
+      batna_value: 5
+      red_line_value: null
+      weight: 3
+      citation: actors/us-congress.md#positions-public
+      inferred: false
+    patient_access:
+      position: "Strong bipartisan support for OOP caps and copay smoothing; PBM-delinking (CAA 2026) already passed as the flagship vehicle."
+      batna_value: 5
+      red_line_value: null
+      weight: 8
+      citation: actors/us-congress.md#positions-public
+      inferred: false
+    pipeline_pricing_protocol:
+      position: "Mixed: progressives want pre-launch CMS authority; GOP pharma-state defenders block it; no active legislation."
+      batna_value: 0
+      red_line_value: null
+      weight: 3
+      citation: actors/us-congress.md#interests-private
+      inferred: true
+    patent_exclusivity:
+      position: "EPIC Act (S.832) bipartisan push to equalize 9/13-year IRA timing; pharma-state Rs want to preserve current protections."
+      batna_value: 7
+      red_line_value: 4
+      weight: 6
+      citation: actors/us-congress.md#positions-public
+      inferred: false
+    ip_innovation_protection:
+      position: "Pharma-state defenders oppose march-in/compulsory licensing; progressives ambivalent; no active legislation moving."
+      batna_value: 7
+      red_line_value: 4
+      weight: 5
+      citation: actors/us-congress.md#red-lines
+      inferred: true
+    swiss_diplomatic_carveout:
+      position: "Wyden (Senate Finance ranking) Jan 28 2026 letter publicly questioned Swiss pharma giveaways; Rs largely deferential."
+      batna_value: 6
+      red_line_value: null
+      weight: 4
+      citation: actors/us-congress.md#positions-public
+      inferred: false
+
+  swiss-federal-council:
+    mfn_coverage:
+      position: "Oppose expansion of MFN coverage that imports US prices into Swiss reference basket; preserve federal-bilateral framework over commercial scope."
+      batna_value: 4
+      red_line_value: 20
+      weight: 7
+      citation: actors/swiss-federal-council.md#red-lines
+      inferred: true
+    section_232_rate:
+      position: "Lock in the 15% Swiss ceiling under the Nov 14 2025 framework; treat snap-back to 39% / 100% as the explicit BATNA to avoid."
+      batna_value: 39
+      red_line_value: 25
+      weight: 10
+      citation: actors/swiss-federal-council.md#positions-public
+      inferred: false
+    us_manufacturing_share:
+      position: "Resist further US capex shift beyond announced Roche $50B / Novartis $23B commitments; protect Swiss employment base."
+      batna_value: 40
+      red_line_value: 55
+      weight: 7
+      citation: actors/swiss-federal-council.md#leverage
+      inferred: true
+    rnd_commitment:
+      position: "Defend ETH/Uni Basel/Swiss R&D footprint; oppose US R&D shift that would hollow Swiss innovation cluster."
+      batna_value: 8
+      red_line_value: null
+      weight: 6
+      citation: actors/swiss-federal-council.md#interests-private
+      inferred: true
+    intl_ref_pricing_protection:
+      position: "Support firewall to protect Swiss prices from US contagion; aligned with Roche/Novartis on confidentiality."
+      batna_value: 3
+      red_line_value: null
+      weight: 7
+      citation: actors/swiss-federal-council.md#interests-private
+      inferred: true
+    patent_exclusivity:
+      position: "Aligned with Roche/Novartis on preserving current IP/exclusivity protections in any treaty text."
+      batna_value: 7
+      red_line_value: null
+      weight: 5
+      citation: actors/swiss-federal-council.md#interests-private
+      inferred: true
+    ip_innovation_protection:
+      position: "Aligned with Roche/Novartis; resist compulsory-licensing language in trade treaty."
+      batna_value: 7
+      red_line_value: 4
+      weight: 6
+      citation: actors/swiss-federal-council.md#interests-private
+      inferred: true
+    swiss_diplomatic_carveout:
+      position: "Maximize Swiss-specific framework (target 8+); Parmelin announced retroactive 15% from Nov 14 2025; binding mandate adopted Jan 14 2026."
+      batna_value: 6
+      red_line_value: 3
+      weight: 10
+      citation: actors/swiss-federal-council.md#positions-public
+      inferred: false
+    swiss_domestic_pricing:
+      position: "Cross-pressured: cannot bind BAG's KVG Art. 52a authority via treaty; politically resists raising Swiss prices to subsidize US MFN."
+      batna_value: 0
+      red_line_value: 10
+      weight: 8
+      citation: actors/swiss-federal-council.md#red-lines
+      inferred: false
+
+  swiss-cantons-basel:
+    mfn_coverage:
+      position: "Oppose expansion that suppresses Swiss-booked Roche profit; tax base funded via principal-company / IP-holding structures."
+      batna_value: 4
+      red_line_value: 15
+      weight: 8
+      citation: actors/swiss-cantons-basel.md#red-lines
+      inferred: false
+    section_232_rate:
+      position: "HKBB publicly welcomed Nov 2025 15% framework as 'significant relief'; oppose any escalation; 0% MFN-deal track is best case."
+      batna_value: 15
+      red_line_value: 25
+      weight: 9
+      citation: actors/swiss-cantons-basel.md#positions-public
+      inferred: false
+    us_manufacturing_share:
+      position: "STRONG negative on US share growth — Basel tax base depends directly on Swiss-booked manufacturing/IP; Sutter publicly warned of Trump-induced shift."
+      batna_value: 40
+      red_line_value: 55
+      weight: 10
+      citation: actors/swiss-cantons-basel.md#positions-public
+      inferred: false
+    rnd_commitment:
+      position: "Defend Roche pRED Basel / Bau 12 R&D pipeline (CHF 1.2B through 2030); oppose US R&D substitution."
+      batna_value: 8
+      red_line_value: null
+      weight: 9
+      citation: actors/swiss-cantons-basel.md#interests-private
+      inferred: false
+    intl_ref_pricing_protection:
+      position: "Aligned with Roche on net-price firewall — protects Swiss-booked profit that funds the tax base."
+      batna_value: 3
+      red_line_value: null
+      weight: 6
+      citation: actors/swiss-cantons-basel.md#red-lines
+      inferred: true
+    patent_exclusivity:
+      position: "Aligned with Roche on preserving exclusivity to protect cantonal tax base."
+      batna_value: 7
+      red_line_value: null
+      weight: 6
+      citation: actors/swiss-cantons-basel.md#red-lines
+      inferred: true
+    ip_innovation_protection:
+      position: "Aligned with Roche on IP protection."
+      batna_value: 7
+      red_line_value: null
+      weight: 6
+      citation: actors/swiss-cantons-basel.md#red-lines
+      inferred: true
+    swiss_diplomatic_carveout:
+      position: "Maximize Swiss carve-out; KdK channel lobbies Bern for pharma protection."
+      batna_value: 6
+      red_line_value: null
+      weight: 9
+      citation: actors/swiss-cantons-basel.md#leverage
+      inferred: false
+    swiss_domestic_pricing:
+      position: "Favor higher Swiss prices because cantonal corporate-tax base rises with Roche Swiss-booked profit."
+      batna_value: 0
+      red_line_value: null
+      weight: 7
+      citation: actors/swiss-cantons-basel.md#interests-private
+      inferred: true
+
+  swiss-public-and-domestic-payers:
+    mfn_coverage:
+      position: "Concerned spillover; want US MFN deal explicitly walled off from Swiss SL pricing."
+      batna_value: 4
+      red_line_value: null
+      weight: 6
+      citation: actors/swiss-public-and-domestic-payers.md#interests-private
+      inferred: false
+    section_232_rate:
+      position: "Concerned tariffs may pass into Swiss-export-priced contracts and feed premium drift; secondary issue."
+      batna_value: 15
+      red_line_value: null
+      weight: 3
+      citation: actors/swiss-public-and-domestic-payers.md#timeline-pressures
+      inferred: true
+    intl_ref_pricing_protection:
+      position: "Ambivalent — santésuisse/curafutura demand confidential-rebate transparency within 3-5 years; patient groups want lower prices."
+      batna_value: 3
+      red_line_value: null
+      weight: 5
+      citation: actors/swiss-public-and-domestic-payers.md#red-lines
+      inferred: false
+    patient_access:
+      position: "Krebsliga and disease groups prioritize speed-of-access; santésuisse focused on lower prices not access depth."
+      batna_value: 5
+      red_line_value: null
+      weight: 6
+      citation: actors/swiss-public-and-domestic-payers.md#positions-public
+      inferred: false
+    swiss_diplomatic_carveout:
+      position: "Neutral — value framework stability but reject any treaty term that binds BAG's KVG Art. 52a authority."
+      batna_value: 6
+      red_line_value: null
+      weight: 5
+      citation: actors/swiss-public-and-domestic-payers.md#red-lines
+      inferred: false
+    swiss_domestic_pricing:
+      position: "Stalder/Konsumentenschutz: 'Es gibt keinen Grund' to raise Swiss prices; Weichelt (Grüne) calls Roche threat 'Drohgebärde'; red line on any positive change."
+      batna_value: 0
+      red_line_value: 3
+      weight: 10
+      citation: actors/swiss-public-and-domestic-payers.md#positions-public
+      inferred: false
+
+  novartis:
+    mfn_coverage:
+      position: "Lock in favorable Dec 19 2025 deal terms (Mayzent/Rydapt/Tabrecta on TrumpRx); resist scope creep onto Pluvicto/Kisqali."
+      batna_value: 4
+      red_line_value: 12
+      weight: 9
+      citation: actors/novartis.md#interests-private
+      inferred: false
+    ira_mfp_discount:
+      position: "Third Circuit closed litigation off-ramp Sep 2025; contain Round 3 (Cosentyx/Kisqali/Xolair) discount around Round 1 ~57% benchmark; 5-10% Medicaid MFN tolerable."
+      batna_value: 55
+      red_line_value: 75
+      weight: 9
+      citation: actors/novartis.md#positions-public
+      inferred: false
+    section_232_rate:
+      position: "Use Dec 2025 MFN deal to lock 0% track; 15% Swiss-framework ceiling is the BATNA floor."
+      batna_value: 15
+      red_line_value: 25
+      weight: 9
+      citation: actors/novartis.md#batna
+      inferred: false
+    us_manufacturing_share:
+      position: "Deliver $23B/5-year capex and 7 new US plants by end of framework window; politically priced into Swiss-US deal."
+      batna_value: 40
+      red_line_value: null
+      weight: 7
+      citation: actors/novartis.md#positions-public
+      inferred: false
+    rnd_commitment:
+      position: "Open San Diego $1.1B research hub 2028-29; maintain US R&D commitment as part of onshoring narrative."
+      batna_value: 8
+      red_line_value: null
+      weight: 6
+      citation: actors/novartis.md#timeline-pressures
+      inferred: true
+    trumprx_skus:
+      position: "Limited participation (3 named drugs); resist Pluvicto/Kisqali onboarding."
+      batna_value: 5
+      red_line_value: 12
+      weight: 6
+      citation: actors/novartis.md#positions-public
+      inferred: false
+    intl_ref_pricing_protection:
+      position: "Maximize firewall — global price waterfall collapse is the Caforio-fires-Narasimhan red line."
+      batna_value: 3
+      red_line_value: 2
+      weight: 10
+      citation: actors/novartis.md#red-lines
+      inferred: false
+    patient_access:
+      position: "Narasimhan reframing US debate around OOP costs (JPM 2026); supports PAP/copay smoothing as PhRMA chair."
+      batna_value: 5
+      red_line_value: null
+      weight: 5
+      citation: actors/novartis.md#positions-public
+      inferred: false
+    pipeline_pricing_protocol:
+      position: "Resist pre-launch ceiling-price framework; protect future Pluvicto/Lutathera radioligand launch flexibility."
+      batna_value: 0
+      red_line_value: 5
+      weight: 8
+      citation: actors/novartis.md#red-lines
+      inferred: true
+    patent_exclusivity:
+      position: "PhRMA priority #1 (Narasimhan): correct 9 vs 13-year small-molecule/biologic IRA timing distinction."
+      batna_value: 7
+      red_line_value: 4
+      weight: 8
+      citation: actors/novartis.md#positions-public
+      inferred: false
+    ip_innovation_protection:
+      position: "Treat compulsory licensing on radioligands/Cosentyx as expropriation; defend BPCIA/patent-listing posture."
+      batna_value: 7
+      red_line_value: 4
+      weight: 9
+      citation: actors/novartis.md#red-lines
+      inferred: false
+    swiss_diplomatic_carveout:
+      position: "Aligned with Roche on Swiss-specific carve-out; underwrote 15% Section 232 cap with combined $73B investment pledge."
+      batna_value: 6
+      red_line_value: 3
+      weight: 8
+      citation: actors/novartis.md#leverage
+      inferred: false
+    swiss_domestic_pricing:
+      position: "Inferred preference for higher Swiss prices to support MFN benchmark; aligned with Roche's Schinecker."
+      batna_value: 0
+      red_line_value: -10
+      weight: 6
+      citation: actors/novartis.md#interests-private
+      inferred: true
+
+  pbms-and-payers:
+    mfn_coverage:
+      position: "Oppose MFN list-price cuts that erode rebate base; PCMA framed CAA 2026 PBM reform as 'Big Pharma Wins Big'."
+      batna_value: 4
+      red_line_value: null
+      weight: 7
+      citation: actors/pbms-and-payers.md#positions-public
+      inferred: false
+    ira_mfp_discount:
+      position: "Negative on deeper discounts that shrink gross-to-net spread; CMS GLOBE/GUARD models erode PBM rebate margin."
+      batna_value: 55
+      red_line_value: null
+      weight: 7
+      citation: actors/pbms-and-payers.md#timeline-pressures
+      inferred: false
+    trumprx_skus:
+      position: "Oppose TrumpRx expansion as direct disintermediation; OptumRx alone managed $87B specialty spend in 2025 at risk."
+      batna_value: 5
+      red_line_value: 15
+      weight: 9
+      citation: actors/pbms-and-payers.md#interests-private
+      inferred: false
+    intl_ref_pricing_protection:
+      position: "Support confidentiality firewall — rebate model relies on per-drug net-price confidentiality."
+      batna_value: 3
+      red_line_value: null
+      weight: 8
+      citation: actors/pbms-and-payers.md#red-lines
+      inferred: false
+    patient_access:
+      position: "Cigna pivoting commercial book to rebate-free / point-of-sale savings (Oct 2025) — defensive support for OOP relief."
+      batna_value: 5
+      red_line_value: null
+      weight: 5
+      citation: actors/pbms-and-payers.md#positions-public
+      inferred: false
+
+  patient-advocacy:
+    mfn_coverage:
+      position: "AARP conditionally supportive of MFN; P4AD dismissive as 'voluntary'; disease groups quietly worry about launch delays."
+      batna_value: 4
+      red_line_value: null
+      weight: 6
+      citation: actors/patient-advocacy.md#positions-public
+      inferred: false
+    ira_mfp_discount:
+      position: "AARP/P4AD aggressively defend IRA Round 1-3 discounts as their 2022 statutory achievement; 91%/95% AARP polling support."
+      batna_value: 55
+      red_line_value: 30
+      weight: 10
+      citation: actors/patient-advocacy.md#positions-public
+      inferred: false
+    trumprx_skus:
+      position: "Generally supportive of DTC pricing transparency; disease groups concerned about specialty-drug access."
+      batna_value: 5
+      red_line_value: null
+      weight: 6
+      citation: actors/patient-advocacy.md#interests-private
+      inferred: true
+    intl_ref_pricing_protection:
+      position: "P4AD against confidentiality; disease groups defer to manufacturer position on confidential rebates as price of access."
+      batna_value: 3
+      red_line_value: null
+      weight: 5
+      citation: actors/patient-advocacy.md#notes-on-intra-actor-coalitions
+      inferred: true
+    patient_access:
+      position: "AARP/P4AD top priority — lower OOP costs (91% of older adults call it a priority); disease groups want broader formulary access."
+      batna_value: 5
+      red_line_value: 2
+      weight: 10
+      citation: actors/patient-advocacy.md#interests-private
+      inferred: false
+    pipeline_pricing_protocol:
+      position: "P4AD wants Medicare negotiation extended pre-launch and into commercial market; disease groups oppose if it triggers US launch delays."
+      batna_value: 0
+      red_line_value: null
+      weight: 6
+      citation: actors/patient-advocacy.md#positions-public
+      inferred: false
+    patent_exclusivity:
+      position: "P4AD and AARP against patent-extension games; disease groups quieter."
+      batna_value: 7
+      red_line_value: null
+      weight: 5
+      citation: actors/patient-advocacy.md#interests-private
+      inferred: true
+    ip_innovation_protection:
+      position: "P4AD supports IRA defense against AbbVie/Novartis/Merck lawsuits; disease groups soft-pedal IP attacks."
+      batna_value: 7
+      red_line_value: null
+      weight: 5
+      citation: actors/patient-advocacy.md#positions-public
+      inferred: false
+
+  eu-reference-pricing:
+    mfn_coverage:
+      position: "Oppose MFN benchmark expansion that creates upward pressure on EU prices to protect US basket."
+      batna_value: 4
+      red_line_value: null
+      weight: 7
+      citation: actors/eu-reference-pricing.md#red-lines
+      inferred: true
+    section_232_rate:
+      position: "EFPIA called 15% tariff a breach of '30-year commitment'; payers neutral on rate itself."
+      batna_value: 15
+      red_line_value: null
+      weight: 3
+      citation: actors/eu-reference-pricing.md#positions-public
+      inferred: false
+    rnd_commitment:
+      position: "Critical Medicines Act + EU Pharma Package favor EU R&D retention; oppose US R&D substitution."
+      batna_value: 8
+      red_line_value: null
+      weight: 6
+      citation: actors/eu-reference-pricing.md#interests-private
+      inferred: false
+    trumprx_skus:
+      position: "Oppose — published MFN-aligned TrumpRx prices feed straight into EU reference baskets."
+      batna_value: 5
+      red_line_value: null
+      weight: 6
+      citation: actors/eu-reference-pricing.md#red-lines
+      inferred: true
+    intl_ref_pricing_protection:
+      position: "Germany Medical Research Act (Jan 2025) confidential Erstattungsbetrag — designed exactly to insulate EU from MFN spillover; G-BA removed IRP criterion 1 Jan 2025."
+      batna_value: 3
+      red_line_value: null
+      weight: 9
+      citation: actors/eu-reference-pricing.md#positions-public
+      inferred: false
+    swiss_diplomatic_carveout:
+      position: "Resent bilateral Swiss carve-outs that fragment EU negotiating position; UK already picked off via US-UK arrangement."
+      batna_value: 6
+      red_line_value: null
+      weight: 5
+      citation: actors/eu-reference-pricing.md#notes-on-intra-actor-coalitions
+      inferred: true
+    swiss_domestic_pricing:
+      position: "Oppose Swiss price rise — would feed German AMNOG and French CEPS baskets upward."
+      batna_value: 0
+      red_line_value: 10
+      weight: 6
+      citation: actors/eu-reference-pricing.md#red-lines
+      inferred: true
+
+  biosimilars-competitors:
+    mfn_coverage:
+      position: "Want MFN narrowly tailored to single-source brands (HHS confirmed scope); reduce brand MFN cuts that suppress biosimilar uptake incentive."
+      batna_value: 4
+      red_line_value: null
+      weight: 7
+      citation: actors/biosimilars-competitors.md#red-lines
+      inferred: false
+    ira_mfp_discount:
+      position: "Support CMS 'bona fide marketing' delisting (Stelara/Entresto/Xarelto precedent); want brand off the negotiation list once biosimilar launches."
+      batna_value: 55
+      red_line_value: null
+      weight: 8
+      citation: actors/biosimilars-competitors.md#interests-private
+      inferred: false
+    trumprx_skus:
+      position: "Supportive — Amgen Amjevita already on TrumpRx; positions biosimilars as the proof case the DTC model works."
+      batna_value: 5
+      red_line_value: null
+      weight: 6
+      citation: actors/biosimilars-competitors.md#leverage
+      inferred: false
+    intl_ref_pricing_protection:
+      position: "Against firewall — brand transparency drives biosimilar substitution; rebate confidentiality benefits incumbents."
+      batna_value: 3
+      red_line_value: null
+      weight: 5
+      citation: actors/biosimilars-competitors.md#interests-private
+      inferred: true
+    patient_access:
+      position: "Frame biosimilars as the $189B/10-year savings answer to access; support pharmacist substitution statutes."
+      batna_value: 5
+      red_line_value: null
+      weight: 7
+      citation: actors/biosimilars-competitors.md#positions-public
+      inferred: false
+    patent_exclusivity:
+      position: "Support BPCIA 180-day interchangeable exclusivity; S.1954/H.R.5526 to collapse biosimilar/interchangeable distinction at FDA approval."
+      batna_value: 7
+      red_line_value: 9
+      weight: 9
+      citation: actors/biosimilars-competitors.md#interests-private
+      inferred: false
+    ip_innovation_protection:
+      position: "Against strong brand IP — biosimilar share growth depends on patent dance / IPR challenges; pure-play biosimilars want IP weakened."
+      batna_value: 7
+      red_line_value: 9
+      weight: 8
+      citation: actors/biosimilars-competitors.md#interests-private
+      inferred: false
+
+  investors:
+    mfn_coverage:
+      position: "Negative — every Roche US SKU under MFN compresses contribution margin; market read Dec 2025 deal as net-positive only because tariff-offset bundled."
+      batna_value: 4
+      red_line_value: 15
+      weight: 8
+      citation: actors/investors.md#interests-private
+      inferred: false
+    ira_mfp_discount:
+      position: "Negative on deeper discounts — IRA Round 3 Xolair already priced; further haircut visible in DCFs from 2028."
+      batna_value: 55
+      red_line_value: 75
+      weight: 7
+      citation: actors/investors.md#timeline-pressures
+      inferred: true
+    section_232_rate:
+      position: "Strongly positive on 0% MFN-deal track; RBC called Section 232 structure 'removes a policy overhang'; ROG up 22.55% TTM into May 2026."
+      batna_value: 15
+      red_line_value: 25
+      weight: 8
+      citation: actors/investors.md#positions-public
+      inferred: false
+    us_manufacturing_share:
+      position: "Want capex discipline — clarity on whether $50B is funded out of cash flow or crowds out buybacks/dividend."
+      batna_value: 40
+      red_line_value: 55
+      weight: 6
+      citation: actors/investors.md#interests-private
+      inferred: false
+    trumprx_skus:
+      position: "Negative on platform expansion — erodes channel margins and threatens PBM relationships."
+      batna_value: 5
+      red_line_value: 15
+      weight: 6
+      citation: actors/investors.md#interests-private
+      inferred: true
+    intl_ref_pricing_protection:
+      position: "Strongly positive on firewall — open-ended MFN re-referencing to moving EU basket without sunset is the underweighting trigger."
+      batna_value: 3
+      red_line_value: 2
+      weight: 9
+      citation: actors/investors.md#red-lines
+      inferred: false
+    pipeline_pricing_protocol:
+      position: "Negative — pre-launch CMS ceiling-price reduces pipeline NPV (giredestrant, fenebrutinib, trontinemab, obesity asset)."
+      batna_value: 0
+      red_line_value: 5
+      weight: 8
+      citation: actors/investors.md#interests-private
+      inferred: true
+    patent_exclusivity:
+      position: "Positive on preserving current 13-year biologic / 9-year small-molecule timelines; supports EPIC Act direction."
+      batna_value: 7
+      red_line_value: 4
+      weight: 7
+      citation: actors/investors.md#red-lines
+      inferred: true
+    ip_innovation_protection:
+      position: "Positive on strong IP protection; any march-in / compulsory-licensing language would trigger downgrades."
+      batna_value: 7
+      red_line_value: 4
+      weight: 8
+      citation: actors/investors.md#red-lines
+      inferred: true
+    swiss_diplomatic_carveout:
+      position: "Positive — 0% MFN-deal track plus 15% Swiss cap is the foundation of the constructive analyst narrative."
+      batna_value: 6
+      red_line_value: 3
+      weight: 7
+      citation: actors/investors.md#positions-public
+      inferred: false
+    swiss_domestic_pricing:
+      position: "Positive on modest Swiss price rise that protects MFN benchmark; negative on any forced Swiss price cut."
+      batna_value: 0
+      red_line_value: -10
+      weight: 5
+      citation: actors/investors.md#interests-private
+      inferred: true

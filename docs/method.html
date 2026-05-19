@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Method — Roche pharma-pricing negotiation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/passcode.js"></script>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a href="index.html" class="brand" style="text-decoration:none;">Roche pricing negotiation <span class="accent">simulation</span></a>
+    <nav>
+        <a href="index.html">Overview</a>
+        <a href="recommendation.html">Recommendation</a>
+        <a href="simulation.html">Live simulation</a>
+        <a href="playground.html">Playground</a>
+        <a href="actors.html">Actors</a>
+        <a href="positions.html">Positions</a>
+        <a href="prompts.html">Prompts</a>
+        <a href="transcripts.html">Transcripts</a>
+        <a href="method.html" class="active">Method</a>
+    </nav>
+    <div class="meta">snapshot 2026-05-19</div>
+  </div>
+</header>
+
+<main class="prose">
+
+<h1>Methodology</h1>
+<p class="subtitle">How the model works · why it is calibrated · what it cannot see</p>
+
+
+<div class="exec-summary">
+  <div class="head">Method in 30 seconds</div>
+  <h3>Transparent linear payoffs, multi-concept equilibrium</h3>
+  
+<ul>
+<li><strong>Each actor has interests (with weights) on each issue.</strong> Payoff is a linear sum of weighted normalised issue values. Red-line violations apply a hard sub-BATNA penalty.</li>
+<li><strong>Four equilibrium concepts</strong> are solved per scenario: Nash bargaining (efficient compromise weighted by leverage), Kalai&ndash;Smorodinsky (proportional fairness), Shapley (marginal contribution), core check (coalition stability).</li>
+<li><strong>The calibration test</strong> is that the actual May 2026 status quo is feasible under the model. If the model said Roche should have walked from a deal it already signed, it would be unusable. Test passes.</li>
+<li><strong>What the model cannot see:</strong> confidential PBM rebates, EU Managed Entry Agreements, NDA-protected positions. It works with public information only.</li>
+</ul>
+
+</div>
+
+
+<div class="callout green">
+  <strong>Calibration claim, verifiable:</strong> Run <code>python -m pytest model/tests/</code> in the repository.
+  The test <code>test_status_quo_feasible</code> confirms the actual May 2026 signed state
+  (Dec-2025 Genentech MFN + Nov-2025 Swiss framework + Jan-2026 IRA Round 3 + Apr-2026 Section 232)
+  is feasible under the model.
+</div>
+
+<h1 id="game-model-phase-b">Game model (Phase B)</h1>
+<p>Formal payoff model for the Roche pharma-pricing negotiation. Reads the
+sourced knowledge base from <code>data/</code> and turns it into actor utility functions
+plus a small library of equilibrium solvers.</p>
+<h2 id="design-choices">Design choices</h2>
+<ul>
+<li><strong>Linear in normalised issue value × actor weight × direction.</strong> Simple,
+  inspectable, monotone by construction. Red-line violations apply a single
+  hard penalty below BATNA. We do not fit a nonlinear surface; if a kink is
+  needed, add it explicitly as a piecewise linear segment with a citation in
+  positions.yaml.</li>
+<li><strong>Grid search, not gradient descent.</strong> The design space is conceptual not
+  numeric. A linear objective on a hyper-rectangle has its optimum at a
+  vertex, and a small grid captures most realistic mid-points. If you need
+  finer resolution, raise <code>n_per_issue</code>.</li>
+<li><strong>Multiple solution concepts.</strong> Each diagnoses a different question:</li>
+<li><strong>Nash bargaining (asymmetric):</strong> efficient compromise weighted by
+    importance.</li>
+<li><strong>Kalai–Smorodinsky:</strong> proportional gain, fairer than Nash.</li>
+<li><strong>Shapley values:</strong> who marginally contributes to the negotiation
+    surplus? Surfaces <em>who is loud but contributes little</em>, vs <em>who is
+    quiet but pivotal</em>.</li>
+<li><strong>Core check:</strong> is the proposed deal stable, or would some sub-coalition
+    rather walk?</li>
+</ul>
+<h2 id="cli">CLI</h2>
+<p>From the repo root (with deps installed):</p>
+<pre><code class="language-bash">python -m model                       # status_quo, payoffs only
+python -m model status_quo --concept all
+python -m model mfn_hardline --concept nash
+python -m model basel_relocation_stress --concept ks
+python -m model --list
+</code></pre>
+<h2 id="files">Files</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data.py</code></td>
+<td>Load <code>data/issues.yaml</code> and <code>data/positions.yaml</code> into typed structs</td>
+</tr>
+<tr>
+<td><code>payoffs.py</code></td>
+<td><code>payoff(actor, deal, data) -&gt; float</code>; red-line aware</td>
+</tr>
+<tr>
+<td><code>equilibria.py</code></td>
+<td>Nash, KS, Shapley, core, Pareto frontier</td>
+</tr>
+<tr>
+<td><code>scenarios.py</code></td>
+<td>Named scenarios</td>
+</tr>
+<tr>
+<td><code>__main__.py</code></td>
+<td>CLI entry</td>
+</tr>
+<tr>
+<td><code>tests/</code></td>
+<td>pytest: monotonicity, BATNA dominance, red-line penalty, Genentech calibration</td>
+</tr>
+</tbody>
+</table>
+<h2 id="intended-use">Intended use</h2>
+<ul>
+<li>The <strong>playground</strong> (Phase C) embeds a JS port of <code>payoffs.py</code> for live
+  sliders. Whenever the YAML files change, the playground re-generates its
+  embedded constants.</li>
+<li>The <strong>agents</strong> harness (Phase D) uses <code>data.positions</code> to construct actor
+  dossiers and uses <code>summarize()</code> to score proposals.</li>
+<li>The <strong>memo</strong> generator (Phase E) reads the equilibrium outcomes plus the
+  novelty engine's idea pool to populate the advisory template.</li>
+</ul>
+<h2 id="known-limits">Known limits</h2>
+<ul>
+<li>The hard red-line penalty is large but finite — search routines should not
+  treat <code>-1000.0</code> as a numerical bug. It's the design.</li>
+<li>Shapley over 12 actors is 4096 coalitions; at <code>n_per_issue=2</code> it runs in a
+  few seconds. At <code>n_per_issue=3</code> it takes ~1 minute. For interactive use,
+  prefer 2.</li>
+<li>The <code>_default_weights</code> for Nash bargaining proxies leverage by mean
+  importance weight. That's a placeholder — a more principled weighting
+  would use coalition-formation theory. See the open decision in the plan.</li>
+</ul>
+
+<h2>Limits</h2>
+
+<ul>
+  <li>Linear payoffs with hard red-line kinks. The model does not capture nonlinear bargaining dynamics (e.g., increasing returns to coalition size, or face-saving thresholds with mass-discontinuities).</li>
+  <li>Each actor's weights and red lines are sourced from public statements where possible and marked <code>inferred: true</code> otherwise. See the <a href="positions.html">positions matrix</a>.</li>
+  <li>Confidential net prices (PBM rebates, EU Managed Entry Agreements) are not visible to the model. The international-reference-pricing-protection issue is a coarse proxy for what is in reality a contract-by-contract dance.</li>
+  <li>The model treats actors as unitary at the level of disaggregation specified (12 actors). Deeper disaggregation (e.g., separating US Executive into White House / HHS / CMS / USTR) is a planned extension.</li>
+  <li>The <a href="simulation.html">live simulation</a> page plays back a hand-curated 18-event trilateral negotiation transcript with statements written to match each actor's documented positions. The agent <code>--live</code> mode (in the repository) uses Claude as each actor and is non-deterministic; treat it as exploratory, not predictive.</li>
+</ul>
+
+<h2>Re-running the model</h2>
+
+<pre><code>python -m pytest model/tests/              # verify calibration
+python -m model status_quo --concept all   # equilibrium predictions
+python -m agents.runner --scenario status_quo --protocol full_multilateral
+python -m novelty.collide --scenario status_quo --domains reinsurance-pooling
+python -m memo.generator --scenario status_quo --equilibrium nash
+python tools/build_site.py                  # rebuild this site</code></pre>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <span>Independent public-source analysis · snapshot 2026-05-19 · restricted access</span>
+    <span>Not an official Roche document · <a href="method.html">method &amp; limits</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

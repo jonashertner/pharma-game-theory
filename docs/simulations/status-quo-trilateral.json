@@ -1,0 +1,168 @@
+{
+  "scenario_id": "status_quo",
+  "scenario_name": "Trilateral negotiation, May 2026",
+  "protocol_id": "trilateral_us_ch_roche",
+  "protocol_name": "Trilateral US ↔ CH ↔ Roche",
+  "setting": "May 2026. The November 2025 US–Switzerland–Liechtenstein framework is in force; the December 2025 Genentech MFN deal is signed; Section 232 takes effect July 31. Three principals at the table: Roche, the US Executive (acting through HHS/CMS/USTR consolidated), and the Swiss Federal Council (Parmelin as 2026 President + SECO lead).",
+  "participants": ["roche", "us-executive", "swiss-federal-council"],
+  "initial_deal": {
+    "mfn_coverage": 4, "ira_mfp_discount": 55, "section_232_rate": 0,
+    "us_manufacturing_share": 40, "rnd_commitment": 8, "trumprx_skus": 5,
+    "intl_ref_pricing_protection": 3, "patient_access": 5,
+    "pipeline_pricing_protocol": 0, "patent_exclusivity": 7,
+    "ip_innovation_protection": 7, "swiss_diplomatic_carveout": 6,
+    "swiss_domestic_pricing": 0
+  },
+  "events": [
+    {
+      "round": 1, "actor": "roche", "ts_ms": 0,
+      "speaker": "Roche / Genentech",
+      "statement": "The December MFN deal closed a chapter, not a book. Genentech signed because Section 232 at thirty-nine percent wasn't survivable for our US channel. Where we have unused space at this table is the international reference-pricing firewall. Our weight on this issue is the highest of any in our portfolio, and the current floor — three on the ten-point ordinal — leaves room. Strengthening it through bilateral confidentiality language in the Swiss annex costs the administration nothing on its visible MFN price commitments and protects what we cannot afford to lose: ex-US net-price erosion via OECD reference baskets.",
+      "action": "PROPOSE",
+      "moves": [
+        {"issue": "intl_ref_pricing_protection", "from": 3, "to": 6, "rationale": "Roche's highest-weight issue; current floor well below achievable; mirrors Germany Medical Research Act January 2025 template."}
+      ]
+    },
+    {
+      "round": 1, "actor": "us-executive", "ts_ms": 14000,
+      "speaker": "US Executive (HHS/CMS/USTR)",
+      "statement": "The December framework is closed. The Section 232 zero-percent track is conditional on US capacity build, not awarded. We hear Roche on reference-pricing — but we cannot deliver a Roche-specific carve-out that lands as 'Swiss-firm sweetheart deal' in coverage. What we need from Round 2 is visible deliverables: capex acceleration on the fifty-billion-dollar pledge, more SKUs on TrumpRx for the political narrative, and certainty that the Round 3 IRA prices on Xolair land where they need to. We're not reopening MFN coverage but we'll add a TrumpRx ceiling — call it the right to feature, not the right to exclude — in exchange for movement on the others.",
+      "action": "COUNTER",
+      "moves": [
+        {"issue": "us_manufacturing_share", "from": 40, "to": 50, "rationale": "binding milestones required; capex pledge accountability."},
+        {"issue": "trumprx_skus", "from": 5, "to": 12, "rationale": "political visibility lever; required for MFN-cohort optics."}
+      ]
+    },
+    {
+      "round": 1, "actor": "swiss-federal-council", "ts_ms": 32000,
+      "speaker": "Swiss Federal Council (Parmelin)",
+      "statement": "Our mandate from the Federal Council on January fourteenth is preserving the November fourteenth framework. We do not negotiate domestic LAMal pricing under treaty — that is constitutionally not on this table; BAG retains statutory authority under KVG Article 52a. What we can offer is bilateral annex language on the Swiss pharma carve-out — making the confidential-net-price firewall a feature of the Swiss-US framework rather than a Roche-specific exception. That removes Washington's optics problem. The German MRA template since January 2025 shows the mechanism works without IRP backdoor disclosure.",
+      "action": "PROPOSE",
+      "moves": [
+        {"issue": "swiss_diplomatic_carveout", "from": 6, "to": 8, "rationale": "bilateral annex strengthens framework durability; clears optical objection."},
+        {"issue": "intl_ref_pricing_protection", "from": 3, "to": 7, "rationale": "via MRA-style symmetric framework template; not Swiss-firm-specific."}
+      ]
+    },
+    {
+      "round": 2, "actor": "roche", "ts_ms": 52000,
+      "speaker": "Roche / Genentech",
+      "statement": "The Swiss annex framing is right. We won't push for a Roche-specific carve-out; we'll accept symmetric language applying to all seventeen MFN signatories. That removes the optics issue and gets us substance. On manufacturing: we'll accelerate to forty-six percent by 2028 with milestone-gated tariff reductions — EPC-finance style, independent engineer certification per milestone. TrumpRx we can go to nine SKUs in this round; twelve requires Bau 12 completion gating, which is Q4 2029.",
+      "action": "COUNTER",
+      "moves": [
+        {"issue": "us_manufacturing_share", "from": 50, "to": 46, "rationale": "EPC-milestone-gated; matches Bau 12 timeline through 2029."},
+        {"issue": "trumprx_skus", "from": 12, "to": 9, "rationale": "Q1 2030 floor for twelve; nine deliverable now."}
+      ]
+    },
+    {
+      "round": 2, "actor": "us-executive", "ts_ms": 78000,
+      "speaker": "US Executive (HHS/CMS/USTR)",
+      "statement": "Symmetric language on the firewall we can sell. Bern, the question for you: if the firewall framework leaks back into Swiss domestic pricing on Roche's Spezialitätenliste — meaning Schinecker's October ask resurfaces — we lose. We don't want to be back-doored into raising your prices to protect our optics. Your mandate carries the cantons and the public?",
+      "action": "COUNTER",
+      "moves": [
+        {"issue": "swiss_domestic_pricing", "from": 0, "to": 0, "rationale": "explicit zero-anchor as treaty parameter to prevent back-door BAG list-price increases."}
+      ]
+    },
+    {
+      "round": 2, "actor": "swiss-federal-council", "ts_ms": 104000,
+      "speaker": "Swiss Federal Council (Parmelin)",
+      "statement": "The mandate carries Bern and SECO. It does not carry the cantons on a unilateral commitment to BAG list-price floors — that's federalism. But on swiss_domestic_pricing as a treaty parameter: we agree it stays at zero. The cantons need the trade deal preserved more than they need pharmacy-counter price increases. The mandate I adopted on January fourteenth is what I'll carry; if Schinecker wants higher Swiss list prices, that goes through the Spezialitätenliste triennial review under BAG, not through this room. We can include audit-rights language — Swiss-Federal-Audit-Office model — for the firewall annex.",
+      "action": "PROPOSE",
+      "moves": [
+        {"issue": "swiss_domestic_pricing", "from": 0, "to": 0, "rationale": "locked at zero; audit-rights language to firewall annex."}
+      ]
+    },
+    {
+      "round": 3, "actor": "roche", "ts_ms": 132000,
+      "speaker": "Roche / Genentech",
+      "statement": "Locking swiss_domestic_pricing at zero costs us a hedge — but it's the right call because it neutralizes the Swiss-public veto. We accept it. On Bau 12 timing — we'll commit to twelve TrumpRx SKUs by Q1 2030, with nine in this round. That's our floor. Where we still need to negotiate is the IP innovation protection clause: with the EPIC Act in flight and the bipartisan PBM-reform package signed February third, we need explicit language that the firewall annex does not establish a precedent for IRA Round 4 selection criteria. Otherwise we're trading Roche-Genentech 2026 for IRA pipeline exposure 2028+.",
+      "action": "PROPOSE",
+      "moves": [
+        {"issue": "ip_innovation_protection", "from": 7, "to": 8, "rationale": "no-precedent language for IRA Round 4 selection criteria."}
+      ]
+    },
+    {
+      "round": 3, "actor": "us-executive", "ts_ms": 158000,
+      "speaker": "US Executive (HHS/CMS/USTR)",
+      "statement": "No-precedent language is a question for OGC, but the political answer is: we can't bind a future administration's IRA selection process. We can give you a Statement-of-Intent — non-binding, on the record — that the Swiss annex framework is not a model for IRA selection criteria. That's the strongest 'no precedent' we can offer. The PBM reform package signed February third is structurally different from MFN; that connection isn't going to be made in OGC anyway.",
+      "action": "COUNTER",
+      "moves": [
+        {"issue": "ip_innovation_protection", "from": 8, "to": 7, "rationale": "Statement-of-Intent in place of formal precedent language; can't bind future administrations."}
+      ]
+    },
+    {
+      "round": 3, "actor": "swiss-federal-council", "ts_ms": 180000,
+      "speaker": "Swiss Federal Council (Parmelin)",
+      "statement": "The Statement-of-Intent satisfies my Federal Council reporting requirement. We can publish it as part of the annex framework. The package as it stands: symmetric firewall annex with confidentiality plus audit, swiss_diplomatic_carveout strengthened, us_manufacturing_share to forty-six with milestone gating, TrumpRx plus four SKUs in this round, swiss_domestic_pricing locked at zero. Bern signs.",
+      "action": "ACCEPT",
+      "moves": []
+    },
+    {
+      "round": 4, "actor": "roche", "ts_ms": 210000,
+      "speaker": "Roche / Genentech",
+      "statement": "Before we move to drafting: patient advocacy and biosimilars are not at this table but they will react. AARP and P4AD reading the firewall annex will read it as 'Roche escapes MFN' — even though it's about ex-US prices. We need accompanying language on patient_access — copay smoothing, expanded PAP — that lets them claim a parallel win. Otherwise Cassidy's primary loss on May sixteenth becomes other Republican primaries on this issue. The bipartisan PBM coalition will defect.",
+      "action": "PROPOSE",
+      "moves": [
+        {"issue": "patient_access", "from": 5, "to": 7, "rationale": "PAP expansion + copay smoothing pre-empts patient-advocacy defection."}
+      ]
+    },
+    {
+      "round": 4, "actor": "us-executive", "ts_ms": 234000,
+      "speaker": "US Executive (HHS/CMS/USTR)",
+      "statement": "Patient_access at seven we can broadcast. Make it fifteen-hundred-dollar OOP cap on Genentech specialty drugs over thirty-thousand-dollar list — that's a number reporters can cite. The bipartisan coalition holds if AARP can endorse on Day 1. We'll coordinate the announcement timing.",
+      "action": "PROPOSE",
+      "moves": [
+        {"issue": "patient_access", "from": 7, "to": 7, "rationale": "value confirmed with concrete $1,500 OOP figure for specialty drugs >$30K list."}
+      ]
+    },
+    {
+      "round": 4, "actor": "swiss-federal-council", "ts_ms": 252000,
+      "speaker": "Swiss Federal Council (Parmelin)",
+      "statement": "Patient access on US channels is a US-internal matter; no Swiss objection. We'll coordinate announcement language for the framework annex separately.",
+      "action": "ACCEPT",
+      "moves": []
+    },
+    {
+      "round": 5, "actor": "roche", "ts_ms": 270000,
+      "speaker": "Roche / Genentech",
+      "statement": "The Celltrion Omlyclo launch is September first. The annex framework needs not to be triggered by the IRA Round 3 Xolair selection — otherwise the firewall language activates for a drug that's about to face biosimilar competition anyway. Carve Xolair out of the IRP-firewall framework: we don't need protection on a drug whose patent moot point is two months away.",
+      "action": "PROPOSE",
+      "moves": []
+    },
+    {
+      "round": 5, "actor": "us-executive", "ts_ms": 290000,
+      "speaker": "US Executive (HHS/CMS/USTR)",
+      "statement": "Xolair carve-out is fine. The Round 3 process is statutory; we can't unwind it via this framework anyway. Cosentyx and the Round 3 cohort generally are similarly carved out — IRA process is sacrosanct on those.",
+      "action": "ACCEPT",
+      "moves": []
+    },
+    {
+      "round": 5, "actor": "swiss-federal-council", "ts_ms": 308000,
+      "speaker": "Swiss Federal Council (Parmelin)",
+      "statement": "One last point: the snap-back provisions. If Section 232 reverts in January 2029, what's the trigger condition? We need ninety-day notice with bilateral consultation. Otherwise Bern can't defend the framework politically in the run-up to the 2027 elections.",
+      "action": "PROPOSE",
+      "moves": []
+    },
+    {
+      "round": 6, "actor": "us-executive", "ts_ms": 326000,
+      "speaker": "US Executive (HHS/CMS/USTR)",
+      "statement": "Notice period accepted. Bilateral consultation acceptable; not a veto. The package as it stands clears my approval threshold. I'll need to socialize with OGC and CMS before signature but no fundamental obstacles.",
+      "action": "ACCEPT",
+      "moves": []
+    },
+    {
+      "round": 6, "actor": "roche", "ts_ms": 346000,
+      "speaker": "Roche / Genentech",
+      "statement": "All milestone language and gating provisions reviewed against the December MFN deal text — no inconsistencies. We'll need a written copy of the Statement-of-Intent before initialing. Approved subject to that documentation.",
+      "action": "ACCEPT",
+      "moves": []
+    },
+    {
+      "round": 6, "actor": "swiss-federal-council", "ts_ms": 362000,
+      "speaker": "Swiss Federal Council (Parmelin)",
+      "statement": "Bern accepts subject to Federal Council approval — collegial decision required, not in my unilateral authority. I'll table for the May twenty-eighth meeting. Anticipate confirmation by June fourth. Until then this transcript is held under the November framework consultation privilege.",
+      "action": "ACCEPT",
+      "moves": []
+    }
+  ],
+  "convergence_note": "Provisional acceptance by all three principals at Round 6. Final ratification contingent on (a) Roche review of written Statement-of-Intent text, and (b) Swiss Federal Council collegial approval at May 28 meeting (expected confirmation by June 4)."
+}

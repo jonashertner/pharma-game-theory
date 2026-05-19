@@ -1,0 +1,238 @@
+{
+  "scenario_id": "status_quo",
+  "protocol_id": "trilateral_us_ch_roche",
+  "mode": "heuristic",
+  "converged": false,
+  "final_deal": {
+    "mfn_coverage": 14.78125,
+    "ira_mfp_discount": 42.109375,
+    "section_232_rate": 0.0,
+    "us_manufacturing_share": 40.0,
+    "rnd_commitment": 8.0,
+    "trumprx_skus": 10.859375,
+    "intl_ref_pricing_protection": 5.896728515625,
+    "patient_access": 5.0,
+    "pipeline_pricing_protocol": 0.0,
+    "patent_exclusivity": 7.0,
+    "ip_innovation_protection": 7.0,
+    "swiss_diplomatic_carveout": 6.9375,
+    "swiss_domestic_pricing": 0.0
+  },
+  "final_payoffs": {
+    "roche": 18.13506184895833,
+    "us-executive": 4.896769205729166,
+    "us-congress": 8.883333333333333,
+    "swiss-federal-council": 11.3958349609375,
+    "swiss-cantons-basel": 8.028749999999999,
+    "swiss-public-and-domestic-payers": -6.77375,
+    "novartis": -1000.0,
+    "pbms-and-payers": -4.2943750000000005,
+    "patient-advocacy": 4.2609326171875,
+    "eu-reference-pricing": -7.9029443359375,
+    "biosimilars-competitors": -21.1286767578125,
+    "investors": 14.9418603515625
+  },
+  "final_batnas": {
+    "roche": 14.913333333333332,
+    "us-executive": 4.666666666666668,
+    "us-congress": 8.883333333333333,
+    "swiss-federal-council": -1000.0,
+    "swiss-cantons-basel": 7.559999999999998,
+    "swiss-public-and-domestic-payers": -5.93,
+    "novartis": 14.442499999999999,
+    "pbms-and-payers": -4.4725,
+    "patient-advocacy": 4.855,
+    "eu-reference-pricing": -7.360000000000001,
+    "biosimilars-competitors": -19.46,
+    "investors": 12.247499999999999
+  },
+  "actors_below_batna": [
+    "swiss-public-and-domestic-payers",
+    "novartis",
+    "patient-advocacy",
+    "eu-reference-pricing",
+    "biosimilars-competitors"
+  ],
+  "turns": [
+    {
+      "round": 1,
+      "actor": "roche",
+      "action": "PROPOSE",
+      "moves": [
+        {
+          "issue": "intl_ref_pricing_protection",
+          "to": 4.75,
+          "rationale": "high-weight (7.0) issue, step toward preferred direction"
+        }
+      ],
+      "rationale": "heuristic: highest-weight \u00d7 slack issue, 25% step",
+      "payoff_after": 16.413333333333334,
+      "batna": 14.913333333333332
+    },
+    {
+      "round": 1,
+      "actor": "us-executive",
+      "action": "PROPOSE",
+      "moves": [
+        {
+          "issue": "mfn_coverage",
+          "to": 15.5,
+          "rationale": "high-weight (9.2) issue, step toward preferred direction"
+        }
+      ],
+      "rationale": "heuristic: highest-weight \u00d7 slack issue, 25% step",
+      "payoff_after": 4.054166666666667,
+      "batna": 4.666666666666668
+    },
+    {
+      "round": 1,
+      "actor": "swiss-federal-council",
+      "action": "PROPOSE",
+      "moves": [
+        {
+          "issue": "intl_ref_pricing_protection",
+          "to": 5.40625,
+          "rationale": "high-weight (4.3) issue, step toward preferred direction"
+        }
+      ],
+      "rationale": "heuristic: highest-weight \u00d7 slack issue, 25% step",
+      "payoff_after": 9.747499999999999,
+      "batna": -1000.0
+    },
+    {
+      "round": 2,
+      "actor": "roche",
+      "action": "PROPOSE",
+      "moves": [
+        {
+          "issue": "ira_mfp_discount",
+          "to": 41.25,
+          "rationale": "high-weight (5.5) issue, step toward preferred direction"
+        }
+      ],
+      "rationale": "heuristic: highest-weight \u00d7 slack issue, 25% step",
+      "payoff_after": 17.01895833333333,
+      "batna": 14.913333333333332
+    },
+    {
+      "round": 2,
+      "actor": "us-executive",
+      "action": "PROPOSE",
+      "moves": [
+        {
+          "issue": "trumprx_skus",
+          "to": 11.25,
+          "rationale": "high-weight (8.3) issue, step toward preferred direction"
+        }
+      ],
+      "rationale": "heuristic: highest-weight \u00d7 slack issue, 25% step",
+      "payoff_after": 3.980729166666668,
+      "batna": 4.666666666666668
+    },
+    {
+      "round": 2,
+      "actor": "swiss-federal-council",
+      "action": "PROPOSE",
+      "moves": [
+        {
+          "issue": "swiss_diplomatic_carveout",
+          "to": 7.0,
+          "rationale": "high-weight (4.0) issue, step toward preferred direction"
+        }
+      ],
+      "rationale": "heuristic: highest-weight \u00d7 slack issue, 25% step",
+      "payoff_after": 10.2834375,
+      "batna": -1000.0
+    },
+    {
+      "round": 3,
+      "actor": "roche",
+      "action": "PROPOSE",
+      "moves": [
+        {
+          "issue": "intl_ref_pricing_protection",
+          "to": 5.98046875,
+          "rationale": "high-weight (5.4) issue, step toward preferred direction"
+        }
+      ],
+      "rationale": "heuristic: highest-weight \u00d7 slack issue, 25% step",
+      "payoff_after": 17.42729166666667,
+      "batna": 14.913333333333332
+    },
+    {
+      "round": 3,
+      "actor": "us-executive",
+      "action": "PROPOSE",
+      "moves": [
+        {
+          "issue": "mfn_coverage",
+          "to": 19.8125,
+          "rationale": "high-weight (8.1) issue, step toward preferred direction"
+        }
+      ],
+      "rationale": "heuristic: highest-weight \u00d7 slack issue, 25% step",
+      "payoff_after": 4.253450520833335,
+      "batna": 4.666666666666668
+    },
+    {
+      "round": 3,
+      "actor": "swiss-federal-council",
+      "action": "PROPOSE",
+      "moves": [
+        {
+          "issue": "swiss_diplomatic_carveout",
+          "to": 7.375,
+          "rationale": "high-weight (3.5) issue, step toward preferred direction"
+        }
+      ],
+      "rationale": "heuristic: highest-weight \u00d7 slack issue, 25% step",
+      "payoff_after": 10.5480078125,
+      "batna": -1000.0
+    },
+    {
+      "round": 4,
+      "actor": "roche",
+      "action": "PROPOSE",
+      "moves": [
+        {
+          "issue": "ira_mfp_discount",
+          "to": 36.09375,
+          "rationale": "high-weight (4.8) issue, step toward preferred direction"
+        }
+      ],
+      "rationale": "heuristic: highest-weight \u00d7 slack issue, 25% step",
+      "payoff_after": 17.585338541666665,
+      "batna": 14.913333333333332
+    },
+    {
+      "round": 4,
+      "actor": "us-executive",
+      "action": "PROPOSE",
+      "moves": [
+        {
+          "issue": "trumprx_skus",
+          "to": 13.59375,
+          "rationale": "high-weight (7.3) issue, step toward preferred direction"
+        }
+      ],
+      "rationale": "heuristic: highest-weight \u00d7 slack issue, 25% step",
+      "payoff_after": 4.395638020833337,
+      "batna": 4.666666666666668
+    },
+    {
+      "round": 4,
+      "actor": "swiss-federal-council",
+      "action": "PROPOSE",
+      "moves": [
+        {
+          "issue": "intl_ref_pricing_protection",
+          "to": 6.48291015625,
+          "rationale": "high-weight (3.3) issue, step toward preferred direction"
+        }
+      ],
+      "rationale": "heuristic: highest-weight \u00d7 slack issue, 25% step",
+      "payoff_after": 10.9855078125,
+      "batna": -1000.0
+    }
+  ]
+}

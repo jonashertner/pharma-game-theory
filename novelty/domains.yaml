@@ -1,0 +1,315 @@
+# Distant analogue domains for the open-collider-style novelty engine.
+#
+# Each domain is *not* a surface analogy — it's a problem-solving repertoire
+# from a structurally different field that may yield non-obvious negotiation
+# moves when collided with a pharma-pricing scenario.
+#
+# Schema:
+#   id            — kebab-case slug
+#   name          — display name
+#   one_liner     — what the field is, in one sentence
+#   principles    — the OPERATIONAL mechanisms worth borrowing (verbatim)
+#   why_relevant  — one paragraph on the structural analogy to pharma pricing
+#   sources       — at least one canonical reference for the field
+
+domains:
+
+  - id: climate-finance-ndc
+    name: Climate finance NDC bargaining
+    one_liner: |
+      Nationally Determined Contributions under the Paris Agreement — voluntary
+      commitments that countries set themselves and ratchet upward over time.
+    principles:
+      - Asymmetric ambition (each party sets a target consistent with its own constraints; no global price)
+      - Ratchet mechanism (commitments must rise on each 5-year cycle; backsliding politically expensive)
+      - Common-but-differentiated responsibility (rich-world goes first)
+      - MRV (measurement, reporting, verification) as the enforcement layer
+      - Just-transition finance for affected industries
+    why_relevant: |
+      Pharma pricing is a multi-party asymmetric-power problem where any binding
+      single-price commitment creates BATNA violations somewhere. The NDC
+      structure of "set your own target, demonstrate progress, MRV verifies"
+      lets Roche offer different price commitments per channel without a
+      single MFN floor that EU/UK/CH reference back into.
+    sources:
+      - https://unfccc.int/process-and-meetings/the-paris-agreement
+
+  - id: reinsurance-pooling
+    name: Reinsurance pooling
+    one_liner: |
+      Risk transfer from primary insurers to reinsurers via quota-share, excess-
+      of-loss, and retrocession layers — managing catastrophic tail risk.
+    principles:
+      - Quota share (cede a fraction of every policy)
+      - Excess of loss (cover only losses above an attachment point)
+      - Retrocession (reinsurer cedes its own risk further up)
+      - Confidential bordereaux (claims data shared only with the reinsurance pool)
+      - Stop-loss caps that align incentives
+    why_relevant: |
+      MFN exposure is fundamentally a tail-risk problem for Roche: its expected
+      value loss from MFN is moderate, but worst-case (full ex-US spillover)
+      is catastrophic. Reinsurance-style structures could transform this:
+      Roche cedes a slice of revenue above a price floor to a price-protection
+      facility, in exchange for capped downside. Confidential bordereaux ⇄
+      confidential net-price agreements.
+    sources:
+      - https://www.swissre.com/institute/research.html
+
+  - id: antitrust-consent-decree
+    name: Antitrust consent decrees
+    one_liner: |
+      Settlement instruments where regulated firms accept ongoing behavioural
+      remedies + a court-supervised compliance monitor in exchange for ending
+      litigation.
+    principles:
+      - Compliance monitor with subpoena powers
+      - Behavioural remedies (no specific structural break-up)
+      - Periodic reporting cycles (semi-annual to court)
+      - Sunset clauses (typically 5–10 years)
+      - Self-executing penalties for documented breaches
+    why_relevant: |
+      MFN is hard to verify across channels (Medicaid, Part B/D, TrumpRx,
+      commercial). A consent-decree-style monitor (CMS-appointed, with access
+      to non-public PBM rebate data) would replace public-list-price politics
+      with documented compliance. A sunset (e.g., 5 years) handles MFN's
+      political contingency.
+    sources:
+      - https://www.justice.gov/atr/consent-decrees
+
+  - id: sovereign-debt-restructuring
+    name: Sovereign debt restructuring (Paris Club + IIF)
+    one_liner: |
+      Coordinated bilateral debt relief for sovereign borrowers, with
+      comparable-treatment clauses ensuring no creditor gets a sweetheart deal.
+    principles:
+      - Comparable treatment (no creditor extracts more than others)
+      - Collective Action Clauses (CACs) — supermajority can bind holdouts
+      - Hidden NPV transfers (face value preserved; coupon stretched)
+      - Debt-for-equity / debt-for-nature swaps
+      - Trigger conditions tied to GDP growth, commodity prices
+    why_relevant: |
+      The MFN deal landscape has a holdout problem: a manufacturer that signs
+      MFN sees competitors hold out and benefit from the political shield it
+      provides. A CAC-style clause that binds all signatories to comparable
+      treatment removes the holdout incentive. NPV-preserving structures
+      (delayed effective dates, royalty-based payments) hide the discount
+      while satisfying the political optic.
+    sources:
+      - https://clubdeparis.org/en
+
+  - id: emissions-trading
+    name: Cap-and-trade emissions markets
+    one_liner: |
+      Tradable permits to emit pollutants, with a declining cap that creates
+      scarcity and a market price.
+    principles:
+      - Aggregate cap declines over time (creates scarcity)
+      - Tradable rights (most efficient abater wins)
+      - Banking and borrowing across periods
+      - Auction vs free allocation (revenue or rent-protection)
+      - Border carbon adjustments to prevent leakage
+    why_relevant: |
+      The MFN framework currently runs on a per-firm voluntary basis with no
+      market in compliance. A tradable price-concession market could let
+      firms with high US exposure (Roche/Genentech) buy compliance from
+      firms with low US exposure. Border carbon adjustment analogue: a
+      Section-232 surcharge that's offsettable by purchased MFN credits.
+    sources:
+      - https://ec.europa.eu/clima/eu-action/eu-emissions-trading-system-eu-ets_en
+
+  - id: patent-pool-mpp
+    name: Patent pools / Medicines Patent Pool
+    one_liner: |
+      Voluntary licensing platform where rights-holders pool patents and
+      generic manufacturers obtain non-exclusive licenses for LMIC supply.
+    principles:
+      - Tiered royalties by income tier
+      - Non-exclusive licensing (multiple generics, competitive pressure)
+      - Geographic carve-outs
+      - Quality and pharmacovigilance obligations
+      - Pre-negotiated dispute resolution
+    why_relevant: |
+      The MPP separates the high-margin and low-margin geographies via licensed
+      generics under controlled terms. Applied to MFN: Roche could license a
+      US "competitor" generic-like channel via TrumpRx with capped volumes
+      and royalties, preserving the brand price for commercial-insured while
+      hitting the visible MFN-price political win.
+    sources:
+      - https://medicinespatentpool.org/
+
+  - id: wto-trips-flexibilities
+    name: WTO TRIPS flexibilities (Doha Declaration)
+    one_liner: |
+      Multilateral framework for compulsory licensing of patented medicines in
+      public-health emergencies, with negotiated safeguards.
+    principles:
+      - Compulsory license triggered by public-health declaration
+      - Adequate remuneration via judicially-determined royalty
+      - Limited duration tied to the emergency
+      - Procedural safeguards (prior negotiation requirement, except emergency)
+    why_relevant: |
+      The compulsory-license threat is one of the US executive's strongest
+      BATNAs. Pre-negotiating "adequate remuneration" formulas now would
+      remove uncertainty: Roche accepts a defined royalty trigger in
+      exchange for procedural safeguards that prevent ad-hoc march-in.
+    sources:
+      - https://www.wto.org/english/tratop_e/trips_e/public_health_e.htm
+
+  - id: critical-minerals-supply
+    name: Critical minerals supply agreements
+    one_liner: |
+      Long-dated offtake contracts between Western governments and producers
+      for strategic materials, with price collars and stockpile guarantees.
+    principles:
+      - Price collars (floor + ceiling)
+      - Volume commitments (take-or-pay)
+      - Strategic stockpile triggers
+      - Government as price-of-last-resort buyer
+      - Domestic content preferences
+    why_relevant: |
+      Trump's Section 232 framing treats pharma like critical minerals. The
+      collar structure (Roche guaranteed a price floor on a basket of drugs,
+      government guaranteed a ceiling) reframes the conflict from "MFN cuts
+      Roche prices" to "long-dated industrial-policy contract with predictable
+      terms." Stockpile triggers for emergency supply.
+    sources:
+      - https://www.iea.org/topics/critical-minerals
+
+  - id: insurance-quota-share
+    name: Insurance quota share / cession
+    one_liner: |
+      A reinsurer takes a fixed percentage of every premium and every loss on
+      the ceded book — proportional risk sharing.
+    principles:
+      - Proportional sharing of upside AND downside
+      - Cession commission to reward profitable underwriting
+      - Loss-corridor sharing
+      - Slipping commissions (sliding scale tied to loss ratio)
+    why_relevant: |
+      A quota-share over Roche's US drug revenue with the US government:
+      government takes X% of every dollar of revenue plus X% of every dollar
+      of MFN-credited price concession. Aligns government's incentive with
+      Roche's market success rather than against it.
+    sources:
+      - https://www.actuaries.org.uk
+
+  - id: hostage-crisis-negotiation
+    name: Hostage crisis negotiation
+    one_liner: |
+      Time-pressured, asymmetric-information bargaining with a captor seeking
+      assurance and a negotiator seeking de-escalation.
+    principles:
+      - Build the captor's BATNA (not just defeat them)
+      - Face-saving exits (rituals of surrender that aren't humiliation)
+      - Time as a stabiliser (long talks, not short ultimatums)
+      - Selective concessions on low-symbolic / high-substantive issues
+      - Mediator entry as escape valve
+    why_relevant: |
+      The Trump-administration "deal or duty" public framing is structurally
+      a hostage frame. Face-saving is the central problem: Roche cannot be
+      seen capitulating; the administration cannot be seen losing. Time-
+      stabilising tactics (multi-year phase-ins, conditional triggers) and
+      face-saving rituals (announcement choreography, third-party endorsers)
+      come straight from this playbook.
+    sources:
+      - "Voss, Chris. *Never Split the Difference* (2016)."
+
+  - id: construction-epc-finance
+    name: Construction EPC / milestone-gated finance
+    one_liner: |
+      Large engineering-procurement-construction contracts use milestone-based
+      payments with independent engineer certifications — releasing capital
+      only as work is verified.
+    principles:
+      - Milestone definition with independent engineer certification
+      - Liquidated damages for schedule slippage
+      - Retention escrow (5–10% withheld pending defects-correction period)
+      - Performance bonds from third parties
+      - Variation orders with predefined pricing
+    why_relevant: |
+      Roche's $50B US capex pledge has no enforcement mechanism. Milestone-
+      gated tariff exemptions (build verified → next tariff tranche reduced)
+      align Roche's investment timeline with the administration's political
+      timeline. Retention escrow analogue: a portion of MFN price relief
+      held back until the corresponding capex milestone is met.
+    sources:
+      - "FIDIC Conditions of Contract (https://fidic.org/)"
+
+  - id: climate-loss-damage-fund
+    name: Climate loss-and-damage fund
+    one_liner: |
+      Established at COP27/28 to compensate developing nations for
+      climate-attributable losses they cannot adapt to.
+    principles:
+      - Attribution science as eligibility test
+      - Responsibility-vs-capacity ladder for contributions
+      - Pre-agreed disaster triggers (parametric)
+      - Avoiding "liability" framing politically toxic to contributors
+    why_relevant: |
+      The Swiss tax-base / Basel-cantons concern is a "loss and damage"
+      problem: capacity relocation to the US causes specific identifiable
+      harms to a specific identifiable jurisdiction. A loss-and-damage-style
+      side fund (Roche or US government contributing into a Basel-cantonal
+      adaptation fund) decouples the trade deal from the host-country welfare
+      hit, removing a Swiss-side blocker.
+    sources:
+      - https://unfccc.int/topics/adaptation-and-resilience/the-big-picture/loss-and-damage
+
+  - id: most-favored-customer-clauses
+    name: Most-favored-customer clauses (in private contracts)
+    one_liner: |
+      Contract provisions where a seller guarantees a buyer the lowest price
+      offered to any comparable buyer — the *private-contract* MFN.
+    principles:
+      - Comparator definition (which buyers count?)
+      - Carve-outs (volume tiers, channel-specific)
+      - True-up mechanisms (retroactive credit if a better price is given elsewhere)
+      - Audit rights with confidentiality bracket
+      - Most-favored-nation only on specific dimensions
+    why_relevant: |
+      The structure inverts the government's MFN: rather than the US
+      benchmarking to the lowest developed-country price, structure a
+      most-favored-customer where US channels are guaranteed the *best
+      commercial-market US price*. Removes the international-reference-pricing
+      contagion entirely.
+    sources:
+      - https://www.americanbar.org/groups/antitrust_law/
+
+  - id: diplomatic-immunity-carveouts
+    name: Diplomatic immunity carve-outs (Vienna Convention)
+    one_liner: |
+      Functional vs personal immunity — diplomats are protected only for
+      official acts, subject to negotiated exceptions.
+    principles:
+      - Functional immunity narrower than personal immunity
+      - Waiver of immunity by the sending state
+      - Persona non grata as informal sanction
+      - Reciprocity as base discipline
+    why_relevant: |
+      "Diplomatic carve-out" for Swiss pharma is currently nebulous. Vienna-
+      Convention-style functional/personal split: certain Roche acts (US-channel
+      pricing) governed by US law; certain acts (global-margin protection)
+      governed by Swiss law. Reciprocity-anchored — Swiss-firm protection in
+      US matches US-firm protection in Switzerland.
+    sources:
+      - https://legal.un.org/ilc/texts/instruments/english/conventions/9_1_1961.pdf
+
+  - id: salmon-fishing-concessions
+    name: Wild salmon catch-share concessions (Alaska / Pacific NW)
+    one_liner: |
+      Tradable individual fishing quotas with strict conservation cap, set
+      annually by joint US-Canada-tribal commission.
+    principles:
+      - Cooperative quota-setting body with all stakeholders
+      - Annual reset (no permanent positions)
+      - Indigenous-rights set-aside (some quota guaranteed to tribes)
+      - Catch logbooks + observer requirement
+      - Transferability between vessels of same fleet only
+    why_relevant: |
+      Annual reset is the key insight: structure the MFN cap as an annually-
+      renegotiated quota with stakeholder body (manufacturers + administration
+      + patient-advocacy + payers), rather than a permanent legal regime. Removes
+      the legitimacy crisis of indefinite executive action and lets MFN
+      adjust to actual market evidence.
+    sources:
+      - https://www.fisheries.noaa.gov/topic/laws-policies/catch-shares

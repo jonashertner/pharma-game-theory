@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Overview — Roche pharma-pricing negotiation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/passcode.js"></script>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a href="index.html" class="brand" style="text-decoration:none;">Roche pricing negotiation <span class="accent">simulation</span></a>
+    <nav>
+        <a href="index.html" class="active">Overview</a>
+        <a href="recommendation.html">Recommendation</a>
+        <a href="simulation.html">Live simulation</a>
+        <a href="playground.html">Playground</a>
+        <a href="actors.html">Actors</a>
+        <a href="positions.html">Positions</a>
+        <a href="prompts.html">Prompts</a>
+        <a href="transcripts.html">Transcripts</a>
+        <a href="method.html">Method</a>
+    </nav>
+    <div class="meta">snapshot 2026-05-19</div>
+  </div>
+</header>
+
+<main class="prose">
+
+<section class="hero">
+  <div class="tag">Multi-actor game-theoretic simulation · snapshot 2026-05-19</div>
+  <h1>Roche is inside the negotiation. The question is which deal architecture survives.</h1>
+  <p class="lead">
+    Genentech signed an MFN deal in December 2025. The November 2025 US&ndash;Swiss
+    framework caps Section&nbsp;232 pharma tariffs at 15% with a 0% track through
+    January 2029 for firms building US capacity. IRA Round&nbsp;3 places Xolair
+    under negotiation effective January 2028. <strong>The model says the May 2026
+    status quo is barely feasible: every principal is above their BATNA, but
+    most non-principals sit exactly at it. The system is fragile, not stable.</strong>
+  </p>
+</section>
+
+
+<div class="exec-summary">
+  <div class="head">In 30 seconds</div>
+  <h3>What this is and what to do with it</h3>
+  
+<ul>
+<li><strong>What this is:</strong> a sourced, citation-backed model of the live 2026 US pharma-pricing negotiation. 12 actors, 13 issues, 110 position cells; calibrated against the actual December 2025 Genentech MFN deal.</li>
+<li><strong>The model's headline finding:</strong> the May 2026 status quo is feasible but <em>fragile</em> &mdash; the principal triple (Roche / US / CH) sits above BATNA, but the non-principals sit exactly at it.</li>
+<li><strong>Best move for Roche:</strong> strengthen the international reference-pricing firewall via the Swiss annex (Roche's highest-weight issue, currently underused). Don't volunteer concessions on MFN coverage or TrumpRx SKU count.</li>
+<li><strong>Biggest tail risk:</strong> MFN reference-basket contagion into EU/UK/CH. Treat as tail-risk insurance, not expected-value optimisation.</li>
+<li><strong>How to use this site:</strong> the <a href="simulation.html">live simulation</a> walks through a curated trilateral negotiation. The <a href="playground.html">playground</a> lets you stress-test the model interactively. The <a href="recommendation.html">recommendation</a> is the headline output.</li>
+</ul>
+
+</div>
+
+
+<h2 style="margin-top: 14px;">Where to go</h2>
+
+<div class="card-grid">
+  <a class="card" href="simulation.html">
+    <h3>▶ Live simulation</h3>
+    <p>Watch the trilateral US&nbsp;↔&nbsp;CH&nbsp;↔&nbsp;Roche negotiation play out in 18 voiced events across 6 rounds. Each statement is tied to a sourced position. Deal vector animates as actors propose.</p>
+    <div class="arrow">Watch it play out →</div>
+  </a>
+  <a class="card" href="recommendation.html">
+    <h3>Recommended deal architecture</h3>
+    <p>The model's Nash-bargaining recommendation: where the principal triple can sign without breaking the fragile equilibrium, with sequencing and walk-risks per actor.</p>
+    <div class="arrow">Read the recommendation →</div>
+  </a>
+  <a class="card" href="playground.html">
+    <h3>Interactive playground</h3>
+    <p>Adjust each of the 13 issues with sliders; watch feasibility and payoffs update live. Generate Claude prompts that collide the scenario with distant analogue domains.</p>
+    <div class="arrow">Open the playground →</div>
+  </a>
+  <a class="card" href="actors.html">
+    <h3>The 12 actors at the table</h3>
+    <p>Sourced profiles — Roche, US Executive (six sub-agencies), Congress, three Swiss-side stakeholder layers, Novartis, PBMs, patient advocacy, EU reference pricing, biosimilars, investors.</p>
+    <div class="arrow">Browse the actors →</div>
+  </a>
+  <a class="card" href="positions.html">
+    <h3>Positions matrix</h3>
+    <p>The full 12 × 13 grid of actor positions, BATNAs, red lines, weights, and citations. Every cell either cites a public source or is explicitly marked inferred.</p>
+    <div class="arrow">View the matrix →</div>
+  </a>
+  <a class="card" href="prompts.html">
+    <h3>Novelty-engine prompts</h3>
+    <p>The 15-domain collision pool — climate-finance NDC bargaining, reinsurance pooling, antitrust consent decrees, sovereign-debt restructuring, salmon catch-share, more. Generate Claude prompts that surface non-obvious moves.</p>
+    <div class="arrow">Browse the domains →</div>
+  </a>
+  <a class="card" href="transcripts.html">
+    <h3>Simulation transcripts</h3>
+    <p>Past multi-agent runs across scenarios and protocols (bilateral, trilateral, full multilateral, Swiss internal coherence). JSON + Markdown.</p>
+    <div class="arrow">Browse transcripts →</div>
+  </a>
+  <a class="card" href="method.html">
+    <h3>Method &amp; calibration</h3>
+    <p>The game-theoretic backbone, why the model is calibrated, what it cannot see, and how to re-run it. Includes the verifiable status-quo calibration test.</p>
+    <div class="arrow">How it works →</div>
+  </a>
+</div>
+
+<h2>What the model is telling Roche</h2>
+
+<p>
+The negotiation that closed in December 2025 produced a deal where Roche, the
+US administration, and the Swiss Federal Council all sit above their BATNAs &mdash;
+but only just. Most non-principals sit exactly at theirs. A small perturbation
+in any direction tips a non-principal into walk territory and the deal becomes
+politically expensive to defend.
+</p>
+
+<p>Three implications follow.</p>
+
+<ol>
+<li><strong>Don't volunteer concessions.</strong> The current Section&nbsp;232 0% track and
+the Swiss framework annex are already extracting close to the maximum Roche
+can give while keeping the principal triple aligned. Voluntary moves on
+MFN coverage, TrumpRx SKU count, or pipeline-pricing protocols open
+unforced losses without picking up new value.</li>
+
+<li><strong>The most underused lever is the international-reference-pricing firewall.</strong>
+This is Roche's highest-weight issue (10/10) where current value (3/10) sits
+well below the achievable bound. Strengthening it through bilateral confidentiality
+provisions in the Swiss annex, mirroring Germany's January 2025 Medical Research
+Act mechanics, costs the US administration little and protects what matters most
+to Roche.</li>
+
+<li><strong>Tail risk &gt; expected loss.</strong> MFN's worst case is not the
+direct US-channel price cut. It is reference-basket contagion into EU/UK/CH
+contracts via PBM rebate transparency leaks. Treat this as a tail-risk
+insurance problem &mdash; reinsurance-pool, sovereign-debt-style comparable-treatment,
+or hostage-negotiation face-saving mechanisms (see <a href="prompts.html">novelty
+engine</a>) cap downside in ways the current deal doesn't.</li>
+</ol>
+
+<div class="callout warn">
+  <strong>This is independent, public-source analysis.</strong> It is not a
+  Roche-internal document, contains no NDA-protected information, and reflects
+  only what is verifiable in regulatory filings, earnings calls, press releases,
+  official documents, and reputable news as of 19 May 2026. Where a position
+  is inferred without a direct public statement, it is marked as such in the
+  <a href="positions.html">positions matrix</a>.
+</div>
+
+<h2>Calibration: the model is not making it up</h2>
+
+<p>
+The headline test: ask the model to score the deal Roche actually signed
+in December 2025. If the signed state were infeasible (i.e., the model predicted
+Roche should have walked from a deal it signed), the model would be unusable.
+</p>
+
+<p>
+<strong>Result: 12 of 12 actors are above their BATNA at the May 2026
+status quo. The deal is feasible. ✓</strong>
+The remaining sit exactly at BATNA &mdash; meaningful, because it predicts
+where political pressure will appear (PBMs, patient advocacy, EU, biosimilars).
+</p>
+
+<table>
+  <tr><th>Coverage</th><th class="num">Count</th></tr>
+  <tr><td>Sourced actor profiles</td><td class="num">12</td></tr>
+  <tr><td>Negotiation issues modeled</td><td class="num">13</td></tr>
+  <tr><td>Sourced (actor, issue) position cells</td><td class="num">112</td></tr>
+  <tr><td>Dated timeline events through 2029</td><td class="num">24</td></tr>
+  <tr><td>Equilibrium concepts solved</td><td class="num">4</td></tr>
+  <tr><td>Distant analogue domains (novelty engine)</td><td class="num">15</td></tr>
+  <tr><td>Curated simulation events (trilateral)</td><td class="num">18</td></tr>
+</table>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <span>Independent public-source analysis · snapshot 2026-05-19 · restricted access</span>
+    <span>Not an official Roche document · <a href="method.html">method &amp; limits</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
