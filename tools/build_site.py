@@ -64,12 +64,12 @@ DISPLAY_NAMES = {
 NAV_LINKS = [
     ("index.html", "Overview"),
     ("recommendation.html", "Recommendation"),
+    ("dynamics.html", "Dynamics"),
     ("simulation.html", "Live simulation"),
     ("playground.html", "Playground"),
     ("actors.html", "Actors"),
     ("positions.html", "Positions"),
     ("prompts.html", "Prompts"),
-    ("transcripts.html", "Transcripts"),
     ("method.html", "Method"),
 ]
 
@@ -136,6 +136,7 @@ def layout(*, title: str, page_id: str, body: str, main_class: str = "prose",
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <input type="checkbox" id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle menu">
 
 <header class="site-header">
@@ -156,7 +157,7 @@ def layout(*, title: str, page_id: str, body: str, main_class: str = "prose",
       <div class="meta-line">snapshot {snapshot}</div>
 </nav>
 
-<main class="{main_class}">
+<main id="main-content" class="{main_class}" tabindex="-1">
 {f'<a href="index.html" class="back-link">Overview</a>' if page_id != "index.html" else ""}
 {body}
 {pagination}
@@ -271,9 +272,69 @@ def build_index() -> str:
     status quo is barely feasible: every principal is above their BATNA, but
     most non-principals sit exactly at it. The system is fragile, not stable.</strong>
   </p>
+  <div class="reading-paths">
+    <div class="path"><span class="t">5 min</span> <a href="recommendation.html">read the recommendation</a></div>
+    <div class="path"><span class="t">15 min</span> <a href="dynamics.html">read the strategic dynamics</a></div>
+    <div class="path"><span class="t">10 min</span> <a href="simulation.html">watch the simulation</a></div>
+    <div class="path"><span class="t">2 hours</span> <a href="actors.html">read all 12 actor profiles</a></div>
+  </div>
 </section>
 
 {overview_exec}
+
+<h2 class="no-rule">The twelve actors at the table</h2>
+<p>Three principals at the table. Nine affected non-participants. Each labelled with the dusty accent colour used elsewhere on the site for visual continuity.</p>
+
+<figure class="actor-map" aria-label="Diagram of the twelve actors in the negotiation">
+  <div class="actor-map-grid">
+    <div class="map-col principal">
+      <div class="col-header">Principals</div>
+      <div class="map-actor" style="--c:var(--actor-roche);"><span class="dot"></span><a href="actors.html#roche">Roche / Genentech</a></div>
+      <div class="map-actor" style="--c:var(--actor-us-exec);"><span class="dot"></span><a href="actors.html#us-executive">US Executive</a></div>
+      <div class="map-actor" style="--c:var(--actor-ch-fed);"><span class="dot"></span><a href="actors.html#swiss-federal-council">Swiss Federal Council</a></div>
+    </div>
+    <div class="map-col affected">
+      <div class="col-header">Directly affected</div>
+      <div class="map-actor" style="--c:var(--actor-investor);"><span class="dot"></span><a href="actors.html#investors">Investors (Hoffmann pool 45%)</a></div>
+      <div class="map-actor" style="--c:var(--actor-novartis);"><span class="dot"></span><a href="actors.html#novartis">Novartis</a></div>
+      <div class="map-actor" style="--c:var(--actor-us-cong);"><span class="dot"></span><a href="actors.html#us-congress">US Congress</a></div>
+      <div class="map-actor" style="--c:var(--actor-pbm);"><span class="dot"></span><a href="actors.html#pbms-and-payers">US PBMs &amp; payers</a></div>
+      <div class="map-actor" style="--c:var(--actor-ch-cantons);"><span class="dot"></span><a href="actors.html#swiss-cantons-basel">Swiss Cantons (Basel)</a></div>
+      <div class="map-actor" style="--c:var(--actor-ch-public);"><span class="dot"></span><a href="actors.html#swiss-public-and-domestic-payers">Swiss public &amp; payers</a></div>
+    </div>
+    <div class="map-col observers">
+      <div class="col-header">Observers / contingent</div>
+      <div class="map-actor" style="--c:var(--actor-patient);"><span class="dot"></span><a href="actors.html#patient-advocacy">US patient advocacy</a></div>
+      <div class="map-actor" style="--c:var(--actor-eu);"><span class="dot"></span><a href="actors.html#eu-reference-pricing">EU reference pricing</a></div>
+      <div class="map-actor" style="--c:var(--actor-biosim);"><span class="dot"></span><a href="actors.html#biosimilars-competitors">Biosimilar manufacturers</a></div>
+    </div>
+  </div>
+  <figcaption>Click any actor for the sourced profile. Issues connecting them are documented in <a href="positions.html">the positions matrix</a>.</figcaption>
+</figure>
+
+<div class="board-decisions">
+  <div class="head">Decisions before the board</div>
+  <h2 class="no-rule" style="margin-top:6px;">What the executive committee is being asked to do</h2>
+  <ol class="decision-list">
+    <li class="required">
+      <span class="tag-label accent">Decision required</span>
+      <strong>Endorse the firewall-annex approach</strong> as the primary 2026 negotiating priority, explicitly above MFN-coverage expansion or TrumpRx SKU growth.
+    </li>
+    <li class="required">
+      <span class="tag-label accent">Decision required</span>
+      <strong>Authorize capital-allocation flexibility</strong> for capex milestone acceleration (up to +$5B over 2025–2027) to enable EPC-milestone-gated Section 232 protection.
+    </li>
+    <li class="discretionary">
+      <span class="tag-label warn">Discretionary</span>
+      <strong>Defer or commit on patient-access OOP cap</strong> for Genentech specialty drugs &gt;$30K list. Defer to Q4 2026 pending CMS rulemaking signals, or commit early at executive discretion.
+    </li>
+    <li class="note-only">
+      <span class="tag-label">Note only</span>
+      <strong>Note the tail-risk hedge structure</strong> (reinsurance-style global-spillover insurance) as an exploratory workstream for Q1 2027 framework adoption.
+    </li>
+  </ol>
+  <p style="margin-top:18px;font-size:14px;color:var(--muted);">Full reasoning, named risks, and the generationalist re-framing: <a href="recommendation.html">read the recommendation</a>. The substrate beneath these decisions — each actor's telos, contradictions to exploit, and three unexpected alliances the standard frame misses: <a href="dynamics.html">read the strategic dynamics</a>.</p>
+</div>
 
 <h2 style="margin-top: 14px;">Where to go</h2>
 
@@ -393,6 +454,25 @@ where political pressure will appear (PBMs, patient advocacy, EU, biosimilars).
 
 
 def build_recommendation() -> str:
+    """Hand-crafted board memo as the primary recommendation page."""
+    memo_path = ROOT / "memo" / "board-recommendation.md"
+    rendered = render_md(memo_path.read_text())
+
+    body = f"""
+<div class="prose-article">
+{rendered}
+</div>
+
+<div class="callout">
+  Looking for the auto-generated analytical detail? See <a href="recommendation-detail.html">the analytical appendix</a> — model-populated tables, principal-by-principal payoff calculations, and sensitivity analysis derived directly from the simulation.
+</div>
+"""
+    return layout(title="Recommendation", page_id="recommendation.html",
+                  body=body, main_class="prose")
+
+
+def build_recommendation_detail() -> str:
+    """The auto-generated detail page (the prior recommendation.html)."""
     drafts_dir = ROOT / "memo" / "drafts"
     md_files = sorted(drafts_dir.glob("status_quo-*.md"), reverse=True)
     if not md_files:
@@ -402,42 +482,37 @@ def build_recommendation() -> str:
     latest = md_files[0]
     memo_html = render_md(latest.read_text())
 
-    rec_exec = exec_summary(
-        "Executive summary",
-        "The recommended deal in five lines",
-        """
-<ul>
-<li><strong>Strengthen the international reference-pricing firewall</strong> via symmetric (not Roche-specific) Swiss annex language modelled on Germany's January 2025 Medical Research Act. This is Roche's highest-value lever and the administration's lowest-cost concession.</li>
-<li><strong>Cap US-manufacturing share at ~46% by 2028 with EPC-style milestone gating.</strong> Tradable in pieces against the 0% Section-232 track; preserves Basel tax base from runaway shift.</li>
-<li><strong>Lock Swiss domestic pricing at zero.</strong> Neutralises the Swiss-public veto; pre-empts back-door BAG list-price pressure.</li>
-<li><strong>Bump patient-access to 7/10</strong> with a $1,500 OOP cap on Genentech specialty drugs over $30K list. AARP can endorse on Day 1 — pre-empts patient-advocacy defection.</li>
-<li><strong>Statement-of-Intent, not formal precedent</strong>, on IRA Round 4 selection. Can't bind a future administration legally; can frame politically.</li>
-</ul>
-<p><strong>Why each principal can sign:</strong> Roche protects ex-US margins; US gets visible deliverables (capex acceleration, TrumpRx +4 SKUs, OOP cap headline); Swiss FC preserves the November framework with stronger annex language.</p>
-<p><strong>Biggest risk to manage:</strong> reference-basket spillover into EU. The novelty engine's reinsurance-pool and sovereign-debt-CAC analogues offer tail-risk hedges the current draft lacks.</p>
-""",
-    )
-
     body = f"""
 <div class="memo-meta">
-  <strong>Source:</strong> generated from <code>{latest.relative_to(ROOT)}</code>
-  &nbsp;·&nbsp; <strong>Equilibrium concept:</strong> Nash bargaining (asymmetric, leverage-weighted)
-  &nbsp;·&nbsp; <strong>Calibrated against</strong> the actual December 2025 Genentech MFN deal
+  <strong>Auto-generated from:</strong> <code>{latest.relative_to(ROOT)}</code>
+  &nbsp;·&nbsp; <strong>Equilibrium concept:</strong> Nash bargaining (asymmetric)
+  &nbsp;·&nbsp; <strong>Source of truth:</strong> the <a href="recommendation.html">board recommendation</a>
 </div>
 
-{rec_exec}
-
-<div class="callout">
-  Everything below the executive summary is auto-populated from the model's outputs. The strategic
-  insights in <strong>recommended deal architecture</strong> and
-  <strong>principal signing rationales</strong> come from the
-  underlying payoff calculations. The <strong>novel moves</strong> section
-  is generated by the <a href="prompts.html">open-collider-style domain-collision engine</a>.
+<div class="callout warn">
+  This is the <strong>analytical appendix</strong> — auto-populated from the model's outputs.
+  For the board-facing recommendation written for executive committee consumption, see
+  <a href="recommendation.html">the recommendation page</a>.
 </div>
 
 {memo_html}
 """
-    return layout(title="Recommendation", page_id="recommendation.html", body=body, main_class="prose")
+    return layout(title="Analytical appendix", page_id="",
+                  body=body, main_class="prose")
+
+
+def build_dynamics() -> str:
+    """The strategic-dynamics page — telos, contradictions, alliances per actor."""
+    dyn_path = ROOT / "memo" / "strategic-dynamics.md"
+    rendered = render_md(dyn_path.read_text())
+
+    body = f"""
+<div class="prose-article">
+{rendered}
+</div>
+"""
+    return layout(title="Strategic dynamics", page_id="dynamics.html",
+                  body=body, main_class="prose")
 
 
 def build_model_data_json() -> str:
@@ -1059,6 +1134,8 @@ def main() -> int:
     pages = {
         "index.html": build_index(),
         "recommendation.html": build_recommendation(),
+        "recommendation-detail.html": build_recommendation_detail(),
+        "dynamics.html": build_dynamics(),
         "simulation.html": build_simulation(),
         "playground.html": build_playground(),
         "actors.html": build_actors(),

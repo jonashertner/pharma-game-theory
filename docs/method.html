@@ -13,6 +13,7 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <input type="checkbox" id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle menu">
 
 <header class="site-header">
@@ -21,12 +22,12 @@
     <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="index.html">Overview</a>
         <a href="recommendation.html">Recommendation</a>
+        <a href="dynamics.html">Dynamics</a>
         <a href="simulation.html">Live simulation</a>
         <a href="playground.html">Playground</a>
         <a href="actors.html">Actors</a>
         <a href="positions.html">Positions</a>
         <a href="prompts.html">Prompts</a>
-        <a href="transcripts.html">Transcripts</a>
         <a href="method.html" class="active">Method</a>
     </nav>
     <div class="meta">snapshot 2026-05-19</div>
@@ -39,17 +40,17 @@
 <nav class="mobile-nav" aria-label="Mobile navigation">
       <a href="index.html">Overview</a>
       <a href="recommendation.html">Recommendation</a>
+      <a href="dynamics.html">Dynamics</a>
       <a href="simulation.html">Live simulation</a>
       <a href="playground.html">Playground</a>
       <a href="actors.html">Actors</a>
       <a href="positions.html">Positions</a>
       <a href="prompts.html">Prompts</a>
-      <a href="transcripts.html">Transcripts</a>
       <a href="method.html" class="active">Method</a>
       <div class="meta-line">snapshot 2026-05-19</div>
 </nav>
 
-<main class="prose">
+<main id="main-content" class="prose" tabindex="-1">
 <a href="index.html" class="back-link">Overview</a>
 
 <h1>Methodology</h1>
@@ -187,7 +188,7 @@ python -m memo.generator --scenario status_quo --equilibrium nash
 python tools/build_site.py                  # rebuild this site</code></pre>
 
 <div class="page-pagination">
-<a class="prev" href="transcripts.html"><div class="label">Previous</div><div class="title">Transcripts</div></a>
+<a class="prev" href="prompts.html"><div class="label">Previous</div><div class="title">Prompts</div></a>
 <div></div>
 </div>
 </main>

@@ -13,6 +13,7 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <input type="checkbox" id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle menu">
 
 <header class="site-header">
@@ -21,12 +22,12 @@
     <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="index.html" class="active">Overview</a>
         <a href="recommendation.html">Recommendation</a>
+        <a href="dynamics.html">Dynamics</a>
         <a href="simulation.html">Live simulation</a>
         <a href="playground.html">Playground</a>
         <a href="actors.html">Actors</a>
         <a href="positions.html">Positions</a>
         <a href="prompts.html">Prompts</a>
-        <a href="transcripts.html">Transcripts</a>
         <a href="method.html">Method</a>
     </nav>
     <div class="meta">snapshot 2026-05-19</div>
@@ -39,17 +40,17 @@
 <nav class="mobile-nav" aria-label="Mobile navigation">
       <a href="index.html" class="active">Overview</a>
       <a href="recommendation.html">Recommendation</a>
+      <a href="dynamics.html">Dynamics</a>
       <a href="simulation.html">Live simulation</a>
       <a href="playground.html">Playground</a>
       <a href="actors.html">Actors</a>
       <a href="positions.html">Positions</a>
       <a href="prompts.html">Prompts</a>
-      <a href="transcripts.html">Transcripts</a>
       <a href="method.html">Method</a>
       <div class="meta-line">snapshot 2026-05-19</div>
 </nav>
 
-<main class="prose">
+<main id="main-content" class="prose" tabindex="-1">
 
 
 <section class="hero">
@@ -63,6 +64,12 @@
     status quo is barely feasible: every principal is above their BATNA, but
     most non-principals sit exactly at it. The system is fragile, not stable.</strong>
   </p>
+  <div class="reading-paths">
+    <div class="path"><span class="t">5 min</span> <a href="recommendation.html">read the recommendation</a></div>
+    <div class="path"><span class="t">15 min</span> <a href="dynamics.html">read the strategic dynamics</a></div>
+    <div class="path"><span class="t">10 min</span> <a href="simulation.html">watch the simulation</a></div>
+    <div class="path"><span class="t">2 hours</span> <a href="actors.html">read all 12 actor profiles</a></div>
+  </div>
 </section>
 
 
@@ -80,6 +87,60 @@
 
 </div>
 
+
+<h2 class="no-rule">The twelve actors at the table</h2>
+<p>Three principals at the table. Nine affected non-participants. Each labelled with the dusty accent colour used elsewhere on the site for visual continuity.</p>
+
+<figure class="actor-map" aria-label="Diagram of the twelve actors in the negotiation">
+  <div class="actor-map-grid">
+    <div class="map-col principal">
+      <div class="col-header">Principals</div>
+      <div class="map-actor" style="--c:var(--actor-roche);"><span class="dot"></span><a href="actors.html#roche">Roche / Genentech</a></div>
+      <div class="map-actor" style="--c:var(--actor-us-exec);"><span class="dot"></span><a href="actors.html#us-executive">US Executive</a></div>
+      <div class="map-actor" style="--c:var(--actor-ch-fed);"><span class="dot"></span><a href="actors.html#swiss-federal-council">Swiss Federal Council</a></div>
+    </div>
+    <div class="map-col affected">
+      <div class="col-header">Directly affected</div>
+      <div class="map-actor" style="--c:var(--actor-investor);"><span class="dot"></span><a href="actors.html#investors">Investors (Hoffmann pool 45%)</a></div>
+      <div class="map-actor" style="--c:var(--actor-novartis);"><span class="dot"></span><a href="actors.html#novartis">Novartis</a></div>
+      <div class="map-actor" style="--c:var(--actor-us-cong);"><span class="dot"></span><a href="actors.html#us-congress">US Congress</a></div>
+      <div class="map-actor" style="--c:var(--actor-pbm);"><span class="dot"></span><a href="actors.html#pbms-and-payers">US PBMs &amp; payers</a></div>
+      <div class="map-actor" style="--c:var(--actor-ch-cantons);"><span class="dot"></span><a href="actors.html#swiss-cantons-basel">Swiss Cantons (Basel)</a></div>
+      <div class="map-actor" style="--c:var(--actor-ch-public);"><span class="dot"></span><a href="actors.html#swiss-public-and-domestic-payers">Swiss public &amp; payers</a></div>
+    </div>
+    <div class="map-col observers">
+      <div class="col-header">Observers / contingent</div>
+      <div class="map-actor" style="--c:var(--actor-patient);"><span class="dot"></span><a href="actors.html#patient-advocacy">US patient advocacy</a></div>
+      <div class="map-actor" style="--c:var(--actor-eu);"><span class="dot"></span><a href="actors.html#eu-reference-pricing">EU reference pricing</a></div>
+      <div class="map-actor" style="--c:var(--actor-biosim);"><span class="dot"></span><a href="actors.html#biosimilars-competitors">Biosimilar manufacturers</a></div>
+    </div>
+  </div>
+  <figcaption>Click any actor for the sourced profile. Issues connecting them are documented in <a href="positions.html">the positions matrix</a>.</figcaption>
+</figure>
+
+<div class="board-decisions">
+  <div class="head">Decisions before the board</div>
+  <h2 class="no-rule" style="margin-top:6px;">What the executive committee is being asked to do</h2>
+  <ol class="decision-list">
+    <li class="required">
+      <span class="tag-label accent">Decision required</span>
+      <strong>Endorse the firewall-annex approach</strong> as the primary 2026 negotiating priority, explicitly above MFN-coverage expansion or TrumpRx SKU growth.
+    </li>
+    <li class="required">
+      <span class="tag-label accent">Decision required</span>
+      <strong>Authorize capital-allocation flexibility</strong> for capex milestone acceleration (up to +$5B over 2025–2027) to enable EPC-milestone-gated Section 232 protection.
+    </li>
+    <li class="discretionary">
+      <span class="tag-label warn">Discretionary</span>
+      <strong>Defer or commit on patient-access OOP cap</strong> for Genentech specialty drugs &gt;$30K list. Defer to Q4 2026 pending CMS rulemaking signals, or commit early at executive discretion.
+    </li>
+    <li class="note-only">
+      <span class="tag-label">Note only</span>
+      <strong>Note the tail-risk hedge structure</strong> (reinsurance-style global-spillover insurance) as an exploratory workstream for Q1 2027 framework adoption.
+    </li>
+  </ol>
+  <p style="margin-top:18px;font-size:14px;color:var(--muted);">Full reasoning, named risks, and the generationalist re-framing: <a href="recommendation.html">read the recommendation</a>. The substrate beneath these decisions — each actor's telos, contradictions to exploit, and three unexpected alliances the standard frame misses: <a href="dynamics.html">read the strategic dynamics</a>.</p>
+</div>
 
 <h2 style="margin-top: 14px;">Where to go</h2>
 
