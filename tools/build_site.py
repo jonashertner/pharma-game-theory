@@ -65,6 +65,7 @@ NAV_LINKS = [
     ("index.html", "Overview"),
     ("recommendation.html", "Recommendation"),
     ("dynamics.html", "Dynamics"),
+    ("disclosures.html", "Disclosures"),
     ("simulation.html", "Live simulation"),
     ("playground.html", "Playground"),
     ("actors.html", "Actors"),
@@ -511,6 +512,27 @@ def build_dynamics() -> str:
 </div>
 """
     return layout(title="Strategic dynamics", page_id="dynamics.html",
+                  body=body, main_class="prose")
+
+
+def build_disclosures() -> str:
+    """Disclosures register — catalogue of SEC + US gov filings driving the regime."""
+    disc_path = ROOT / "memo" / "disclosures-register.md"
+    rendered = render_md(disc_path.read_text())
+
+    body = f"""
+<div class="callout">
+  Every entry below links to the primary source — Federal Register, SEC EDGAR,
+  congress.gov, the agency that issued the document, or major-newswire coverage
+  where direct access was not available. Read this when a recommendation rests
+  on a specific filing and you want to verify it yourself.
+</div>
+
+<div class="prose-article disclosures-article">
+{rendered}
+</div>
+"""
+    return layout(title="Disclosures register", page_id="disclosures.html",
                   body=body, main_class="prose")
 
 
@@ -1135,6 +1157,7 @@ def main() -> int:
         "recommendation.html": build_recommendation(),
         "recommendation-detail.html": build_recommendation_detail(),
         "dynamics.html": build_dynamics(),
+        "disclosures.html": build_disclosures(),
         "simulation.html": build_simulation(),
         "playground.html": build_playground(),
         "actors.html": build_actors(),
