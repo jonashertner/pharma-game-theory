@@ -770,8 +770,8 @@ def build_simulation() -> str:
 def build_playground() -> str:
     raw = PLAYGROUND_SRC.read_text()
     nav_strip = _shared_nav_html("playground.html")
-    # Insert shared style.css link + passcode BEFORE the playground's inline
-    # <style> so the playground's inline rules override shared on conflict.
+    # Insert shared style.css + passcode BEFORE the inline <style> so playground
+    # rules override shared on conflict.
     out = raw.replace(
         '<style>',
         '<link rel="stylesheet" href="assets/style.css">\n'
@@ -779,10 +779,7 @@ def build_playground() -> str:
         '<style>',
         1,
     )
-    # Insert nav after <body> (before the playground's own <header>)
     out = out.replace("<body>", "<body>\n" + nav_strip, 1)
-    # Adjust the playground's main height calc to account for the inserted nav
-    out = out.replace("height: calc(100vh - 50px);", "height: calc(100vh - 110px);")
     out = out.replace("</body>", _mobile_nav_close_script() + "</body>")
     return out
 
