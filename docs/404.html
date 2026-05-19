@@ -9,6 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
 <script src="assets/passcode.js"></script>
+<script src="assets/commandk.js" defer></script>
+<script src="assets/toc.js" defer></script>
 
 </head>
 <body>
@@ -19,18 +21,14 @@
   <div class="inner">
     <a href="index.html" class="brand">Roche pricing negotiation <span class="accent">simulation</span></a>
     <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="index.html">Overview</a>
-        <a href="recommendation.html">Recommendation</a>
-        <a href="dynamics.html">Dynamics</a>
-        <a href="disclosures.html">Disclosures</a>
-        <a href="simulation.html">Live simulation</a>
-        <a href="playground.html">Playground</a>
-        <a href="actors.html">Actors</a>
-        <a href="positions.html">Positions</a>
-        <a href="prompts.html">Prompts</a>
-        <a href="method.html">Method</a>
+        <div class="nav-group"><a href="index.html">Overview</a><a href="recommendation.html">Recommendation</a><a href="dynamics.html">Dynamics</a><a href="disclosures.html">Disclosures</a><a href="global-pricing.html">Global pricing</a></div>
+        <div class="nav-group"><a href="simulation.html">Live simulation</a><a href="playground.html">Playground</a></div>
+        <div class="nav-group"><a href="actors.html">Actors</a><a href="positions.html">Positions</a><a href="prompts.html">Prompts</a><a href="method.html">Method</a></div>
     </nav>
-    <div class="meta">snapshot 2026-05-19</div>
+    <button id="palette-trigger" class="palette-trigger" type="button" aria-label="Search the site">
+      <span class="label">Search</span>
+      <kbd>⌘K</kbd>
+    </button>
     <label for="mobile-menu-toggle" class="hamburger" aria-label="Open menu" role="button" tabindex="0">
       <span class="bars" aria-hidden="true"></span>
     </label>
@@ -38,12 +36,16 @@
 </header>
 
 <nav class="mobile-nav" aria-label="Mobile navigation">
+      <div class="mobile-group-head">Read</div>
       <a href="index.html">Overview</a>
       <a href="recommendation.html">Recommendation</a>
       <a href="dynamics.html">Dynamics</a>
       <a href="disclosures.html">Disclosures</a>
+      <a href="global-pricing.html">Global pricing</a>
+      <div class="mobile-group-head">Explore</div>
       <a href="simulation.html">Live simulation</a>
       <a href="playground.html">Playground</a>
+      <div class="mobile-group-head">Reference</div>
       <a href="actors.html">Actors</a>
       <a href="positions.html">Positions</a>
       <a href="prompts.html">Prompts</a>

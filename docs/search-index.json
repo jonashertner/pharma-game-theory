@@ -1,0 +1,1454 @@
+[
+{
+"page": "index.html",
+"title": "Overview",
+"sections": []
+},
+{
+"page": "recommendation.html",
+"title": "Recommendation",
+"sections": [
+{
+"id": "the-argument-in-one-paragraph",
+"label": "The argument in one paragraph",
+"level": 2
+},
+{
+"id": "why-this-is-the-moment",
+"label": "Why this is the moment",
+"level": 2
+},
+{
+"id": "three-moves-in-2026",
+"label": "Three moves in 2026",
+"level": 2
+},
+{
+"id": "decisions-before-the-board",
+"label": "Decisions before the board",
+"level": 2
+},
+{
+"id": "the-generationalist-re-framing",
+"label": "The generationalist re-framing",
+"level": 2
+},
+{
+"id": "three-unexpected-alliances-the-standard-frame-misses",
+"label": "Three unexpected alliances the standard frame misses",
+"level": 2
+},
+{
+"id": "contradictions-to-exploit-not-resolve",
+"label": "Contradictions to exploit (not resolve)",
+"level": 2
+},
+{
+"id": "where-this-could-be-wrong",
+"label": "Where this could be wrong",
+"level": 2
+},
+{
+"id": "what-this-memo-doesnt-argue",
+"label": "What this memo doesn't argue",
+"level": 2
+}
+]
+},
+{
+"page": "recommendation-detail.html",
+"title": "Analytical appendix",
+"sections": [
+{
+"id": "1-situation-in-one-paragraph",
+"label": "1. Situation in one paragraph",
+"level": 2
+},
+{
+"id": "2-each-actor-view-12-actor-scan",
+"label": "2. Each-actor view (12-actor scan)",
+"level": 2
+},
+{
+"id": "3-trade-space-analysis",
+"label": "3. Trade-space analysis",
+"level": 2
+},
+{
+"id": "4-recommended-deal-architecture",
+"label": "4. Recommended deal architecture",
+"level": 2
+},
+{
+"id": "5-why-each-principal-can-accept-this",
+"label": "5. Why each principal can accept this",
+"level": 2
+},
+{
+"id": "6-sensitivity-risks",
+"label": "6. Sensitivity &amp; risks",
+"level": 2
+},
+{
+"id": "7-novel-moves-the-model-surfaces",
+"label": "7. Novel moves the model surfaces",
+"level": 2
+},
+{
+"id": "8-sequencing",
+"label": "8. Sequencing",
+"level": 2
+},
+{
+"id": "9-open-questions-for-roche-executive-committee",
+"label": "9. Open questions for Roche Executive Committee",
+"level": 2
+},
+{
+"id": "appendix-a-model-inputs",
+"label": "Appendix A: Model inputs",
+"level": 2
+},
+{
+"id": "appendix-b-sourcing",
+"label": "Appendix B: Sourcing",
+"level": 2
+},
+{
+"id": "appendix-c-method-note",
+"label": "Appendix C: Method note",
+"level": 2
+}
+]
+},
+{
+"page": "dynamics.html",
+"title": "Strategic dynamics",
+"sections": [
+{
+"id": "why-this-page-exists",
+"label": "Why this page exists",
+"level": 2
+},
+{
+"id": "roche-genentech",
+"label": "Roche / Genentech",
+"level": 2
+},
+{
+"id": "us-executive-white-house-hhscms-ustr-commerce-fda-career-staff",
+"label": "US Executive (White House + HHS/CMS + USTR + Commerce + FDA + career staff)",
+"level": 2
+},
+{
+"id": "us-congress",
+"label": "US Congress",
+"level": 2
+},
+{
+"id": "swiss-federal-council-acting-through-seco-fdfa",
+"label": "Swiss Federal Council (acting through SECO + FDFA)",
+"level": 2
+},
+{
+"id": "swiss-cantons-basel-stadt-basel-landschaft",
+"label": "Swiss cantons (Basel-Stadt + Basel-Landschaft)",
+"level": 2
+},
+{
+"id": "swiss-public-domestic-payers-bagfoph-santesuisse-curafutura-lamal-patients",
+"label": "Swiss public &amp; domestic payers (BAG/FOPH + Sant\u00e9suisse + curafutura + LAMal patients)",
+"level": 2
+},
+{
+"id": "novartis",
+"label": "Novartis",
+"level": 2
+},
+{
+"id": "us-pbms-commercial-payers",
+"label": "US PBMs &amp; commercial payers",
+"level": 2
+},
+{
+"id": "patient-advocacy-aarp-p4ad-disease-specific-groups",
+"label": "Patient advocacy (AARP, P4AD, disease-specific groups)",
+"level": 2
+},
+{
+"id": "eu-reference-pricing-apparatus-ema-g-baiqwig-has-nice-commission-dg-sante",
+"label": "EU reference-pricing apparatus (EMA + G-BA/IQWiG + HAS + NICE + Commission DG SANTE)",
+"level": 2
+},
+{
+"id": "biosimilars-competitors-sandoz-celltrion-samsung-bioepis-amgen-biosimilars-boehringer-teva",
+"label": "Biosimilars &amp; competitors (Sandoz, Celltrion, Samsung Bioepis, Amgen biosimilars, Boehringer, Teva)",
+"level": 2
+},
+{
+"id": "investors",
+"label": "Investors",
+"level": 2
+},
+{
+"id": "synthesis-the-four-moves-that-flow-from-the-telos-analysis",
+"label": "Synthesis: the four moves that flow from the telos analysis",
+"level": 2
+}
+]
+},
+{
+"page": "disclosures.html",
+"title": "Disclosures register",
+"sections": [
+{
+"id": "1-the-legal-instruments",
+"label": "1. The legal instruments",
+"level": 2
+},
+{
+"id": "11-executive-order-14297-delivering-most-favored-nation-prescription-drug-pricing-to-american-patients",
+"label": "1.1 Executive Order 14297 \u2014 \"Delivering Most-Favored-Nation Prescription Drug Pricing to American Patients\"",
+"level": 3
+},
+{
+"id": "12-crs-legal-sidebar-lsb11319-most-favored-nation-prescription-drug-pricing-executive-order-legal-issues",
+"label": "1.2 CRS Legal Sidebar LSB11319 \u2014 \"Most-Favored-Nation Prescription Drug Pricing Executive Order: Legal Issues\"",
+"level": 3
+},
+{
+"id": "13-white-house-fact-sheet-pfizer-first-mfn-deal",
+"label": "1.3 White House Fact Sheet \u2014 Pfizer (first MFN deal)",
+"level": 3
+},
+{
+"id": "14-white-house-fact-sheet-december-19-2025-nine-new-mfn-deals",
+"label": "1.4 White House Fact Sheet \u2014 December 19, 2025 \"Nine new MFN deals\"",
+"level": 3
+},
+{
+"id": "15-proclamation-11020-adjusting-imports-of-pharmaceuticals-and-pharmaceutical-ingredients-into-the-united-states-section-232",
+"label": "1.5 Proclamation 11020 \u2014 \"Adjusting Imports of Pharmaceuticals and Pharmaceutical Ingredients into the United States\" (Section 232)",
+"level": 3
+},
+{
+"id": "16-joint-statement-usswitzerlandliechtenstein-framework-on-reciprocal-trade",
+"label": "1.6 Joint Statement \u2014 US/Switzerland/Liechtenstein Framework on Reciprocal Trade",
+"level": 3
+},
+{
+"id": "17-cms-ira-round-3-selected-drug-list-ipay-2028",
+"label": "1.7 CMS \u2014 IRA Round 3 Selected Drug List (IPAY 2028)",
+"level": 3
+},
+{
+"id": "18-cms-ira-round-2-selected-drug-list-ipay-2027",
+"label": "1.8 CMS \u2014 IRA Round 2 Selected Drug List (IPAY 2027)",
+"level": 3
+},
+{
+"id": "19-public-law-consolidated-appropriations-act-2026",
+"label": "1.9 Public Law \u2014 Consolidated Appropriations Act, 2026",
+"level": 3
+},
+{
+"id": "110-white-house-fact-sheet-trumprxgov-launch",
+"label": "1.10 White House Fact Sheet \u2014 TrumpRx.gov Launch",
+"level": 3
+},
+{
+"id": "111-white-house-fact-sheet-regeneron-17th-and-final-cohort-signatory",
+"label": "1.11 White House Fact Sheet \u2014 Regeneron (17th and final cohort signatory)",
+"level": 3
+},
+{
+"id": "2-the-mfn-signatory-disclosures",
+"label": "2. The MFN signatory disclosures",
+"level": 2
+},
+{
+"id": "21-pfizer-pfe",
+"label": "2.1 Pfizer (PFE)",
+"level": 3
+},
+{
+"id": "22-astrazeneca-azn",
+"label": "2.2 AstraZeneca (AZN)",
+"level": 3
+},
+{
+"id": "23-eli-lilly-lly-and-novo-nordisk-nvo-glp-1-cohort",
+"label": "2.3 Eli Lilly (LLY) and Novo Nordisk (NVO) \u2014 GLP-1 cohort",
+"level": 3
+},
+{
+"id": "24-roche-genentech-rhhby",
+"label": "2.4 Roche / Genentech (RHHBY)",
+"level": 3
+},
+{
+"id": "25-december-19-2025-cohort-amgen-bms-boehringer-ingelheim-gilead-gsk-merck-novartis-sanofi",
+"label": "2.5 December 19, 2025 cohort: Amgen, BMS, Boehringer Ingelheim, Gilead, GSK, Merck, Novartis, Sanofi",
+"level": 3
+},
+{
+"id": "26-january-2026-stragglers-jj-and-abbvie",
+"label": "2.6 January 2026 stragglers: J&amp;J and AbbVie",
+"level": 3
+},
+{
+"id": "27-regeneron-regn",
+"label": "2.7 Regeneron (REGN)",
+"level": 3
+},
+{
+"id": "28-verification-gap-bayer",
+"label": "2.8 Verification gap \u2014 Bayer",
+"level": 3
+},
+{
+"id": "3-roche-genentech-disclosures",
+"label": "3. Roche / Genentech disclosures",
+"level": 2
+},
+{
+"id": "31-roche-annual-report-2025",
+"label": "3.1 Roche Annual Report 2025",
+"level": 3
+},
+{
+"id": "32-roche-finance-report-2025",
+"label": "3.2 Roche Finance Report 2025",
+"level": 3
+},
+{
+"id": "33-roche-q1-2026-interim-sales-report",
+"label": "3.3 Roche Q1 2026 Interim Sales Report",
+"level": 3
+},
+{
+"id": "34-genentech-announcement-of-mfn-deal",
+"label": "3.4 Genentech announcement of MFN deal",
+"level": 3
+},
+{
+"id": "35-schinecker-public-statements",
+"label": "3.5 Schinecker public statements",
+"level": 3
+},
+{
+"id": "36-roche-2026-agm-materials-and-genussschein-participation-certificate-rop-conversion",
+"label": "3.6 Roche 2026 AGM materials and Genussschein \u2192 Participation Certificate (ROP) conversion",
+"level": 3
+},
+{
+"id": "37-notable-absence-roche-has-no-sec-10-k-or-20-f",
+"label": "3.7 Notable absence \u2014 Roche has no SEC 10-K or 20-F",
+"level": 3
+},
+{
+"id": "4-novartis-disclosures",
+"label": "4. Novartis disclosures",
+"level": 2
+},
+{
+"id": "41-form-20-f-fy2025",
+"label": "4.1 Form 20-F FY2025",
+"level": 3
+},
+{
+"id": "42-q1-2026-6-k",
+"label": "4.2 Q1 2026 6-K",
+"level": 3
+},
+{
+"id": "43-investor-day-2026",
+"label": "4.3 Investor Day 2026",
+"level": 3
+},
+{
+"id": "44-notable-risk-factor-language",
+"label": "4.4 Notable risk-factor language",
+"level": 3
+},
+{
+"id": "5-pbm-payer-disclosures",
+"label": "5. PBM / payer disclosures",
+"level": 2
+},
+{
+"id": "51-cvs-health-cvs-10-k-fy2025",
+"label": "5.1 CVS Health (CVS) \u2014 10-K FY2025",
+"level": 3
+},
+{
+"id": "52-cigna-the-cigna-group-ci-express-scripts-rebate-free-pivot",
+"label": "5.2 Cigna / The Cigna Group (CI) \u2014 Express Scripts rebate-free pivot",
+"level": 3
+},
+{
+"id": "53-unitedhealth-group-unh-10-k-fy2025",
+"label": "5.3 UnitedHealth Group (UNH) \u2014 10-K FY2025",
+"level": 3
+},
+{
+"id": "54-ftc-v-caremark-rx-zinc-health-services-et-al-d9437",
+"label": "5.4 FTC v. Caremark Rx, Zinc Health Services, et al. (D9437)",
+"level": 3
+},
+{
+"id": "55-cross-cutting",
+"label": "5.5 Cross-cutting",
+"level": 3
+},
+{
+"id": "6-biosimilar-generic-disclosures",
+"label": "6. Biosimilar / generic disclosures",
+"level": 2
+},
+{
+"id": "61-celltrion-omlyclo-omalizumab-igec-xolair-biosimilar",
+"label": "6.1 Celltrion \u2014 Omlyclo (omalizumab-igec, Xolair biosimilar)",
+"level": 3
+},
+{
+"id": "62-sandoz-sdz-novartis-spin-off-eu-listed",
+"label": "6.2 Sandoz (SDZ) \u2014 Novartis spin-off, EU-listed",
+"level": 3
+},
+{
+"id": "63-samsung-bioepis-privately-held-biogen-jv-derivative",
+"label": "6.3 Samsung Bioepis (privately held; Biogen JV-derivative)",
+"level": 3
+},
+{
+"id": "64-amgen-biosimilars",
+"label": "6.4 Amgen biosimilars",
+"level": 3
+},
+{
+"id": "65-teva-teva",
+"label": "6.5 Teva (TEVA)",
+"level": 3
+},
+{
+"id": "66-cross-cutting",
+"label": "6.6 Cross-cutting",
+"level": 3
+},
+{
+"id": "7-legal-proceedings",
+"label": "7. Legal proceedings",
+"level": 2
+},
+{
+"id": "71-phrma-nica-gcca-v-becerra-wd-tex-5th-cir-24-50180",
+"label": "7.1 PhRMA / NICA / GCCA v. Becerra (W.D. Tex., 5th Cir. 24-50180)",
+"level": 3
+},
+{
+"id": "72-novartis-pharmaceuticals-corp-v-becerra-dnj-3d-cir",
+"label": "7.2 Novartis Pharmaceuticals Corp. v. Becerra (D.N.J., 3d Cir.)",
+"level": 3
+},
+{
+"id": "73-bristol-myers-squibb-janssen-v-becerra-3d-cir",
+"label": "7.3 Bristol Myers Squibb / Janssen v. Becerra (3d Cir.)",
+"level": 3
+},
+{
+"id": "74-merck-co-v-becerra-ddc-dc-cir",
+"label": "7.4 Merck &amp; Co. v. Becerra (D.D.C., D.C. Cir.)",
+"level": 3
+},
+{
+"id": "75-abbvie-new-lawsuit-botox-round-3",
+"label": "7.5 AbbVie new lawsuit (Botox, Round 3)",
+"level": 3
+},
+{
+"id": "76-pending-challenge-to-mfn-eo",
+"label": "7.6 Pending challenge to MFN EO",
+"level": 3
+},
+{
+"id": "8-congressional-record",
+"label": "8. Congressional record",
+"level": 2
+},
+{
+"id": "81-hr-7837-most-favored-patient-act-of-2026-meuser",
+"label": "8.1 H.R. 7837 \u2014 Most Favored Patient Act of 2026 (Meuser)",
+"level": 3
+},
+{
+"id": "82-epic-act-of-2025-s-832-hr-companion",
+"label": "8.2 EPIC Act of 2025 (S. 832 / H.R. companion)",
+"level": 3
+},
+{
+"id": "83-biosimilar-red-tape-elimination-act-s-1954-hr-5526",
+"label": "8.3 Biosimilar Red Tape Elimination Act (S. 1954 / H.R. 5526)",
+"level": 3
+},
+{
+"id": "84-senate-finance-committee-mfnira-activity",
+"label": "8.4 Senate Finance Committee MFN/IRA activity",
+"level": 3
+},
+{
+"id": "85-house-ways-means-energy-commerce-activity",
+"label": "8.5 House Ways &amp; Means / Energy &amp; Commerce activity",
+"level": 3
+},
+{
+"id": "86-cbo-crs-scoring",
+"label": "8.6 CBO / CRS scoring",
+"level": 3
+},
+{
+"id": "9-what-the-filings-reveal-that-public-statements-dont",
+"label": "9. What the filings reveal that public statements don't",
+"level": 2
+},
+{
+"id": "91-the-section-232-tariff-is-the-real-enforcement-engine-not-voluntary-mfn-compliance",
+"label": "9.1 The Section 232 tariff is the real enforcement engine \u2014 not voluntary MFN compliance.",
+"level": 3
+},
+{
+"id": "92-the-switzerland-15-cap-is-the-load-bearing-concession",
+"label": "9.2 The \"Switzerland 15%\" cap is the load-bearing concession.",
+"level": 3
+},
+{
+"id": "93-us-capex-pledges-aggregate-to-370b-in-five-years-but-a-large-fraction-is-recharacterized-ma-and-pre-existing-plans",
+"label": "9.3 US-capex pledges aggregate to &gt;$370B in five years \u2014 but a large fraction is recharacterized M&amp;A and pre-existing plans.",
+"level": 3
+},
+{
+"id": "94-the-ira-program-survived-all-major-legal-challenges-in-20242025-closing-one-strategic-option",
+"label": "9.4 The IRA program survived all major legal challenges in 2024\u20132025 \u2014 closing one strategic option.",
+"level": 3
+},
+{
+"id": "95-two-track-pbm-reform-voluntary-commercial-pivot-in-2025-statutory-part-d-delinking-in-2028",
+"label": "9.5 Two-track PBM reform: voluntary commercial pivot in 2025 + statutory Part D delinking in 2028.",
+"level": 3
+},
+{
+"id": "96-biosimilars-are-the-structural-winner-of-the-2026-regime",
+"label": "9.6 Biosimilars are the structural winner of the 2026 regime.",
+"level": 3
+},
+{
+"id": "97-the-opacity-of-the-mfn-agreements-is-itself-a-strategic-signal",
+"label": "9.7 The opacity of the MFN agreements is itself a strategic signal.",
+"level": 3
+},
+{
+"id": "98-forward-looking-signals-mfn-cohort-expansion-through-2027-likely",
+"label": "9.8 Forward-looking signals \u2014 MFN cohort expansion through 2027 likely.",
+"level": 3
+},
+{
+"id": "snapshot-summary-200-words",
+"label": "Snapshot summary (200 words)",
+"level": 2
+},
+{
+"id": "honest-gap-list",
+"label": "Honest gap list",
+"level": 2
+}
+]
+},
+{
+"page": "global-pricing.html",
+"title": "Global pricing map",
+"sections": [
+{
+"id": "1-why-this-map-matters",
+"label": "1. Why this map matters",
+"level": 2
+},
+{
+"id": "2-united-states-voluntary-manufacturer-mfn-deals",
+"label": "2. United States \u2014 voluntary manufacturer MFN deals",
+"level": 2
+},
+{
+"id": "21-the-five-mfn-deal-defining-structural-features",
+"label": "2.1 The five MFN-deal-defining structural features",
+"level": 3
+},
+{
+"id": "22-roche-genentech-deal-december-19-2025",
+"label": "2.2 Roche / Genentech deal \u2014 December 19, 2025",
+"level": 3
+},
+{
+"id": "23-comparator-deals",
+"label": "2.3 Comparator deals",
+"level": 3
+},
+{
+"id": "24-ira-overlay",
+"label": "2.4 IRA overlay",
+"level": 3
+},
+{
+"id": "3-european-union-reference-pricing-mosaic",
+"label": "3. European Union \u2014 reference-pricing mosaic",
+"level": 2
+},
+{
+"id": "31-germany-g-ba-iqwig-amnog-erstattungsbetrag",
+"label": "3.1 Germany \u2014 G-BA / IQWiG / AMNOG / Erstattungsbetrag",
+"level": 3
+},
+{
+"id": "32-france-has-ceps",
+"label": "3.2 France \u2014 HAS / CEPS",
+"level": 3
+},
+{
+"id": "33-united-kingdom-nice-nhs-england",
+"label": "3.3 United Kingdom \u2014 NICE / NHS England",
+"level": 3
+},
+{
+"id": "34-italy-aifa",
+"label": "3.4 Italy \u2014 AIFA",
+"level": 3
+},
+{
+"id": "35-netherlands-zorginstituut",
+"label": "3.5 Netherlands \u2014 Zorginstituut",
+"level": 3
+},
+{
+"id": "36-eu-level-mechanisms",
+"label": "3.6 EU-level mechanisms",
+"level": 3
+},
+{
+"id": "4-china-nrdl-negotiations-volume-based-procurement",
+"label": "4. China \u2014 NRDL negotiations + Volume-Based Procurement",
+"level": 2
+},
+{
+"id": "41-structural-overview",
+"label": "4.1 Structural overview",
+"level": 3
+},
+{
+"id": "42-nrdl-2025-round-published-late-2025-effective-jan-1-2026",
+"label": "4.2 NRDL 2025 round \u2014 published late 2025, effective Jan 1, 2026",
+"level": 3
+},
+{
+"id": "43-roche-on-nrdl",
+"label": "4.3 Roche on NRDL",
+"level": 3
+},
+{
+"id": "44-volume-based-procurement-11th-round-julyoctober-2025",
+"label": "4.4 Volume-Based Procurement \u2014 11th round, July\u2013October 2025",
+"level": 3
+},
+{
+"id": "45-tariff-and-trade-war-overlay",
+"label": "4.5 Tariff and trade-war overlay",
+"level": 3
+},
+{
+"id": "46-pluvicto-in-china-novartis-comparator",
+"label": "4.6 Pluvicto in China \u2014 Novartis comparator",
+"level": 3
+},
+{
+"id": "5-roches-drug-by-drug-global-pricing-exposure",
+"label": "5. Roche's drug-by-drug global pricing exposure",
+"level": 2
+},
+{
+"id": "6-cross-region-structural-comparison",
+"label": "6. Cross-region structural comparison",
+"level": 2
+},
+{
+"id": "three-non-obvious-structural-insights",
+"label": "Three non-obvious structural insights",
+"level": 3
+},
+{
+"id": "7-what-this-means-for-the-firewall-annex",
+"label": "7. What this means for the firewall annex",
+"level": 2
+},
+{
+"id": "8-sources",
+"label": "8. Sources",
+"level": 2
+},
+{
+"id": "united-states",
+"label": "United States",
+"level": 3
+},
+{
+"id": "european-union",
+"label": "European Union",
+"level": 3
+},
+{
+"id": "china",
+"label": "China",
+"level": 3
+},
+{
+"id": "roche-corporate",
+"label": "Roche corporate",
+"level": 3
+},
+{
+"id": "9-summary-and-gaps",
+"label": "9. Summary and gaps",
+"level": 2
+},
+{
+"id": "summary-200-words",
+"label": "Summary (200 words)",
+"level": 3
+},
+{
+"id": "verification-gaps",
+"label": "Verification gaps",
+"level": 3
+}
+]
+},
+{
+"page": "simulation.html",
+"title": "Live simulation",
+"sections": []
+},
+{
+"page": "playground.html",
+"title": "Roche pharma-pricing negotiation \u2014 playground",
+"sections": []
+},
+{
+"page": "actors.html",
+"title": "Actors",
+"sections": [
+{
+"id": "role",
+"label": "Role",
+"level": 2
+},
+{
+"id": "constituency",
+"label": "Constituency",
+"level": 2
+},
+{
+"id": "interests-private",
+"label": "Interests (private)",
+"level": 2
+},
+{
+"id": "positions-public",
+"label": "Positions (public)",
+"level": 2
+},
+{
+"id": "batna",
+"label": "BATNA",
+"level": 2
+},
+{
+"id": "red-lines",
+"label": "Red lines",
+"level": 2
+},
+{
+"id": "leverage",
+"label": "Leverage",
+"level": 2
+},
+{
+"id": "constraints",
+"label": "Constraints",
+"level": 2
+},
+{
+"id": "timeline-pressures",
+"label": "Timeline pressures",
+"level": 2
+},
+{
+"id": "notes-on-intra-actor-coalitions",
+"label": "Notes on intra-actor coalitions",
+"level": 2
+},
+{
+"id": "sources",
+"label": "Sources",
+"level": 2
+},
+{
+"id": "role",
+"label": "Role",
+"level": 2
+},
+{
+"id": "constituency",
+"label": "Constituency",
+"level": 2
+},
+{
+"id": "interests-private",
+"label": "Interests (private)",
+"level": 2
+},
+{
+"id": "positions-public",
+"label": "Positions (public)",
+"level": 2
+},
+{
+"id": "batna",
+"label": "BATNA",
+"level": 2
+},
+{
+"id": "red-lines",
+"label": "Red lines",
+"level": 2
+},
+{
+"id": "leverage",
+"label": "Leverage",
+"level": 2
+},
+{
+"id": "constraints",
+"label": "Constraints",
+"level": 2
+},
+{
+"id": "timeline-pressures",
+"label": "Timeline pressures",
+"level": 2
+},
+{
+"id": "notes-on-intra-actor-coalitions",
+"label": "Notes on intra-actor coalitions",
+"level": 2
+},
+{
+"id": "sources",
+"label": "Sources",
+"level": 2
+},
+{
+"id": "role",
+"label": "Role",
+"level": 2
+},
+{
+"id": "constituency",
+"label": "Constituency",
+"level": 2
+},
+{
+"id": "interests-private",
+"label": "Interests (private)",
+"level": 2
+},
+{
+"id": "positions-public",
+"label": "Positions (public)",
+"level": 2
+},
+{
+"id": "batna",
+"label": "BATNA",
+"level": 2
+},
+{
+"id": "red-lines",
+"label": "Red lines",
+"level": 2
+},
+{
+"id": "leverage",
+"label": "Leverage",
+"level": 2
+},
+{
+"id": "constraints",
+"label": "Constraints",
+"level": 2
+},
+{
+"id": "timeline-pressures",
+"label": "Timeline pressures",
+"level": 2
+},
+{
+"id": "notes-on-intra-actor-coalitions",
+"label": "Notes on intra-actor coalitions",
+"level": 2
+},
+{
+"id": "sources",
+"label": "Sources",
+"level": 2
+},
+{
+"id": "role",
+"label": "Role",
+"level": 2
+},
+{
+"id": "constituency",
+"label": "Constituency",
+"level": 2
+},
+{
+"id": "interests-private",
+"label": "Interests (private)",
+"level": 2
+},
+{
+"id": "positions-public",
+"label": "Positions (public)",
+"level": 2
+},
+{
+"id": "batna",
+"label": "BATNA",
+"level": 2
+},
+{
+"id": "red-lines",
+"label": "Red lines",
+"level": 2
+},
+{
+"id": "leverage",
+"label": "Leverage",
+"level": 2
+},
+{
+"id": "constraints",
+"label": "Constraints",
+"level": 2
+},
+{
+"id": "timeline-pressures",
+"label": "Timeline pressures",
+"level": 2
+},
+{
+"id": "notes-on-intra-actor-coalitions",
+"label": "Notes on intra-actor coalitions",
+"level": 2
+},
+{
+"id": "sources",
+"label": "Sources",
+"level": 2
+},
+{
+"id": "role",
+"label": "Role",
+"level": 2
+},
+{
+"id": "constituency",
+"label": "Constituency",
+"level": 2
+},
+{
+"id": "interests-private",
+"label": "Interests (private)",
+"level": 2
+},
+{
+"id": "positions-public",
+"label": "Positions (public)",
+"level": 2
+},
+{
+"id": "batna",
+"label": "BATNA",
+"level": 2
+},
+{
+"id": "red-lines",
+"label": "Red lines",
+"level": 2
+},
+{
+"id": "leverage",
+"label": "Leverage",
+"level": 2
+},
+{
+"id": "constraints",
+"label": "Constraints",
+"level": 2
+},
+{
+"id": "timeline-pressures",
+"label": "Timeline pressures",
+"level": 2
+},
+{
+"id": "notes-on-intra-actor-coalitions",
+"label": "Notes on intra-actor coalitions",
+"level": 2
+},
+{
+"id": "sources",
+"label": "Sources",
+"level": 2
+},
+{
+"id": "role",
+"label": "Role",
+"level": 2
+},
+{
+"id": "constituency",
+"label": "Constituency",
+"level": 2
+},
+{
+"id": "interests-private",
+"label": "Interests (private)",
+"level": 2
+},
+{
+"id": "positions-public",
+"label": "Positions (public)",
+"level": 2
+},
+{
+"id": "batna",
+"label": "BATNA",
+"level": 2
+},
+{
+"id": "red-lines",
+"label": "Red lines",
+"level": 2
+},
+{
+"id": "leverage",
+"label": "Leverage",
+"level": 2
+},
+{
+"id": "constraints",
+"label": "Constraints",
+"level": 2
+},
+{
+"id": "timeline-pressures",
+"label": "Timeline pressures",
+"level": 2
+},
+{
+"id": "notes-on-intra-actor-coalitions",
+"label": "Notes on intra-actor coalitions",
+"level": 2
+},
+{
+"id": "sources",
+"label": "Sources",
+"level": 2
+},
+{
+"id": "role",
+"label": "Role",
+"level": 2
+},
+{
+"id": "constituency",
+"label": "Constituency",
+"level": 2
+},
+{
+"id": "interests-private",
+"label": "Interests (private)",
+"level": 2
+},
+{
+"id": "positions-public",
+"label": "Positions (public)",
+"level": 2
+},
+{
+"id": "batna",
+"label": "BATNA",
+"level": 2
+},
+{
+"id": "red-lines",
+"label": "Red lines",
+"level": 2
+},
+{
+"id": "leverage",
+"label": "Leverage",
+"level": 2
+},
+{
+"id": "constraints",
+"label": "Constraints",
+"level": 2
+},
+{
+"id": "timeline-pressures",
+"label": "Timeline pressures",
+"level": 2
+},
+{
+"id": "notes-on-intra-actor-coalitions",
+"label": "Notes on intra-actor coalitions",
+"level": 2
+},
+{
+"id": "sources",
+"label": "Sources",
+"level": 2
+},
+{
+"id": "role",
+"label": "Role",
+"level": 2
+},
+{
+"id": "constituency",
+"label": "Constituency",
+"level": 2
+},
+{
+"id": "interests-private",
+"label": "Interests (private)",
+"level": 2
+},
+{
+"id": "positions-public",
+"label": "Positions (public)",
+"level": 2
+},
+{
+"id": "batna",
+"label": "BATNA",
+"level": 2
+},
+{
+"id": "red-lines",
+"label": "Red lines",
+"level": 2
+},
+{
+"id": "leverage",
+"label": "Leverage",
+"level": 2
+},
+{
+"id": "constraints",
+"label": "Constraints",
+"level": 2
+},
+{
+"id": "timeline-pressures",
+"label": "Timeline pressures",
+"level": 2
+},
+{
+"id": "notes-on-intra-actor-coalitions",
+"label": "Notes on intra-actor coalitions",
+"level": 2
+},
+{
+"id": "sources",
+"label": "Sources",
+"level": 2
+},
+{
+"id": "role",
+"label": "Role",
+"level": 2
+},
+{
+"id": "constituency",
+"label": "Constituency",
+"level": 2
+},
+{
+"id": "interests-private",
+"label": "Interests (private)",
+"level": 2
+},
+{
+"id": "positions-public",
+"label": "Positions (public)",
+"level": 2
+},
+{
+"id": "batna",
+"label": "BATNA",
+"level": 2
+},
+{
+"id": "red-lines",
+"label": "Red lines",
+"level": 2
+},
+{
+"id": "leverage",
+"label": "Leverage",
+"level": 2
+},
+{
+"id": "constraints",
+"label": "Constraints",
+"level": 2
+},
+{
+"id": "timeline-pressures",
+"label": "Timeline pressures",
+"level": 2
+},
+{
+"id": "notes-on-intra-actor-coalitions",
+"label": "Notes on intra-actor coalitions",
+"level": 2
+},
+{
+"id": "sources",
+"label": "Sources",
+"level": 2
+},
+{
+"id": "role",
+"label": "Role",
+"level": 2
+},
+{
+"id": "constituency",
+"label": "Constituency",
+"level": 2
+},
+{
+"id": "interests-private",
+"label": "Interests (private)",
+"level": 2
+},
+{
+"id": "positions-public",
+"label": "Positions (public)",
+"level": 2
+},
+{
+"id": "batna",
+"label": "BATNA",
+"level": 2
+},
+{
+"id": "red-lines",
+"label": "Red lines",
+"level": 2
+},
+{
+"id": "leverage",
+"label": "Leverage",
+"level": 2
+},
+{
+"id": "constraints",
+"label": "Constraints",
+"level": 2
+},
+{
+"id": "timeline-pressures",
+"label": "Timeline pressures",
+"level": 2
+},
+{
+"id": "notes-on-intra-actor-coalitions",
+"label": "Notes on intra-actor coalitions",
+"level": 2
+},
+{
+"id": "sources",
+"label": "Sources",
+"level": 2
+},
+{
+"id": "role",
+"label": "Role",
+"level": 2
+},
+{
+"id": "constituency",
+"label": "Constituency",
+"level": 2
+},
+{
+"id": "interests-private",
+"label": "Interests (private)",
+"level": 2
+},
+{
+"id": "positions-public",
+"label": "Positions (public)",
+"level": 2
+},
+{
+"id": "batna",
+"label": "BATNA",
+"level": 2
+},
+{
+"id": "red-lines",
+"label": "Red lines",
+"level": 2
+},
+{
+"id": "leverage",
+"label": "Leverage",
+"level": 2
+},
+{
+"id": "constraints",
+"label": "Constraints",
+"level": 2
+},
+{
+"id": "timeline-pressures",
+"label": "Timeline pressures",
+"level": 2
+},
+{
+"id": "notes-on-intra-actor-coalitions",
+"label": "Notes on intra-actor coalitions",
+"level": 2
+},
+{
+"id": "sources",
+"label": "Sources",
+"level": 2
+},
+{
+"id": "role",
+"label": "Role",
+"level": 2
+},
+{
+"id": "constituency",
+"label": "Constituency",
+"level": 2
+},
+{
+"id": "interests-private",
+"label": "Interests (private)",
+"level": 2
+},
+{
+"id": "positions-public",
+"label": "Positions (public)",
+"level": 2
+},
+{
+"id": "batna",
+"label": "BATNA",
+"level": 2
+},
+{
+"id": "red-lines",
+"label": "Red lines",
+"level": 2
+},
+{
+"id": "leverage",
+"label": "Leverage",
+"level": 2
+},
+{
+"id": "constraints",
+"label": "Constraints",
+"level": 2
+},
+{
+"id": "timeline-pressures",
+"label": "Timeline pressures",
+"level": 2
+},
+{
+"id": "notes-on-intra-actor-coalitions",
+"label": "Notes on intra-actor coalitions",
+"level": 2
+},
+{
+"id": "sources",
+"label": "Sources",
+"level": 2
+}
+]
+},
+{
+"page": "positions.html",
+"title": "Positions",
+"sections": []
+},
+{
+"page": "prompts.html",
+"title": "Prompts",
+"sections": []
+},
+{
+"page": "transcripts.html",
+"title": "Transcripts",
+"sections": []
+},
+{
+"page": "method.html",
+"title": "Method",
+"sections": [
+{
+"id": "design-choices",
+"label": "Design choices",
+"level": 2
+},
+{
+"id": "cli",
+"label": "CLI",
+"level": 2
+},
+{
+"id": "files",
+"label": "Files",
+"level": 2
+},
+{
+"id": "intended-use",
+"label": "Intended use",
+"level": 2
+},
+{
+"id": "known-limits",
+"label": "Known limits",
+"level": 2
+}
+]
+}
+]

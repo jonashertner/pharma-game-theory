@@ -61,18 +61,26 @@ DISPLAY_NAMES = {
 }
 
 
-NAV_LINKS = [
-    ("index.html", "Overview"),
-    ("recommendation.html", "Recommendation"),
-    ("dynamics.html", "Dynamics"),
-    ("disclosures.html", "Disclosures"),
-    ("simulation.html", "Live simulation"),
-    ("playground.html", "Playground"),
-    ("actors.html", "Actors"),
-    ("positions.html", "Positions"),
-    ("prompts.html", "Prompts"),
-    ("method.html", "Method"),
+NAV_GROUPS = [
+    ("Read", [
+        ("index.html", "Overview"),
+        ("recommendation.html", "Recommendation"),
+        ("dynamics.html", "Dynamics"),
+        ("disclosures.html", "Disclosures"),
+        ("global-pricing.html", "Global pricing"),
+    ]),
+    ("Explore", [
+        ("simulation.html", "Live simulation"),
+        ("playground.html", "Playground"),
+    ]),
+    ("Reference", [
+        ("actors.html", "Actors"),
+        ("positions.html", "Positions"),
+        ("prompts.html", "Prompts"),
+        ("method.html", "Method"),
+    ]),
 ]
+NAV_LINKS = [link for _, group in NAV_GROUPS for link in group]
 
 
 def _pagination(page_id: str) -> str:
@@ -110,14 +118,20 @@ def _pagination(page_id: str) -> str:
 
 def layout(*, title: str, page_id: str, body: str, main_class: str = "prose",
            extra_head: str = "", include_pagination: bool = True) -> str:
-    desktop_links = []
-    mobile_links = []
-    for href, label in NAV_LINKS:
-        active = ' class="active"' if href == page_id else ""
-        desktop_links.append(f'<a href="{href}"{active}>{label}</a>')
-        mobile_links.append(f'<a href="{href}"{active}>{label}</a>')
-    desktop_nav = "\n        ".join(desktop_links)
-    mobile_nav = "\n      ".join(mobile_links)
+    # Desktop nav grouped by category
+    desktop_groups = []
+    mobile_groups = []
+    for gname, group in NAV_GROUPS:
+        d_links = []
+        m_links = [f'<div class="mobile-group-head">{gname}</div>']
+        for href, label in group:
+            active = ' class="active"' if href == page_id else ""
+            d_links.append(f'<a href="{href}"{active}>{label}</a>')
+            m_links.append(f'<a href="{href}"{active}>{label}</a>')
+        desktop_groups.append(f'<div class="nav-group">{"".join(d_links)}</div>')
+        mobile_groups.append("\n      ".join(m_links))
+    desktop_nav = "\n        ".join(desktop_groups)
+    mobile_nav = "\n      ".join(mobile_groups)
     snapshot = "2026-05-19"
 
     pagination = _pagination(page_id) if include_pagination and page_id != "index.html" else ""
@@ -133,6 +147,8 @@ def layout(*, title: str, page_id: str, body: str, main_class: str = "prose",
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
 <script src="assets/passcode.js"></script>
+<script src="assets/commandk.js" defer></script>
+<script src="assets/toc.js" defer></script>
 {extra_head}
 </head>
 <body>
@@ -145,7 +161,10 @@ def layout(*, title: str, page_id: str, body: str, main_class: str = "prose",
     <nav class="desktop-nav" aria-label="Primary navigation">
         {desktop_nav}
     </nav>
-    <div class="meta">snapshot {snapshot}</div>
+    <button id="palette-trigger" class="palette-trigger" type="button" aria-label="Search the site">
+      <span class="label">Search</span>
+      <kbd>⌘K</kbd>
+    </button>
     <label for="mobile-menu-toggle" class="hamburger" aria-label="Open menu" role="button" tabindex="0">
       <span class="bars" aria-hidden="true"></span>
     </label>
@@ -533,6 +552,27 @@ def build_disclosures() -> str:
 </div>
 """
     return layout(title="Disclosures register", page_id="disclosures.html",
+                  body=body, main_class="prose")
+
+
+def build_global_pricing() -> str:
+    """Global pricing-mechanism map — US/EU/China comparative analysis."""
+    gp_path = ROOT / "memo" / "global-pricing-map.md"
+    rendered = render_md(gp_path.read_text())
+
+    body = f"""
+<div class="callout">
+  Comparative analysis of three structurally different national pricing regimes:
+  US voluntary manufacturer MFN agreements, EU per-country reference-pricing,
+  China NRDL negotiations + Volume-Based Procurement. The artifact makes the
+  asymmetries visible &mdash; "MFN" in the Trump-administration sense is a US-only construct.
+</div>
+
+<div class="prose-article">
+{rendered}
+</div>
+"""
+    return layout(title="Global pricing map", page_id="global-pricing.html",
                   body=body, main_class="prose")
 
 
@@ -1158,6 +1198,7 @@ def main() -> int:
         "recommendation-detail.html": build_recommendation_detail(),
         "dynamics.html": build_dynamics(),
         "disclosures.html": build_disclosures(),
+        "global-pricing.html": build_global_pricing(),
         "simulation.html": build_simulation(),
         "playground.html": build_playground(),
         "actors.html": build_actors(),
@@ -1181,7 +1222,37 @@ def main() -> int:
     (DOCS / "robots.txt").write_text("User-agent: *\nDisallow: /\n")
     print(f"  wrote   docs/robots.txt")
 
-    print(f"\nBuilt {len(pages) + 1} pages under {DOCS}")
+    # Build search index for Cmd+K palette by scanning rendered HTML
+    search_index = []
+    for filename, content in pages.items():
+        title_m = re.search(r'<title>([^<]+)</title>', content)
+        title = title_m.group(1) if title_m else filename
+        # Trim "— Roche..." suffix from titles
+        title = re.sub(r'\s*[—-]\s*Roche.*$', '', title)
+        sections = []
+        for level, attrs, label in re.findall(
+            r'<h([2-3])([^>]*)>([^<]+(?:<[^>]+>[^<]*)*?)</h\1>', content):
+            id_m = re.search(r'\sid="([^"]+)"', attrs)
+            if not id_m:
+                continue
+            clean_label = re.sub(r'<[^>]+>', '', label).strip()
+            if not clean_label:
+                continue
+            sections.append({
+                "id": id_m.group(1),
+                "label": clean_label,
+                "level": int(level),
+            })
+        search_index.append({
+            "page": filename,
+            "title": title,
+            "sections": sections,
+        })
+    (DOCS / "search-index.json").write_text(json.dumps(search_index, indent=0))
+    print(f"  wrote   docs/search-index.json ({len(search_index)} pages, "
+          f"{sum(len(p['sections']) for p in search_index)} sections)")
+
+    print(f"\nBuilt {len(pages) + 2} pages under {DOCS}")
     print(f"Local preview: cd {DOCS} && python -m http.server 8000")
     return 0
 

@@ -396,26 +396,233 @@
   @media (max-width: 880px) {
     body { overflow-y: auto; height: auto; }
     main { height: auto; }
-    .sim-shell {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto auto auto auto auto auto;
-      height: auto;
-      overflow: visible;
-    }
-    .sim-topbar { padding: 12px 16px; flex-direction: column; align-items: flex-start; gap: 8px; }
-    .sim-counter { margin-left: 0; }
-    .sim-controls { padding: 10px 16px; overflow-x: auto; }
-    .sim-controls button { min-height: 40px; }
-    .actors-col, .deal-col {
-      border-right: none; border-left: none;
-      border-bottom: 1px solid var(--hairline);
-      padding: 16px;
-      max-height: 50vh;
-    }
-    .statement-col { padding: 20px 16px; }
-    .statement-frame { padding: 22px 22px; }
-    .statement-frame .quote { font-size: 18px; line-height: 1.5; min-height: 100px; }
-    .feasibility-bar { padding: 12px 16px; }
+    /* On mobile we replace the desktop grid with a chat-style stream */
+    .sim-shell { display: none; }
+    .sim-chat  { display: block; }
+  }
+
+  /* -------------------------------------------------------------------------
+   * Chat-style mobile layout — sequential message feed for the simulation
+   * ------------------------------------------------------------------------- */
+  .sim-chat { display: none; }
+  .sim-chat .chat-header {
+    position: sticky; top: 0; z-index: 30;
+    background: rgba(250, 250, 249, 0.94);
+    -webkit-backdrop-filter: saturate(180%) blur(10px);
+    backdrop-filter: saturate(180%) blur(10px);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--hairline);
+    font-family: var(--font-sans);
+    font-size: 12.5px;
+    display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  }
+  .sim-chat .chat-header .scen {
+    color: var(--ink); font-weight: 600; letter-spacing: -0.011em;
+    flex: 1; min-width: 0;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .sim-chat .chat-header .counter {
+    color: var(--muted); font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.02em; flex-shrink: 0;
+  }
+  .sim-chat .chat-stream {
+    padding: 16px 14px 130px;
+    min-height: calc(100vh - 50px - 116px);
+  }
+  .sim-chat .chat-empty {
+    padding: 56px 24px; text-align: center;
+    color: var(--muted); font-family: var(--font-serif);
+    font-size: 15px; font-style: italic; line-height: 1.55;
+  }
+  .sim-chat .chat-event {
+    margin-bottom: 20px;
+  }
+  .sim-chat .chat-speaker {
+    display: flex; align-items: center; gap: 8px;
+    font-family: var(--font-sans);
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--c, var(--accent));
+    margin-bottom: 5px;
+    margin-left: 4px;
+    letter-spacing: -0.005em;
+  }
+  .sim-chat .chat-speaker .speaker-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--c, var(--accent));
+  }
+  .sim-chat .chat-speaker .timestamp {
+    color: var(--muted-2);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 400;
+    margin-left: auto;
+    letter-spacing: 0.02em;
+  }
+  .sim-chat .chat-bubble {
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-left: 3px solid var(--c, var(--accent));
+    border-radius: 4px 16px 16px 16px;
+    padding: 13px 17px;
+    font-family: var(--font-serif);
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    letter-spacing: -0.005em;
+  }
+  .sim-chat .chat-proposal {
+    margin-top: 6px;
+    margin-left: 14px;
+    padding: 10px 14px;
+    background: var(--surface-2);
+    border-radius: 0 0 14px 14px;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    color: var(--ink-2);
+    max-width: calc(100% - 28px);
+  }
+  .sim-chat .chat-proposal .action-tag {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 99px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    border: 1px solid currentColor;
+  }
+  .sim-chat .chat-proposal .action-tag.PROPOSE { color: var(--accent); }
+  .sim-chat .chat-proposal .action-tag.COUNTER { color: var(--warning); }
+  .sim-chat .chat-proposal .action-tag.ACCEPT  { color: var(--positive); }
+  .sim-chat .chat-proposal .action-tag.WALK    { color: var(--negative); }
+  .sim-chat .chat-proposal .move-line {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink);
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+  .sim-chat .chat-proposal .move-line .issue { color: var(--accent); font-weight: 500; }
+  .sim-chat .chat-proposal .move-line .arrow { color: var(--muted-2); margin: 0 6px; }
+  .sim-chat .chat-proposal .move-line .to {
+    color: var(--ink); font-weight: 700; font-feature-settings: "tnum";
+  }
+  .sim-chat .chat-proposal .move-line .units {
+    color: var(--muted); font-size: 11px; margin-left: 8px; font-family: var(--font-sans);
+  }
+  .sim-chat .chat-proposal .why {
+    display: block;
+    color: var(--muted);
+    font-size: 11.5px;
+    font-style: italic;
+    font-family: var(--font-serif);
+    margin-top: 6px;
+    line-height: 1.45;
+  }
+  .sim-chat .chat-proposal .accept-text {
+    color: var(--positive); font-weight: 500;
+  }
+  .sim-chat .chat-divider {
+    display: flex; align-items: center; gap: 12px;
+    margin: 28px 12px 16px;
+    color: var(--muted);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-family: var(--font-sans);
+    font-weight: 600;
+  }
+  .sim-chat .chat-divider::before, .sim-chat .chat-divider::after {
+    content: ""; flex: 1; height: 1px; background: var(--hairline);
+  }
+  .sim-chat .chat-controls {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 30;
+    background: var(--surface);
+    border-top: 1px solid var(--hairline);
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+    display: flex; align-items: center; gap: 8px;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.04);
+  }
+  .sim-chat .chat-controls button {
+    background: var(--surface);
+    color: var(--ink);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius);
+    padding: 9px 0;
+    font-size: 13px;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 150ms ease;
+    min-height: 40px;
+    min-width: 40px;
+  }
+  .sim-chat .chat-controls button.primary {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    flex: 1;
+  }
+  .sim-chat .chat-controls button.primary:hover { background: var(--accent-hover); }
+  .sim-chat .chat-controls .speed-pill {
+    background: var(--surface-2);
+    border-radius: 99px;
+    padding: 5px 6px;
+    display: flex; gap: 2px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+  }
+  .sim-chat .chat-controls .speed-pill button {
+    background: transparent;
+    border: none;
+    padding: 4px 8px;
+    min-height: 28px;
+    min-width: 28px;
+    border-radius: 99px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+  }
+  .sim-chat .chat-controls .speed-pill button.active {
+    background: var(--surface); color: var(--ink); font-weight: 600;
+  }
+  .sim-chat .feas-mini {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--muted);
+    display: flex; align-items: center; gap: 6px;
+    margin-left: auto;
+    padding-right: 2px;
+  }
+  .sim-chat .feas-dot {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--positive);
+    transition: background 200ms ease;
+  }
+  .sim-chat .feas-dot.bad { background: var(--negative); }
+
+  /* End-state convergence card in chat */
+  .sim-chat .chat-convergence {
+    margin: 24px 12px 16px;
+    padding: 16px 18px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius-lg);
+    font-family: var(--font-serif);
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .sim-chat .chat-convergence .label {
+    font-family: var(--font-sans);
+    font-size: 10.5px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    margin-bottom: 6px;
   }
 </style>
 <link rel="stylesheet" href="assets/style.css">
@@ -432,6 +639,7 @@
         <a href="recommendation.html">Recommendation</a>
         <a href="dynamics.html">Dynamics</a>
         <a href="disclosures.html">Disclosures</a>
+        <a href="global-pricing.html">Global pricing</a>
         <a href="simulation.html" class="active">Live simulation</a>
         <a href="playground.html">Playground</a>
         <a href="actors.html">Actors</a>
@@ -450,6 +658,7 @@
       <a href="recommendation.html">Recommendation</a>
       <a href="dynamics.html">Dynamics</a>
       <a href="disclosures.html">Disclosures</a>
+      <a href="global-pricing.html">Global pricing</a>
       <a href="simulation.html" class="active">Live simulation</a>
       <a href="playground.html">Playground</a>
       <a href="actors.html">Actors</a>
@@ -529,6 +738,35 @@
   </div>
 
 </div>
+
+<!-- Mobile chat-stream view (WhatsApp-style group chat) -->
+<div class="sim-chat" id="sim-chat" aria-label="Negotiation as chat stream">
+  <div class="chat-header">
+    <span class="scen" id="chat-scen">Loading…</span>
+    <span class="counter">Round <span id="chat-round">—</span>/<span id="chat-round-total">—</span></span>
+  </div>
+  <div class="chat-stream" id="chat-stream">
+    <div class="chat-empty" id="chat-empty">
+      The negotiation unfolds here as a chat stream. Tap <strong>Play</strong> below and the principals speak in turn — Roche, the US Executive, and the Swiss Federal Council. Each message carries the actor's voiced statement and, where applicable, their proposed change to the deal vector.
+    </div>
+  </div>
+  <div class="chat-controls">
+    <button id="chat-btn-reset" aria-label="Reset to start" title="Reset">⏮</button>
+    <button id="chat-btn-back" aria-label="Step back">◀</button>
+    <button id="chat-btn-play" class="primary" aria-label="Play / pause">▶ Play</button>
+    <button id="chat-btn-next" aria-label="Step forward">▶</button>
+    <div class="speed-pill" id="chat-speed-pill">
+      <button data-speed="1" class="active">1×</button>
+      <button data-speed="2">2×</button>
+      <button data-speed="4">4×</button>
+    </div>
+    <div class="feas-mini" id="chat-feas-mini" aria-live="polite">
+      <span class="feas-dot" id="chat-feas-dot"></span>
+      <span id="chat-feas-label">—</span>
+    </div>
+  </div>
+</div>
+
 </main>
 
 <script type="application/json" id="model-data">
@@ -1466,6 +1704,126 @@ function setIntroState() {
   quoteEl.classList.remove("has-content");
 }
 
+// ============================================================================
+// CHAT-STREAM rendering (mobile WhatsApp-style group chat)
+// ============================================================================
+
+let lastRenderedRound = 0;
+
+function fmtTimestamp(ms) {
+  const totalSec = Math.floor((ms || 0) / 1000);
+  const m = Math.floor(totalSec / 60);
+  const s = totalSec % 60;
+  return m + ":" + (s < 10 ? "0" : "") + s;
+}
+
+function clearChatStream() {
+  const stream = document.getElementById("chat-stream");
+  if (!stream) return;
+  while (stream.firstChild) stream.removeChild(stream.firstChild);
+  const empty = el("div", {className: "chat-empty", attrs: {id: "chat-empty"}});
+  empty.textContent = "Tap Play below and the principals speak in turn. Each message carries the actor's voiced statement and any proposed deal-vector changes.";
+  stream.appendChild(empty);
+  lastRenderedRound = 0;
+}
+
+function appendChatBubble(ev) {
+  const stream = document.getElementById("chat-stream");
+  if (!stream) return;
+  const empty = document.getElementById("chat-empty");
+  if (empty) empty.remove();
+
+  if (ev.round !== lastRenderedRound) {
+    const divider = el("div", {className: "chat-divider", text: "Round " + ev.round});
+    stream.appendChild(divider);
+    lastRenderedRound = ev.round;
+  }
+
+  const color = ACTOR_COLORS[ev.actor] || "var(--accent)";
+  const eventDiv = el("div", {className: "chat-event", attrs: {style: "--c: " + color + ";"}});
+
+  const speakerRow = el("div", {className: "chat-speaker"});
+  speakerRow.appendChild(el("span", {className: "speaker-dot"}));
+  speakerRow.appendChild(el("span", {text: ev.speaker}));
+  speakerRow.appendChild(el("span", {className: "timestamp", text: fmtTimestamp(ev.ts_ms)}));
+  eventDiv.appendChild(speakerRow);
+
+  const bubble = el("div", {className: "chat-bubble", text: ev.statement});
+  eventDiv.appendChild(bubble);
+
+  if (ev.action) {
+    const prop = el("div", {className: "chat-proposal"});
+    if (ev.action !== "PROPOSE" || (ev.moves && ev.moves.length)) {
+      prop.appendChild(el("span", {className: "action-tag " + ev.action, text: ev.action}));
+    }
+    if (ev.moves && ev.moves.length) {
+      for (const m of ev.moves) {
+        const issueObj = ISSUES.find(i => i.id === m.issue);
+        const issueName = issueObj ? issueObj.name : m.issue;
+        const units = issueObj ? issueObj.units : "";
+        const line = el("div", {className: "move-line"});
+        line.appendChild(el("span", {className: "issue", text: issueName}));
+        line.appendChild(el("br"));
+        const fromVal = m.from !== undefined ? fmt(m.from, 1) : fmt(sim.deal[m.issue], 1);
+        line.appendChild(el("span", {className: "from", text: fromVal}));
+        line.appendChild(el("span", {className: "arrow", text: "→"}));
+        line.appendChild(el("span", {className: "to", text: fmt(m.to, 1)}));
+        if (units) line.appendChild(el("span", {className: "units", text: units}));
+        if (m.rationale) line.appendChild(el("span", {className: "why", text: m.rationale}));
+        prop.appendChild(line);
+      }
+    } else if (ev.action === "ACCEPT") {
+      const note = el("span", {className: "accept-text", text: " — accepts current draft"});
+      prop.appendChild(note);
+    }
+    eventDiv.appendChild(prop);
+  }
+
+  stream.appendChild(eventDiv);
+  setTimeout(() => eventDiv.scrollIntoView({ behavior: "smooth", block: "center" }), 80);
+}
+
+function appendConvergencePanel(note) {
+  const stream = document.getElementById("chat-stream");
+  if (!stream || document.querySelector(".chat-convergence")) return;
+  const panel = el("div", {className: "chat-convergence"});
+  panel.appendChild(el("div", {className: "label", text: "Provisional convergence"}));
+  panel.appendChild(document.createTextNode(note));
+  stream.appendChild(panel);
+  setTimeout(() => panel.scrollIntoView({ behavior: "smooth", block: "center" }), 80);
+}
+
+function syncChatHeader(ev) {
+  if (!sim.data) return;
+  const scen = document.getElementById("chat-scen");
+  const totalEl = document.getElementById("chat-round-total");
+  const roundEl = document.getElementById("chat-round");
+  if (scen) scen.textContent = sim.data.scenario_name;
+  if (totalEl) totalEl.textContent = Math.max(...sim.data.events.map(e => e.round));
+  if (roundEl) roundEl.textContent = ev ? ev.round : "—";
+}
+
+function syncChatFeasibility() {
+  const dot = document.getElementById("chat-feas-dot");
+  const label = document.getElementById("chat-feas-label");
+  if (!dot || !label) return;
+  let below = 0, redLine = 0;
+  for (const a of ACTORS) {
+    const p = payoffFor(a.id, sim.deal);
+    const b = BATNA_PAYOFFS[a.id];
+    if (p <= RED_LINE_PENALTY / 2) redLine++;
+    else if (p < b) below++;
+  }
+  const above = ACTORS.length - below - redLine;
+  dot.classList.toggle("bad", below > 0 || redLine > 0);
+  label.textContent = above + "/" + ACTORS.length + " above BATNA";
+}
+
+function syncChatPlayButton() {
+  const btn = document.getElementById("chat-btn-play");
+  if (btn) btn.textContent = sim.playing ? "⏸ Pause" : "▶ Play";
+}
+
 function resetSim() {
   stopPlay();
   sim.deal = Object.assign({}, sim.data.initial_deal);
@@ -1488,6 +1846,11 @@ function resetSim() {
   renderActorPayoffs();
   renderDealVector();
   renderFeasibility();
+  // chat-stream
+  clearChatStream();
+  syncChatHeader(null);
+  syncChatFeasibility();
+  syncChatPlayButton();
 }
 
 function applyMoves(moves) {
@@ -1519,6 +1882,10 @@ function showEvent(ev) {
 
   document.getElementById("round-num").textContent = ev.round;
   document.getElementById("event-num").textContent = sim.eventIdx + 1;
+
+  // Mobile chat-stream: append bubble + update header
+  appendChatBubble(ev);
+  syncChatHeader(ev);
 }
 
 function typeStatement(text, ev) {
@@ -1586,6 +1953,7 @@ function showProposal(ev) {
     renderDealVector(changed);
     renderActorPayoffs();
     renderFeasibility();
+    syncChatFeasibility();
   }, 300);
 
   if (sim.eventIdx === sim.data.events.length - 1) {
@@ -1593,6 +1961,7 @@ function showProposal(ev) {
       const end = document.getElementById("end-panel");
       document.getElementById("convergence-note").textContent = sim.data.convergence_note;
       end.classList.add("show");
+      appendConvergencePanel(sim.data.convergence_note);
     }, 800);
     stopPlay();
   }
@@ -1609,24 +1978,42 @@ function stepBack() {
   const target = sim.eventIdx - 1;
   stopPlay(); resetSim();
   if (target < 0) return;
+  // Replay all events instantly into chat stream + deal vector
   for (let i = 0; i <= target; i++) {
     sim.eventIdx = i;
     const ev = sim.data.events[i];
     applyMoves(ev.moves);
+    appendChatBubble(ev);
   }
   sim.eventIdx = target;
   const ev = sim.data.events[target];
-  showEvent(ev);
+  // Update desktop view to show this event without re-typing
+  const color = ACTOR_COLORS[ev.actor] || "var(--accent)";
+  const frame = document.getElementById("statement-frame");
+  frame.style.borderLeftColor = color;
+  frame.style.setProperty("--actor-color", color);
+  document.getElementById("speaker-name").textContent = ev.speaker;
+  document.getElementById("speaker-name").style.color = color;
+  document.getElementById("round-marker").textContent =
+    "Round " + ev.round + "  ·  Event " + (sim.eventIdx + 1) + " of " + sim.data.events.length;
+  document.querySelectorAll(".actor-card").forEach(c => {
+    c.classList.toggle("speaking", c.dataset.actor === ev.actor);
+  });
+  document.getElementById("round-num").textContent = ev.round;
+  document.getElementById("event-num").textContent = sim.eventIdx + 1;
   clearTimeout(sim.typingTimer);
   document.getElementById("quote-text").textContent = ev.statement;
   document.getElementById("quote-text").classList.add("has-content");
   showProposal(ev);
+  syncChatHeader(ev);
+  syncChatFeasibility();
 }
 
 function startPlay() {
   if (sim.playing) return;
   sim.playing = true;
   document.getElementById("btn-play").textContent = "⏸ Pause";
+  syncChatPlayButton();
   loopPlay();
 }
 
@@ -1643,6 +2030,7 @@ function loopPlay() {
 function stopPlay() {
   sim.playing = false;
   document.getElementById("btn-play").textContent = "▶ Play";
+  syncChatPlayButton();
   clearTimeout(sim.timer);
 }
 
@@ -1666,6 +2054,37 @@ document.querySelectorAll("#speed-group button").forEach(b => {
     document.querySelectorAll("#speed-group button").forEach(x => x.classList.remove("active"));
     b.classList.add("active");
     sim.speed = parseFloat(b.dataset.speed);
+  });
+});
+
+// Mobile chat-controls wiring — share state with desktop controls
+const chatBtnPlay  = document.getElementById("chat-btn-play");
+const chatBtnNext  = document.getElementById("chat-btn-next");
+const chatBtnBack  = document.getElementById("chat-btn-back");
+const chatBtnReset = document.getElementById("chat-btn-reset");
+if (chatBtnPlay) chatBtnPlay.addEventListener("click", togglePlay);
+if (chatBtnNext) chatBtnNext.addEventListener("click", () => {
+  stopPlay(); stepForward();
+  clearTimeout(sim.typingTimer);
+  if (sim.eventIdx >= 0) {
+    const ev = sim.data.events[sim.eventIdx];
+    document.getElementById("quote-text").textContent = ev.statement;
+    document.getElementById("quote-text").classList.add("has-content");
+    showProposal(ev);
+  }
+});
+if (chatBtnBack)  chatBtnBack.addEventListener("click", stepBack);
+if (chatBtnReset) chatBtnReset.addEventListener("click", resetSim);
+
+document.querySelectorAll("#chat-speed-pill button").forEach(b => {
+  b.addEventListener("click", () => {
+    document.querySelectorAll("#chat-speed-pill button").forEach(x => x.classList.remove("active"));
+    b.classList.add("active");
+    sim.speed = parseFloat(b.dataset.speed);
+    // Keep desktop speed group in sync if visible
+    document.querySelectorAll("#speed-group button").forEach(x =>
+      x.classList.toggle("active", parseFloat(x.dataset.speed) === sim.speed)
+    );
   });
 });
 
