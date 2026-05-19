@@ -68,6 +68,7 @@ NAV_GROUPS = [
         ("index.html", "Overview", True),
         ("recommendation.html", "Recommendation", True),
         ("adversarial.html", "Red team", False),
+        ("cross-domain.html", "Cross-domain", False),
         ("dynamics.html", "Dynamics", False),
         ("disclosures.html", "Disclosures", False),
         ("mfn-deals.html", "MFN deals", False),
@@ -621,6 +622,27 @@ def build_glossary() -> str:
 </div>
 """
     return layout(title="Glossary", page_id="glossary.html",
+                  body=body, main_class="prose")
+
+
+def build_cross_domain() -> str:
+    """Cross-domain strategy — seven moves derived from far-field analogies."""
+    cd_path = ROOT / "memo" / "cross-domain-strategy.md"
+    rendered = render_md(cd_path.read_text())
+    body = f"""
+<div class="callout">
+  Seven moves derived from structurally distant analogies — Mandate of Heaven,
+  the Hanseatic League, Vickrey mechanism design, the Antarctic Treaty System,
+  Maori utu, mycorrhizal forest networks, and wabi-sabi aesthetics. These are
+  <em>not alternatives</em> to the board recommendation; they propose to reshape
+  the negotiation's structural features that the recommendation takes as given.
+</div>
+
+<div class="prose-article">
+{rendered}
+</div>
+"""
+    return layout(title="Cross-domain strategy", page_id="cross-domain.html",
                   body=body, main_class="prose")
 
 
@@ -1233,6 +1255,7 @@ def main() -> int:
         "recommendation.html": build_recommendation(),
         "recommendation-detail.html": build_recommendation_detail(),
         "adversarial.html": build_adversarial(),
+        "cross-domain.html": build_cross_domain(),
         "dynamics.html": build_dynamics(),
         "disclosures.html": build_disclosures(),
         "mfn-deals.html": build_mfn_deals(),

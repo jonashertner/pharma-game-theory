@@ -173,6 +173,62 @@
 ]
 },
 {
+"page": "cross-domain.html",
+"title": "Cross-domain strategy",
+"sections": [
+{
+"id": "how-this-page-works",
+"label": "How this page works",
+"level": 2
+},
+{
+"id": "move-1-mandate-of-heaven",
+"label": "Move 1 \u2014 Mandate of Heaven",
+"level": 2
+},
+{
+"id": "move-2-the-pharma-hansa",
+"label": "Move 2 \u2014 The Pharma Hansa",
+"level": 2
+},
+{
+"id": "move-3-the-vickrey-mechanism",
+"label": "Move 3 \u2014 The Vickrey Mechanism",
+"level": 2
+},
+{
+"id": "move-4-the-antarctic-treaty-freeze",
+"label": "Move 4 \u2014 The Antarctic-Treaty Freeze",
+"level": 2
+},
+{
+"id": "move-5-maori-utu-reciprocal-closure",
+"label": "Move 5 \u2014 Maori utu / Reciprocal Closure",
+"level": 2
+},
+{
+"id": "move-6-the-mycorrhizal-network",
+"label": "Move 6 \u2014 The Mycorrhizal Network",
+"level": 2
+},
+{
+"id": "move-7-wabi-sabi-voluntary-excess",
+"label": "Move 7 \u2014 Wabi-Sabi / Voluntary Excess",
+"level": 2
+},
+{
+"id": "why-these-seven-in-this-order",
+"label": "Why these seven, in this order",
+"level": 2
+},
+{
+"id": "what-this-page-deliberately-doesnt-claim",
+"label": "What this page deliberately doesn't claim",
+"level": 2
+}
+]
+},
+{
 "page": "dynamics.html",
 "title": "Strategic dynamics",
 "sections": [
