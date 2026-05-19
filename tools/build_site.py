@@ -67,8 +67,11 @@ NAV_GROUPS = [
     ("Read", [
         ("index.html", "Overview", True),
         ("recommendation.html", "Recommendation", True),
+        ("item-1.html", "Item 1 unpacked", False),
         ("adversarial.html", "Red team", False),
         ("cross-domain.html", "Cross-domain", False),
+        ("cross-domain-depth.html", "Cross-domain (depth)", False),
+        ("ai-implications.html", "AI implications", False),
         ("dynamics.html", "Dynamics", False),
         ("disclosures.html", "Disclosures", False),
         ("mfn-deals.html", "MFN deals", False),
@@ -636,6 +639,8 @@ def build_cross_domain() -> str:
   Maori utu, mycorrhizal forest networks, and wabi-sabi aesthetics. These are
   <em>not alternatives</em> to the board recommendation; they propose to reshape
   the negotiation's structural features that the recommendation takes as given.
+  See <a href="cross-domain-depth.html">depth</a> for operational architecture +
+  three more moves derived from the meta-pattern.
 </div>
 
 <div class="prose-article">
@@ -643,6 +648,69 @@ def build_cross_domain() -> str:
 </div>
 """
     return layout(title="Cross-domain strategy", page_id="cross-domain.html",
+                  body=body, main_class="prose")
+
+
+def build_cross_domain_depth() -> str:
+    """Cross-domain depth — operational architecture, meta-pattern, three more moves."""
+    cd_path = ROOT / "memo" / "cross-domain-depth.md"
+    rendered = render_md(cd_path.read_text())
+    body = f"""
+<div class="callout">
+  Companion to <a href="cross-domain.html">cross-domain strategy</a>:
+  operational architecture for Vickrey + Hansa + Antarctic-Treaty (drafting-grade
+  detail), the meta-pattern that explains <em>why</em> the seven source domains
+  generate strategic moves, three additional moves (Federalist Papers,
+  Coal & Steel, lex mercatoria), strategic-family clustering, sequencing logic,
+  and honest fracture lines for each analogy.
+</div>
+
+<div class="prose-article">
+{rendered}
+</div>
+"""
+    return layout(title="Cross-domain depth", page_id="cross-domain-depth.html",
+                  body=body, main_class="prose")
+
+
+def build_item_one() -> str:
+    """Item 1 unpacked — precise actionable version of the firewall-annex recommendation."""
+    p = ROOT / "memo" / "item-1-unpacked.md"
+    rendered = render_md(p.read_text())
+    body = f"""
+<div class="callout warn">
+  Item 1 of the board recommendation ("Endorse the firewall-annex approach...")
+  is, as currently worded, too high-level to vote on. This page unpacks it into
+  precise actionable content, names every load-bearing assumption explicitly,
+  and provides a fallback plan if assumptions fail. The board should consider
+  the refined version (Section 4) before voting.
+</div>
+
+<div class="prose-article">
+{rendered}
+</div>
+"""
+    return layout(title="Item 1 unpacked", page_id="item-1.html",
+                  body=body, main_class="prose")
+
+
+def build_ai_implications() -> str:
+    """AI implications — how AI reshapes every layer of the negotiation."""
+    p = ROOT / "memo" / "ai-implications.md"
+    rendered = render_md(p.read_text())
+    body = f"""
+<div class="callout">
+  The supporting analysis on this site so far has treated AI as if it were not
+  happening. This page corrects that. Eight layers of implication, three
+  AI-specific strategic moves, and a meta-question about whether AI changes
+  the negotiation's character. Five questions for the executive team at the end.
+</div>
+
+<div class="prose-article">
+{rendered}
+</div>
+"""
+    return layout(title="AI implications", page_id="ai-implications.html",
                   body=body, main_class="prose")
 
 
@@ -1256,6 +1324,9 @@ def main() -> int:
         "recommendation-detail.html": build_recommendation_detail(),
         "adversarial.html": build_adversarial(),
         "cross-domain.html": build_cross_domain(),
+        "cross-domain-depth.html": build_cross_domain_depth(),
+        "ai-implications.html": build_ai_implications(),
+        "item-1.html": build_item_one(),
         "dynamics.html": build_dynamics(),
         "disclosures.html": build_disclosures(),
         "mfn-deals.html": build_mfn_deals(),

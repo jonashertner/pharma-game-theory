@@ -229,6 +229,359 @@
 ]
 },
 {
+"page": "cross-domain-depth.html",
+"title": "Cross-domain depth",
+"sections": [
+{
+"id": "what-this-page-argues",
+"label": "What this page argues",
+"level": 2
+},
+{
+"id": "i-the-meta-pattern",
+"label": "I. The meta-pattern",
+"level": 2
+},
+{
+"id": "ii-operational-depth-on-the-three-most-generative-original-moves",
+"label": "II. Operational depth on the three most generative original moves",
+"level": 2
+},
+{
+"id": "iia-the-vickrey-mechanism-actual-design",
+"label": "II.a. The Vickrey mechanism \u2014 actual design",
+"level": 3
+},
+{
+"id": "iib-the-pharma-hansa-actual-charter",
+"label": "II.b. The Pharma Hansa \u2014 actual charter",
+"level": 3
+},
+{
+"id": "iic-the-antarctic-treaty-pharma-pricing-freeze-actual-treaty",
+"label": "II.c. The Antarctic-Treaty pharma-pricing freeze \u2014 actual treaty",
+"level": 3
+},
+{
+"id": "iii-three-additional-moves-from-the-meta-pattern",
+"label": "III. Three additional moves from the meta-pattern",
+"level": 2
+},
+{
+"id": "iiia-the-federalist-papers-move",
+"label": "III.a. The Federalist Papers move",
+"level": 3
+},
+{
+"id": "iiib-the-coal-and-steel-community-move",
+"label": "III.b. The Coal and Steel Community move",
+"level": 3
+},
+{
+"id": "iiic-the-lex-mercatoria-move",
+"label": "III.c. The lex mercatoria move",
+"level": 3
+},
+{
+"id": "iv-strategic-family-clustering",
+"label": "IV. Strategic-family clustering",
+"level": 2
+},
+{
+"id": "family-1-signal-discipline",
+"label": "Family 1 \u2014 Signal discipline",
+"level": 3
+},
+{
+"id": "family-2-architectural-reshape",
+"label": "Family 2 \u2014 Architectural reshape",
+"level": 3
+},
+{
+"id": "family-3-information-design",
+"label": "Family 3 \u2014 Information design",
+"level": 3
+},
+{
+"id": "family-4-industry-coordination",
+"label": "Family 4 \u2014 Industry coordination",
+"level": 3
+},
+{
+"id": "observed-pattern",
+"label": "Observed pattern",
+"level": 3
+},
+{
+"id": "v-honest-fracture-lines",
+"label": "V. Honest fracture lines",
+"level": 2
+},
+{
+"id": "mandate-of-heaven",
+"label": "Mandate of Heaven",
+"level": 3
+},
+{
+"id": "pharma-hansa",
+"label": "Pharma Hansa",
+"level": 3
+},
+{
+"id": "vickrey-mechanism",
+"label": "Vickrey mechanism",
+"level": 3
+},
+{
+"id": "antarctic-treaty-freeze",
+"label": "Antarctic-Treaty freeze",
+"level": 3
+},
+{
+"id": "maori-utu",
+"label": "Maori utu",
+"level": 3
+},
+{
+"id": "mycorrhizal-compact",
+"label": "Mycorrhizal compact",
+"level": 3
+},
+{
+"id": "wabi-sabi-voluntary-excess",
+"label": "Wabi-sabi voluntary excess",
+"level": 3
+},
+{
+"id": "federalist-papers-move",
+"label": "Federalist Papers move",
+"level": 3
+},
+{
+"id": "coal-and-steel-move",
+"label": "Coal and Steel move",
+"level": 3
+},
+{
+"id": "lex-mercatoria-move",
+"label": "Lex mercatoria move",
+"level": 3
+},
+{
+"id": "vi-sequencing-implications",
+"label": "VI. Sequencing implications",
+"level": 2
+},
+{
+"id": "vii-what-this-page-deliberately-does-not-claim",
+"label": "VII. What this page deliberately does not claim",
+"level": 2
+}
+]
+},
+{
+"page": "ai-implications.html",
+"title": "AI implications",
+"sections": [
+{
+"id": "why-this-page-exists",
+"label": "Why this page exists",
+"level": 2
+},
+{
+"id": "layer-1-ai-in-drug-discovery",
+"label": "Layer 1 \u2014 AI in drug discovery",
+"level": 2
+},
+{
+"id": "layer-2-ai-in-regulatory-review",
+"label": "Layer 2 \u2014 AI in regulatory review",
+"level": 2
+},
+{
+"id": "layer-3-ai-in-pricing-decisions",
+"label": "Layer 3 \u2014 AI in pricing decisions",
+"level": 2
+},
+{
+"id": "layer-4-ai-in-the-negotiation-process-itself",
+"label": "Layer 4 \u2014 AI in the negotiation process itself",
+"level": 2
+},
+{
+"id": "layer-5-ai-in-the-broader-pharmaceutical-industry-structure",
+"label": "Layer 5 \u2014 AI in the broader pharmaceutical industry structure",
+"level": 2
+},
+{
+"id": "layer-6-geopolitical-ai-considerations",
+"label": "Layer 6 \u2014 Geopolitical AI considerations",
+"level": 2
+},
+{
+"id": "layer-7-ai-implications-for-each-cross-domain-move",
+"label": "Layer 7 \u2014 AI implications for each cross-domain move",
+"level": 2
+},
+{
+"id": "layer-8-ai-specific-strategic-moves",
+"label": "Layer 8 \u2014 AI-specific strategic moves",
+"level": 2
+},
+{
+"id": "move-11-ai-compliance-harmonisation",
+"label": "Move 11 \u2014 AI compliance harmonisation",
+"level": 3
+},
+{
+"id": "move-12-ai-sovereignty-contingency",
+"label": "Move 12 \u2014 AI sovereignty contingency",
+"level": 3
+},
+{
+"id": "move-13-ai-augmented-negotiation-infrastructure",
+"label": "Move 13 \u2014 AI-augmented negotiation infrastructure",
+"level": 3
+},
+{
+"id": "the-meta-question-does-ai-change-the-negotiations-character",
+"label": "The meta-question \u2014 does AI change the negotiation's character?",
+"level": 2
+},
+{
+"id": "what-this-page-does-not-address",
+"label": "What this page does not address",
+"level": 2
+},
+{
+"id": "what-the-board-should-ask-the-executive-team",
+"label": "What the board should ask the executive team",
+"level": 2
+}
+]
+},
+{
+"page": "item-1.html",
+"title": "Item 1 unpacked",
+"sections": [
+{
+"id": "what-is-being-asked",
+"label": "What is being asked",
+"level": 2
+},
+{
+"id": "11-what-is-the-firewall-annex",
+"label": "1.1 What is the firewall annex",
+"level": 3
+},
+{
+"id": "12-what-primary-2026-negotiating-priority-means-operationally",
+"label": "1.2 What \"primary 2026 negotiating priority\" means operationally",
+"level": 3
+},
+{
+"id": "13-what-explicitly-above-mfn-coverage-expansion-or-trumprx-sku-growth-means",
+"label": "1.3 What \"explicitly above MFN-coverage expansion or TrumpRx SKU growth\" means",
+"level": 3
+},
+{
+"id": "14-what-endorse-means-as-a-board-action",
+"label": "1.4 What \"endorse\" means as a board action",
+"level": 3
+},
+{
+"id": "twelve-assumptions-explicitly-named-and-questioned",
+"label": "Twelve assumptions \u2014 explicitly named and questioned",
+"level": 2
+},
+{
+"id": "assumption-1-the-us-administration-would-accept-confidentiality-language-at-all",
+"label": "Assumption 1: The US Administration would accept confidentiality language at all",
+"level": 3
+},
+{
+"id": "assumption-2-the-german-mra-mechanism-is-the-right-template",
+"label": "Assumption 2: The German MRA mechanism is the right template",
+"level": 3
+},
+{
+"id": "assumption-3-symmetric-not-roche-specific-language-is-easier-to-negotiate",
+"label": "Assumption 3: \"Symmetric (not Roche-specific) language\" is easier to negotiate",
+"level": 3
+},
+{
+"id": "assumption-4-q3-2026-timing-is-correct",
+"label": "Assumption 4: Q3 2026 timing is correct",
+"level": 3
+},
+{
+"id": "assumption-5-the-firewall-annex-is-highest-value-among-roches-available-moves",
+"label": "Assumption 5: The firewall annex is highest-value among Roche's available moves",
+"level": 3
+},
+{
+"id": "assumption-6-the-administrations-political-cost-of-accepting-the-annex-is-low",
+"label": "Assumption 6: The Administration's political cost of accepting the annex is low",
+"level": 3
+},
+{
+"id": "assumption-7-roche-should-lead-the-push",
+"label": "Assumption 7: Roche should lead the push",
+"level": 3
+},
+{
+"id": "assumption-8-the-annexs-confidentiality-framework-does-not-conflict-with-eu-critical-medicines-act",
+"label": "Assumption 8: The annex's confidentiality framework does not conflict with EU Critical Medicines Act",
+"level": 3
+},
+{
+"id": "assumption-9-the-financial-calculation-that-intl-ref-pricing-protection-at-710-vs-310-is-materially-valuable",
+"label": "Assumption 9: The financial calculation that intl-ref-pricing-protection at 7/10 vs 3/10 is materially valuable",
+"level": 3
+},
+{
+"id": "assumption-10-the-successor-2029-administration-will-respect-the-annex",
+"label": "Assumption 10: The successor 2029 administration will respect the annex",
+"level": 3
+},
+{
+"id": "assumption-11-5-year-sunset-is-the-right-horizon",
+"label": "Assumption 11: 5-year sunset is the right horizon",
+"level": 3
+},
+{
+"id": "assumption-12-explicitly-above-mfn-coverage-expansion-or-trumprx-sku-growth-is-the-right-way-to-frame-priority",
+"label": "Assumption 12: \"Explicitly above MFN-coverage expansion or TrumpRx SKU growth\" is the right way to frame priority",
+"level": 3
+},
+{
+"id": "refined-precise-actionable-version",
+"label": "Refined precise actionable version",
+"level": 2
+},
+{
+"id": "fallback-plan",
+"label": "Fallback plan",
+"level": 2
+},
+{
+"id": "resource-commitments",
+"label": "Resource commitments",
+"level": 2
+},
+{
+"id": "measurable-success-criteria",
+"label": "Measurable success criteria",
+"level": 2
+},
+{
+"id": "what-the-board-is-not-endorsing",
+"label": "What the board is not endorsing",
+"level": 2
+}
+]
+},
+{
 "page": "dynamics.html",
 "title": "Strategic dynamics",
 "sections": [
