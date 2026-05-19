@@ -735,29 +735,50 @@ def build_positions() -> str:
 </table>
 </div>
 
-<div id="position-detail" style="display:none;background:var(--bg-2);border:1px solid var(--accent);border-radius:8px;padding:20px 24px;margin-top:18px;position:sticky;bottom:14px;">
-  <button id="close-detail" style="float:right;background:transparent;border:none;color:var(--muted);font-size:16px;cursor:pointer;">×</button>
-  <div id="detail-actor" style="font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;font-family:var(--mono);"></div>
-  <div id="detail-issue" style="font-size:18px;font-weight:600;margin-top:4px;color:var(--fg);"></div>
-  <div id="detail-position" style="margin-top:14px;font-style:italic;color:var(--fg-mute);"></div>
-  <div id="detail-numbers" style="margin-top:14px;display:flex;gap:20px;font-family:var(--mono);font-size:13px;color:var(--fg-mute);"></div>
-  <div id="detail-citation" style="margin-top:12px;font-size:11.5px;color:var(--muted);font-family:var(--mono);"></div>
+<div id="position-detail" style="display:none;background:var(--surface);border:1px solid var(--accent);border-radius:var(--radius-lg);padding:22px 26px;margin-top:18px;position:sticky;bottom:14px;box-shadow:0 8px 24px rgba(30,58,95,0.08);">
+  <button id="close-detail" style="float:right;background:transparent;border:none;color:var(--muted);font-size:20px;cursor:pointer;line-height:1;padding:4px 8px;">×</button>
+  <div id="detail-actor" style="font-size:10.5px;color:var(--accent);text-transform:uppercase;letter-spacing:0.12em;font-family:var(--font-mono);font-weight:600;"></div>
+  <div id="detail-issue" style="font-size:20px;font-weight:500;margin-top:6px;color:var(--ink);font-family:var(--font-serif);letter-spacing:-0.013em;"></div>
+  <div id="detail-position" style="margin-top:14px;font-style:italic;color:var(--ink-2);font-family:var(--font-serif);font-size:15px;line-height:1.55;"></div>
+  <div id="detail-numbers" style="margin-top:16px;display:flex;gap:24px;flex-wrap:wrap;font-family:var(--font-mono);font-size:13px;color:var(--ink);"></div>
+  <div id="detail-citation" style="margin-top:14px;font-size:11.5px;color:var(--muted);font-family:var(--font-mono);"></div>
 </div>
 
 <style>
+  #positions-matrix {{
+    font-family: var(--font-sans);
+    font-feature-settings: "tnum";
+  }}
   #positions-matrix .sticky-col {{
-    position: sticky; left: 0; background: var(--bg-2); z-index: 1;
-    min-width: 200px;
+    position: sticky; left: 0; background: var(--canvas); z-index: 1;
+    min-width: 180px;
+    text-align: left;
+    color: var(--ink);
+    font-weight: 500;
+  }}
+  #positions-matrix th {{
+    background: var(--canvas);
+    font-weight: 500;
+    color: var(--muted);
+    font-size: 11px;
+    border-bottom: 1px solid var(--hairline-strong);
   }}
   #positions-matrix td, #positions-matrix th {{
-    border: 1px solid var(--border); padding: 6px 8px;
-    text-align: center; font-size: 12px;
+    border: 1px solid var(--hairline);
+    padding: 7px 10px;
+    text-align: center;
+    font-size: 12.5px;
   }}
-  #positions-matrix td.cell:hover {{
-    background: var(--bg-3); cursor: pointer;
+  #positions-matrix td.cell {{
+    cursor: pointer;
+    transition: background 120ms ease;
   }}
-  #positions-matrix tr:hover td {{ background: var(--bg-2); }}
-  #positions-matrix tr:hover td.cell:hover {{ background: var(--bg-3); }}
+  #positions-matrix td.cell:hover {{ background: var(--accent-soft); }}
+  #positions-matrix tr:hover td.sticky-col {{ background: var(--surface-2); }}
+  @media (max-width: 800px) {{
+    #positions-matrix .sticky-col {{ min-width: 130px; font-size: 11px; }}
+    #positions-matrix td, #positions-matrix th {{ padding: 5px 7px; font-size: 11px; }}
+  }}
 </style>
 
 <script>
@@ -823,17 +844,17 @@ def build_prompts() -> str:
         principles_html = "".join(f"<li>{p}</li>" for p in d["principles"])
         sources_html = "".join(f'<li><a href="{s}" target="_blank">{s}</a></li>' for s in d.get("sources", []))
         domain_cards.append(f"""
-<details class="domain-card" style="background:var(--bg-2);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:10px;">
-  <summary style="cursor:pointer;font-size:15px;font-weight:600;color:var(--fg);">
+<details class="domain-card" style="background:var(--surface);border:1px solid var(--hairline);border-radius:var(--radius-lg);padding:16px 22px;margin-bottom:10px;transition:border-color 180ms ease;">
+  <summary style="cursor:pointer;font-family:var(--font-sans);font-size:15.5px;font-weight:600;color:var(--ink);letter-spacing:-0.011em;">
     {d['name']}
-    <span style="color:var(--muted);font-weight:400;font-size:12px;font-family:var(--mono);margin-left:8px;">{d['id']}</span>
+    <span style="color:var(--muted);font-weight:400;font-size:11.5px;font-family:var(--font-mono);margin-left:8px;letter-spacing:0.01em;">{d['id']}</span>
   </summary>
-  <p style="font-style:italic;color:var(--fg-mute);font-size:13.5px;margin-top:10px;">{d['one_liner'].strip()}</p>
-  <h4 style="margin-top:14px;">Operational principles</h4>
+  <p style="font-family:var(--font-serif);font-style:italic;color:var(--ink-2);font-size:15px;line-height:1.55;margin-top:12px;">{d['one_liner'].strip()}</p>
+  <h4 style="margin-top:18px;">Operational principles</h4>
   <ul>{principles_html}</ul>
-  <h4 style="margin-top:14px;">Why it matches</h4>
-  <p style="font-size:13.5px;color:var(--fg-mute);">{d['why_relevant'].strip()}</p>
-  <h4 style="margin-top:14px;">Sources</h4>
+  <h4 style="margin-top:18px;">Why it matches</h4>
+  <p style="font-family:var(--font-serif);font-size:15px;color:var(--ink-2);line-height:1.55;">{d['why_relevant'].strip()}</p>
+  <h4 style="margin-top:18px;">Sources</h4>
   <ul class="sources-list">{sources_html}</ul>
 </details>
 """)
