@@ -136,7 +136,6 @@ def layout(*, title: str, page_id: str, body: str, main_class: str = "prose",
 </head>
 <body>
 
-<a href="#main-content" class="skip-link">Skip to main content</a>
 <input type="checkbox" id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle menu">
 
 <header class="site-header">
@@ -295,7 +294,7 @@ def build_index() -> str:
     </div>
     <div class="map-col affected">
       <div class="col-header">Directly affected</div>
-      <div class="map-actor" style="--c:var(--actor-investor);"><span class="dot"></span><a href="actors.html#investors">Investors (Hoffmann pool 45%)</a></div>
+      <div class="map-actor" style="--c:var(--actor-investor);"><span class="dot"></span><a href="actors.html#investors">Investors (family-held)</a></div>
       <div class="map-actor" style="--c:var(--actor-novartis);"><span class="dot"></span><a href="actors.html#novartis">Novartis</a></div>
       <div class="map-actor" style="--c:var(--actor-us-cong);"><span class="dot"></span><a href="actors.html#us-congress">US Congress</a></div>
       <div class="map-actor" style="--c:var(--actor-pbm);"><span class="dot"></span><a href="actors.html#pbms-and-payers">US PBMs &amp; payers</a></div>

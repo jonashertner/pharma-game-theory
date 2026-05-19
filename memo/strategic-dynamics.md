@@ -20,11 +20,11 @@ Each actor section follows the same four-part schema: **Stated position · Telos
 
 **Stated position.** Preserve margins, protect ex-US pricing, navigate MFN and Section 232 without breaking the December 2025 framework.
 
-**Telos.** Roche exists as a vehicle for the **multi-generational stewardship of a scientific innovation engine**, controlled by the Hoffmann/Oeri family voting block (45.01% of voting shares). This is not a normal public company. Severin Schwan's 97.75% chairman re-election in March 2026, the 39th consecutive dividend increase, the deliberate Genussschein → ROP conversion in March 2026 — these are family-stewardship signals, not quarterly-cycle signals. The deepest mission is to be in business and productive in 2076, not to maximize this quarter's earnings.
+**Telos.** Roche exists as a vehicle for the **multi-generational stewardship of a scientific innovation engine**, controlled by the family-held voting bloc. This is not a normal public company. Severin Schwan's 97.75% chairman re-election in March 2026, the 39th consecutive dividend increase, the deliberate Genussschein → ROP conversion in March 2026 — these are family-stewardship signals, not quarterly-cycle signals. The deepest mission is to be in business and productive in 2076, not to maximize this quarter's earnings.
 
 **Contradiction.** The MFN deal requires short-term political accommodation that, under continued executive-action pressure, may erode long-term innovation incentive. The family logic ("we will be here in 2076") is in permanent tension with the executive logic ("we need to close this deal for FY26"). Schinecker's CEO role mediates these two horizons; the board's role is to remind the executive that the family logic outranks the quarterly logic when they conflict.
 
-**Unexpected alliance.** Roche and the EU Commission share a 20-year horizon on European pharma-innovation-infrastructure persistence. At 2-3 year horizons they are price counterparties. At 20+ year horizons they are aligned: both want a productive EU pharma cluster intact in the 2040s. This conversation is impossible at Roche-corporate level (it would look self-interested) but appropriate at Hoffmann-family level (the stewardship logic is structurally similar to the Commission's strategic-autonomy logic).
+**Unexpected alliance.** Roche and the EU Commission share a 20-year horizon on European pharma-innovation-infrastructure persistence. At 2-3 year horizons they are price counterparties. At 20+ year horizons they are aligned: both want a productive EU pharma cluster intact in the 2040s. This conversation is impossible at Roche-corporate level (it would look self-interested) but appropriate at family-ownership level (the stewardship logic is structurally similar to the Commission's strategic-autonomy logic).
 
 **Action implication.** The recommendation should explicitly frame the firewall annex on a multi-decade horizon. The board should evaluate the +$5B capex flexibility (decision b in the recommendation) against the family's 25-year payoff calculation, not against quarterly ROE.
 
@@ -82,7 +82,7 @@ Each actor section follows the same four-part schema: **Stated position · Telos
 
 **Unexpected alliance.** Basel-Stadt and the EU Commission share a structurally aligned interest in **pharma-industrial-policy that does not get hollowed out by US capacity-pull**. The Commission's Critical Medicines Act (provisional 12 May 2026) is, in part, a Basel-aligned position: keep manufacturing in Europe. A quiet Basel-EU alliance could be effective: BS supports CMA implementation in exchange for EU recognizing the Swiss firewall annex as compatible-not-competitive with EU industrial policy. Basel's institutional weight is small but its cluster-credibility is high; the Commission would welcome a non-EU European cluster's endorsement.
 
-**Action implication.** Roche should explicitly cultivate Basel–Hoffmann–Bern coordination. The Hoffmann family's stewardship logic and Basel's cluster-preservation logic are *the same logic at different scales*. Roche-corporate cannot easily convene this conversation (it has the appearance of capture); the family can.
+**Action implication.** Roche should explicitly cultivate Basel–family–Bern coordination. The founding family's stewardship logic and Basel's cluster-preservation logic are *the same logic at different scales*. Roche-corporate cannot easily convene this conversation (it has the appearance of capture); the family can.
 
 ---
 
@@ -154,9 +154,9 @@ Each actor section follows the same four-part schema: **Stated position · Telos
 
 **Contradiction.** EU industrial policy has historically pressed prices *down* (G-BA / NICE methodology pressures prices low). But the Critical Medicines Act and confidentiality-friendly mechanisms (Germany MRA, January 2025) reflect a different logic: keep margins high enough to retain EU manufacturing. The two pulls — affordability versus sovereignty — are now in active tension. The Commission cannot publicly resolve this contradiction; it manages it through procedural compartmentalization.
 
-**Unexpected alliance.** The EU Commission and the **Hoffmann/Oeri family** have structurally aligned long-horizon interests in European pharma-innovation-infrastructure persistence. At 2-3 year horizons they conflict (price negotiations). At 20+ year horizons they are aligned (cluster survival, innovation pipeline depth). The family logic of "we will be here in 2076" and the Commission logic of "EU pharma sovereignty by 2050" point in the same direction at multi-decade horizons.
+**Unexpected alliance.** The EU Commission and the **the founding family** have structurally aligned long-horizon interests in European pharma-innovation-infrastructure persistence. At 2-3 year horizons they conflict (price negotiations). At 20+ year horizons they are aligned (cluster survival, innovation pipeline depth). The family logic of "we will be here in 2076" and the Commission logic of "EU pharma sovereignty by 2050" point in the same direction at multi-decade horizons.
 
-**Action implication.** This is the most counter-intuitive alliance the model surfaces. Roche-family-level leadership (not Roche-corporate-level) could quietly engage EU Commission strategic-autonomy leadership on the question of *how to preserve a healthy EU pharma-innovation pipeline through the 2030s*. This is a different conversation from price negotiation; it is about treating Roche as EU industrial infrastructure rather than as a private-sector counterparty. The Hoffmann family's stewardship logic is uniquely suited to this conversation — corporate Roche cannot have it without seeming self-interested.
+**Action implication.** This is the most counter-intuitive alliance the model surfaces. Roche-family-level leadership (not Roche-corporate-level) could quietly engage EU Commission strategic-autonomy leadership on the question of *how to preserve a healthy EU pharma-innovation pipeline through the 2030s*. This is a different conversation from price negotiation; it is about treating Roche as EU industrial infrastructure rather than as a private-sector counterparty. The founding family's stewardship logic is uniquely suited to this conversation — corporate Roche cannot have it without seeming self-interested.
 
 ---
 
@@ -180,14 +180,14 @@ Each actor section follows the same four-part schema: **Stated position · Telos
 
 **Telos.** Roche investors split into two structurally different telos populations dressed as one investor class:
 
-- **Hoffmann/Oeri family voting block (45.01%):** multi-generational stewardship — Roche as a productive scientific institution that pays dividends sufficient for family financial security across generations. The family's wealth horizon is multi-century; Roche's stewardship is one generation's responsibility.
+- **the family-held voting bloc:** multi-generational stewardship — Roche as a productive scientific institution that pays dividends sufficient for family financial security across generations. The family's wealth horizon is multi-century; Roche's stewardship is one generation's responsibility.
 - **Institutional + retail (rest):** total shareholder return on 3-5 year horizons — quarterly margin, dividend continuity, ESG ratings, sell-side narrative. Quarterly earnings are existential at this horizon.
 
-**Contradiction.** The Hoffmann family logic can absorb 2026–2028 margin compression for 2030+ pipeline value. Institutional logic cannot. Sell-side coverage (UBS Buy CHF 384, Berenberg Hold CHF 320, RBC) reflects institutional, not family, logic. Roche's investor base *appears* quantitatively aligned but is *qualitatively split*. The board must navigate this split deliberately.
+**Contradiction.** The founding family logic can absorb 2026–2028 margin compression for 2030+ pipeline value. Institutional logic cannot. Sell-side coverage (UBS Buy CHF 384, Berenberg Hold CHF 320, RBC) reflects institutional, not family, logic. Roche's investor base *appears* quantitatively aligned but is *qualitatively split*. The board must navigate this split deliberately.
 
-**Unexpected alliance.** The Hoffmann family and Basel-Stadt cantonal government have a structurally aligned cluster-preservation telos at different scales. They never appear in the same political room but their interests are nearly identical on Roche's strategic timeline.
+**Unexpected alliance.** The founding family and Basel-Stadt cantonal government have a structurally aligned cluster-preservation telos at different scales. They never appear in the same political room but their interests are nearly identical on Roche's strategic timeline.
 
-**Action implication.** The Hoffmann family voting block is the single most important strategic asymmetry Roche has against every other actor at the negotiation. The administration, Congress, PBMs, biosimilars, institutional investors all operate on political-cycle or earnings-cycle timeframes. Roche operates on a multi-generation timeframe. *The firewall annex should be valued on a 25-year horizon. At that horizon, every analysis flips.*
+**Action implication.** The family-held voting bloc is the single most important strategic asymmetry Roche has against every other actor at the negotiation. The administration, Congress, PBMs, biosimilars, institutional investors all operate on political-cycle or earnings-cycle timeframes. Roche operates on a multi-generation timeframe. *The firewall annex should be valued on a 25-year horizon. At that horizon, every analysis flips.*
 
 ---
 
@@ -195,9 +195,9 @@ Each actor section follows the same four-part schema: **Stated position · Telos
 
 1. **Negotiate the firewall annex with USTR, not HHS** — match the institutional telos (durability) to the instrument (treaty form). Article-of-trade language, not executive-order language.
 
-2. **Convene Basel–Hoffmann–Bern coordination** — formalize the alignment that already exists between cantonal cluster logic and family stewardship logic. Quarterly informal, semi-annual structured. The forum's existence is itself a strategic signal to other actors.
+2. **Convene Basel–family–Bern coordination** — formalize the alignment that already exists between cantonal cluster logic and family stewardship logic. Quarterly informal, semi-annual structured. The forum's existence is itself a strategic signal to other actors.
 
-3. **Open quiet Hoffmann–Commission dialogue on multi-decade EU pharma-innovation infrastructure** — only at family level, not corporate level. Frame as European industrial-infrastructure stewardship, not as price negotiation.
+3. **Open quiet family–Commission dialogue on multi-decade EU pharma-innovation infrastructure** — only at family level, not corporate level. Frame as European industrial-infrastructure stewardship, not as price negotiation.
 
 4. **Pre-position industry-leading pharma-funding disclosure for 2027** — neutralize P4AD "front group" framing on a multi-year horizon. Treats Roche as a different kind of pharmaceutical company than Pfizer or AbbVie, on the dimension that the family stewardship logic actually makes credible.
 

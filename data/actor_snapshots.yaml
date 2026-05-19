@@ -13,7 +13,7 @@
 snapshots:
 
   roche:
-    one_liner: "Swiss-HQ pharma giant; US subsidiary Genentech is already inside the December 2025 MFN tent and the Hoffmann/Oeri family voting block (45.01%) absorbs activist pressure."
+    one_liner: "Swiss-HQ pharma giant; US subsidiary Genentech is already inside the December 2025 MFN tent and the family-held voting bloc absorbs activist pressure."
     top_priority: "Block international reference-pricing spillover — protect ex-US net prices from US-MFN-basket erosion. This is Roche's highest-weight issue (10/10) and currently underused (floor at 3/10)."
     walks_if: "Compulsory licensing invoked, OR US-list-price transparency breaks confidential ex-US net-price arrangements, OR Section 232 reverts beyond 50%."
     leverage: "$50B US capex pledge (announced April 2025); Genentech US R&D ecosystem; Vabysmo / Hemlibra / Ocrevus pipeline; Swiss diplomatic muscle behind the November framework."
@@ -90,7 +90,7 @@ snapshots:
     what_roche_should_do: "Carve Xolair out of the firewall annex (it's biosimilar-exposed in two months anyway). Don't pick patent-exclusivity / IP-strength fights with biosimilars at the same time as defending MFN posture — sequential, not simultaneous."
 
   investors:
-    one_liner: "Hoffmann/Oeri family voting pool (45.01%) constrains traditional activism; institutional investors via sell-side analysts; Schwan re-elected chair March 10 2026 with 97.75%."
+    one_liner: "the family-shareholder voting pool constrains traditional activism; institutional investors via sell-side analysts; Schwan re-elected chair March 10 2026 with 97.75%."
     top_priority: "Margin protection (MFN tail risk); dividend continuity (39th consecutive increase); US capex efficiency."
     walks_if: "ira_mfp_discount above 75% OR firewall collapse (intl_ref_pricing <1) OR dividend cut signal."
     leverage: "Stock-price feedback to management; AGM votes; ESG-engagement; sell-side narrative shaping (UBS Buy CHF 384; Berenberg Hold CHF 320)."

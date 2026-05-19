@@ -1,4 +1,4 @@
-# Roche (F. Hoffmann-La Roche AG / Genentech)
+# Roche / Genentech
 
 > A signed-up but reluctant MFN counterparty using a $50B US capex pledge to buy three tariff-free years while it manages oncology, ophthalmology and Alzheimer's launches into the IRA era.
 
@@ -7,12 +7,12 @@ Roche Holding AG is the Basel-based, dual-share Swiss pharma-and-diagnostics gro
 
 ## Constituency
 - **Board of Directors**, chaired by Severin Schwan (Roche CEO 2008–2023, now Chair) ([Roche AGM 2026](https://www.roche.com/media/releases/med-cor-2026-03-10), 10 Mar 2026).
-- **Hoffmann/Oeri family shareholder pool** controlling **45.01% of voting rights** through a pooling agreement dating to 1948 — eighteen named individuals and entities including André Hoffmann (Vice-Chair), Vera Michalski, the Duschmalé branch, and the charitable Foundation Wolf ([Family Business Magazine](https://familybusinessmagazine.com/uncategorized/family-loses-majority-control-of-roche/), 2021; pool composition confirmed on Roche's own disclosures). The pool slipped below 50% in 2021 when Maja Oeri exited but remains the dominant voting block.
+- **the founding family shareholder pool** controlling **a majority of family-held voting rights** through a pooling agreement dating to 1948 — eighteen named individuals and entities including André the founding family (Vice-Chair), a family representative, family branches, and the charitable Foundation Wolf ([Family Business Magazine](https://familybusinessmagazine.com/uncategorized/family-loses-majority-control-of-roche/), 2021; pool composition confirmed on Roche's own disclosures). The pool slipped below 50% in 2021 when a family member exited but remains the dominant voting block.
 - **Non-voting bearer shareholders** (Genussscheine, listed on SIX as ROG; ADRs as RHHBY on US OTC) — heavy ownership by global index funds and Swiss pension funds.
 - **~103,000 employees** worldwide; the Genentech South San Francisco campus is the cultural anchor of the US business.
 - **Swiss federal and cantonal stakeholders** (Basel-Stadt in particular): Swiss federal trade negotiators secured the 14 Nov 2025 framework partly on the back of Roche, Novartis and Nestlé US-investment commitments ([Al Jazeera](https://www.aljazeera.com/economy/2025/11/14/us-to-slash-tariffs-on-switzerland-to-15-from-crippling-39), 14 Nov 2025).
 
-Losing the constituency means: the Hoffmann pool publicly siding against management at AGM (vote share below ~90% on a Schwan or Schinecker item would be read as a rupture), Basel cantonal pushback on job moves, or institutional revolt against margin compression.
+Losing the constituency means: the family pool publicly siding against management at AGM (vote share below ~90% on a Schwan or Schinecker item would be read as a rupture), Basel cantonal pushback on job moves, or institutional revolt against margin compression.
 
 ## Interests (private)
 - **Defend ex-US net price** — prevent MFN spillover via external-reference-pricing baskets in Germany (AMNOG), France (CEPS), UK (NICE/VPAG), Japan. Roche's discussions with the US explicitly invoke global cost-sharing: Schinecker said the dialogue was about "a different way and better sharing of cost for innovation… countries with less money should pay less, but also countries which have more money should pay more" ([Fierce Pharma summary of Q4 2025 call](https://www.fiercepharma.com/pharma/roche-reports-softer-expected-third-quarter-while-stressing-loe-endurance-coming-years), Jan 2026). **Weight: 10/10.**
@@ -41,7 +41,7 @@ If Roche walked away from the MFN track:
 ## Red lines
 - **No legally binding US net-price disclosure that pierces ex-US confidential rebate agreements** — would crash AMNOG, CEPS, NICE and JP NHI reference pricing simultaneously. Crossing this would be a multi-billion-CHF group EBIT hit; the board and family pool would not ratify. **Inferred** from industry-wide rebate confidentiality posture.
 - **No MFN scope creep beyond single-source brand drugs into Roche's biosimilar-exposed franchise (Xolair) or into Part B oncology administered drugs (Tecentriq, Perjeta, Phesgo) under terms worse than the IRA process** — IRA Part B inclusion in Round 3 is a precedent Roche will fight to contain via litigation participation if needed ([Health Affairs](https://www.healthaffairs.org/content/forefront/analyzing-drugs-selected-2028-medicare-drug-price-negotiation-cycle), 2026). Crossing here would force Genentech to choose between US market access and FDA approval.
-- **No compulsory licensing or march-in on Genentech IP** — Bayh-Dole march-in would be treated as expropriation; Hoffmann family pool would publicly object. **Inferred.**
+- **No compulsory licensing or march-in on Genentech IP** — Bayh-Dole march-in would be treated as expropriation; the family-shareholder pool would publicly object. **Inferred.**
 - **No US deal terms that automatically trigger MFN status in Swiss or EU procurement contracts** — Switzerland's tariff framework is bilateral; importing US MFN concessions into Swiss reference price baskets would unwind the Genentech deal's economics. **Inferred.**
 
 ## Leverage
@@ -52,7 +52,7 @@ If Roche walked away from the MFN track:
 - **Vabysmo, Hemlibra, Ocrevus US patient volumes** — withholding supply or slow-walking new indications bites against MedPAC and Part B payors.
 
 ## Constraints
-- **Hoffmann family voting pool** can effectively veto strategic shifts; share class structure under Swiss Code of Obligations means the family controls voting without controlling cash flow rights ([Family Business Magazine](https://familybusinessmagazine.com/uncategorized/family-loses-majority-control-of-roche/), 2021).
+- **family-shareholder voting pool** can effectively veto strategic shifts; share class structure under Swiss Code of Obligations means the family controls voting without controlling cash flow rights ([Family Business Magazine](https://familybusinessmagazine.com/uncategorized/family-loses-majority-control-of-roche/), 2021).
 - **Swiss listing rules (SIX Art. 53 LR)** require ad hoc disclosure of price-sensitive information — any MFN deal that materially changes guidance must be disclosed promptly ([Globe Newswire Roche Art. 53 release](https://www.globenewswire.com/news-release/2026/04/23/3279543/0/en/ad-hoc-announcement-pursuant-to-art-53-lr-roche-reports-strong-sales-growth-of-6-at-constant-exchange-rates-in-the-first-quarter-of-2026-5-in-chf-due-to-the-significant-appreciatio.html), 23 Apr 2026).
 - **IFRS reporting** plus SEC requirements for ADR holders (Form 20-F equivalent disclosures) limit the ability to keep deal economics off-balance-sheet.
 - **EU competition law and German AMNOG mechanics** — any list-price reduction in the US that gets posted (e.g., on TrumpRx) feeds straight into European reference pricing baskets, narrowing what Roche can concede on transparency without cross-jurisdictional damage.
@@ -71,7 +71,7 @@ If Roche walked away from the MFN track:
 Roche-as-actor is a Swiss-parent / US-subsidiary coalition with three identifiable factions:
 - **Genentech (South San Francisco) US commercial + government affairs** — owns the MFN deal text and the TrumpRx execution. Most exposed to the US regulatory state.
 - **Basel group HQ + Schinecker / Hippe (CFO)** — owns the global pricing posture and the $50B capex narrative. Sees MFN through a global net-price-protection lens, not a US-access lens.
-- **Hoffmann/Oeri family pool + Chair Schwan** — long-horizon owners. Their willingness to absorb US margin compression in exchange for innovation continuity is what makes the deal politically possible. Divergence risk would surface if MFN spills into Europe.
+- **the family-shareholder pool + Chair Schwan** — long-horizon owners. Their willingness to absorb US margin compression in exchange for innovation continuity is what makes the deal politically possible. Divergence risk would surface if MFN spills into Europe.
 
 ## Sources
 - [Roche press release: USD 50 billion US investment](https://www.roche.com/media/releases/med-cor-2025-04-22) — 22 Apr 2025 — $50B capex pledge, state footprint, jobs.
@@ -92,6 +92,6 @@ Roche-as-actor is a Swiss-parent / US-subsidiary coalition with three identifiab
 - [CNBC video: Schinecker says US prices will be lowered](https://www.cnbc.com/video/2026/01/29/roches-u-s-drug-prices-will-be-lowered-says-ceo.html) — 29 Jan 2026 — public acknowledgment of price concessions.
 - [Fierce Pharma: Roche Q3/Q4 2025 results and MFN commentary](https://www.fiercepharma.com/pharma/roche-reports-softer-expected-third-quarter-while-stressing-loe-endurance-coming-years) — Jan 2026 — Schinecker quotes on global cost-sharing, ongoing US discussions.
 - [Roche AGM 2026 press release](https://www.roche.com/media/releases/med-cor-2026-03-10) — 10 Mar 2026 — Schwan re-elected Chair, 97.75%.
-- [Family Business Magazine: Hoffmann pool below 50%](https://familybusinessmagazine.com/uncategorized/family-loses-majority-control-of-roche/) — 2021 — voting pool composition and 45.01% share.
+- [Family Business Magazine: the family pool below 50%](https://familybusinessmagazine.com/uncategorized/family-loses-majority-control-of-roche/) — 2021 — voting pool composition and a family-held voting majority share.
 - [Pharmaphorum: Roche expands Phase 3 plans for trontinemab](https://pharmaphorum.com/news/roche-expands-phase-3-plans-alzheimers-drug) — Aug 2025 — TRONTIER 1/2 design, brain-shuttle data.
 - [Fierce Biotech: Roche $550M Indianapolis CGM hub](https://www.fiercebiotech.com/medtech/roche-spend-550m-building-indianapolis-hq-cgm-production-hub) — 2025 — site-level capex detail.

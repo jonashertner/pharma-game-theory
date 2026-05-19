@@ -10,7 +10,7 @@
 
 ## The argument in one paragraph
 
-The December 2025 MFN deal closed a chapter, but the negotiation has not ended — it has shifted from price-setting to *durability engineering*. Roche's single most important strategic asymmetry against every actor at the table is the Hoffmann/Oeri voting block's 25-year horizon. Every other principal — the Trump administration, US Congress, the Swiss Federal Council, even Novartis under its new chairman — operates on political-cycle or earnings-cycle timeframes. **At a 25-year horizon, the entire analysis flips.** The board's task in 2026 is not to optimize the next four quarters of margin; it is to convert the December framework into multi-decade pharma-pricing infrastructure, while the political coalitions that produced it are still in place.
+The December 2025 MFN deal closed a chapter, but the negotiation has not ended — it has shifted from price-setting to *durability engineering*. Roche's single most important strategic asymmetry against every actor at the table is the founding family voting block's 25-year horizon. Every other principal — the Trump administration, US Congress, the Swiss Federal Council, even Novartis under its new chairman — operates on political-cycle or earnings-cycle timeframes. **At a 25-year horizon, the entire analysis flips.** The board's task in 2026 is not to optimize the next four quarters of margin; it is to convert the December framework into multi-decade pharma-pricing infrastructure, while the political coalitions that produced it are still in place.
 
 ## Why this is the moment
 
@@ -26,7 +26,7 @@ The model's headline finding is that the May 2026 status quo is *feasible but ba
 
 **Move 1 — Negotiate the firewall annex (Q3 2026).** Press for *symmetric* (not Roche-specific) firewall language in the Swiss bilateral annex, modeled on Germany's January 2025 Medical Research Act confidential Erstattungsbetrag mechanism. Frame as cross-cutting OECD-floor architecture, not a Swiss-firm carve-out. Closes before the Section 232 effective date of 31 July 2026; otherwise it becomes a renegotiation, not a clarification. *This is Roche's highest-weight unused lever in the model (10/10 weight on a 3/10 floor) and the only Pareto improvement the simulation finds.*
 
-**Move 2 — Convert the $50B capex pledge into milestone-gated relief (Q4 2026).** Restructure the Section 232 0% track with EPC-style milestone gating — each delivered capex milestone shortens the future tariff-snap-back window. Trades flexibility for predictability and aligns Roche's multi-year capital allocation with the political timeline. **The board should weigh this against the Hoffmann family logic:** capex acceleration is acceptable on a 25-year horizon even if it suppresses 2026-2028 ROE.
+**Move 2 — Convert the $50B capex pledge into milestone-gated relief (Q4 2026).** Restructure the Section 232 0% track with EPC-style milestone gating — each delivered capex milestone shortens the future tariff-snap-back window. Trades flexibility for predictability and aligns Roche's multi-year capital allocation with the political timeline. **The board should weigh this against the founding family logic:** capex acceleration is acceptable on a 25-year horizon even if it suppresses 2026-2028 ROE.
 
 **Move 3 — Pre-position a tail-risk hedge (Q1 2027 framework proposal).** MFN's worst case is not direct US-channel cuts; it is reference-basket contagion into EU, UK, and Swiss markets via PBM rebate-transparency leaks. The novelty engine's strongest candidate is a reinsurance-style structure: Roche cedes a defined slice of US revenue above a price floor to a confidential pricing-protection facility, in exchange for capped downside if benchmarks shift globally. Unconventional but analytically clean and politically deniable.
 
@@ -46,12 +46,12 @@ Four asks. Two require decision; one is discretionary; one is a note.
 
 Standard pharma-policy analysis treats the December 2025 framework as a 2026–2029 contract. That framing is correct for the US Executive (whose horizon is the 2028 election), correct for US Congress (whose horizon is the 2026 midterms), correct for institutional Roche investors (whose horizon is the next three quarterly cycles), correct for the Swiss Federal Council (whose horizon is the 2027 federal elections).
 
-It is *incorrect for the Hoffmann/Oeri family voting block* (45.01%), whose horizon is multi-generational, and whose Roche board appointments (Schwan re-elected 97.75% in March 2026) confirm this. The family logic accepts trade-offs no public-board-driven company can accept:
+It is *incorrect for the family-held voting bloc* , whose horizon is multi-generational, and whose Roche board appointments (Schwan re-elected 97.75% in March 2026) confirm this. The family logic accepts trade-offs no public-board-driven company can accept:
 
 — Lower 2026–2028 ROE for 2030+ pipeline value.
 — Capex acceleration to lock in regulatory protection ahead of the cycle.
 — Quiet engagement with EU Commission strategic-autonomy leadership on multi-decade pharma-innovation-infrastructure — a conversation impossible at corporate-Roche level because it would look self-interested, but appropriate at family-stewardship level.
-— Cultivation of Basel cantonal cluster preservation as a parallel stewardship logic, with periodic Basel–Hoffmann–Bern coordination forums.
+— Cultivation of Basel cantonal cluster preservation as a parallel stewardship logic, with periodic Basel–family–Bern coordination forums.
 
 **The board should evaluate the three moves on a 25-year payoff, not a 2-year one.** At that horizon, the firewall annex is not a tactical concession; it is the construction of multi-decade pricing-protection infrastructure. The capex pledge is not an FY26 commitment; it is a 50-year cluster bet. The tail-risk hedge is not an exotic hedge; it is the prudent equivalent of the reinsurance contracts that have protected family wealth across centuries.
 
@@ -59,9 +59,9 @@ It is *incorrect for the Hoffmann/Oeri family voting block* (45.01%), whose hori
 
 1. **Roche and the Trump administration share an interest in *treaty form* over executive-order form.** Roche wants durability; the administration wants legacy. Both lose if MFN is erased by a successor EO in 2029. Standard pharma-policy framing assumes the administration prefers flexibility, but a flagship achievement is more valuable as legislation or treaty than as a directive. Frame the firewall annex as preserving the December 2025 achievement against political reversal. USTR is the right counterparty, not HHS.
 
-2. **The Hoffmann family and the EU Commission share a multi-decade interest in European pharma-innovation-infrastructure persistence.** At 2-3 year horizons they conflict (prices). At 20+ year horizons they are aligned (cluster survival). The Critical Medicines Act (provisional 12 May 2026) signals that the Commission has accepted higher EU prices in exchange for retained EU manufacturing — same logic as the family's. *This conversation is impossible at Roche-corporate level; it must happen at Hoffmann-family level.* Recommend the chairman initiate periodic, low-profile dialogue with DG SANTE strategic-autonomy leadership.
+2. **The founding family and the EU Commission share a multi-decade interest in European pharma-innovation-infrastructure persistence.** At 2-3 year horizons they conflict (prices). At 20+ year horizons they are aligned (cluster survival). The Critical Medicines Act (provisional 12 May 2026) signals that the Commission has accepted higher EU prices in exchange for retained EU manufacturing — same logic as the family's. *This conversation is impossible at Roche-corporate level; it must happen at family-ownership level.* Recommend the chairman initiate periodic, low-profile dialogue with DG SANTE strategic-autonomy leadership.
 
-3. **Basel-Stadt cantonal government and the Hoffmann family share cluster-preservation telos at different scales.** They never appear in the same political room but their interests are nearly identical. Formal Basel–Hoffmann–Bern coordination — quarterly informal, semi-annual structured — would lock in the long-horizon framing against short-cycle pressures from Bundestag-style noise.
+3. **Basel-Stadt cantonal government and the founding family share cluster-preservation telos at different scales.** They never appear in the same political room but their interests are nearly identical. Formal Basel–family–Bern coordination — quarterly informal, semi-annual structured — would lock in the long-horizon framing against short-cycle pressures from Bundestag-style noise.
 
 ## Contradictions to exploit (not resolve)
 

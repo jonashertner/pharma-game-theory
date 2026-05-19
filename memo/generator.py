@@ -165,7 +165,7 @@ def _sequencing_block() -> str:
 def _open_questions() -> str:
     return ("1. Does Roche internal counsel agree that the intl-ref-pricing "
             "firewall language survives review under CH/EU competition law?\n"
-            "2. Is the Hoffmann family voting block willing to support a "
+            "2. Is family-held voting bloc willing to support a "
             "longer Section 232 commitment (post-Jan 2029 extension) in "
             "exchange for ira_mfp_discount cap stability?\n"
             "3. What's the maximum acceptable swiss_domestic_pricing "
