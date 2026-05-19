@@ -41,29 +41,29 @@
     overlay.id = "passcode-overlay";
     overlay.style.cssText = [
       "position:fixed", "top:0", "left:0", "right:0", "bottom:0",
-      "background:#0b0d10", "color:#e6e8eb",
+      "background:#fafaf9", "color:#18181b",
       "display:flex", "align-items:center", "justify-content:center",
-      "z-index:99999",
-      "font-family:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI',Roboto,sans-serif",
+      "z-index:99999", "padding:16px",
+      "font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif",
     ].join(";");
 
     const card = document.createElement("div");
     card.style.cssText = [
-      "background:#14171c", "border:1px solid #2a2f37", "border-radius:12px",
-      "padding:42px 44px", "max-width:420px", "width:90%",
-      "box-shadow:0 20px 60px rgba(0,0,0,0.5)",
+      "background:#ffffff", "border:1px solid #e7e5e0", "border-radius:12px",
+      "padding:44px 46px", "max-width:440px", "width:100%",
+      "box-shadow:0 1px 3px rgba(0,0,0,0.04),0 12px 36px rgba(0,0,0,0.06)",
     ].join(";");
 
     const brand = document.createElement("div");
-    brand.style.cssText = "font-size:11px;color:#8b94a3;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:14px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;";
-    brand.textContent = "Roche pharma-pricing simulation";
+    brand.style.cssText = "font-size:10.5px;color:#737373;text-transform:uppercase;letter-spacing:0.14em;margin-bottom:18px;font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:500;";
+    brand.textContent = "Pharma negotiation simulation";
 
     const title = document.createElement("h2");
-    title.style.cssText = "margin:0 0 8px 0;font-size:22px;font-weight:600;letter-spacing:-0.01em;color:#e6e8eb;";
+    title.style.cssText = "margin:0 0 10px 0;font-size:26px;font-weight:500;letter-spacing:-0.022em;color:#18181b;font-family:'Source Serif 4',Charter,Cambria,Georgia,serif;line-height:1.15;";
     title.textContent = "Restricted access";
 
     const sub = document.createElement("p");
-    sub.style.cssText = "margin:0 0 24px 0;color:#8b94a3;font-size:14px;line-height:1.5;";
+    sub.style.cssText = "margin:0 0 28px 0;color:#404044;font-size:15px;line-height:1.55;font-family:'Source Serif 4',Charter,Cambria,Georgia,serif;";
     sub.textContent = "This site contains pre-board strategic analysis. Enter the access passcode to continue.";
 
     const input = document.createElement("input");
@@ -72,10 +72,11 @@
     input.autocomplete = "current-password";
     input.placeholder = "Passcode";
     input.style.cssText = [
-      "width:100%", "background:#0b0d10", "color:#e6e8eb",
-      "border:1px solid #2a2f37", "border-radius:6px",
-      "padding:11px 13px", "font-size:15px", "font-family:inherit",
-      "outline:none", "transition:border-color 0.15s ease",
+      "width:100%", "background:#fafaf9", "color:#18181b",
+      "border:1px solid #d4d2cc", "border-radius:6px",
+      "padding:12px 14px", "font-size:15px", "font-family:inherit",
+      "outline:none", "transition:border-color 150ms ease,box-shadow 150ms ease",
+      "letter-spacing:-0.005em",
     ].join(";");
 
     const btn = document.createElement("button");
@@ -83,20 +84,20 @@
     btn.textContent = "Enter";
     btn.style.cssText = [
       "margin-top:14px", "width:100%",
-      "background:#7aa2f7", "color:#001a33",
-      "border:none", "border-radius:6px",
-      "padding:11px 14px", "font-size:14px", "font-weight:600",
+      "background:#1e3a5f", "color:#ffffff",
+      "border:1px solid #1e3a5f", "border-radius:6px",
+      "padding:12px 16px", "font-size:14px", "font-weight:500",
       "cursor:pointer", "font-family:inherit",
-      "transition:background 0.15s ease",
+      "transition:background 150ms ease", "letter-spacing:-0.005em",
     ].join(";");
 
     const msg = document.createElement("div");
     msg.id = "passcode-msg";
-    msg.style.cssText = "margin-top:14px;font-size:12.5px;color:#f7768e;min-height:18px;text-align:center;";
+    msg.style.cssText = "margin-top:14px;font-size:13px;color:#b91c1c;min-height:18px;text-align:center;font-family:inherit;";
 
     const foot = document.createElement("div");
-    foot.style.cssText = "margin-top:22px;color:#8b94a3;font-size:11px;line-height:1.5;border-top:1px solid #2a2f37;padding-top:14px;";
-    foot.textContent = "Independent public-source analysis, not an official Roche document. No NDA-protected information.";
+    foot.style.cssText = "margin-top:26px;color:#737373;font-size:11.5px;line-height:1.55;border-top:1px solid #e7e5e0;padding-top:16px;font-family:inherit;letter-spacing:-0.003em;";
+    foot.textContent = "Independent public-source analysis. Not an official Roche document. No NDA-protected information.";
 
     card.appendChild(brand);
     card.appendChild(title);
@@ -126,9 +127,12 @@
         msg.textContent = "Passcode not recognised. Try again.";
         input.value = "";
         input.focus();
-        // brief shake
-        input.style.borderColor = "#f7768e";
-        setTimeout(() => { input.style.borderColor = "#2a2f37"; }, 800);
+        input.style.borderColor = "#b91c1c";
+        input.style.boxShadow = "0 0 0 3px rgba(185,28,28,0.08)";
+        setTimeout(() => {
+          input.style.borderColor = "#d4d2cc";
+          input.style.boxShadow = "none";
+        }, 900);
       }
     }
     btn.addEventListener("click", tryUnlock);

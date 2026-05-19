@@ -74,19 +74,52 @@ NAV_LINKS = [
 ]
 
 
+def _pagination(page_id: str) -> str:
+    """Render prev/next pagination links for the given page."""
+    idx = next((i for i, (h, _) in enumerate(NAV_LINKS) if h == page_id), None)
+    if idx is None:
+        return ""
+    parts = ['<div class="page-pagination">']
+    if idx > 0:
+        prev_href, prev_label = NAV_LINKS[idx - 1]
+        parts.append(
+            f'<a class="prev" href="{prev_href}">'
+            f'<div class="label">Previous</div>'
+            f'<div class="title">{prev_label}</div></a>'
+        )
+    else:
+        parts.append('<div></div>')
+    if idx < len(NAV_LINKS) - 1:
+        next_href, next_label = NAV_LINKS[idx + 1]
+        parts.append(
+            f'<a class="next" href="{next_href}">'
+            f'<div class="label">Next</div>'
+            f'<div class="title">{next_label}</div></a>'
+        )
+    else:
+        parts.append('<div></div>')
+    parts.append('</div>')
+    return "\n".join(parts)
+
+
 # ---------------------------------------------------------------------------
 # Shared layout
 # ---------------------------------------------------------------------------
 
 
 def layout(*, title: str, page_id: str, body: str, main_class: str = "prose",
-           extra_head: str = "") -> str:
-    nav_html_parts = []
+           extra_head: str = "", include_pagination: bool = True) -> str:
+    desktop_links = []
+    mobile_links = []
     for href, label in NAV_LINKS:
         active = ' class="active"' if href == page_id else ""
-        nav_html_parts.append(f'<a href="{href}"{active}>{label}</a>')
-    nav_html = "\n        ".join(nav_html_parts)
+        desktop_links.append(f'<a href="{href}"{active}>{label}</a>')
+        mobile_links.append(f'<a href="{href}"{active}>{label}</a>')
+    desktop_nav = "\n        ".join(desktop_links)
+    mobile_nav = "\n      ".join(mobile_links)
     snapshot = "2026-05-19"
+
+    pagination = _pagination(page_id) if include_pagination and page_id != "index.html" else ""
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -95,24 +128,38 @@ def layout(*, title: str, page_id: str, body: str, main_class: str = "prose",
 <title>{title} — Roche pharma-pricing negotiation</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
 <script src="assets/passcode.js"></script>
 {extra_head}
 </head>
 <body>
 
+<input type="checkbox" id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle menu">
+
 <header class="site-header">
   <div class="inner">
-    <a href="index.html" class="brand" style="text-decoration:none;">Roche pricing negotiation <span class="accent">simulation</span></a>
-    <nav>
-        {nav_html}
+    <a href="index.html" class="brand">Roche pricing negotiation <span class="accent">simulation</span></a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+        {desktop_nav}
     </nav>
     <div class="meta">snapshot {snapshot}</div>
+    <label for="mobile-menu-toggle" class="hamburger" aria-label="Open menu" role="button" tabindex="0">
+      <span class="bars" aria-hidden="true"></span>
+    </label>
   </div>
 </header>
 
+<nav class="mobile-nav" aria-label="Mobile navigation">
+      {mobile_nav}
+      <div class="meta-line">snapshot {snapshot}</div>
+</nav>
+
 <main class="{main_class}">
+{f'<a href="index.html" class="back-link">Overview</a>' if page_id != "index.html" else ""}
 {body}
+{pagination}
 </main>
 
 <footer class="site-footer">
@@ -121,6 +168,15 @@ def layout(*, title: str, page_id: str, body: str, main_class: str = "prose",
     <span>Not an official Roche document · <a href="method.html">method &amp; limits</a></span>
   </div>
 </footer>
+
+<script>
+// Close mobile menu when a link is tapped.
+document.querySelectorAll(".mobile-nav a").forEach(a => {{
+  a.addEventListener("click", () => {{
+    document.getElementById("mobile-menu-toggle").checked = false;
+  }});
+}});
+</script>
 
 </body>
 </html>
@@ -438,31 +494,86 @@ def build_model_data_json() -> str:
     }, indent=2)
 
 
+def _shared_nav_html(active_page: str) -> str:
+    """Build the shared sticky-header + mobile-nav HTML used for simulation
+    and playground inlines (these pages need it inside <body> as plain HTML
+    because they have their own inline <style>).
+    """
+    desktop_parts = []
+    mobile_parts = []
+    for href, label in NAV_LINKS:
+        active = ' class="active"' if href == active_page else ""
+        desktop_parts.append(f'<a href="{href}"{active}>{label}</a>')
+        mobile_parts.append(f'<a href="{href}"{active}>{label}</a>')
+    desktop_nav = '\n        '.join(desktop_parts)
+    mobile_nav = '\n      '.join(mobile_parts)
+
+    return (
+        '<input type="checkbox" id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle menu">\n'
+        '<header class="site-header" style="position: static;">\n'
+        '  <div class="inner">\n'
+        '    <a href="index.html" class="brand">Roche pricing negotiation <span class="accent">simulation</span></a>\n'
+        f'    <nav class="desktop-nav" aria-label="Primary navigation">\n        {desktop_nav}\n    </nav>\n'
+        '    <div class="meta">snapshot 2026-05-19</div>\n'
+        '    <label for="mobile-menu-toggle" class="hamburger" aria-label="Open menu" role="button" tabindex="0">\n'
+        '      <span class="bars" aria-hidden="true"></span>\n'
+        '    </label>\n'
+        '  </div>\n'
+        '</header>\n'
+        '<nav class="mobile-nav" aria-label="Mobile navigation">\n'
+        f'      {mobile_nav}\n'
+        '      <div class="meta-line">snapshot 2026-05-19</div>\n'
+        '</nav>\n'
+    )
+
+
+def _mobile_nav_close_script() -> str:
+    return (
+        '<script>\n'
+        'document.querySelectorAll(".mobile-nav a").forEach(a => {\n'
+        '  a.addEventListener("click", () => {\n'
+        '    const t = document.getElementById("mobile-menu-toggle");\n'
+        '    if (t) t.checked = false;\n'
+        '  });\n'
+        '});\n'
+        '</script>\n'
+    )
+
+
 def build_simulation() -> str:
-    """Read simulation.html template, inject model data + nav strip."""
     raw = SIMULATION_SRC.read_text()
     model_json = build_model_data_json()
     out = raw.replace("__MODEL_DATA_PLACEHOLDER__", model_json)
-    # Inject site nav strip in place of the BUILD-INJECTED HEADER comment
-    nav_parts = []
-    for href, label in NAV_LINKS:
-        active = ' style="color:#e6e8eb"' if href == "simulation.html" else ""
-        nav_parts.append(
-            f'<a href="{href}"{active} style="color:#8b94a3;font-size:12px;'
-            f'text-decoration:none;margin-right:18px;">{label}</a>'
-        )
-    nav_strip = (
-        '<header class="site-header" style="position: static;">'
-        '<div class="inner">'
-        '<a href="index.html" class="brand" style="text-decoration:none;">Roche pricing negotiation <span class="accent">simulation</span></a>'
-        '<nav>' + ''.join(nav_parts) + '</nav>'
-        '<div class="meta">snapshot 2026-05-19</div>'
-        '</div></header>'
+    nav_strip = _shared_nav_html("simulation.html")
+    # Include shared style.css so the nav uses the editorial design tokens
+    head_inject = (
+        '<link rel="stylesheet" href="assets/style.css">\n'
+        '<script src="assets/passcode.js"></script>\n'
     )
-    # Also need the passcode gate
-    passcode_tag = '<script src="assets/passcode.js"></script>'
-    out = out.replace("</head>", f"{passcode_tag}\n</head>")
+    out = out.replace('<link rel="stylesheet" href="assets/style.css">', '')
+    out = out.replace("</head>", f"{head_inject}</head>")
     out = out.replace("<!-- BUILD-INJECTED HEADER -->", nav_strip)
+    out = out.replace("</body>", _mobile_nav_close_script() + "</body>")
+    return out
+
+
+def build_playground() -> str:
+    raw = PLAYGROUND_SRC.read_text()
+    nav_strip = _shared_nav_html("playground.html")
+    # Insert shared style.css link + passcode BEFORE the playground's inline
+    # <style> so the playground's inline rules override shared on conflict.
+    out = raw.replace(
+        '<style>',
+        '<link rel="stylesheet" href="assets/style.css">\n'
+        '<script src="assets/passcode.js"></script>\n'
+        '<style>',
+        1,
+    )
+    # Insert nav after <body> (before the playground's own <header>)
+    out = out.replace("<body>", "<body>\n" + nav_strip, 1)
+    # Adjust the playground's main height calc to account for the inserted nav
+    out = out.replace("height: calc(100vh - 50px);", "height: calc(100vh - 110px);")
+    out = out.replace("</body>", _mobile_nav_close_script() + "</body>")
     return out
 
 

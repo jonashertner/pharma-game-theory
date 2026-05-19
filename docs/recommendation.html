@@ -5,16 +5,20 @@
 <title>Recommendation — Roche pharma-pricing negotiation</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
 <script src="assets/passcode.js"></script>
 
 </head>
 <body>
 
+<input type="checkbox" id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle menu">
+
 <header class="site-header">
   <div class="inner">
-    <a href="index.html" class="brand" style="text-decoration:none;">Roche pricing negotiation <span class="accent">simulation</span></a>
-    <nav>
+    <a href="index.html" class="brand">Roche pricing negotiation <span class="accent">simulation</span></a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="index.html">Overview</a>
         <a href="recommendation.html" class="active">Recommendation</a>
         <a href="simulation.html">Live simulation</a>
@@ -26,10 +30,27 @@
         <a href="method.html">Method</a>
     </nav>
     <div class="meta">snapshot 2026-05-19</div>
+    <label for="mobile-menu-toggle" class="hamburger" aria-label="Open menu" role="button" tabindex="0">
+      <span class="bars" aria-hidden="true"></span>
+    </label>
   </div>
 </header>
 
+<nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="index.html">Overview</a>
+      <a href="recommendation.html" class="active">Recommendation</a>
+      <a href="simulation.html">Live simulation</a>
+      <a href="playground.html">Playground</a>
+      <a href="actors.html">Actors</a>
+      <a href="positions.html">Positions</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="transcripts.html">Transcripts</a>
+      <a href="method.html">Method</a>
+      <div class="meta-line">snapshot 2026-05-19</div>
+</nav>
+
 <main class="prose">
+<a href="index.html" class="back-link">Overview</a>
 
 <div class="memo-meta">
   <strong>Source:</strong> generated from <code>memo/drafts/status_quo-nash-20260519-174157.md</code>
@@ -356,6 +377,10 @@ prediction; it is a <em>structured argument</em>. Where the model recommends
 something counterintuitive, that's a deliberate output of writing down
 each actor's interests precisely — not a hidden assumption.</p>
 
+<div class="page-pagination">
+<a class="prev" href="index.html"><div class="label">Previous</div><div class="title">Overview</div></a>
+<a class="next" href="simulation.html"><div class="label">Next</div><div class="title">Live simulation</div></a>
+</div>
 </main>
 
 <footer class="site-footer">
@@ -364,6 +389,15 @@ each actor's interests precisely — not a hidden assumption.</p>
     <span>Not an official Roche document · <a href="method.html">method &amp; limits</a></span>
   </div>
 </footer>
+
+<script>
+// Close mobile menu when a link is tapped.
+document.querySelectorAll(".mobile-nav a").forEach(a => {
+  a.addEventListener("click", () => {
+    document.getElementById("mobile-menu-toggle").checked = false;
+  });
+});
+</script>
 
 </body>
 </html>

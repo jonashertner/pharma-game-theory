@@ -5,134 +5,159 @@
 <title>Live simulation — Roche pharma-pricing negotiation</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<link rel="stylesheet" href="assets/style.css">
+
 <style>
-  body { overflow: hidden; height: 100vh; }
+  /* Simulation page — uses tokens from shared style.css. */
+  body { overflow: hidden; height: 100vh; background: var(--canvas); }
   main { padding: 0; max-width: none; height: calc(100vh - 50px); }
+  .back-link { display: none; }   /* handled by external chrome instead */
 
   .sim-shell {
     display: grid;
-    grid-template-columns: 320px 1fr 380px;
-    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 280px 1fr 340px;
+    grid-template-rows: auto auto 1fr auto;
     height: 100%;
     gap: 0;
+    background: var(--canvas);
   }
   .sim-topbar {
     grid-column: 1 / -1;
-    background: var(--bg-2);
-    border-bottom: 1px solid var(--border);
-    padding: 14px 22px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--hairline);
+    padding: 14px 24px;
     display: flex;
     align-items: center;
     gap: 18px;
     flex-wrap: wrap;
   }
-  .sim-meta { font-size: 14px; color: var(--fg-mute); }
-  .sim-meta .scen { color: var(--fg); font-weight: 600; }
-  .sim-meta .sep { color: var(--muted); margin: 0 8px; }
-  .sim-meta code { font-size: 12px; }
+  .sim-meta {
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    color: var(--ink-2);
+    line-height: 1.4;
+  }
+  .sim-meta .scen { color: var(--ink); font-weight: 600; letter-spacing: -0.011em; }
+  .sim-meta .sep { color: var(--muted-2); margin: 0 8px; }
+  .sim-meta .setting { font-size: 12px; color: var(--muted); display: block; margin-top: 2px; max-width: 600px; }
   .sim-counter {
     margin-left: auto;
     color: var(--muted);
-    font-family: var(--mono);
-    font-size: 12px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.02em;
   }
+  .sim-counter span { color: var(--ink); font-weight: 500; }
+
   .sim-controls {
     grid-column: 1 / -1;
-    background: var(--bg-2);
-    border-bottom: 1px solid var(--border);
-    padding: 10px 22px;
+    background: var(--canvas);
+    border-bottom: 1px solid var(--hairline);
+    padding: 10px 24px;
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 10px;
   }
   .sim-controls button {
-    background: var(--bg-3);
-    color: var(--fg);
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    padding: 6px 12px;
-    font-size: 12px;
+    background: var(--surface);
+    color: var(--ink-2);
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius);
+    padding: 7px 13px;
+    font-size: 12.5px;
     cursor: pointer;
-    font-family: inherit;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    transition: all 150ms ease;
+    min-height: 36px;
   }
-  .sim-controls button:hover { border-color: var(--accent); }
+  .sim-controls button:hover { border-color: var(--ink); color: var(--ink); }
   .sim-controls button.primary {
     background: var(--accent);
-    color: #001a33;
+    color: white;
     border-color: var(--accent);
-    font-weight: 600;
-    min-width: 90px;
+    min-width: 96px;
   }
-  .sim-controls button.primary:hover { background: #5d8ddb; }
+  .sim-controls button.primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: white; }
   .sim-controls label {
     color: var(--muted);
     font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    margin-left: 6px;
   }
-  .sim-controls .speed-group { margin-left: auto; display: flex; gap: 4px; }
+  .sim-controls .speed-group { margin-left: auto; display: flex; gap: 2px; background: var(--surface-2); padding: 2px; border-radius: var(--radius); }
   .sim-controls .speed-group button {
-    padding: 4px 10px;
-    font-family: var(--mono);
+    padding: 5px 10px;
+    font-family: var(--font-mono);
     font-size: 11px;
+    background: transparent;
+    border: none;
+    min-height: 28px;
   }
+  .sim-controls .speed-group button:hover { background: var(--surface); color: var(--ink); border: none; }
   .sim-controls .speed-group button.active {
-    background: var(--accent);
-    color: #001a33;
-    border-color: var(--accent);
+    background: var(--surface);
+    color: var(--ink);
+    box-shadow: 0 0 0 1px var(--hairline);
   }
 
   /* Actors column */
   .actors-col {
-    background: var(--bg-2);
-    border-right: 1px solid var(--border);
-    padding: 18px 16px;
+    background: var(--canvas);
+    border-right: 1px solid var(--hairline);
+    padding: 18px 18px;
     overflow-y: auto;
   }
   .col-header {
-    font-size: 10px;
+    font-family: var(--font-sans);
+    font-size: 10.5px;
     color: var(--muted);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     margin-bottom: 10px;
     font-weight: 600;
   }
 
   .actor-card {
-    background: var(--bg-3);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px 14px;
-    margin-bottom: 10px;
-    transition: all 0.3s ease;
-    opacity: 0.65;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    padding: 11px 14px;
+    margin-bottom: 8px;
+    transition: all 220ms ease;
+    opacity: 0.85;
     position: relative;
     overflow: hidden;
   }
-  .actor-card .name { font-size: 13px; font-weight: 600; color: var(--fg); margin-bottom: 4px; }
-  .actor-card .sub { font-size: 11px; color: var(--muted); font-family: var(--mono); }
+  .actor-card .name { font-family: var(--font-sans); font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 2px; letter-spacing: -0.005em; }
+  .actor-card .sub { font-family: var(--font-mono); font-size: 10.5px; color: var(--muted); }
   .actor-card .payoff {
-    font-family: var(--mono);
-    font-size: 18px;
+    font-family: var(--font-mono);
+    font-size: 17px;
     font-weight: 500;
-    margin-top: 6px;
-    color: var(--fg);
-    transition: color 0.3s ease;
+    margin-top: 5px;
+    color: var(--ink);
+    transition: color 250ms ease;
+    font-feature-settings: "tnum";
+    letter-spacing: -0.011em;
   }
   .actor-card .payoff.pos { color: var(--positive); }
   .actor-card .payoff.neg { color: var(--negative); }
   .actor-card .batna-text {
     font-size: 10px;
     color: var(--muted);
-    font-family: var(--mono);
+    font-family: var(--font-mono);
     margin-top: 2px;
+    letter-spacing: 0.01em;
   }
   .actor-card.speaking {
     opacity: 1;
-    transform: translateY(-1px);
     border-color: var(--actor-color, var(--accent));
-    box-shadow: 0 0 0 1px var(--actor-color, var(--accent)), 0 4px 16px rgba(0,0,0,0.4);
+    background: var(--surface);
+    box-shadow: 0 0 0 1px var(--actor-color, var(--accent)), 0 2px 10px rgba(0,0,0,0.04);
   }
   .actor-card.speaking::before {
     content: "";
@@ -143,208 +168,295 @@
   }
   .actor-card .speaking-dot {
     position: absolute;
-    top: 13px;
-    right: 13px;
-    width: 8px;
-    height: 8px;
+    top: 14px;
+    right: 14px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: var(--actor-color, var(--accent));
     opacity: 0;
-    animation: pulse 1.4s ease-in-out infinite;
+    transition: opacity 200ms ease;
   }
   .actor-card.speaking .speaking-dot { opacity: 1; }
-  @keyframes pulse {
-    0%, 100% { transform: scale(0.9); opacity: 0.5; }
-    50%      { transform: scale(1.3); opacity: 1; }
-  }
 
-  /* Statement panel */
+  /* Statement panel — the centerpiece */
   .statement-col {
-    padding: 22px 28px;
+    padding: 32px 40px;
     overflow-y: auto;
-    background: var(--bg);
+    background: var(--canvas);
     display: flex;
     flex-direction: column;
   }
   .statement-frame {
-    background: var(--bg-2);
-    border: 1px solid var(--border);
-    border-left: 4px solid var(--actor-color, var(--accent));
-    border-radius: 8px;
-    padding: 22px 28px;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-left: 3px solid var(--actor-color, var(--accent));
+    border-radius: var(--radius-lg);
+    padding: 32px 40px;
     margin-bottom: 18px;
-    transition: border-left-color 0.3s ease;
+    transition: border-left-color 350ms ease;
   }
   .statement-frame .speaker {
     color: var(--actor-color, var(--accent));
     font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.13em;
     font-weight: 600;
-    margin-bottom: 4px;
-    font-family: var(--mono);
+    margin-bottom: 2px;
+    font-family: var(--font-mono);
+    transition: color 350ms ease;
   }
   .statement-frame .round-marker {
     color: var(--muted);
     font-size: 11px;
-    font-family: var(--mono);
-    margin-bottom: 16px;
+    font-family: var(--font-mono);
+    letter-spacing: 0.02em;
+    margin-bottom: 22px;
   }
   .statement-frame .quote {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 17px;
+    font-family: var(--font-serif);
+    font-size: 21px;
     line-height: 1.55;
-    color: var(--fg);
-    font-style: italic;
-    min-height: 80px;
+    color: var(--ink);
+    font-weight: 400;
+    letter-spacing: -0.011em;
+    min-height: 110px;
   }
-  .statement-frame .quote.has-content::before { content: "\201C"; color: var(--accent); margin-right: 4px; }
-  .statement-frame .quote.has-content::after  { content: "\201D"; color: var(--accent); margin-left: 2px; }
+  .statement-frame .quote.has-content::before { content: "\201C"; color: var(--actor-color, var(--accent)); font-size: 1.05em; margin-right: 2px; opacity: 0.7; }
+  .statement-frame .quote.has-content::after  { content: "\201D"; color: var(--actor-color, var(--accent)); font-size: 1.05em; margin-left: 1px; opacity: 0.7; }
 
   .proposal-frame {
-    background: var(--bg-2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px 20px;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    padding: 18px 28px;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 400ms ease;
   }
   .proposal-frame.show { opacity: 1; }
   .proposal-frame .head {
+    font-family: var(--font-sans);
     color: var(--muted);
-    font-size: 11px;
+    font-size: 10.5px;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 10px;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
     font-weight: 600;
   }
   .proposal-line {
-    font-family: var(--mono);
+    font-family: var(--font-mono);
     font-size: 13px;
-    line-height: 1.6;
-    color: var(--fg);
-    margin-bottom: 6px;
+    line-height: 1.55;
+    color: var(--ink);
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--hairline);
   }
-  .proposal-line .issue { color: var(--accent); }
-  .proposal-line .arrow { color: var(--muted); margin: 0 6px; }
+  .proposal-line:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .proposal-line .issue { color: var(--accent); font-weight: 500; }
+  .proposal-line .arrow { color: var(--muted-2); margin: 0 8px; }
   .proposal-line .from  { color: var(--muted); }
-  .proposal-line .to    { color: var(--positive); font-weight: 600; }
-  .proposal-line .units { color: var(--muted); font-size: 11px; margin-left: 8px; }
+  .proposal-line .to    { color: var(--ink); font-weight: 700; font-feature-settings: "tnum"; }
+  .proposal-line .units { color: var(--muted); font-size: 11px; margin-left: 10px; font-family: var(--font-sans); }
   .proposal-line .why {
     display: block;
     color: var(--muted);
-    font-size: 11.5px;
+    font-size: 13px;
     font-style: italic;
-    font-family: var(--sans);
-    margin-top: 1px;
-    margin-left: 16px;
+    font-family: var(--font-serif);
+    margin-top: 6px;
+    margin-left: 0;
+    line-height: 1.45;
   }
   .action-tag {
     display: inline-block;
     margin-left: 10px;
-    padding: 1px 9px;
+    padding: 2px 9px;
     border-radius: 99px;
     font-size: 10px;
-    font-family: var(--mono);
+    font-family: var(--font-mono);
     text-transform: uppercase;
     letter-spacing: 0.08em;
+    font-weight: 500;
+    border: 1px solid currentColor;
   }
-  .action-tag.PROPOSE { background: rgba(122, 162, 247, 0.18); color: var(--accent); }
-  .action-tag.COUNTER { background: rgba(224, 175, 104, 0.18); color: var(--warning); }
-  .action-tag.ACCEPT  { background: rgba(158, 206, 106, 0.18); color: var(--positive); }
-  .action-tag.WALK    { background: rgba(247, 118, 142, 0.18); color: var(--negative); }
-  .accept-line { color: var(--positive); font-weight: 500; font-family: var(--sans); font-style: normal; }
-  .empty-line  { color: var(--muted); font-style: italic; }
+  .action-tag.PROPOSE { color: var(--accent); }
+  .action-tag.COUNTER { color: var(--warning); }
+  .action-tag.ACCEPT  { color: var(--positive); }
+  .action-tag.WALK    { color: var(--negative); }
+  .accept-line { color: var(--positive); font-weight: 500; font-family: var(--font-sans); font-style: normal; }
+  .empty-line  { color: var(--muted); font-style: italic; font-family: var(--font-sans); }
 
   /* Deal vector column */
   .deal-col {
-    background: var(--bg-2);
-    border-left: 1px solid var(--border);
-    padding: 18px 18px;
+    background: var(--canvas);
+    border-left: 1px solid var(--hairline);
+    padding: 18px 20px;
     overflow-y: auto;
   }
   .deal-row {
     display: grid;
     grid-template-columns: 1fr 56px;
     gap: 8px;
-    align-items: center;
-    padding: 7px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    align-items: baseline;
+    padding: 8px 0 6px 0;
+    border-bottom: 1px solid var(--hairline);
   }
-  .deal-row .label { font-size: 11px; color: var(--fg-mute); }
-  .deal-row .val { font-family: var(--mono); font-size: 12px; color: var(--fg); text-align: right; transition: color 0.4s ease; }
-  .deal-row .val.flash { color: var(--accent); font-weight: 700; }
+  .deal-row:last-child { border-bottom: none; }
+  .deal-row .label {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    color: var(--ink-2);
+    letter-spacing: -0.005em;
+    line-height: 1.35;
+  }
+  .deal-row .val {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink);
+    text-align: right;
+    transition: color 400ms ease;
+    font-feature-settings: "tnum";
+    font-weight: 500;
+  }
+  .deal-row .val.flash { color: var(--accent); }
   .deal-row .bar-track {
     grid-column: 1 / -1;
-    height: 5px;
-    background: var(--bg-3);
+    height: 4px;
+    background: var(--surface-3);
     border-radius: 99px;
     overflow: hidden;
-    margin-top: 4px;
+    margin-top: 5px;
     position: relative;
   }
   .deal-row .bar-fill {
     height: 100%;
-    background: var(--accent);
+    background: var(--ink-2);
     border-radius: 99px;
-    transition: width 0.6s cubic-bezier(0.4, 0.0, 0.2, 1), background 0.4s ease;
+    transition: width 600ms cubic-bezier(0.4, 0.0, 0.2, 1), background 400ms ease;
   }
-  .deal-row .bar-fill.flash { background: var(--accent-2); }
+  .deal-row .bar-fill.flash { background: var(--accent); }
 
   /* Footer feasibility bar */
   .feasibility-bar {
     grid-column: 1 / -1;
-    background: var(--bg-2);
-    border-top: 1px solid var(--border);
-    padding: 12px 24px;
+    background: var(--surface);
+    border-top: 1px solid var(--hairline);
+    padding: 14px 24px;
+    font-family: var(--font-sans);
     font-size: 13px;
-    color: var(--fg-mute);
+    color: var(--ink-2);
     display: flex;
     align-items: center;
-    gap: 22px;
+    gap: 16px;
   }
   .feasibility-bar .icon {
     width: 22px; height: 22px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-weight: 700;
+    font-size: 13px; font-weight: 700;
     flex-shrink: 0;
   }
-  .feasibility-bar .icon.ok  { background: rgba(158, 206, 106, 0.2); color: var(--positive); }
-  .feasibility-bar .icon.bad { background: rgba(247, 118, 142, 0.2); color: var(--negative); }
+  .feasibility-bar .icon.ok  { background: #d1fae5; color: var(--positive); }
+  .feasibility-bar .icon.bad { background: #fee2e2; color: var(--negative); }
   .feasibility-bar .detail { color: var(--muted); font-size: 12px; }
 
-  /* End-of-sim panel */
+  /* End-of-sim convergence panel */
   .end-panel {
-    background: linear-gradient(135deg, rgba(122,162,247,0.08) 0%, rgba(187,154,247,0.08) 100%);
+    background: var(--accent-soft);
     border: 1px solid var(--accent);
-    border-radius: 10px;
-    padding: 22px 26px;
+    border-radius: var(--radius-lg);
+    padding: 22px 28px;
     margin-top: 12px;
     display: none;
   }
   .end-panel.show { display: block; }
-  .end-panel h3 { color: var(--accent); margin: 0 0 10px 0; }
-  .end-panel p { font-size: 14px; color: var(--fg-mute); }
+  .end-panel h3 {
+    font-family: var(--font-sans);
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.013em;
+  }
+  .end-panel p {
+    font-family: var(--font-serif);
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.55;
+    margin: 0;
+  }
 
+  /* Responsive */
   @media (max-width: 1100px) {
-    .sim-shell { grid-template-columns: 260px 1fr 320px; }
+    .sim-shell { grid-template-columns: 240px 1fr 300px; }
+    .statement-col { padding: 24px 28px; }
+    .statement-frame { padding: 26px 30px; }
+    .statement-frame .quote { font-size: 19px; }
   }
   @media (max-width: 880px) {
+    body { overflow-y: auto; height: auto; }
+    main { height: auto; }
     .sim-shell {
       grid-template-columns: 1fr;
-      grid-template-rows: auto auto auto 1fr auto auto;
-      overflow-y: auto;
+      grid-template-rows: auto auto auto auto auto auto;
       height: auto;
+      overflow: visible;
     }
-    body { overflow-y: auto; height: auto; }
-    .actors-col, .deal-col { border-right: none; border-left: none; border-bottom: 1px solid var(--border); }
+    .sim-topbar { padding: 12px 16px; flex-direction: column; align-items: flex-start; gap: 8px; }
+    .sim-counter { margin-left: 0; }
+    .sim-controls { padding: 10px 16px; overflow-x: auto; }
+    .sim-controls button { min-height: 40px; }
+    .actors-col, .deal-col {
+      border-right: none; border-left: none;
+      border-bottom: 1px solid var(--hairline);
+      padding: 16px;
+      max-height: 50vh;
+    }
+    .statement-col { padding: 20px 16px; }
+    .statement-frame { padding: 22px 22px; }
+    .statement-frame .quote { font-size: 18px; line-height: 1.5; min-height: 100px; }
+    .feasibility-bar { padding: 12px 16px; }
   }
 </style>
+<link rel="stylesheet" href="assets/style.css">
 <script src="assets/passcode.js"></script>
 </head>
 <body>
 
-<header class="site-header" style="position: static;"><div class="inner"><a href="index.html" class="brand" style="text-decoration:none;">Roche pricing negotiation <span class="accent">simulation</span></a><nav><a href="index.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Overview</a><a href="recommendation.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Recommendation</a><a href="simulation.html" style="color:#e6e8eb" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Live simulation</a><a href="playground.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Playground</a><a href="actors.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Actors</a><a href="positions.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Positions</a><a href="prompts.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Prompts</a><a href="transcripts.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Transcripts</a><a href="method.html" style="color:#8b94a3;font-size:12px;text-decoration:none;margin-right:18px;">Method</a></nav><div class="meta">snapshot 2026-05-19</div></div></header>
+<input type="checkbox" id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle menu">
+<header class="site-header" style="position: static;">
+  <div class="inner">
+    <a href="index.html" class="brand">Roche pricing negotiation <span class="accent">simulation</span></a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="index.html">Overview</a>
+        <a href="recommendation.html">Recommendation</a>
+        <a href="simulation.html" class="active">Live simulation</a>
+        <a href="playground.html">Playground</a>
+        <a href="actors.html">Actors</a>
+        <a href="positions.html">Positions</a>
+        <a href="prompts.html">Prompts</a>
+        <a href="transcripts.html">Transcripts</a>
+        <a href="method.html">Method</a>
+    </nav>
+    <div class="meta">snapshot 2026-05-19</div>
+    <label for="mobile-menu-toggle" class="hamburger" aria-label="Open menu" role="button" tabindex="0">
+      <span class="bars" aria-hidden="true"></span>
+    </label>
+  </div>
+</header>
+<nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="index.html">Overview</a>
+      <a href="recommendation.html">Recommendation</a>
+      <a href="simulation.html" class="active">Live simulation</a>
+      <a href="playground.html">Playground</a>
+      <a href="actors.html">Actors</a>
+      <a href="positions.html">Positions</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="transcripts.html">Transcripts</a>
+      <a href="method.html">Method</a>
+      <div class="meta-line">snapshot 2026-05-19</div>
+</nav>
+
 
 <main>
 <div class="sim-shell">
@@ -1140,19 +1252,20 @@ const BATNA = MODEL.BATNA;
 const RED_LINES = MODEL.RED_LINES;
 const RED_LINE_PENALTY = -1000;
 
+// Dusty actor palette — L~45 S~30, restrained editorial range
 const ACTOR_COLORS = {
-  "roche": "#ff6b6b",
-  "us-executive": "#7aa2f7",
-  "us-congress": "#5d8ddb",
-  "swiss-federal-council": "#e0af68",
-  "swiss-cantons-basel": "#9ece6a",
-  "swiss-public-and-domestic-payers": "#73daca",
-  "novartis": "#ffb86c",
-  "pbms-and-payers": "#a0a0a0",
-  "patient-advocacy": "#f7afdc",
-  "eu-reference-pricing": "#bb9af7",
-  "biosimilars-competitors": "#71c073",
-  "investors": "#c0c8d0"
+  "roche":                            "#c1614b",
+  "us-executive":                     "#3b5998",
+  "us-congress":                      "#5680b8",
+  "swiss-federal-council":            "#a4393c",
+  "swiss-cantons-basel":              "#4d7c5d",
+  "swiss-public-and-domestic-payers": "#1d7874",
+  "novartis":                         "#b9742a",
+  "pbms-and-payers":                  "#6b6b6b",
+  "patient-advocacy":                 "#a4538a",
+  "eu-reference-pricing":             "#6b53a4",
+  "biosimilars-competitors":          "#527b4f",
+  "investors":                        "#4a4a55"
 };
 
 function clipNormalize(issue, value) {
@@ -1565,5 +1678,13 @@ document.addEventListener("keydown", e => {
 loadSimulation();
 </script>
 
+<script>
+document.querySelectorAll(".mobile-nav a").forEach(a => {
+  a.addEventListener("click", () => {
+    const t = document.getElementById("mobile-menu-toggle");
+    if (t) t.checked = false;
+  });
+});
+</script>
 </body>
 </html>

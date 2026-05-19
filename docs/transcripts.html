@@ -5,16 +5,20 @@
 <title>Transcripts — Roche pharma-pricing negotiation</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
 <script src="assets/passcode.js"></script>
 
 </head>
 <body>
 
+<input type="checkbox" id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle menu">
+
 <header class="site-header">
   <div class="inner">
-    <a href="index.html" class="brand" style="text-decoration:none;">Roche pricing negotiation <span class="accent">simulation</span></a>
-    <nav>
+    <a href="index.html" class="brand">Roche pricing negotiation <span class="accent">simulation</span></a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="index.html">Overview</a>
         <a href="recommendation.html">Recommendation</a>
         <a href="simulation.html">Live simulation</a>
@@ -26,10 +30,27 @@
         <a href="method.html">Method</a>
     </nav>
     <div class="meta">snapshot 2026-05-19</div>
+    <label for="mobile-menu-toggle" class="hamburger" aria-label="Open menu" role="button" tabindex="0">
+      <span class="bars" aria-hidden="true"></span>
+    </label>
   </div>
 </header>
 
+<nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="index.html">Overview</a>
+      <a href="recommendation.html">Recommendation</a>
+      <a href="simulation.html">Live simulation</a>
+      <a href="playground.html">Playground</a>
+      <a href="actors.html">Actors</a>
+      <a href="positions.html">Positions</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="transcripts.html" class="active">Transcripts</a>
+      <a href="method.html">Method</a>
+      <div class="meta-line">snapshot 2026-05-19</div>
+</nav>
+
 <main class="wide">
+<a href="index.html" class="back-link">Overview</a>
 
 <h1>Simulation transcripts</h1>
 <p class="subtitle">Multi-agent negotiation runs · heuristic or live (Claude API) modes · JSON + Markdown</p>
@@ -75,6 +96,10 @@ python -m agents.runner --mode live --protocol trilateral_us_ch_roche</code></pr
 <p>Available scenarios: <code>status_quo</code>, <code>mfn_hardline</code>, <code>swiss_carveout</code>, <code>ira_escalation</code>, <code>basel_relocation_stress</code>, <code>trade_war_collapse</code>.</p>
 <p>Available protocols: <code>bilateral_us_roche</code>, <code>trilateral_us_ch_roche</code>, <code>swiss_internal</code>, <code>full_multilateral</code>, <code>coalition_formation</code>.</p>
 
+<div class="page-pagination">
+<a class="prev" href="prompts.html"><div class="label">Previous</div><div class="title">Prompts</div></a>
+<a class="next" href="method.html"><div class="label">Next</div><div class="title">Method</div></a>
+</div>
 </main>
 
 <footer class="site-footer">
@@ -83,6 +108,15 @@ python -m agents.runner --mode live --protocol trilateral_us_ch_roche</code></pr
     <span>Not an official Roche document · <a href="method.html">method &amp; limits</a></span>
   </div>
 </footer>
+
+<script>
+// Close mobile menu when a link is tapped.
+document.querySelectorAll(".mobile-nav a").forEach(a => {
+  a.addEventListener("click", () => {
+    document.getElementById("mobile-menu-toggle").checked = false;
+  });
+});
+</script>
 
 </body>
 </html>
