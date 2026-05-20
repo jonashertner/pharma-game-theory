@@ -70,9 +70,15 @@ NAV_GROUPS = [
         ("bottom-line.html", "Bottom line", True),
         ("black-swans.html", "Black swans", True),
         ("financial-translation.html", "Financial translation", True),
+        ("folio.html", "Board folio (PDF)", True),
         ("decision-quality.html", "Decision quality", False),
         ("peer-comparison.html", "Peer comparison", False),
         ("board-qa.html", "Board Q&A", False),
+        ("hatch-waxman.html", "Hatch-Waxman analog", False),
+        ("real-options.html", "Real options", False),
+        ("sensitivity.html", "Sensitivity tornado", False),
+        ("ceo-talking-points.html", "CEO talking points", False),
+        ("calibration.html", "Model calibration", False),
         ("index.html", "Overview", False),
         ("recommendation.html", "Recommendation", False),
         ("item-1.html", "Item 1 unpacked", False),
@@ -86,6 +92,7 @@ NAV_GROUPS = [
         ("global-pricing.html", "Global pricing", False),
     ]),
     ("Explore", [
+        ("simulator.html", "Scenario simulator", True),
         ("simulation.html", "Live simulation", True),
         ("playground.html", "Playground", True),
     ]),
@@ -717,6 +724,41 @@ def build_briefing() -> str:
                   body=body, main_class="wide", include_pagination=False)
 
 
+def build_hatch_waxman() -> str:
+    p = ROOT / "memo" / "hatch-waxman.md"
+    rendered = markdown.markdown(p.read_text(), extensions=["extra", "sane_lists", "tables", "toc", "md_in_html"], output_format="html5")
+    body = f'<div class="prose-article hatch-waxman-article">{rendered}</div>'
+    return layout(title="Hatch-Waxman analog", page_id="hatch-waxman.html", body=body, main_class="wide", include_pagination=False)
+
+
+def build_real_options() -> str:
+    p = ROOT / "memo" / "real-options.md"
+    rendered = markdown.markdown(p.read_text(), extensions=["extra", "sane_lists", "tables", "toc", "md_in_html"], output_format="html5")
+    body = f'<div class="prose-article real-options-article">{rendered}</div>'
+    return layout(title="Real options", page_id="real-options.html", body=body, main_class="wide", include_pagination=False)
+
+
+def build_sensitivity() -> str:
+    p = ROOT / "memo" / "sensitivity.md"
+    rendered = markdown.markdown(p.read_text(), extensions=["extra", "sane_lists", "tables", "toc", "md_in_html"], output_format="html5")
+    body = f'<div class="prose-article sensitivity-article">{rendered}</div>'
+    return layout(title="Sensitivity tornado", page_id="sensitivity.html", body=body, main_class="wide", include_pagination=False)
+
+
+def build_ceo_talking_points() -> str:
+    p = ROOT / "memo" / "ceo-talking-points.md"
+    rendered = markdown.markdown(p.read_text(), extensions=["extra", "sane_lists", "tables", "toc", "md_in_html"], output_format="html5")
+    body = f'<div class="prose-article ceo-talking-points-article">{rendered}</div>'
+    return layout(title="CEO talking points", page_id="ceo-talking-points.html", body=body, main_class="wide", include_pagination=False)
+
+
+def build_calibration() -> str:
+    p = ROOT / "memo" / "calibration.md"
+    rendered = markdown.markdown(p.read_text(), extensions=["extra", "sane_lists", "tables", "toc", "md_in_html"], output_format="html5")
+    body = f'<div class="prose-article calibration-article">{rendered}</div>'
+    return layout(title="Model calibration", page_id="calibration.html", body=body, main_class="wide", include_pagination=False)
+
+
 def build_decision_quality() -> str:
     """Decision quality — Bayesian decision framework for board agenda."""
     p = ROOT / "memo" / "decision-quality.md"
@@ -1001,6 +1043,292 @@ def _mobile_nav_close_script() -> str:
         '});\n'
         '</script>\n'
     )
+
+
+def build_folio() -> str:
+    """PDF folio — one-pager + briefing + financial-translation bundled for print."""
+    one_pager = markdown.markdown(
+        (ROOT / "memo" / "one-pager.md").read_text(),
+        extensions=["extra", "sane_lists", "tables", "md_in_html"],
+        output_format="html5",
+    )
+    briefing = markdown.markdown(
+        (ROOT / "memo" / "executive-briefing.md").read_text(),
+        extensions=["extra", "sane_lists", "tables", "toc", "md_in_html"],
+        output_format="html5",
+    )
+    fin_translation = markdown.markdown(
+        (ROOT / "memo" / "financial-translation.md").read_text(),
+        extensions=["extra", "sane_lists", "tables", "toc", "md_in_html"],
+        output_format="html5",
+    )
+
+    body = f"""
+<div class="folio-toolbar">
+  <h1>Board folio</h1>
+  <div class="folio-description">
+    A single bundled document combining the apex one-pager, the executive briefing,
+    and the financial-translation drug-by-drug analysis &mdash; designed for printing
+    to PDF and inclusion in the board folio.
+  </div>
+  <div class="folio-actions">
+    <button type="button" class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+    <a href="one-pager.html" class="link-btn">One-pager only</a>
+    <a href="briefing.html" class="link-btn">Briefing only</a>
+    <a href="financial-translation.html" class="link-btn">Financial translation only</a>
+  </div>
+  <div class="folio-print-tip">
+    <strong>Print tip:</strong> use &ldquo;Save as PDF&rdquo; in the browser print dialog.
+    Recommended settings: A4 or US Letter, margins normal, headers/footers off,
+    background graphics on. Estimated 14&ndash;18 pages.
+  </div>
+</div>
+
+<div class="folio-doc">
+  <div class="folio-section folio-one-pager">
+    <div class="folio-section-marker">Folio 1 of 3 &mdash; Apex strategic posture</div>
+    <div class="prose-article onepager-article">{one_pager}</div>
+  </div>
+
+  <div class="folio-section folio-briefing">
+    <div class="folio-section-marker">Folio 2 of 3 &mdash; Executive briefing</div>
+    <div class="prose-article briefing-article">{briefing}</div>
+  </div>
+
+  <div class="folio-section folio-fintranslation">
+    <div class="folio-section-marker">Folio 3 of 3 &mdash; Financial translation</div>
+    <div class="prose-article financial-translation-article">{fin_translation}</div>
+  </div>
+</div>
+"""
+    return layout(title="Board folio", page_id="folio.html",
+                  body=body, main_class="wide", include_pagination=False)
+
+
+def build_simulator() -> str:
+    """Live scenario simulator — sliders driving real-time EV calc per branch."""
+    body = """
+<div class="simulator-intro">
+<h1>Scenario simulator</h1>
+<p class="lead">
+Adjust the probability and severity inputs to see how the four decision-tree branches
+re-rank under your beliefs. The math is the
+<a href="decision-quality.html">decision-quality framework</a>; all probabilities are user-controllable.
+The simulator shows which branch has the highest expected utility for any
+input combination, and surfaces the threshold at which the recommendation flips.
+</p>
+</div>
+
+<div class="simulator-panel">
+
+<div class="simulator-controls">
+
+<div class="control-block">
+<label for="p_ustr">P(USTR back-channel positive signal)</label>
+<input type="range" id="p_ustr" min="0" max="100" value="45" step="1">
+<div class="control-readout"><span id="p_ustr_val">45</span>%</div>
+<div class="control-help">Working group central estimate: 45%. Low band 30%; high band 60%.</div>
+</div>
+
+<div class="control-block">
+<label for="p_seco">P(SECO MRA-transfer memo clears)</label>
+<input type="range" id="p_seco" min="0" max="100" value="70" step="1">
+<div class="control-readout"><span id="p_seco_val">70</span>%</div>
+<div class="control-help">Working group central estimate: 70%. Low band 55%; high band 85%.</div>
+</div>
+
+<div class="control-block">
+<label for="p_backlash">P(no 2026 election-year backlash)</label>
+<input type="range" id="p_backlash" min="0" max="100" value="60" step="1">
+<div class="control-readout"><span id="p_backlash_val">60</span>%</div>
+<div class="control-help">Working group central estimate: 60%. Low band 45%; high band 75%.</div>
+</div>
+
+<div class="control-block">
+<label for="contagion">Contagion severity (CHF B captured if executes)</label>
+<input type="range" id="contagion" min="10" max="55" value="32" step="1">
+<div class="control-readout">CHF <span id="contagion_val">32</span>B</div>
+<div class="control-help">Mild 18; severe 32 (central); forced-disclosure tail 55.</div>
+</div>
+
+<div class="control-block">
+<label for="correlation">Cross-pre-condition correlation</label>
+<input type="range" id="correlation" min="0" max="70" value="35" step="1">
+<div class="control-readout">0.<span id="correlation_val">35</span></div>
+<div class="control-help">0 = independent; 0.7 = strongly positive. Working group estimate: 0.35.</div>
+</div>
+
+</div>
+
+<div class="simulator-output">
+
+<div class="output-recommendation" id="recommendation">
+<div class="rec-label">Recommended branch</div>
+<div class="rec-value" id="rec_value">Branch B</div>
+<div class="rec-margin" id="rec_margin">EV gap CHF 0.0B</div>
+</div>
+
+<div class="output-bars" id="output_bars">
+<div class="ev-row">
+  <div class="ev-label">Branch A — Endorse all</div>
+  <div class="ev-bar-container">
+    <div class="ev-bar" id="bar_a" style="width: 50%;"></div>
+    <div class="ev-value" id="val_a">+CHF 8.7B</div>
+  </div>
+</div>
+<div class="ev-row">
+  <div class="ev-label">Branch B — Conditional</div>
+  <div class="ev-bar-container">
+    <div class="ev-bar" id="bar_b" style="width: 56%;"></div>
+    <div class="ev-value" id="val_b">+CHF 10.0B</div>
+  </div>
+</div>
+<div class="ev-row">
+  <div class="ev-label">Branch C — Defer</div>
+  <div class="ev-bar-container">
+    <div class="ev-bar ev-neg" id="bar_c" style="width: 3%;"></div>
+    <div class="ev-value" id="val_c">−CHF 0.6B</div>
+  </div>
+</div>
+<div class="ev-row">
+  <div class="ev-label">Branch D — Reject</div>
+  <div class="ev-bar-container">
+    <div class="ev-bar ev-neg" id="bar_d" style="width: 90%;"></div>
+    <div class="ev-value" id="val_d">−CHF 16.5B</div>
+  </div>
+</div>
+</div>
+
+<div class="output-prompt" id="prompt_text">
+Under central-case probability assumptions, Branch B has the highest expected utility
+at CHF 10.0B, narrowly above Branch A at CHF 8.7B. Branch C and Branch D are
+both EV-negative. Recommend: Branch B (conditional endorsement) as the safer choice,
+or Branch A if the board prefers higher upside under variance tolerance.
+</div>
+
+</div>
+
+</div>
+
+<div class="simulator-preset">
+<div class="preset-label">Quick scenarios:</div>
+<button class="preset-btn" type="button" onclick="loadPreset('central')">Central case</button>
+<button class="preset-btn" type="button" onclick="loadPreset('low')">All low-band</button>
+<button class="preset-btn" type="button" onclick="loadPreset('high')">All high-band</button>
+<button class="preset-btn" type="button" onclick="loadPreset('forced')">Forced disclosure tail</button>
+<button class="preset-btn" type="button" onclick="loadPreset('flip')">Recommendation flip</button>
+</div>
+
+<script>
+const PEER_PROB = 0.67;
+const STRIKE_A = 1.5;
+const STRIKE_C = 5.0;
+
+function fmt(n) {
+  const s = n >= 0 ? '+' : '−';
+  return s + 'CHF ' + Math.abs(n).toFixed(1) + 'B';
+}
+
+function jointP(p1, p2, p3, p4, rho) {
+  const indep = p1 * p2 * p3 * p4;
+  const max_corr = Math.min(p1, p2, p3, p4);
+  return indep + rho * (max_corr - indep);
+}
+
+function compute() {
+  const p_ustr = parseFloat(document.getElementById('p_ustr').value) / 100;
+  const p_seco = parseFloat(document.getElementById('p_seco').value) / 100;
+  const p_back = parseFloat(document.getElementById('p_backlash').value) / 100;
+  const contagion = parseFloat(document.getElementById('contagion').value);
+  const rho = parseFloat(document.getElementById('correlation').value) / 100;
+
+  document.getElementById('p_ustr_val').textContent = Math.round(p_ustr*100);
+  document.getElementById('p_seco_val').textContent = Math.round(p_seco*100);
+  document.getElementById('p_backlash_val').textContent = Math.round(p_back*100);
+  document.getElementById('contagion_val').textContent = contagion.toFixed(0);
+  document.getElementById('correlation_val').textContent = Math.round(rho*100).toString().padStart(2,'0');
+
+  const p_a = Math.min(0.85, jointP(p_ustr, p_seco, p_back, PEER_PROB, rho));
+  const p_b = Math.min(0.85, p_a * 1.6);
+  const p_c = p_a * 0.75;
+  const p_d_contagion = 0.75;
+
+  const ev_a = p_a * contagion - (1 - p_a) * STRIKE_A;
+  const ev_b = p_b * (contagion * 0.62) - (1 - p_b) * 0;
+  const ev_c = p_c * (contagion * 0.40) - (1 - p_c) * STRIKE_C;
+  const ev_d = -p_d_contagion * (contagion * 0.68);
+
+  document.getElementById('val_a').textContent = fmt(ev_a);
+  document.getElementById('val_b').textContent = fmt(ev_b);
+  document.getElementById('val_c').textContent = fmt(ev_c);
+  document.getElementById('val_d').textContent = fmt(ev_d);
+
+  const evs = [ev_a, ev_b, ev_c, ev_d];
+  const maxabs = Math.max(20, ...evs.map(Math.abs));
+
+  function setBar(id, ev) {
+    const el = document.getElementById(id);
+    const pct = Math.abs(ev) / maxabs * 92;
+    el.style.width = pct + '%';
+    if (ev < 0) el.classList.add('ev-neg'); else el.classList.remove('ev-neg');
+  }
+  setBar('bar_a', ev_a); setBar('bar_b', ev_b); setBar('bar_c', ev_c); setBar('bar_d', ev_d);
+
+  const labels = ['A — Endorse all', 'B — Conditional', 'C — Defer', 'D — Reject'];
+  let bestIdx = 0;
+  for (let i = 1; i < 4; i++) if (evs[i] > evs[bestIdx]) bestIdx = i;
+  document.getElementById('rec_value').textContent = 'Branch ' + labels[bestIdx];
+
+  const sorted = evs.slice().sort((a,b) => b - a);
+  const gap = sorted[0] - sorted[1];
+  document.getElementById('rec_margin').textContent = 'EV gap CHF ' + gap.toFixed(1) + 'B over second-best';
+
+  let prompt = '';
+  if (bestIdx === 0) {
+    prompt = 'Under these assumptions, Branch A (full endorsement) has the highest expected utility at ' +
+            fmt(ev_a) + '. This requires high confidence in pre-condition resolution; ' +
+            'verify the assumption set against current intelligence before committing.';
+  } else if (bestIdx === 1) {
+    prompt = 'Branch B (conditional endorsement) has the highest expected utility at ' +
+            fmt(ev_b) + '. The adaptive scope preserves option value while reducing failure cost. ' +
+            'This is the conservative ground truth; Branch A is preferred only under variance-tolerant risk preference.';
+  } else if (bestIdx === 2) {
+    prompt = 'Branch C (defer) is the EV-optimal choice — a result that occurs only when pre-condition probabilities ' +
+            'are very low. Verify the assumption inputs; if confirmed, the strategic posture should re-evaluate ' +
+            'whether the firewall annex remains the right protection mechanism at all.';
+  } else {
+    prompt = 'Branch D (reject) is the EV-optimal choice — this is an unusual result that indicates either ' +
+            'extremely high faith that contagion will not materialise of its own accord, or extremely low ' +
+            'faith in execution probability. Reconsider the assumption inputs.';
+  }
+  document.getElementById('prompt_text').textContent = prompt;
+}
+
+function loadPreset(name) {
+  const presets = {
+    central: { ustr: 45, seco: 70, back: 60, contagion: 32, rho: 35 },
+    low:     { ustr: 30, seco: 55, back: 45, contagion: 18, rho: 15 },
+    high:    { ustr: 60, seco: 85, back: 75, contagion: 47, rho: 55 },
+    forced:  { ustr: 35, seco: 65, back: 40, contagion: 55, rho: 40 },
+    flip:    { ustr: 20, seco: 70, back: 60, contagion: 32, rho: 35 },
+  };
+  const p = presets[name];
+  document.getElementById('p_ustr').value = p.ustr;
+  document.getElementById('p_seco').value = p.seco;
+  document.getElementById('p_backlash').value = p.back;
+  document.getElementById('contagion').value = p.contagion;
+  document.getElementById('correlation').value = p.rho;
+  compute();
+}
+
+['p_ustr','p_seco','p_backlash','contagion','correlation'].forEach(id => {
+  document.getElementById(id).addEventListener('input', compute);
+});
+compute();
+</script>
+"""
+    return layout(title="Scenario simulator", page_id="simulator.html",
+                  body=body, main_class="wide", include_pagination=False)
 
 
 def build_simulation() -> str:
@@ -1490,6 +1818,13 @@ def main() -> int:
         "decision-quality.html": build_decision_quality(),
         "peer-comparison.html": build_peer_comparison(),
         "board-qa.html": build_board_qa(),
+        "hatch-waxman.html": build_hatch_waxman(),
+        "real-options.html": build_real_options(),
+        "sensitivity.html": build_sensitivity(),
+        "ceo-talking-points.html": build_ceo_talking_points(),
+        "calibration.html": build_calibration(),
+        "folio.html": build_folio(),
+        "simulator.html": build_simulator(),
         "index.html": build_index(),
         "recommendation.html": build_recommendation(),
         "recommendation-detail.html": build_recommendation_detail(),

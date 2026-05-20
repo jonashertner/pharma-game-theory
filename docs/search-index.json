@@ -497,6 +497,452 @@
 ]
 },
 {
+"page": "hatch-waxman.html",
+"title": "Hatch-Waxman analog",
+"sections": [
+{
+"id": "why-this-analog-matters",
+"label": "Why this analog matters",
+"level": 2
+},
+{
+"id": "the-1984-situation",
+"label": "The 1984 situation",
+"level": 2
+},
+{
+"id": "what-made-the-architecture-durable",
+"label": "What made the architecture durable",
+"level": 2
+},
+{
+"id": "what-did-not-survive-and-why",
+"label": "What did not survive, and why",
+"level": 2
+},
+{
+"id": "the-roche-specific-lessons",
+"label": "The Roche-specific lessons",
+"level": 2
+},
+{
+"id": "where-the-analog-breaks-down",
+"label": "Where the analog breaks down",
+"level": 2
+},
+{
+"id": "the-honest-probability-assessment",
+"label": "The honest probability assessment",
+"level": 2
+},
+{
+"id": "what-this-implies-for-the-2026-board-agenda",
+"label": "What this implies for the 2026 board agenda",
+"level": 2
+}
+]
+},
+{
+"page": "real-options.html",
+"title": "Real options",
+"sections": [
+{
+"id": "why-this-framing-exists",
+"label": "Why this framing exists",
+"level": 2
+},
+{
+"id": "the-option-specification",
+"label": "The option specification",
+"level": 2
+},
+{
+"id": "intrinsic-value-time-value-and-total-option-value",
+"label": "Intrinsic value, time value, and total option value",
+"level": 2
+},
+{
+"id": "vega-the-options-sensitivity-to-contagion-volatility",
+"label": "Vega &mdash; the option&apos;s sensitivity to contagion volatility",
+"level": 2
+},
+{
+"id": "time-value-and-the-cost-of-waiting",
+"label": "Time value and the cost of waiting",
+"level": 2
+},
+{
+"id": "the-hedge-ratio-how-much-annex-protection-to-seek",
+"label": "The hedge ratio &mdash; how much annex protection to seek",
+"level": 2
+},
+{
+"id": "three-things-the-lottery-framing-misses",
+"label": "Three things the lottery framing misses",
+"level": 2
+},
+{
+"id": "what-this-changes-for-the-board",
+"label": "What this changes for the board",
+"level": 2
+}
+]
+},
+{
+"page": "sensitivity.html",
+"title": "Sensitivity tornado",
+"sections": [
+{
+"id": "why-this-exists",
+"label": "Why this exists",
+"level": 2
+},
+{
+"id": "the-full-assumption-set",
+"label": "The full assumption set",
+"level": 2
+},
+{
+"id": "the-tornado",
+"label": "The tornado",
+"level": 2
+},
+{
+"id": "what-the-tornado-tells-us",
+"label": "What the tornado tells us",
+"level": 2
+},
+{
+"id": "two-factor-sensitivity-where-does-the-recommendation-flip",
+"label": "Two-factor sensitivity &mdash; where does the recommendation flip?",
+"level": 2
+},
+{
+"id": "what-this-changes-for-the-working-group",
+"label": "What this changes for the working group",
+"level": 2
+},
+{
+"id": "what-this-changes-for-the-board",
+"label": "What this changes for the board",
+"level": 2
+}
+]
+},
+{
+"page": "ceo-talking-points.html",
+"title": "CEO talking points",
+"sections": [
+{
+"id": "what-this-is",
+"label": "What this is",
+"level": 2
+},
+{
+"id": "audience-1-investors-q3-2026-earnings-call-october-2026",
+"label": "Audience 1 &mdash; Investors (Q3 2026 earnings call, October 2026)",
+"level": 2
+},
+{
+"id": "opening-line",
+"label": "Opening line",
+"level": 3
+},
+{
+"id": "the-three-substantive-points",
+"label": "The three substantive points",
+"level": 3
+},
+{
+"id": "what-to-avoid",
+"label": "What to avoid",
+"level": 3
+},
+{
+"id": "one-quotable-line",
+"label": "One quotable line",
+"level": 3
+},
+{
+"id": "audience-2-employees-all-hands-town-hall-q3-2026",
+"label": "Audience 2 &mdash; Employees (all-hands town hall, Q3 2026)",
+"level": 2
+},
+{
+"id": "opening-line_1",
+"label": "Opening line",
+"level": 3
+},
+{
+"id": "the-three-substantive-points_1",
+"label": "The three substantive points",
+"level": 3
+},
+{
+"id": "what-to-avoid_1",
+"label": "What to avoid",
+"level": 3
+},
+{
+"id": "one-quotable-line_1",
+"label": "One quotable line",
+"level": 3
+},
+{
+"id": "audience-3-regulators-ustr-seco-fda-ema-bilateral-engagements",
+"label": "Audience 3 &mdash; Regulators (USTR, SECO, FDA, EMA bilateral engagements)",
+"level": 2
+},
+{
+"id": "opening-line_2",
+"label": "Opening line",
+"level": 3
+},
+{
+"id": "the-three-substantive-points_2",
+"label": "The three substantive points",
+"level": 3
+},
+{
+"id": "what-to-avoid_2",
+"label": "What to avoid",
+"level": 3
+},
+{
+"id": "one-quotable-line_2",
+"label": "One quotable line",
+"level": 3
+},
+{
+"id": "audience-4-the-generational-shareholder-pool-governance-consultation-ongoing",
+"label": "Audience 4 &mdash; The generational-shareholder pool (governance consultation, ongoing)",
+"level": 2
+},
+{
+"id": "opening-line_3",
+"label": "Opening line",
+"level": 3
+},
+{
+"id": "the-three-substantive-points_3",
+"label": "The three substantive points",
+"level": 3
+},
+{
+"id": "what-to-avoid_3",
+"label": "What to avoid",
+"level": 3
+},
+{
+"id": "one-quotable-line_3",
+"label": "One quotable line",
+"level": 3
+},
+{
+"id": "cross-audience-consistency-checks",
+"label": "Cross-audience consistency checks",
+"level": 2
+},
+{
+"id": "what-this-implies-for-q3-2026-communications-planning",
+"label": "What this implies for Q3 2026 communications planning",
+"level": 2
+}
+]
+},
+{
+"page": "calibration.html",
+"title": "Model calibration",
+"sections": [
+{
+"id": "why-this-exists",
+"label": "Why this exists",
+"level": 2
+},
+{
+"id": "what-was-built-in",
+"label": "What was built in",
+"level": 2
+},
+{
+"id": "what-fell-out",
+"label": "What fell out",
+"level": 2
+},
+{
+"id": "output-1-the-precise-partition-above-vs-at-batna",
+"label": "Output 1 &mdash; the precise partition above vs at BATNA",
+"level": 3
+},
+{
+"id": "output-2-comparative-static-behaviour",
+"label": "Output 2 &mdash; comparative-static behaviour",
+"level": 3
+},
+{
+"id": "output-3-equilibrium-concept-behaviour",
+"label": "Output 3 &mdash; equilibrium-concept behaviour",
+"level": 3
+},
+{
+"id": "forward-tests-what-the-model-is-genuinely-predicting",
+"label": "Forward tests &mdash; what the model is genuinely predicting",
+"level": 2
+},
+{
+"id": "what-this-calibration-does-not-establish",
+"label": "What this calibration does not establish",
+"level": 2
+},
+{
+"id": "implications-for-the-working-group",
+"label": "Implications for the working group",
+"level": 2
+}
+]
+},
+{
+"page": "folio.html",
+"title": "Board folio",
+"sections": [
+{
+"id": "the-board-is-asked-to",
+"label": "The board is asked to",
+"level": 2
+},
+{
+"id": "the-thesis-in-one-paragraph",
+"label": "The thesis in one paragraph",
+"level": 2
+},
+{
+"id": "calibration",
+"label": "Calibration",
+"level": 2
+},
+{
+"id": "where-this-could-be-wrong-three-named-contingencies",
+"label": "Where this could be wrong &mdash; three named contingencies",
+"level": 2
+},
+{
+"id": "next-60-days-pre-conditions-to-test-before-commitment",
+"label": "Next 60 days &mdash; pre-conditions to test before commitment",
+"level": 2
+},
+{
+"id": "action-calendar-20262030",
+"label": "Action calendar 2026&ndash;2030",
+"level": 2
+},
+{
+"id": "decision-tree-what-each-board-response-triggers",
+"label": "Decision tree &mdash; what each board response triggers",
+"level": 2
+},
+{
+"id": "supporting-reading",
+"label": "Supporting reading",
+"level": 2
+},
+{
+"id": "what-this-is",
+"label": "What this is",
+"level": 2
+},
+{
+"id": "the-portfolio-at-a-glance-fy2025",
+"label": "The portfolio at a glance &mdash; FY2025",
+"level": 2
+},
+{
+"id": "the-five-exposures-how-the-13-model-issues-map-to-drug-economics",
+"label": "The five exposures &mdash; how the 13 model issues map to drug economics",
+"level": 2
+},
+{
+"id": "exposure-a-ira-maximum-fair-price",
+"label": "Exposure A &mdash; IRA Maximum Fair Price",
+"level": 3
+},
+{
+"id": "exposure-b-section-232-tariff",
+"label": "Exposure B &mdash; Section 232 tariff",
+"level": 3
+},
+{
+"id": "exposure-c-mfn-coverage-and-trumprx-dtc",
+"label": "Exposure C &mdash; MFN coverage and TrumpRx DTC",
+"level": 3
+},
+{
+"id": "exposure-d-international-reference-pricing-contagion",
+"label": "Exposure D &mdash; International reference-pricing contagion",
+"level": 3
+},
+{
+"id": "exposure-e-biosimilar-loss-of-exclusivity",
+"label": "Exposure E &mdash; Biosimilar / loss-of-exclusivity",
+"level": 3
+},
+{
+"id": "per-drug-deep-dives-the-five-highest-leverage-products",
+"label": "Per-drug deep dives &mdash; the five highest-leverage products",
+"level": 2
+},
+{
+"id": "ocrevus-chf-70b-70-us-the-cornerstone",
+"label": "Ocrevus &mdash; CHF 7.0B, 70% US, the cornerstone",
+"level": 3
+},
+{
+"id": "hemlibra-chf-475b-56-us-the-specialty-bellwether",
+"label": "Hemlibra &mdash; CHF 4.75B, 56% US, the specialty bellwether",
+"level": 3
+},
+{
+"id": "vabysmo-chf-41b-70-us-the-ira-part-b-target",
+"label": "Vabysmo &mdash; CHF 4.1B, 70% US, the IRA Part B target",
+"level": 3
+},
+{
+"id": "xolair-chf-308b-us-the-locked-in-ira-hit",
+"label": "Xolair &mdash; CHF 3.08B US, the locked-in IRA hit",
+"level": 3
+},
+{
+"id": "the-perjeta-phesgo-franchise-chf-54b-combined-stable",
+"label": "The Perjeta + Phesgo franchise &mdash; CHF 5.4B combined, stable",
+"level": 3
+},
+{
+"id": "the-scenario-engine-portfolio-rollup",
+"label": "The scenario engine &mdash; portfolio rollup",
+"level": 2
+},
+{
+"id": "calibration-vs-the-bottom-line-claims",
+"label": "Calibration vs the bottom-line claims",
+"level": 2
+},
+{
+"id": "what-this-changes-for-the-2026-board-agenda",
+"label": "What this changes for the 2026 board agenda",
+"level": 2
+},
+{
+"id": "assumptions-appendix",
+"label": "Assumptions appendix",
+"level": 2
+}
+]
+},
+{
+"page": "simulator.html",
+"title": "Scenario simulator",
+"sections": []
+},
+{
 "page": "index.html",
 "title": "Overview",
 "sections": []

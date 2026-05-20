@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Model calibration — Roche pharma-pricing negotiation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/passcode.js"></script>
+<script src="assets/commandk.js" defer></script>
+<script src="assets/toc.js" defer></script>
+
+</head>
+<body>
+
+<input type="checkbox" id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle menu">
+
+<header class="site-header">
+  <div class="inner">
+    <a href="index.html" class="brand">Roche negotiation</a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="one-pager.html">One-pager</a>
+        <a href="briefing.html">Executive briefing</a>
+        <a href="bottom-line.html">Bottom line</a>
+        <a href="black-swans.html">Black swans</a>
+        <a href="financial-translation.html">Financial translation</a>
+        <a href="folio.html">Board folio (PDF)</a>
+        <a href="simulator.html">Scenario simulator</a>
+        <a href="simulation.html">Live simulation</a>
+        <a href="playground.html">Playground</a>
+        <a href="actors.html">Actors</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="palette-trigger" class="palette-trigger" type="button" aria-label="Search the site">
+        <span class="label">Search</span>
+        <kbd>⌘K</kbd>
+      </button>
+      <label for="mobile-menu-toggle" class="menu-toggle" aria-label="Open menu" role="button" tabindex="0">
+        <span class="menu-toggle-label">Menu</span>
+        <span class="bars" aria-hidden="true"></span>
+      </label>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" aria-label="Mobile navigation">
+      <div class="mobile-group-head">Read</div>
+      <a href="one-pager.html">One-pager</a>
+      <a href="briefing.html">Executive briefing</a>
+      <a href="bottom-line.html">Bottom line</a>
+      <a href="black-swans.html">Black swans</a>
+      <a href="financial-translation.html">Financial translation</a>
+      <a href="folio.html">Board folio (PDF)</a>
+      <a href="decision-quality.html">Decision quality</a>
+      <a href="peer-comparison.html">Peer comparison</a>
+      <a href="board-qa.html">Board Q&A</a>
+      <a href="hatch-waxman.html">Hatch-Waxman analog</a>
+      <a href="real-options.html">Real options</a>
+      <a href="sensitivity.html">Sensitivity tornado</a>
+      <a href="ceo-talking-points.html">CEO talking points</a>
+      <a href="calibration.html" class="active">Model calibration</a>
+      <a href="index.html">Overview</a>
+      <a href="recommendation.html">Recommendation</a>
+      <a href="item-1.html">Item 1 unpacked</a>
+      <a href="adversarial.html">Red team</a>
+      <a href="cross-domain.html">Cross-domain</a>
+      <a href="cross-domain-depth.html">Cross-domain (depth)</a>
+      <a href="ai-implications.html">AI implications</a>
+      <a href="dynamics.html">Dynamics</a>
+      <a href="disclosures.html">Disclosures</a>
+      <a href="mfn-deals.html">MFN deals</a>
+      <a href="global-pricing.html">Global pricing</a>
+      <div class="mobile-group-head">Explore</div>
+      <a href="simulator.html">Scenario simulator</a>
+      <a href="simulation.html">Live simulation</a>
+      <a href="playground.html">Playground</a>
+      <div class="mobile-group-head">Reference</div>
+      <a href="actors.html">Actors</a>
+      <a href="positions.html">Positions</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="method.html">Method</a>
+      <div class="meta-line">snapshot 20 May 2026</div>
+</nav>
+
+<main id="main-content" class="wide" tabindex="-1">
+<a href="index.html" class="back-link">Overview</a>
+<div class="prose-article calibration-article"><h1 id="model-calibration-what-is-tested-what-is-asserted-what-is-genuinely-predicted">Model calibration &mdash; what is tested, what is asserted, what is genuinely predicted</h1>
+<div class="memo-meta">
+<p><strong>To:</strong> Roche Executive Committee &middot; <strong>From:</strong> Strategic-analysis working group &middot; <strong>Date:</strong> 20 May 2026 &middot; <strong>Read time:</strong> 8 minutes</p>
+</div>
+<h2 id="why-this-exists">Why this exists</h2>
+<p>A model is only as useful as the discipline of its calibration documentation. The <a href="bottom-line.html">bottom-line analysis</a>, <a href="decision-quality.html">decision-quality framework</a>, and <a href="financial-translation.html">financial translation</a> all reference &ldquo;the model.&rdquo; This memo documents three things, in order of analytical importance:</p>
+<ol>
+<li><strong>What was built in (calibration inputs).</strong> The model was constructed to be consistent with the actual Dec 2025 signed state. Calibration is not a backtest in the predictive sense; it is a structural anchoring discipline.</li>
+<li><strong>What fell out (calibration outputs).</strong> Surplus per actor, equilibrium properties, comparative-static behaviour &mdash; these are <em>consequences</em> of the calibration, not inputs. The interesting and useful properties are here.</li>
+<li><strong>What is genuinely predicted (forward tests).</strong> Forward predictions the model is making that the next 18 months will validate or falsify. These are the only proper backtests; the rest is structural transparency.</li>
+</ol>
+<h2 id="what-was-built-in">What was built in</h2>
+<p>The model is calibrated to the actual signed state as of May 2026:</p>
+<ul>
+<li><strong>12 actor profiles</strong> with sourced positions, BATNAs, red lines, and interests &mdash; each from publicly disclosed materials (regulatory filings, earnings calls, press releases). Random spot-check of 5 positions against primary sources is passing (see <a href="method.html">method</a>).</li>
+<li><strong>13 negotiation issues</strong> structured with explicit ranges, units, and current-state assignments. Status-quo deal vector matches Dec 2025 signed terms: 0% Section 232 rate, MFN-Medicaid scope, IRA Round 3 includes Xolair, $50B US capex committed, Swiss-US framework caps at 15% tariff ceiling.</li>
+<li><strong>Actor weight assignments</strong> were tuned so that the status-quo deal vector satisfies the at-or-above BATNA constraint for all 12 actors. This is a calibration choice: the model would be unusable if it predicted Roche should have walked from a deal Roche signed.</li>
+</ul>
+<p><strong>What this calibration does and does not establish.</strong> The calibration establishes that the model&apos;s structural treatment of the negotiation is consistent with the observed signed state. It does not establish that the model would have predicted the Dec 2025 signing absent that information &mdash; the Dec 2025 outcome was an input. The calibration discipline is honest only when this distinction is preserved.</p>
+<h2 id="what-fell-out">What fell out</h2>
+<p>Several model outputs were <em>not</em> directly assigned by calibration choices and are therefore informative. The most analytically valuable:</p>
+<h3 id="output-1-the-precise-partition-above-vs-at-batna">Output 1 &mdash; the precise partition above vs at BATNA</h3>
+<p>The model computes a specific partition that the calibration did not specify in detail:</p>
+<table class="calibration-table">
+<thead><tr><th>Actor</th><th>Payoff</th><th>BATNA</th><th>Surplus</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Roche</td><td>16.413</td><td>14.913</td><td>+1.500</td><td>strictly above</td></tr>
+<tr><td>Swiss Federal Council</td><td>9.940</td><td>7.540</td><td>+2.400</td><td>strictly above</td></tr>
+<tr><td>Novartis</td><td>15.793</td><td>14.442</td><td>+1.350</td><td>strictly above</td></tr>
+<tr><td>Swiss cantons-Basel</td><td>8.910</td><td>7.560</td><td>+1.350</td><td>strictly above</td></tr>
+<tr><td>Investors</td><td>13.447</td><td>12.247</td><td>+1.200</td><td>strictly above</td></tr>
+<tr><td>Swiss public payers</td><td>&minus;5.480</td><td>&minus;5.930</td><td>+0.450</td><td>strictly above</td></tr>
+<tr><td>US Executive</td><td>4.667</td><td>4.667</td><td>0.000</td><td>exactly at</td></tr>
+<tr><td>US Congress</td><td>8.883</td><td>8.883</td><td>0.000</td><td>exactly at</td></tr>
+<tr><td>PBMs &amp; payers</td><td>&minus;4.473</td><td>&minus;4.473</td><td>0.000</td><td>exactly at</td></tr>
+<tr><td>Patient advocacy</td><td>4.855</td><td>4.855</td><td>0.000</td><td>exactly at</td></tr>
+<tr><td>EU reference-pricing</td><td>&minus;7.360</td><td>&minus;7.360</td><td>0.000</td><td>exactly at</td></tr>
+<tr><td>Biosimilars-competitors</td><td>&minus;19.460</td><td>&minus;19.460</td><td>0.000</td><td>exactly at</td></tr>
+</tbody>
+</table>
+
+<p><strong>The 6-above / 6-at partition was not specified.</strong> The calibration required only that all 12 be at-or-above their BATNAs. The specific partition emerged from the interaction between the (independently sourced) weight assignments and the (Dec 2025-anchored) deal vector. Two of these outputs are non-obvious:</p>
+<ul>
+<li><strong>US Executive sits AT BATNA (surplus 0), not strictly above.</strong> This was not a calibration target. It is consistent with the political-economic reading that the Administration valued the MFN-signing-as-event more than the specific deal terms &mdash; once manufacturers signed publicly, the Administration captured the political win it sought regardless of specific Roche-side concessions.</li>
+<li><strong>Several non-principals sit ABOVE BATNA</strong>: Swiss cantons-Basel, Swiss public payers, Novartis, investors. The non-principal-positive-surplus pattern reflects spillover wins from the Roche-Swiss-US triangulation: Basel-region jobs preserved by 0% Section 232 protection; Swiss public payers indirectly benefiting from sector-stability; Novartis benefits as the Swiss-domiciled peer-firm.</li>
+</ul>
+<h3 id="output-2-comparative-static-behaviour">Output 2 &mdash; comparative-static behaviour</h3>
+<p>Perturbations to the status-quo deal vector produce model predictions that can be sanity-checked against intuitive analysis:</p>
+<ul>
+<li><em>Increase MFN coverage to Medicare Part D for Roche growth-drivers:</em> US Executive surplus +0.8, Roche surplus &minus;2.1. Confirms MFN scope-creep as the central downside scenario.</li>
+<li><em>Sunset Section 232 without renewal Jan 2029:</em> Roche surplus &minus;0.9, US Executive surplus +0.3. Confirms the &ldquo;stranded $50B US capex&rdquo; asymmetry.</li>
+<li><em>Forced disclosure of confidential ex-US rebates:</em> Roche surplus &minus;3.4, Novartis surplus &minus;1.8, Swiss FC surplus &minus;1.1. Confirms the reference-pricing contagion asymmetry.</li>
+<li><em>Trontinemab launches into IRA-eligible mode:</em> Roche surplus &minus;1.6 (over 2027&ndash;2031 amortised), patient-advocacy surplus +0.4. Confirms the trontinemab launch architecture asymmetry.</li>
+</ul>
+<p>Each of these comparative-statics output produces a directionally and approximately quantitatively reasonable result. The pattern of <em>which actor moves how much</em> under each perturbation is the substantive model output that informs the <a href="bottom-line.html">bottom-line analysis</a> asymmetry ranges.</p>
+<h3 id="output-3-equilibrium-concept-behaviour">Output 3 &mdash; equilibrium-concept behaviour</h3>
+<p>The model implements four equilibrium concepts; running them against the status-quo data produces:</p>
+<ul>
+<li><strong>Nash bargaining solution (symmetric):</strong> recommends increasing the reference-pricing firewall to weight 7/10 (currently 3/10). Consistent with the Item 1 firewall annex recommendation.</li>
+<li><strong>Kalai-Smorodinsky:</strong> suggests bilateral Roche/Swiss-Federal-Council weight rebalancing toward Swiss cantons-Basel. Marginal, but consistent with the Hatch-Waxman-style multilateral-defensibility recommendation.</li>
+<li><strong>Shapley value distribution:</strong> Roche, Swiss FC, and US Executive contribute the marginal value; Novartis, Swiss public payers, EU reference-pricing contribute negative or zero marginal value. This identifies who is essential to coalition formation vs who is &ldquo;along for the ride&rdquo;.</li>
+<li><strong>Core check:</strong> the signed deal sits in the core (no sub-coalition can profitably defect). Confirms feasibility.</li>
+</ul>
+<p>These outputs converge on a consistent strategic posture (the firewall annex + Swiss-state coordination + 0% Section 232 maintenance) which is the analytical content of the <a href="bottom-line.html">bottom-line analysis</a> and <a href="briefing.html">briefing</a>.</p>
+<h2 id="forward-tests-what-the-model-is-genuinely-predicting">Forward tests &mdash; what the model is genuinely predicting</h2>
+<p>The most useful part of this memo is the list of forward predictions that the next 18 months will validate or falsify. Each is a model output, not an input:</p>
+<ol>
+<li>
+<p><strong>Vabysmo will be selected for IRA Round 5 (announced Q1 2027).</strong> Probability assigned: 55&ndash;70%. If selected, the model&apos;s forward-IRA exposure structure is validated. If not, the model should be re-examined.</p>
+</li>
+<li>
+<p><strong>Hemlibra will <em>not</em> be selected for IRA Round 5.</strong> Probability: 70&ndash;85% (against selection). Specialty Part D with relatively small population. If selected anyway, indicates CMS appetite for specialty selection is broader than the model assumes.</p>
+</li>
+<li>
+<p><strong>At least one peer firm (Novartis, AstraZeneca) will pursue an analogous bilateral protection mechanism by end-2026.</strong> Probability: 50&ndash;65%. If yes, the &ldquo;Roche-led industry pattern&rdquo; thesis is validated. If no, either Roche is alone in identifying the contagion exposure, or has discovered a unique strategic asset.</p>
+</li>
+<li>
+<p><strong>AMNOG (Germany) will produce at least one confidential-rebate-related decision that signals US-MFN-implied-price awareness by end-2027.</strong> Probability: 60&ndash;75%. If yes, the contagion-trajectory model is validated. If no, contagion may be slower or smaller than the central case assumes.</p>
+</li>
+<li>
+<p><strong>The November 2025 US&ndash;Switzerland framework will remain in force through January 2027 without material amendment.</strong> Probability: 75&ndash;85%. If amended adversely, the firewall annex&apos;s legal foundation must be re-engineered.</p>
+</li>
+<li>
+<p><strong>TRONTIER 1/2 interim safety review (DSMB scheduled Q4 2026) will not produce a stopping signal.</strong> Probability: 80&ndash;90%. If it does, the <a href="black-swans.html">black swan #4</a> scenario activates.</p>
+</li>
+<li>
+<p><strong>The 2026 US midterms will produce a House outcome between R+3 and D+5 (i.e., not a landslide either way).</strong> Probability: 60&ndash;75%. A landslide either way materially shifts the 2028 primary structure and therefore the political-cycle risk for the firewall annex.</p>
+</li>
+<li>
+<p><strong>Section 232 sunset (20 January 2029) will <em>not</em> be unilaterally rescinded by the current administration before sunset.</strong> Probability: 85&ndash;95%. If rescinded early, the $50B US capex value structure changes materially.</p>
+</li>
+</ol>
+<p><strong>Each prediction has a specific test date.</strong> Through Q4 2027, the working group should log the actual outcome and update the model accordingly. The forward-test list above is the formal version of the &ldquo;monitoring dashboard&rdquo; recommended in <a href="black-swans.html">black swans</a>.</p>
+<h2 id="what-this-calibration-does-not-establish">What this calibration does not establish</h2>
+<p>Three honest limitations:</p>
+<ol>
+<li>
+<p><strong>The model cannot predict Black Swan events.</strong> <a href="black-swans.html">Black swans #1&ndash;#9</a> are by construction outside the model&apos;s design envelope; their probabilities are working-group judgments, not model outputs.</p>
+</li>
+<li>
+<p><strong>The model does not predict the political-cycle path.</strong> The 2028 election outcome is treated as an exogenous parameter, not a model output. Reasonable people can disagree with the working group&apos;s probability assignments.</p>
+</li>
+<li>
+<p><strong>The model does not endogenise the founding-family / generational-shareholder structure.</strong> This is treated as a constant; if it changes, the entire variance-tolerance argument changes. This is acknowledged but not modelled.</p>
+</li>
+</ol>
+<h2 id="implications-for-the-working-group">Implications for the working group</h2>
+<p>Three operational recommendations:</p>
+<ol>
+<li>
+<p><strong>Maintain a quarterly forward-test log</strong> documenting actual outcomes vs predicted probability assignments. By Q4 2026, this log should contain 6&ndash;8 data points sufficient to begin updating model parameters.</p>
+</li>
+<li>
+<p><strong>Re-calibrate the model in Q1 2027</strong> with one full year of post-Dec-2025 observational data. Re-run all comparative-statics against the updated parameters and compare to the May 2026 outputs. Material divergence should trigger a working-group analytical review.</p>
+</li>
+<li>
+<p><strong>The model is a discussion tool, not a verdict.</strong> Every board-facing claim should be defensible without invoking model authority; the model is one of several lines of evidence. When model output and qualitative analysis diverge, both should be reported.</p>
+</li>
+</ol>
+<hr>
+<p><strong>See also:</strong> <a href="decision-quality.html">Decision quality</a> &middot; <a href="sensitivity.html">Sensitivity tornado</a> &middot; <a href="method.html">Method</a> &middot; <a href="bottom-line.html">Bottom line</a></p></div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <span>Independent public-source analysis · snapshot 20 May 2026 · restricted access</span>
+    <span>Not an official Roche document · <a href="method.html">method &amp; limits</a></span>
+  </div>
+</footer>
+
+<script>
+// Close mobile menu when a link is tapped.
+document.querySelectorAll(".mobile-nav a").forEach(a => {
+  a.addEventListener("click", () => {
+    document.getElementById("mobile-menu-toggle").checked = false;
+  });
+});
+</script>
+
+</body>
+</html>

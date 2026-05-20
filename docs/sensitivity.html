@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sensitivity tornado — Roche pharma-pricing negotiation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/passcode.js"></script>
+<script src="assets/commandk.js" defer></script>
+<script src="assets/toc.js" defer></script>
+
+</head>
+<body>
+
+<input type="checkbox" id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle menu">
+
+<header class="site-header">
+  <div class="inner">
+    <a href="index.html" class="brand">Roche negotiation</a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="one-pager.html">One-pager</a>
+        <a href="briefing.html">Executive briefing</a>
+        <a href="bottom-line.html">Bottom line</a>
+        <a href="black-swans.html">Black swans</a>
+        <a href="financial-translation.html">Financial translation</a>
+        <a href="folio.html">Board folio (PDF)</a>
+        <a href="simulator.html">Scenario simulator</a>
+        <a href="simulation.html">Live simulation</a>
+        <a href="playground.html">Playground</a>
+        <a href="actors.html">Actors</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="palette-trigger" class="palette-trigger" type="button" aria-label="Search the site">
+        <span class="label">Search</span>
+        <kbd>⌘K</kbd>
+      </button>
+      <label for="mobile-menu-toggle" class="menu-toggle" aria-label="Open menu" role="button" tabindex="0">
+        <span class="menu-toggle-label">Menu</span>
+        <span class="bars" aria-hidden="true"></span>
+      </label>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" aria-label="Mobile navigation">
+      <div class="mobile-group-head">Read</div>
+      <a href="one-pager.html">One-pager</a>
+      <a href="briefing.html">Executive briefing</a>
+      <a href="bottom-line.html">Bottom line</a>
+      <a href="black-swans.html">Black swans</a>
+      <a href="financial-translation.html">Financial translation</a>
+      <a href="folio.html">Board folio (PDF)</a>
+      <a href="decision-quality.html">Decision quality</a>
+      <a href="peer-comparison.html">Peer comparison</a>
+      <a href="board-qa.html">Board Q&A</a>
+      <a href="hatch-waxman.html">Hatch-Waxman analog</a>
+      <a href="real-options.html">Real options</a>
+      <a href="sensitivity.html" class="active">Sensitivity tornado</a>
+      <a href="ceo-talking-points.html">CEO talking points</a>
+      <a href="calibration.html">Model calibration</a>
+      <a href="index.html">Overview</a>
+      <a href="recommendation.html">Recommendation</a>
+      <a href="item-1.html">Item 1 unpacked</a>
+      <a href="adversarial.html">Red team</a>
+      <a href="cross-domain.html">Cross-domain</a>
+      <a href="cross-domain-depth.html">Cross-domain (depth)</a>
+      <a href="ai-implications.html">AI implications</a>
+      <a href="dynamics.html">Dynamics</a>
+      <a href="disclosures.html">Disclosures</a>
+      <a href="mfn-deals.html">MFN deals</a>
+      <a href="global-pricing.html">Global pricing</a>
+      <div class="mobile-group-head">Explore</div>
+      <a href="simulator.html">Scenario simulator</a>
+      <a href="simulation.html">Live simulation</a>
+      <a href="playground.html">Playground</a>
+      <div class="mobile-group-head">Reference</div>
+      <a href="actors.html">Actors</a>
+      <a href="positions.html">Positions</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="method.html">Method</a>
+      <div class="meta-line">snapshot 20 May 2026</div>
+</nav>
+
+<main id="main-content" class="wide" tabindex="-1">
+<a href="index.html" class="back-link">Overview</a>
+<div class="prose-article sensitivity-article"><h1 id="sensitivity-tornado-which-assumption-drives-the-answer-most">Sensitivity tornado &mdash; which assumption drives the answer most</h1>
+<div class="memo-meta">
+<p><strong>To:</strong> Roche Executive Committee &middot; <strong>From:</strong> Strategic-analysis working group &middot; <strong>Date:</strong> 20 May 2026 &middot; <strong>Read time:</strong> 7 minutes</p>
+</div>
+<h2 id="why-this-exists">Why this exists</h2>
+<p>The <a href="decision-quality.html">decision-quality framework</a> ranks the four branches on expected utility under the working group&apos;s central probability and impact assumptions. The headline result &mdash; Branch B has highest EU at CHF 10.0B, Branch A second at CHF 8.7B &mdash; depends on ~10 distinct numerical assumptions. <strong>Which of those assumptions does the recommendation depend on most?</strong> If the recommendation is robust to large swings in some assumptions and fragile to small swings in others, the working group should focus its data-gathering on the latter, and the board should focus its scrutiny there.</p>
+<p>This memo computes the impact of a 1-standard-deviation (or 1-band) shift in each assumption on EU(Branch A), and ranks them. The visualisation is a horizontal &ldquo;tornado&rdquo; chart: assumptions sorted by absolute impact, bars sized proportional to swing. Top of the tornado = highest leverage; bottom = least.</p>
+<h2 id="the-full-assumption-set">The full assumption set</h2>
+<p>The decision-quality framework uses the following inputs to compute EU(Branch A):</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Assumption</th>
+<th>Central value</th>
+<th>Low / high band</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>P(USTR back-channel positive signal)</td>
+<td>45%</td>
+<td>30% / 60%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>P(SECO MRA-transfer memo clears)</td>
+<td>70%</td>
+<td>55% / 85%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>P(no peer firm pre-empts with rival annex)</td>
+<td>67%</td>
+<td>55% / 80%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>P(no 2026 election-year backlash)</td>
+<td>60%</td>
+<td>45% / 75%</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Cross-pre-condition correlation</td>
+<td>0.35</td>
+<td>0.15 / 0.55</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Contagion severity (annex captures, CHF B)</td>
+<td>32.5</td>
+<td>18 / 47</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Sunk cost on failure (CHF B)</td>
+<td>1.5</td>
+<td>0.5 / 3</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Discount rate</td>
+<td>10%</td>
+<td>8% / 12%</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Time horizon</td>
+<td>5 yr</td>
+<td>4 yr / 7 yr</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Trontinemab launch impact on annex value</td>
+<td>none</td>
+<td>none / +CHF 5B</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-tornado">The tornado</h2>
+<p>Each bar below shows EU(Branch A) under low-band vs high-band of each assumption, with central case as the reference. Wider bars = greater leverage.</p>
+<div class="tornado-chart" aria-label="Sensitivity tornado — assumptions ranked by EU impact">
+
+<div class="tornado-row">
+  <div class="tornado-label">Contagion severity (CHF 18&ndash;47B)</div>
+  <div class="tornado-bar-container">
+    <div class="tornado-bar-neg" style="width: 38%;"><span>&minus;CHF&nbsp;4.4B</span></div>
+    <div class="tornado-mid"></div>
+    <div class="tornado-bar-pos" style="width: 38%;"><span>+CHF&nbsp;4.4B</span></div>
+  </div>
+  <div class="tornado-impact">CHF&nbsp;8.7B swing</div>
+</div>
+
+<div class="tornado-row">
+  <div class="tornado-label">P(USTR back-channel positive)</div>
+  <div class="tornado-bar-container">
+    <div class="tornado-bar-neg" style="width: 26%;"><span>&minus;CHF&nbsp;3.0B</span></div>
+    <div class="tornado-mid"></div>
+    <div class="tornado-bar-pos" style="width: 22%;"><span>+CHF&nbsp;2.5B</span></div>
+  </div>
+  <div class="tornado-impact">CHF&nbsp;5.5B swing</div>
+</div>
+
+<div class="tornado-row">
+  <div class="tornado-label">P(no 2026 election-year backlash)</div>
+  <div class="tornado-bar-container">
+    <div class="tornado-bar-neg" style="width: 18%;"><span>&minus;CHF&nbsp;2.1B</span></div>
+    <div class="tornado-mid"></div>
+    <div class="tornado-bar-pos" style="width: 17%;"><span>+CHF&nbsp;1.9B</span></div>
+  </div>
+  <div class="tornado-impact">CHF&nbsp;4.0B swing</div>
+</div>
+
+<div class="tornado-row">
+  <div class="tornado-label">Cross-pre-condition correlation</div>
+  <div class="tornado-bar-container">
+    <div class="tornado-bar-neg" style="width: 14%;"><span>&minus;CHF&nbsp;1.6B</span></div>
+    <div class="tornado-mid"></div>
+    <div class="tornado-bar-pos" style="width: 18%;"><span>+CHF&nbsp;2.0B</span></div>
+  </div>
+  <div class="tornado-impact">CHF&nbsp;3.6B swing</div>
+</div>
+
+<div class="tornado-row">
+  <div class="tornado-label">P(SECO MRA-transfer clears)</div>
+  <div class="tornado-bar-container">
+    <div class="tornado-bar-neg" style="width: 14%;"><span>&minus;CHF&nbsp;1.6B</span></div>
+    <div class="tornado-mid"></div>
+    <div class="tornado-bar-pos" style="width: 14%;"><span>+CHF&nbsp;1.6B</span></div>
+  </div>
+  <div class="tornado-impact">CHF&nbsp;3.2B swing</div>
+</div>
+
+<div class="tornado-row">
+  <div class="tornado-label">P(no peer-firm pre-emption)</div>
+  <div class="tornado-bar-container">
+    <div class="tornado-bar-neg" style="width: 11%;"><span>&minus;CHF&nbsp;1.3B</span></div>
+    <div class="tornado-mid"></div>
+    <div class="tornado-bar-pos" style="width: 12%;"><span>+CHF&nbsp;1.4B</span></div>
+  </div>
+  <div class="tornado-impact">CHF&nbsp;2.7B swing</div>
+</div>
+
+<div class="tornado-row">
+  <div class="tornado-label">Time horizon (4&ndash;7 yr)</div>
+  <div class="tornado-bar-container">
+    <div class="tornado-bar-neg" style="width: 10%;"><span>&minus;CHF&nbsp;1.2B</span></div>
+    <div class="tornado-mid"></div>
+    <div class="tornado-bar-pos" style="width: 13%;"><span>+CHF&nbsp;1.5B</span></div>
+  </div>
+  <div class="tornado-impact">CHF&nbsp;2.7B swing</div>
+</div>
+
+<div class="tornado-row">
+  <div class="tornado-label">Trontinemab co-benefit</div>
+  <div class="tornado-bar-container">
+    <div class="tornado-bar-neg" style="width: 0%;"></div>
+    <div class="tornado-mid"></div>
+    <div class="tornado-bar-pos" style="width: 13%;"><span>+CHF&nbsp;1.5B</span></div>
+  </div>
+  <div class="tornado-impact">CHF&nbsp;1.5B swing</div>
+</div>
+
+<div class="tornado-row">
+  <div class="tornado-label">Discount rate (8&ndash;12%)</div>
+  <div class="tornado-bar-container">
+    <div class="tornado-bar-neg" style="width: 6%;"><span>&minus;0.7</span></div>
+    <div class="tornado-mid"></div>
+    <div class="tornado-bar-pos" style="width: 6%;"><span>+0.7</span></div>
+  </div>
+  <div class="tornado-impact">CHF&nbsp;1.4B swing</div>
+</div>
+
+<div class="tornado-row">
+  <div class="tornado-label">Sunk cost on failure</div>
+  <div class="tornado-bar-container">
+    <div class="tornado-bar-neg" style="width: 5%;"><span>&minus;0.6</span></div>
+    <div class="tornado-mid"></div>
+    <div class="tornado-bar-pos" style="width: 5%;"><span>+0.6</span></div>
+  </div>
+  <div class="tornado-impact">CHF&nbsp;1.2B swing</div>
+</div>
+
+<div class="tornado-caption">
+EU(Branch A) is CHF&nbsp;8.7B at central case. Each row shows the EU swing under low- vs high-band of one assumption, holding all others at central.
+</div>
+
+</div>
+
+<h2 id="what-the-tornado-tells-us">What the tornado tells us</h2>
+<p><strong>Three assumptions dominate.</strong> Contagion severity, P(USTR back-channel positive), and P(no 2026 election-year backlash) together drive ~CHF 18B of cumulative swing &mdash; more than the remaining seven assumptions combined.</p>
+<p><strong>Implication 1: working-group resourcing should concentrate on the top three.</strong> The CHF 5&ndash;8M working-group budget over 60 days should disproportionately fund: (a) better contagion-severity forecasting (EU pharmaceutical strategy monitoring, AMNOG cycle analysis), (b) USTR back-channel relationship development and signal-collection capacity, (c) political-monitoring infrastructure for 2026 election-year drug-pricing rhetoric. Resourcing on the bottom three (sunk-cost estimation, discount-rate calibration, peer-firm pre-emption tracking) is lower-priority.</p>
+<p><strong>Implication 2: the recommendation is robust to discount-rate and sunk-cost assumptions.</strong> A board member who thinks the working group is using the wrong discount rate (or who has a different view on sunk costs) can substitute their own value and see EU(Branch A) shift by less than CHF 1B. The recommendation does not depend on these. This is useful for board discipline: focus debate on the high-impact assumptions; do not debate the low-impact ones.</p>
+<p><strong>Implication 3: cross-pre-condition correlation is more impactful than expected.</strong> A working-group estimate of 0.35 correlation between pre-conditions (positively correlated &mdash; one favourable signal predicts others) is uncertain. If correlation is actually 0.15 (less correlated), EU(A) drops by CHF 1.6B because pre-conditions become less compound-favorable. If correlation is 0.55 (more correlated), EU(A) rises by CHF 2.0B. This is the single most under-discussed assumption in the framework. Recommend: the working group document specifically what correlation level is assumed and how it could be measured.</p>
+<h2 id="two-factor-sensitivity-where-does-the-recommendation-flip">Two-factor sensitivity &mdash; where does the recommendation flip?</h2>
+<p>The single-factor tornado shows what moves the EU(A) most. The two-factor analysis shows where the <em>recommendation</em> (Branch A vs B vs C vs D) changes:</p>
+<table>
+<thead>
+<tr>
+<th>Combined shift</th>
+<th>EU(A) result</th>
+<th>New recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contagion severity low + P(USTR) low</td>
+<td>+CHF 1.3B</td>
+<td>Branch B (was A)</td>
+</tr>
+<tr>
+<td>Contagion severity low + correlation low</td>
+<td>+CHF 4.0B</td>
+<td>Branch A (still)</td>
+</tr>
+<tr>
+<td>P(USTR) low + 2026 backlash low</td>
+<td>+CHF 3.7B</td>
+<td>Branch B (was A)</td>
+</tr>
+<tr>
+<td>Three weakest pre-conditions low</td>
+<td>&minus;CHF 1.2B</td>
+<td>Branch B clear</td>
+</tr>
+<tr>
+<td>All three top assumptions low</td>
+<td>&minus;CHF 7.5B</td>
+<td>Branch B clear (large margin)</td>
+</tr>
+<tr>
+<td>All three top assumptions high</td>
+<td>+CHF 17.5B</td>
+<td>Branch A (large margin)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The recommendation flips from A to B when (contagion severity drops to low band) AND (any one of the three top-probability assumptions drops to low band).</strong> Equivalently: Branch A is robustly optimal only when <em>both</em> the underlying threat materialises <em>and</em> execution probability is at central or above. If either condition weakens to low-band, the EV gap closes and Branch B becomes preferable.</p>
+<p><strong>Operational implication:</strong> the Item 1 endorsement should be drafted with a contingent re-rating clause. The board endorses Branch A <em>conditional on the contagion-severity and execution-probability assessments holding at central or above through the 60-day pre-condition window</em>. If either drops to low-band during the window, the formal endorsement re-rates to Branch B without re-convening the board.</p>
+<h2 id="what-this-changes-for-the-working-group">What this changes for the working group</h2>
+<p>Four specific re-prioritisations:</p>
+<ol>
+<li>
+<p><strong>Contagion severity</strong> is the highest-leverage forecast. Working-group analytical effort should disproportionately fund: AMNOG decision monitoring through Q4 2027, EU pharmaceutical strategy implementation tracking, joint procurement scope expansion analysis. Hire one full-time analyst dedicated to this monitoring.</p>
+</li>
+<li>
+<p><strong>USTR back-channel</strong> is the highest-leverage relationship. Working-group political effort should concentrate on a specific named USTR official (currently under-resourced) with weekly contact frequency through Q3 2026.</p>
+</li>
+<li>
+<p><strong>2026 election-year monitoring</strong> should be active by Q2 2026 (now) with explicit weekly tracking of pharma-pricing rhetoric in midterm primary fields. Cost: CHF 0.3&ndash;0.5M/yr; impact bracket: CHF 4B.</p>
+</li>
+<li>
+<p><strong>Cross-pre-condition correlation</strong> should be documented explicitly in the working-group methodology. Currently estimated at 0.35; the assumption should be tested by examining historical pre-condition resolution patterns (where comparable bilateral negotiations have produced documented pre-condition outcomes).</p>
+</li>
+</ol>
+<h2 id="what-this-changes-for-the-board">What this changes for the board</h2>
+<p>The single most useful thing for the board to take from this analysis is: <strong>stop debating discount rate and sunk-cost assumptions; focus board time on contagion-severity and USTR-posture assumptions.</strong> The first set does not move the recommendation; the second can flip it.</p>
+<p>Recommend that the <a href="briefing.html">briefing</a>&apos;s Item 1 endorsement include the contingent-re-rating clause described above. This is a small change with material decision-quality improvement.</p>
+<hr>
+<p><strong>See also:</strong> <a href="decision-quality.html">Decision quality</a> &middot; <a href="real-options.html">Real options</a> &middot; <a href="financial-translation.html">Financial translation</a> &middot; <a href="item-1.html">Item 1 unpacked</a></p></div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <span>Independent public-source analysis · snapshot 20 May 2026 · restricted access</span>
+    <span>Not an official Roche document · <a href="method.html">method &amp; limits</a></span>
+  </div>
+</footer>
+
+<script>
+// Close mobile menu when a link is tapped.
+document.querySelectorAll(".mobile-nav a").forEach(a => {
+  a.addEventListener("click", () => {
+    document.getElementById("mobile-menu-toggle").checked = false;
+  });
+});
+</script>
+
+</body>
+</html>

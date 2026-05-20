@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Real options — Roche pharma-pricing negotiation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/passcode.js"></script>
+<script src="assets/commandk.js" defer></script>
+<script src="assets/toc.js" defer></script>
+
+</head>
+<body>
+
+<input type="checkbox" id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle menu">
+
+<header class="site-header">
+  <div class="inner">
+    <a href="index.html" class="brand">Roche negotiation</a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="one-pager.html">One-pager</a>
+        <a href="briefing.html">Executive briefing</a>
+        <a href="bottom-line.html">Bottom line</a>
+        <a href="black-swans.html">Black swans</a>
+        <a href="financial-translation.html">Financial translation</a>
+        <a href="folio.html">Board folio (PDF)</a>
+        <a href="simulator.html">Scenario simulator</a>
+        <a href="simulation.html">Live simulation</a>
+        <a href="playground.html">Playground</a>
+        <a href="actors.html">Actors</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="palette-trigger" class="palette-trigger" type="button" aria-label="Search the site">
+        <span class="label">Search</span>
+        <kbd>⌘K</kbd>
+      </button>
+      <label for="mobile-menu-toggle" class="menu-toggle" aria-label="Open menu" role="button" tabindex="0">
+        <span class="menu-toggle-label">Menu</span>
+        <span class="bars" aria-hidden="true"></span>
+      </label>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" aria-label="Mobile navigation">
+      <div class="mobile-group-head">Read</div>
+      <a href="one-pager.html">One-pager</a>
+      <a href="briefing.html">Executive briefing</a>
+      <a href="bottom-line.html">Bottom line</a>
+      <a href="black-swans.html">Black swans</a>
+      <a href="financial-translation.html">Financial translation</a>
+      <a href="folio.html">Board folio (PDF)</a>
+      <a href="decision-quality.html">Decision quality</a>
+      <a href="peer-comparison.html">Peer comparison</a>
+      <a href="board-qa.html">Board Q&A</a>
+      <a href="hatch-waxman.html">Hatch-Waxman analog</a>
+      <a href="real-options.html" class="active">Real options</a>
+      <a href="sensitivity.html">Sensitivity tornado</a>
+      <a href="ceo-talking-points.html">CEO talking points</a>
+      <a href="calibration.html">Model calibration</a>
+      <a href="index.html">Overview</a>
+      <a href="recommendation.html">Recommendation</a>
+      <a href="item-1.html">Item 1 unpacked</a>
+      <a href="adversarial.html">Red team</a>
+      <a href="cross-domain.html">Cross-domain</a>
+      <a href="cross-domain-depth.html">Cross-domain (depth)</a>
+      <a href="ai-implications.html">AI implications</a>
+      <a href="dynamics.html">Dynamics</a>
+      <a href="disclosures.html">Disclosures</a>
+      <a href="mfn-deals.html">MFN deals</a>
+      <a href="global-pricing.html">Global pricing</a>
+      <div class="mobile-group-head">Explore</div>
+      <a href="simulator.html">Scenario simulator</a>
+      <a href="simulation.html">Live simulation</a>
+      <a href="playground.html">Playground</a>
+      <div class="mobile-group-head">Reference</div>
+      <a href="actors.html">Actors</a>
+      <a href="positions.html">Positions</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="method.html">Method</a>
+      <div class="meta-line">snapshot 20 May 2026</div>
+</nav>
+
+<main id="main-content" class="wide" tabindex="-1">
+<a href="index.html" class="back-link">Overview</a>
+<div class="prose-article real-options-article"><h1 id="real-options-the-firewall-annex-as-a-financial-option">Real options &mdash; the firewall annex as a financial option</h1>
+<div class="memo-meta">
+<p><strong>To:</strong> Roche Executive Committee &middot; <strong>From:</strong> Strategic-analysis working group &middot; <strong>Date:</strong> 20 May 2026 &middot; <strong>Read time:</strong> 9 minutes</p>
+</div>
+<h2 id="why-this-framing-exists">Why this framing exists</h2>
+<p>The <a href="decision-quality.html">decision-quality framework</a> treats Item 1 as a probability-weighted lottery. The bottom-up <a href="financial-translation.html">financial translation</a> defends the underlying CHF impact ranges. This memo adds a third lens: <strong>treating the firewall annex as a real option on a stochastic underlying</strong> (the trajectory of US&ndash;EU reference-pricing contagion). This is the framing a financial-derivatives professional would bring to the same problem &mdash; and it surfaces structure the lottery-based decision-quality framework cannot.</p>
+<p>A real option is the right, not the obligation, to take a specific action at a specific cost in the future. The firewall annex meets the definition: Roche commits CHF 5&ndash;8M of working-group resources now (the &ldquo;premium&rdquo;) and <em>acquires the right</em> to execute a treaty-level protection structure if pre-conditions clear. The execution requires CHF 8&ndash;12M of additional capital (the &ldquo;strike&rdquo;) and produces protection valued at CHF 18&ndash;55B (the &ldquo;intrinsic value&rdquo; of the option at execution). Like any option, the annex&apos;s pre-execution value depends on (a) the intrinsic value distribution, (b) time to expiration, (c) volatility of the underlying, and (d) interest rate / discount rate assumptions.</p>
+<p>This memo computes those values and surfaces three implications conventional decision analysis misses.</p>
+<h2 id="the-option-specification">The option specification</h2>
+<p>Modelled as a European call option (single exercise window) on the contagion-protection payoff:</p>
+<ul>
+<li><strong>Underlying.</strong> The trajectory of US&ndash;EU reference-pricing contagion, measured as cumulative ex-US net-price erosion over 2027&ndash;2031. Current expected value: CHF 22B of erosion (severe-spillover central case from <a href="financial-translation.html">financial translation</a>).</li>
+<li><strong>Strike (K).</strong> The execution cost of the annex: working-group time, USTR back-channel negotiation, GC drafting, SECO coordination, peer-firm peer-test. Estimated CHF 8&ndash;12M; use CHF 10M as central.</li>
+<li><strong>Premium (paid now).</strong> Working-group resourcing through the 60-day pre-condition window: CHF 5&ndash;8M; use CHF 6.5M as central.</li>
+<li><strong>Time to expiration.</strong> 60 days for the pre-condition test, then a wider execution window through Q3 2026. Effective $T$: 4 months.</li>
+<li><strong>Volatility ($\sigma$).</strong> The standard deviation of the contagion trajectory. Working-group estimate: contagion outcomes span CHF 0 (no leakage) to CHF 60B (forced disclosure) with central CHF 22B. Implied annual standard deviation ~CHF 18B, or <strong>~80% of the underlying value &mdash; high-volatility regime</strong>.</li>
+<li><strong>Risk-free rate (r).</strong> Use 3% for short-dated Swiss government yield (May 2026 indicative).</li>
+</ul>
+<h2 id="intrinsic-value-time-value-and-total-option-value">Intrinsic value, time value, and total option value</h2>
+<p>The annex&apos;s value can be decomposed:</p>
+<p><strong>Intrinsic value</strong> = max(0, contagion-protection-captured &minus; strike) at the exercise moment. If executed at central case (CHF 22B protection captured) less strike (CHF 10M), intrinsic value = <strong>CHF 21.99B</strong>. The strike is operationally negligible relative to intrinsic value &mdash; this is <em>deep-in-the-money</em> relative to strike.</p>
+<p><strong>Time value</strong> = the premium attributable to the chance that the underlying moves <em>up</em> over the option&apos;s life (i.e., contagion turns out more severe than central case, so the annex&apos;s value rises). With 80% volatility and 4-month time to expiration, the time-value component is material: roughly 15&ndash;20% of intrinsic value, or <strong>CHF 3&ndash;4B of additional option value</strong>.</p>
+<p><strong>Total option value</strong> = intrinsic + time value = <strong>CHF 25&ndash;26B</strong> at central case before pre-condition test resolution.</p>
+<p>But this central-case point estimate hides the substantive structure. The annex is in fact an option <em>on whether to commit to</em> an option (a compound option): the pre-condition test is the first option; execution conditional on the test is the second. Compound option theory gives a different value:</p>
+<ul>
+<li><strong>Stage-1 option</strong> (60-day pre-condition resourcing): strike CHF 6.5M, payoff = stage-2 option value if pre-conditions clear.</li>
+<li><strong>Stage-2 option</strong> (formal annex execution): strike CHF 10M, payoff = protection captured if annex ratifies.</li>
+</ul>
+<p>The compound structure&apos;s key insight: <strong>the working group&apos;s 60-day budget is itself an option premium</strong>, and the EV of paying the premium depends on the conditional EV of the stage-2 option. This is the financial-options analog of the Bayesian decision rule from <a href="decision-quality.html">decision-quality</a>, but framed as a structured product rather than a lottery.</p>
+<h2 id="vega-the-options-sensitivity-to-contagion-volatility">Vega &mdash; the option&apos;s sensitivity to contagion volatility</h2>
+<p>Vega measures option value change per 1-point change in volatility. For the firewall annex:</p>
+<ul>
+<li>Current volatility estimate: 80% (high uncertainty about contagion trajectory).</li>
+<li>If contagion volatility falls to 50% (more confident central forecast): time value drops from CHF 3&ndash;4B to CHF 1.5&ndash;2B; total option value drops to CHF 23&ndash;24B.</li>
+<li>If contagion volatility rises to 110% (e.g., EU policy uncertainty spikes): time value rises to CHF 5&ndash;6B; total option value rises to CHF 27&ndash;28B.</li>
+</ul>
+<p><strong>Implication: the annex is more valuable in high-volatility environments.</strong> Counterintuitively, <em>bad news about EU policy uncertainty makes the annex more valuable</em>, not less. The annex is a hedge whose price rises with the underlying threat&apos;s uncertainty &mdash; the canonical option-buyer posture. Two operational consequences:</p>
+<ol>
+<li>
+<p><strong>The annex&apos;s opportunity cost is highest in low-volatility environments.</strong> If May&ndash;July 2026 produces clarity on EU pharmaceutical strategy implementation (volatility falls), the option becomes relatively cheaper to delay. If volatility rises (e.g., AMNOG announces an unexpected confidential-rebate enforcement action), execution urgency rises.</p>
+</li>
+<li>
+<p><strong>Roche should be a vega buyer, not a vega seller, in adjacent decisions.</strong> Other 2026 commitments that <em>increase</em> contagion-trajectory uncertainty (e.g., engaging in EU-level transparency consultations that prolong the policy uncertainty window) raise annex value. Other commitments that <em>reduce</em> uncertainty (e.g., publishing Roche-specific net-price data on Roche initiative) lower it. The strategic posture should be vega-long.</p>
+</li>
+</ol>
+<h2 id="time-value-and-the-cost-of-waiting">Time value and the cost of waiting</h2>
+<p>A standard option-pricing result: option time value decays as expiration approaches (theta). For the firewall annex, theta is approximately:</p>
+<ul>
+<li>Each month of delay reduces time value by ~CHF 0.5B (from the CHF 3&ndash;4B base).</li>
+<li>If the 60-day pre-condition test completes on schedule (15 July 2026), time value at execution decision is ~CHF 2.5&ndash;3B.</li>
+<li>If pre-conditions slip and execution is deferred to October 2026, time value at execution is ~CHF 1.5&ndash;2B.</li>
+<li>If execution slips to January 2027 (Branch C territory), time value is ~CHF 0.5&ndash;1B.</li>
+</ul>
+<p><strong>The cost of waiting is CHF 0.5B/month in time-value erosion.</strong> This is the financial-options framing of why Branch C (defer to Q3 2026) has lower NPV than Branches A or B in the decision-quality framework. The CHF 0.5B/month figure is the <em>quantitative cost of delay</em> in a frame the financial-trained board member will immediately understand.</p>
+<h2 id="the-hedge-ratio-how-much-annex-protection-to-seek">The hedge ratio &mdash; how much annex protection to seek</h2>
+<p>Standard option-pricing logic: how much of the underlying should be hedged. Roche&apos;s exposed underlying (ex-US revenue at risk of contagion) is <strong>CHF 7.3B/year for high-WAC biologics</strong>, or <strong>CHF 22.3B/year for all ex-US Pharma revenue</strong>.</p>
+<p>Three hedge-ratio strategies:</p>
+<ol>
+<li>
+<p><strong>Full hedge</strong> (covers all CHF 22.3B exposure). Requires broad annex scope: confidentiality protection on the entire Roche ex-US portfolio. Execution probability: lower (US side may resist breadth); annex commercial value if executes: maximum (CHF 35&ndash;55B captured).</p>
+</li>
+<li>
+<p><strong>Targeted hedge</strong> (covers the CHF 7.3B high-WAC biologics). Requires annex scope limited to specific drug classes. Execution probability: higher (narrower scope easier to drft); annex value: CHF 18&ndash;28B.</p>
+</li>
+<li>
+<p><strong>Catastrophic-only hedge</strong> (covers the difference between gradual spillover and forced disclosure). Requires annex with explicit force-majeure-style triggers. Execution probability: high (US side may even encourage this framing); annex value: CHF 10&ndash;20B but narrowly targeted.</p>
+</li>
+</ol>
+<p><strong>The Branch A recommendation in the <a href="briefing.html">briefing</a> implicitly assumes a targeted hedge.</strong> The CHF 18&ndash;55B range is consistent with targeted hedge at lower bound and full hedge at upper bound. <strong>Recommendation: explicitly specify in working-group output which hedge strategy is targeted.</strong> Leaving it ambiguous reduces both execution probability (because USTR cannot evaluate proposal without knowing scope) and value capture (because Roche cannot allocate resources without scope clarity).</p>
+<h2 id="three-things-the-lottery-framing-misses">Three things the lottery framing misses</h2>
+<p>The real-options framing produces three insights the decision-quality lottery framing does not:</p>
+<p><strong>1. The 60-day pre-condition window is a CHF 0.5B/month-worth purchase, not just a procedural step.</strong> Treating it as a procedural gate undervalues the optionality acquired by paying the small premium. The board should authorise the resourcing with explicit recognition that it is buying optionality, not just &ldquo;exploring feasibility.&rdquo;</p>
+<p><strong>2. Roche should be vega-long across adjacent 2026 decisions.</strong> Other strategic commitments that increase contagion-trajectory uncertainty raise annex value. This implies (a) avoid premature commitments on net-price disclosure in any other channel, (b) lean into adjacent uncertainty-increasing moves (industry-coalition engagement at EU level, public-policy uncertainty about pharmaceutical strategy timing).</p>
+<p><strong>3. The hedge strategy should be explicit and singular, not implicit.</strong> &ldquo;Endorse the firewall annex&rdquo; without specifying targeted-vs-full-vs-catastrophic hedge leaves CHF 5&ndash;20B of value on the table through scope ambiguity.</p>
+<h2 id="what-this-changes-for-the-board">What this changes for the board</h2>
+<p>Three implications.</p>
+<ol>
+<li>
+<p><strong>Authorise the CHF 5&ndash;8M working-group resourcing as an option premium, not as &ldquo;exploration funding.&rdquo;</strong> The financial framing makes the asymmetric payoff structure clear and justifies the spend with quantitative rigour.</p>
+</li>
+<li>
+<p><strong>Add a vega-management instruction to the strategic-communications committee.</strong> Roche&apos;s public-policy positioning across 2026 should be explicitly evaluated for its effect on contagion-trajectory uncertainty. Premature net-price disclosure on any axis is option-destroying.</p>
+</li>
+<li>
+<p><strong>Specify the hedge strategy in Item 1 endorsement.</strong> Recommend explicit endorsement of the <em>targeted hedge</em> (high-WAC biologics scope) as the default, with provision for working-group adaptation to full or catastrophic-only scope based on USTR feedback in the 60-day window.</p>
+</li>
+</ol>
+<hr>
+<p><strong>See also:</strong> <a href="decision-quality.html">Decision quality</a> &middot; <a href="hatch-waxman.html">Hatch-Waxman analog</a> &middot; <a href="financial-translation.html">Financial translation</a> &middot; <a href="item-1.html">Item 1 unpacked</a> &middot; <a href="bottom-line.html">Bottom line</a></p></div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <span>Independent public-source analysis · snapshot 20 May 2026 · restricted access</span>
+    <span>Not an official Roche document · <a href="method.html">method &amp; limits</a></span>
+  </div>
+</footer>
+
+<script>
+// Close mobile menu when a link is tapped.
+document.querySelectorAll(".mobile-nav a").forEach(a => {
+  a.addEventListener("click", () => {
+    document.getElementById("mobile-menu-toggle").checked = false;
+  });
+});
+</script>
+
+</body>
+</html>
