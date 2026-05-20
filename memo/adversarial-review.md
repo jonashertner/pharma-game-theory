@@ -84,11 +84,11 @@ The point is not to weaken the recommendation; it is to surface where it is *con
 
 ---
 
-## Objection 5 — The non-principals at BATNA are not a "fragile equilibrium"
+## Objection 5 — The at-BATNA cluster is not a "fragile equilibrium"
 
-**The claim.** "The May 2026 status quo is feasible but barely. Roche, the US Executive, and the Swiss Federal Council all clear their BATNAs. Every other actor sits exactly at BATNA. The system is one perturbation away from a non-principal walking, and a non-principal walk is politically expensive even when contractually irrelevant."
+**The claim.** "The May 2026 status quo is feasible but barely. Six of twelve actors clear BATNA with positive surplus (Roche, Swiss FC, Swiss cantons, Swiss public payers, Novartis, investors); the other six — including both US actors (Executive and Congress), plus PBMs, patient advocacy, EU reference-pricing, biosimilars-competitors — sit exactly at BATNA. The system is one perturbation away from an at-BATNA actor walking, which is politically expensive even when contractually irrelevant."
 
-**The strongest objection.** Non-principals are not at the table. By definition, they cannot "walk" from a deal they did not sign. A non-principal whose BATNA is exactly at parity with the deal experiences *no surplus and no loss* — there is no political pressure to register dissatisfaction. The "fragility" framing imports a stability concept from coalitional games where every actor must consent. The mid-2026 negotiation is *not* such a game.
+**The strongest objection.** Most of the at-BATNA cluster are not at the table. Patient advocacy, PBMs, EU reference-pricing, and biosimilars-competitors cannot "walk" from a deal they did not sign. An actor whose BATNA is exactly at parity with the deal experiences *no surplus and no loss* — there is no economic pressure to register dissatisfaction. The harder version of this objection: even US Executive at BATNA is not "fragile" in any decision-theoretic sense — it just means the Administration is indifferent, which is consistent with how MFN's political payoff structure was designed (the public-signing event, not the contract terms, drove US Executive utility). The "fragility" framing imports a stability concept from cooperative games where every actor must consent. The mid-2026 negotiation is *not* such a game.
 
 **What evidence would settle it.**
 

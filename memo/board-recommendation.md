@@ -14,7 +14,7 @@ The December 2025 MFN deal closed a chapter, but the negotiation has not ended �
 
 ## Why this is the moment
 
-The model's headline finding is that the May 2026 status quo is *feasible but barely*. The three principals (Roche, US Executive, Swiss FC) sit above their BATNAs; every other actor sits exactly at theirs. The system survives perturbation poorly. Five facts compound the urgency:
+The model's headline finding is that the May 2026 status quo is *feasible but barely*. Six of twelve actors clear BATNA with positive surplus — Roche, Swiss Federal Council, Swiss cantons-Basel, Swiss public payers, Novartis, investors. Six sit exactly at theirs — **including, notably, both US actors** (Executive and Congress), plus PBMs-and-payers, patient advocacy, EU reference-pricing, biosimilars-competitors. The US-at-BATNA fact reads as a consequence of how the Dec 2025 deal landed: the Administration got the political wins it wanted (manufacturers signing publicly, MFN-Medicaid access) without depending on the deal's specific terms; defection from any signed manufacturer leaves the Administration roughly indifferent. The system survives perturbation poorly because half the table has no positive surplus to defend. Five facts compound the urgency:
 
 1. The Section 232 0% track sunsets 20 January 2029. Renegotiation must close *six to twelve months before* — i.e., in 2028 — to give Roche capex-planning lead time. The window to bake protections into binding form is now.
 2. The November 2026 US midterms could remove the political coalition that signed the December deal. An EO is reversible by EO; a USTR bilateral treaty under Senate authority is not. The architecture choice we make in 2026 determines what survives 2028.

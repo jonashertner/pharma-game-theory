@@ -24,7 +24,7 @@ The December 2025 MFN deal is signed. The negotiation has shifted from price-set
 
 ## Calibration
 
-The model is calibrated against the actual December 2025 signed state &mdash; the three principals (Roche, US Executive, Swiss Federal Council) clear their BATNAs; the non-principals sit exactly at theirs. Verifiable test: `python -m pytest model/tests/`.
+The model is calibrated against the actual December 2025 signed state. Six of twelve actors clear BATNA with positive surplus &mdash; Roche, Swiss Federal Council, Swiss cantons-Basel, Swiss public payers, Novartis, investors. Six sit exactly at BATNA &mdash; **including, notably, both US actors (US Executive and US Congress)**, plus PBMs, patient advocacy, EU reference-pricing, biosimilars-competitors. The US-at-BATNA result is consistent with the &ldquo;Roche won the MFN round&rdquo; reading: the US Administration was essentially indifferent between the signed deal and a no-deal counterfactual. The deal is feasible (in the core); it is also fragile, because six actors have no surplus to defend. Verifiable test: `python -m pytest model/tests/`.
 
 ## Where this could be wrong &mdash; three named contingencies
 

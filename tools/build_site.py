@@ -70,6 +70,9 @@ NAV_GROUPS = [
         ("bottom-line.html", "Bottom line", True),
         ("black-swans.html", "Black swans", True),
         ("financial-translation.html", "Financial translation", True),
+        ("decision-quality.html", "Decision quality", False),
+        ("peer-comparison.html", "Peer comparison", False),
+        ("board-qa.html", "Board Q&A", False),
         ("index.html", "Overview", False),
         ("recommendation.html", "Recommendation", False),
         ("item-1.html", "Item 1 unpacked", False),
@@ -280,7 +283,14 @@ def build_index() -> str:
     n_actors = len(data.actors)
     n_issues = len(data.issues)
     n_positions = len(data.positions)
-    n_above = n_actors - len(summary.actors_below_batna)
+    n_below = len(summary.actors_below_batna)
+    # Strict-vs-equal partition for calibration narrative
+    surplus_by_actor = {a: summary.payoffs.get(a, 0.0) - summary.batnas.get(a, 0.0)
+                       for a in data.actors}
+    n_strictly_above = sum(1 for s in surplus_by_actor.values() if s > 1e-9)
+    n_exactly_at = sum(1 for s in surplus_by_actor.values() if abs(s) <= 1e-9)
+    actors_above = [a for a, s in surplus_by_actor.items() if s > 1e-9]
+    actors_at = [a for a, s in surplus_by_actor.items() if abs(s) <= 1e-9]
 
     overview_exec = exec_summary(
         "In 30 seconds",
@@ -288,7 +298,7 @@ def build_index() -> str:
         """
 <ul>
 <li><strong>What this is:</strong> a sourced, citation-backed model of the live 2026 US pharma-pricing negotiation. 12 actors, 13 issues, 110 position cells; calibrated against the actual December 2025 Genentech MFN deal.</li>
-<li><strong>The model's headline finding:</strong> the May 2026 status quo is feasible but <em>fragile</em> &mdash; the principal triple (Roche / US / CH) sits above BATNA, but the non-principals sit exactly at it.</li>
+<li><strong>The model's headline finding:</strong> the May 2026 status quo is feasible but <em>fragile</em> &mdash; 6 of 12 actors clear BATNA with positive surplus (Roche, Swiss FC, Swiss cantons, Swiss public payers, Novartis, investors); the other 6 (including both US actors) sit exactly at BATNA. A small perturbation tips the at-BATNA cluster into political-pressure mode.</li>
 <li><strong>Best move for Roche:</strong> strengthen the international reference-pricing firewall via the Swiss annex (Roche's highest-weight issue, currently underused). Don't volunteer concessions on MFN coverage or TrumpRx SKU count.</li>
 <li><strong>Biggest tail risk:</strong> MFN reference-basket contagion into EU/UK/CH. Treat as tail-risk insurance, not expected-value optimisation.</li>
 <li><strong>How to use this site:</strong> the <a href="simulation.html">live simulation</a> walks through a curated trilateral negotiation. The <a href="playground.html">playground</a> lets you stress-test the model interactively. The <a href="recommendation.html">recommendation</a> is the headline output.</li>
@@ -305,8 +315,10 @@ def build_index() -> str:
     framework caps Section&nbsp;232 pharma tariffs at 15% with a 0% track through
     January 2029 for firms building US capacity. IRA Round&nbsp;3 places Xolair
     under negotiation effective January 2028. <strong>The model says the May 2026
-    status quo is barely feasible: every principal is above their BATNA, but
-    most non-principals sit exactly at it. The system is fragile, not stable.</strong>
+    status quo is barely feasible: 6 of 12 actors (Roche, both Swiss-side
+    principals, Swiss-internal stakeholders, Novartis, investors) clear BATNA
+    with positive surplus; the other 6 &mdash; including, notably, both US
+    actors &mdash; sit exactly at BATNA. The system is fragile, not stable.</strong>
   </p>
   <div class="reading-paths">
     <div class="path"><span class="t">5 min</span> <a href="recommendation.html">read the recommendation</a></div>
@@ -420,10 +432,14 @@ def build_index() -> str:
 <h2>What the model is telling Roche</h2>
 
 <p>
-The negotiation that closed in December 2025 produced a deal where Roche, the
-US administration, and the Swiss Federal Council all sit above their BATNAs &mdash;
-but only just. Most non-principals sit exactly at theirs. A small perturbation
-in any direction tips a non-principal into walk territory and the deal becomes
+The negotiation that closed in December 2025 produced a deal where six actors
+clear BATNA with positive surplus (Roche, the Swiss Federal Council, Swiss cantons-Basel,
+Swiss public payers, Novartis, investors) and six sit exactly at theirs &mdash;
+including, notably, the US Executive and US Congress. The US-side &ldquo;at BATNA&rdquo;
+result says the US was essentially indifferent between the signed deal and no deal at all:
+the political pressure points the Administration cared about (manufacturers signing
+publicly, MFN-Medicaid access) were resolved either way. A small perturbation in any
+direction tips the at-BATNA cluster into walk territory and the deal becomes
 politically expensive to defend.
 </p>
 
@@ -469,10 +485,13 @@ Roche should have walked from a deal it signed), the model would be unusable.
 </p>
 
 <p>
-<strong>Result: {n_above} of {n_actors} actors are above their BATNA at the May 2026
-status quo. The deal is feasible. ✓</strong>
-The remaining sit exactly at BATNA &mdash; meaningful, because it predicts
-where political pressure will appear (PBMs, patient advocacy, EU, biosimilars).
+<strong>Result: all {n_actors} actors satisfy at-or-above BATNA. The deal is feasible (in the core). ✓</strong>
+Of those, <strong>{n_strictly_above} sit <em>strictly above</em></strong>
+(Roche, Swiss Federal Council, Swiss cantons-Basel, Swiss public payers, Novartis, investors)
+&mdash; this is the &ldquo;winners&rdquo; cluster. The other <strong>{n_exactly_at} sit
+<em>exactly at</em></strong> BATNA &mdash; including, notably, US Executive and US Congress.
+That cluster predicts where political pressure will appear: actors with no positive
+surplus from the signed state have no Dec-2025-deal-aligned incentive to defend it.
 </p>
 
 <table>
@@ -695,6 +714,57 @@ def build_briefing() -> str:
 </div>
 """
     return layout(title="Executive briefing", page_id="briefing.html",
+                  body=body, main_class="wide", include_pagination=False)
+
+
+def build_decision_quality() -> str:
+    """Decision quality — Bayesian decision framework for board agenda."""
+    p = ROOT / "memo" / "decision-quality.md"
+    rendered = markdown.markdown(
+        p.read_text(),
+        extensions=["extra", "sane_lists", "tables", "toc", "md_in_html"],
+        output_format="html5",
+    )
+    body = f"""
+<div class="prose-article decision-quality-article">
+{rendered}
+</div>
+"""
+    return layout(title="Decision quality", page_id="decision-quality.html",
+                  body=body, main_class="wide", include_pagination=False)
+
+
+def build_peer_comparison() -> str:
+    """Peer comparison — Roche vs 7 global pharma peers across 8 vectors."""
+    p = ROOT / "memo" / "peer-comparison.md"
+    rendered = markdown.markdown(
+        p.read_text(),
+        extensions=["extra", "sane_lists", "tables", "toc", "md_in_html"],
+        output_format="html5",
+    )
+    body = f"""
+<div class="prose-article peer-comparison-article">
+{rendered}
+</div>
+"""
+    return layout(title="Peer comparison", page_id="peer-comparison.html",
+                  body=body, main_class="wide", include_pagination=False)
+
+
+def build_board_qa() -> str:
+    """Board Q&A — 15 sharp questions with answers."""
+    p = ROOT / "memo" / "board-qa.md"
+    rendered = markdown.markdown(
+        p.read_text(),
+        extensions=["extra", "sane_lists", "tables", "toc", "md_in_html"],
+        output_format="html5",
+    )
+    body = f"""
+<div class="prose-article board-qa-article">
+{rendered}
+</div>
+"""
+    return layout(title="Board Q&A", page_id="board-qa.html",
                   body=body, main_class="wide", include_pagination=False)
 
 
@@ -1417,6 +1487,9 @@ def main() -> int:
         "bottom-line.html": build_bottom_line(),
         "black-swans.html": build_black_swans(),
         "financial-translation.html": build_financial_translation(),
+        "decision-quality.html": build_decision_quality(),
+        "peer-comparison.html": build_peer_comparison(),
+        "board-qa.html": build_board_qa(),
         "index.html": build_index(),
         "recommendation.html": build_recommendation(),
         "recommendation-detail.html": build_recommendation_detail(),

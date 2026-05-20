@@ -12,6 +12,28 @@ The pricing fight is settled. The durability fight has begun. Three Roche-specif
 
 </div>
 
+<div class="asymmetry-stack" aria-label="The three asymmetries, proportional to their CHF NPV swing">
+  <div class="asymmetry-row">
+    <div class="asymmetry-label">Reference-pricing contagion</div>
+    <div class="asymmetry-bar bar-contagion" style="width: 100%;">
+      <span class="bar-value">CHF&nbsp;18&ndash;55B</span>
+    </div>
+  </div>
+  <div class="asymmetry-row">
+    <div class="asymmetry-label">Trontinemab launch architecture</div>
+    <div class="asymmetry-bar bar-trontinemab" style="width: 64%;">
+      <span class="bar-value">CHF&nbsp;15&ndash;35B</span>
+    </div>
+  </div>
+  <div class="asymmetry-row">
+    <div class="asymmetry-label">Strategic purpose of $50B US capex</div>
+    <div class="asymmetry-bar bar-capex" style="width: 22%;">
+      <span class="bar-value">CHF&nbsp;4&ndash;12B</span>
+    </div>
+  </div>
+  <div class="asymmetry-caption">5-year NPV swing (2027&ndash;2031). Bars proportional to upper-bound CHF. <a href="bottom-line.html">→ defended in bottom-line</a></div>
+</div>
+
 <div class="onepager-grid" markdown="1">
 
 <div class="onepager-block" markdown="1">

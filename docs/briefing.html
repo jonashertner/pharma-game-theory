@@ -50,6 +50,9 @@
       <a href="bottom-line.html">Bottom line</a>
       <a href="black-swans.html">Black swans</a>
       <a href="financial-translation.html">Financial translation</a>
+      <a href="decision-quality.html">Decision quality</a>
+      <a href="peer-comparison.html">Peer comparison</a>
+      <a href="board-qa.html">Board Q&A</a>
       <a href="index.html">Overview</a>
       <a href="recommendation.html">Recommendation</a>
       <a href="item-1.html">Item 1 unpacked</a>
@@ -117,7 +120,7 @@
 <h2 id="the-thesis-in-one-paragraph">The thesis in one paragraph</h2>
 <p>The December 2025 MFN deal is signed. The negotiation has shifted from price-setting to <em>durability engineering</em>. Roche's single most important strategic asymmetry against every actor at the table is its multi-generational time horizon &mdash; every other principal operates on political-cycle or earnings-cycle timeframes. The 2026 task is to convert the existing framework into multi-decade pharma-pricing infrastructure while the political coalitions that produced it are still in place. The highest-value underused lever is international reference-pricing protection through a Swiss-annex amendment modelled on Germany's January 2025 Medical Research Act &mdash; Roche's highest-weight unused lever in the model. The biggest tail risk is reference-basket contagion into EU/UK/CH; treat as tail-risk insurance, not as expected-value optimisation.</p>
 <h2 id="calibration">Calibration</h2>
-<p>The model is calibrated against the actual December 2025 signed state &mdash; the three principals (Roche, US Executive, Swiss Federal Council) clear their BATNAs; the non-principals sit exactly at theirs. Verifiable test: <code>python -m pytest model/tests/</code>.</p>
+<p>The model is calibrated against the actual December 2025 signed state. Six of twelve actors clear BATNA with positive surplus &mdash; Roche, Swiss Federal Council, Swiss cantons-Basel, Swiss public payers, Novartis, investors. Six sit exactly at BATNA &mdash; <strong>including, notably, both US actors (US Executive and US Congress)</strong>, plus PBMs, patient advocacy, EU reference-pricing, biosimilars-competitors. The US-at-BATNA result is consistent with the &ldquo;Roche won the MFN round&rdquo; reading: the US Administration was essentially indifferent between the signed deal and a no-deal counterfactual. The deal is feasible (in the core); it is also fragile, because six actors have no surplus to defend. Verifiable test: <code>python -m pytest model/tests/</code>.</p>
 <h2 id="where-this-could-be-wrong-three-named-contingencies">Where this could be wrong &mdash; three named contingencies</h2>
 <ol>
 <li><em>The US Administration may not accept confidentiality language at all.</em> The MFN program's narrative is "American patients should pay no more than other countries"; confidentiality language about ex-US prices could be characterised as protecting manufacturer-private information. <strong>Mitigation:</strong> 60-day USTR back-channel sounding before commitment.</li>

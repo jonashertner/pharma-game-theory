@@ -274,6 +274,229 @@
 ]
 },
 {
+"page": "decision-quality.html",
+"title": "Decision quality",
+"sections": [
+{
+"id": "why-this-exists",
+"label": "Why this exists",
+"level": 2
+},
+{
+"id": "the-four-branches-as-conditional-lotteries",
+"label": "The four branches as conditional lotteries",
+"level": 2
+},
+{
+"id": "branch-a-endorse-all-four-items",
+"label": "Branch A &mdash; Endorse all four items",
+"level": 3
+},
+{
+"id": "branch-b-conditional-endorsement",
+"label": "Branch B &mdash; Conditional endorsement",
+"level": 3
+},
+{
+"id": "branch-c-defer-to-q3-2026",
+"label": "Branch C &mdash; Defer to Q3 2026",
+"level": 3
+},
+{
+"id": "branch-d-reject-firewall",
+"label": "Branch D &mdash; Reject firewall",
+"level": 3
+},
+{
+"id": "ranking-and-the-non-obvious-result",
+"label": "Ranking and the non-obvious result",
+"level": 2
+},
+{
+"id": "sensitivity-analysis-when-does-the-recommendation-flip",
+"label": "Sensitivity analysis &mdash; when does the recommendation flip?",
+"level": 2
+},
+{
+"id": "sweep-1-pexecute-branch-a-lower-than-25",
+"label": "Sweep 1 &mdash; P(execute | Branch A) lower than 25%",
+"level": 3
+},
+{
+"id": "sweep-2-contagion-baseline-weaker-than-central-case",
+"label": "Sweep 2 &mdash; Contagion baseline weaker than central case",
+"level": 3
+},
+{
+"id": "sweep-3-loss-aversion-regret-minimisation-rather-than-eu",
+"label": "Sweep 3 &mdash; Loss aversion (regret minimisation rather than EU)",
+"level": 3
+},
+{
+"id": "what-this-changes-for-the-board",
+"label": "What this changes for the board",
+"level": 2
+},
+{
+"id": "sketches-for-items-2-and-3",
+"label": "Sketches for Items 2 and 3",
+"level": 2
+},
+{
+"id": "assumptions-appendix",
+"label": "Assumptions appendix",
+"level": 2
+}
+]
+},
+{
+"page": "peer-comparison.html",
+"title": "Peer comparison",
+"sections": [
+{
+"id": "why-this-exists",
+"label": "Why this exists",
+"level": 2
+},
+{
+"id": "the-eight-vectors",
+"label": "The eight vectors",
+"level": 2
+},
+{
+"id": "the-comparison-matrix",
+"label": "The comparison matrix",
+"level": 2
+},
+{
+"id": "the-headline-reads-from-the-matrix",
+"label": "The headline reads from the matrix",
+"level": 2
+},
+{
+"id": "reading-1-roches-dec-2025-outcome-was-genuinely-better-than-the-average",
+"label": "Reading 1 &mdash; Roche&apos;s Dec 2025 outcome was genuinely better than the average",
+"level": 3
+},
+{
+"id": "reading-2-the-reference-pricing-contagion-claim-is-defensible",
+"label": "Reading 2 &mdash; The reference-pricing contagion claim is defensible",
+"level": 3
+},
+{
+"id": "reading-3-pipeline-density-positions-roche-unusually-well-with-one-named-risk",
+"label": "Reading 3 &mdash; Pipeline density positions Roche unusually well, with one named risk",
+"level": 3
+},
+{
+"id": "reading-4-the-ownership-structure-asymmetry-is-genuine-not-branding",
+"label": "Reading 4 &mdash; The ownership-structure asymmetry is genuine, not branding",
+"level": 3
+},
+{
+"id": "where-the-matrix-is-most-uncertain",
+"label": "Where the matrix is most uncertain",
+"level": 2
+},
+{
+"id": "what-this-changes-for-the-board",
+"label": "What this changes for the board",
+"level": 2
+}
+]
+},
+{
+"page": "board-qa.html",
+"title": "Board Q&A",
+"sections": [
+{
+"id": "format",
+"label": "Format",
+"level": 2
+},
+{
+"id": "1-why-now-why-not-last-year-why-not-next-year",
+"label": "1. Why now? Why not last year, why not next year?",
+"level": 3
+},
+{
+"id": "2-why-the-firewall-annex-specifically-why-not-lobby-amnognice-individually",
+"label": "2. Why the firewall annex specifically? Why not lobby AMNOG/NICE individually?",
+"level": 3
+},
+{
+"id": "3-what-if-the-swiss-federal-council-wont-carry-the-annex",
+"label": "3. What if the Swiss Federal Council won&apos;t carry the annex?",
+"level": 3
+},
+{
+"id": "4-what-if-peers-novartis-pfizer-astrazeneca-undermine-the-annex-by-signing-their-own",
+"label": "4. What if peers (Novartis, Pfizer, AstraZeneca) undermine the annex by signing their own?",
+"level": 3
+},
+{
+"id": "5-whats-the-political-cycle-risk-if-a-2028-administration-disowns-the-annex",
+"label": "5. What&apos;s the political-cycle risk if a 2028 administration disowns the annex?",
+"level": 3
+},
+{
+"id": "6-why-chf-1855b-and-not-a-specific-number",
+"label": "6. Why CHF 18&ndash;55B and not a specific number?",
+"level": 3
+},
+{
+"id": "7-how-is-trontinemab-launch-architecture-different-from-what-every-ceo-already-does",
+"label": "7. How is trontinemab launch architecture different from what every CEO already does?",
+"level": 3
+},
+{
+"id": "8-whats-the-second-best-option-if-the-firewall-annex-fails",
+"label": "8. What&apos;s the second-best option if the firewall annex fails?",
+"level": 3
+},
+{
+"id": "9-why-20-small-molecule-convertible-capacity-not-30-or-10",
+"label": "9. Why 20% small-molecule-convertible capacity, not 30% or 10%?",
+"level": 3
+},
+{
+"id": "10-whats-the-historical-analog-where-this-kind-of-move-actually-worked",
+"label": "10. What&apos;s the historical analog where this kind of move actually worked?",
+"level": 3
+},
+{
+"id": "11-why-isnt-there-an-ma-recommendation",
+"label": "11. Why isn&apos;t there an M&amp;A recommendation?",
+"level": 3
+},
+{
+"id": "12-should-we-cut-the-dividend-to-fund-any-of-this",
+"label": "12. Should we cut the dividend to fund any of this?",
+"level": 3
+},
+{
+"id": "13-what-does-the-generational-shareholder-pool-think",
+"label": "13. What does the generational-shareholder pool think?",
+"level": 3
+},
+{
+"id": "14-where-could-the-analysis-be-wrong-in-priority-order",
+"label": "14. Where could the analysis be wrong, in priority order?",
+"level": 3
+},
+{
+"id": "15-what-should-we-tell-investors-at-the-next-earnings-call",
+"label": "15. What should we tell investors at the next earnings call?",
+"level": 3
+},
+{
+"id": "what-if-the-board-pushes-back",
+"label": "What if the board pushes back?",
+"level": 2
+}
+]
+},
+{
 "page": "index.html",
 "title": "Overview",
 "sections": []
@@ -425,8 +648,8 @@
 "level": 2
 },
 {
-"id": "objection-5-the-non-principals-at-batna-are-not-a-fragile-equilibrium",
-"label": "Objection 5 \u2014 The non-principals at BATNA are not a \"fragile equilibrium\"",
+"id": "objection-5-the-at-batna-cluster-is-not-a-fragile-equilibrium",
+"label": "Objection 5 \u2014 The at-BATNA cluster is not a \"fragile equilibrium\"",
 "level": 2
 },
 {
