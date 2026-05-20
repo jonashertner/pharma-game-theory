@@ -1,8 +1,8 @@
-<div class="briefing-card">
+<div class="briefing-card" markdown="1">
 
 # Executive briefing
 
-<div class="briefing-meta">
+<div class="briefing-meta" markdown="1">
 <strong>To:</strong> Roche Executive Committee &middot; <strong>From:</strong> Strategic-analysis working group &middot; <strong>Date:</strong> 20 May 2026 &middot; <strong>Read time:</strong> 3 minutes
 </div>
 
@@ -131,12 +131,12 @@ Every recommended move and every external event with strategic weight, in chrono
 
 Four possible board responses to Items 1&ndash;4. What follows for each.
 
-<div class="decision-tree">
+<div class="decision-tree" markdown="1">
 
-<div class="branch branch-endorse">
+<div class="branch branch-endorse" markdown="1">
 <div class="branch-label">Branch A &mdash; Endorse all four items</div>
 <div class="branch-condition">Items 1, 2 endorsed (conditional on 60-day pre-conditions). Item 3 decided (commit or defer). Item 4 noted.</div>
-<div class="branch-action">
+<div class="branch-action" markdown="1">
 <strong>What happens next.</strong>
 <ul>
 <li>60-day pre-condition window opens (May 20 &ndash; Jun 30). USTR back-channel, peer-firm sounding, GC MRA-transfer memo all in flight.</li>
@@ -149,10 +149,10 @@ Four possible board responses to Items 1&ndash;4. What follows for each.
 </div>
 </div>
 
-<div class="branch branch-conditional">
+<div class="branch branch-conditional" markdown="1">
 <div class="branch-label">Branch B &mdash; Conditional endorsement</div>
 <div class="branch-condition">Items 1, 2 conditionally endorsed pending pre-condition tests. Items 3, 4 same as Branch A.</div>
-<div class="branch-action">
+<div class="branch-action" markdown="1">
 <strong>What happens next.</strong>
 <ul>
 <li>60-day pre-condition window opens but without full commitment. Pre-conditions tested as in Branch A.</li>
@@ -165,10 +165,10 @@ Four possible board responses to Items 1&ndash;4. What follows for each.
 </div>
 </div>
 
-<div class="branch branch-defer">
+<div class="branch branch-defer" markdown="1">
 <div class="branch-label">Branch C &mdash; Defer Items 1+2 to Q3 2026</div>
 <div class="branch-condition">Items 1, 2 deferred for further analysis. Items 3, 4 same as Branch A.</div>
-<div class="branch-action">
+<div class="branch-action" markdown="1">
 <strong>What happens next.</strong>
 <ul>
 <li>Annex window closes for 2026; renegotiation framing accepted for Q1 2027.</li>
@@ -181,10 +181,10 @@ Four possible board responses to Items 1&ndash;4. What follows for each.
 </div>
 </div>
 
-<div class="branch branch-reject">
+<div class="branch branch-reject" markdown="1">
 <div class="branch-label">Branch D &mdash; Reject firewall-annex approach</div>
 <div class="branch-condition">Item 1 rejected. Items 2, 3, 4 considered separately.</div>
-<div class="branch-action">
+<div class="branch-action" markdown="1">
 <strong>What happens next.</strong>
 <ul>
 <li>Fallback plan triggers within 30 days. Choice among four fallbacks (see <a href="item-1.html">Item 1 unpacked</a>):

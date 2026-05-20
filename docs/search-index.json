@@ -4,6 +4,31 @@
 "title": "Executive briefing",
 "sections": [
 {
+"id": "the-board-is-asked-to",
+"label": "The board is asked to",
+"level": 2
+},
+{
+"id": "the-thesis-in-one-paragraph",
+"label": "The thesis in one paragraph",
+"level": 2
+},
+{
+"id": "calibration",
+"label": "Calibration",
+"level": 2
+},
+{
+"id": "where-this-could-be-wrong-three-named-contingencies",
+"label": "Where this could be wrong &mdash; three named contingencies",
+"level": 2
+},
+{
+"id": "next-60-days-pre-conditions-to-test-before-commitment",
+"label": "Next 60 days &mdash; pre-conditions to test before commitment",
+"level": 2
+},
+{
 "id": "action-calendar-20262030",
 "label": "Action calendar 2026&ndash;2030",
 "level": 2
