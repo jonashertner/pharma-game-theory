@@ -65,11 +65,13 @@ DISPLAY_NAMES = {
 # on wide laptops; all items are accessible via the Menu overlay and Cmd+K.
 NAV_GROUPS = [
     ("Read", [
+        ("one-pager.html", "One-pager", True),
         ("briefing.html", "Executive briefing", True),
         ("bottom-line.html", "Bottom line", True),
         ("black-swans.html", "Black swans", True),
-        ("index.html", "Overview", True),
-        ("recommendation.html", "Recommendation", True),
+        ("financial-translation.html", "Financial translation", True),
+        ("index.html", "Overview", False),
+        ("recommendation.html", "Recommendation", False),
         ("item-1.html", "Item 1 unpacked", False),
         ("adversarial.html", "Red team", False),
         ("cross-domain.html", "Cross-domain", False),
@@ -693,6 +695,40 @@ def build_briefing() -> str:
 </div>
 """
     return layout(title="Executive briefing", page_id="briefing.html",
+                  body=body, main_class="wide", include_pagination=False)
+
+
+def build_one_pager() -> str:
+    """Apex one-pager — single sheet board strategic posture."""
+    p = ROOT / "memo" / "one-pager.md"
+    rendered = markdown.markdown(
+        p.read_text(),
+        extensions=["extra", "sane_lists", "tables", "md_in_html"],
+        output_format="html5",
+    )
+    body = f"""
+<div class="prose-article onepager-article">
+{rendered}
+</div>
+"""
+    return layout(title="One-pager", page_id="one-pager.html",
+                  body=body, main_class="wide", include_pagination=False)
+
+
+def build_financial_translation() -> str:
+    """Financial translation — drug-by-drug CHF impact under scenarios."""
+    p = ROOT / "memo" / "financial-translation.md"
+    rendered = markdown.markdown(
+        p.read_text(),
+        extensions=["extra", "sane_lists", "tables", "toc", "md_in_html"],
+        output_format="html5",
+    )
+    body = f"""
+<div class="prose-article financial-translation-article">
+{rendered}
+</div>
+"""
+    return layout(title="Financial translation", page_id="financial-translation.html",
                   body=body, main_class="wide", include_pagination=False)
 
 
@@ -1376,9 +1412,11 @@ def main() -> int:
         print(f"  copied  docs/simulations/{src.name}")
 
     pages = {
+        "one-pager.html": build_one_pager(),
         "briefing.html": build_briefing(),
         "bottom-line.html": build_bottom_line(),
         "black-swans.html": build_black_swans(),
+        "financial-translation.html": build_financial_translation(),
         "index.html": build_index(),
         "recommendation.html": build_recommendation(),
         "recommendation-detail.html": build_recommendation_detail(),

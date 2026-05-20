@@ -1781,6 +1781,258 @@ table.action-calendar tr:hover td { background: var(--surface-2); }
 }
 
 /* -----------------------------------------------------------------------------
+ * One-pager — apex single-sheet strategic posture
+ * Print-first design; rendered for screen but optimised to fit A4/Letter in one page.
+ * --------------------------------------------------------------------------- */
+.onepager-article { max-width: 880px; margin: 0 auto; }
+.onepager-sheet {
+  background: var(--surface);
+  border: 1px solid var(--hairline-strong);
+  padding: var(--s-7) var(--s-7) var(--s-5);
+  font-family: var(--font-serif);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  border-radius: var(--radius-md);
+}
+.onepager-header {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: var(--s-3);
+  margin-bottom: var(--s-5);
+}
+.onepager-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  margin-bottom: var(--s-2);
+}
+.onepager-header h1 {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 var(--s-1) 0;
+  color: var(--ink);
+  border: none;
+}
+.onepager-sub {
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.onepager-apex {
+  background: linear-gradient(180deg, rgba(30,58,95,0.05), rgba(30,58,95,0.02));
+  border-left: 4px solid var(--accent);
+  border-right: 1px solid var(--hairline);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  padding: var(--s-4) var(--s-5);
+  margin: var(--s-3) 0 var(--s-5) 0;
+  border-radius: 0 4px 4px 0;
+}
+.onepager-apex p {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+.onepager-apex p strong { font-weight: 600; }
+.onepager-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-4) var(--s-5);
+}
+.onepager-block h3 {
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin: 0 0 var(--s-2) 0;
+  padding-bottom: var(--s-1);
+  border-bottom: 1px solid var(--hairline);
+}
+.onepager-block p,
+.onepager-block ol,
+.onepager-block ul {
+  font-family: var(--font-serif);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0 0 var(--s-2) 0;
+}
+.onepager-block ol, .onepager-block ul {
+  padding-left: var(--s-3);
+}
+.onepager-block ol > li, .onepager-block ul > li {
+  margin-bottom: var(--s-2);
+}
+.onepager-block strong {
+  color: var(--ink);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.onepager-footer {
+  margin-top: var(--s-5);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--hairline);
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  color: var(--muted);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+.onepager-footer code {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+}
+
+@media (max-width: 800px) {
+  .onepager-sheet { padding: var(--s-5); }
+  .onepager-header h1 { font-size: 24px; }
+  .onepager-apex p { font-size: 15px; }
+  .onepager-grid { grid-template-columns: 1fr; gap: var(--s-3); }
+  .onepager-block p, .onepager-block ol, .onepager-block ul { font-size: 13px; }
+}
+
+/* Print: target one full A4/Letter page */
+@media print {
+  body { background: white; }
+  .onepager-sheet {
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    page-break-inside: avoid;
+  }
+  .onepager-apex { background: none; border: 1.5pt solid black; border-left: 4pt solid black; }
+  .onepager-header { border-bottom: 1.5pt solid black; }
+  .onepager-block h3 { color: black; border-bottom-color: black; }
+  .onepager-footer { border-top-color: black; }
+  .onepager-grid { gap: 12pt 16pt; }
+}
+
+/* -----------------------------------------------------------------------------
+ * Financial translation — portfolio table + scenario rollup
+ * --------------------------------------------------------------------------- */
+.financial-translation-article .memo-meta {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-bottom: var(--s-6);
+  padding-bottom: var(--s-3);
+  border-bottom: 1px solid var(--hairline);
+}
+.financial-translation-article h2 {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin: var(--s-7) 0 var(--s-3) 0;
+  padding-bottom: var(--s-2);
+  border-bottom: 1px solid var(--hairline);
+}
+.financial-translation-article h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: var(--s-5) 0 var(--s-2) 0;
+  letter-spacing: -0.012em;
+}
+
+table.product-portfolio,
+table.scenario-rollup {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--s-3) 0 var(--s-5) 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+}
+table.product-portfolio th,
+table.scenario-rollup th {
+  text-align: left;
+  padding: var(--s-2) var(--s-3);
+  border-bottom: 2px solid var(--hairline-strong);
+  color: var(--muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  vertical-align: bottom;
+  background: rgba(0,0,0,0.015);
+}
+table.product-portfolio td,
+table.scenario-rollup td {
+  padding: var(--s-2) var(--s-3);
+  border-bottom: 1px solid var(--hairline);
+  vertical-align: top;
+  line-height: 1.4;
+}
+table.product-portfolio td:nth-child(1),
+table.product-portfolio td:nth-child(3),
+table.product-portfolio td:nth-child(4),
+table.product-portfolio td:nth-child(5),
+table.product-portfolio td:nth-child(6) {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--ink-2);
+}
+table.product-portfolio td:nth-child(2) {
+  font-family: var(--font-serif);
+  font-size: 14px;
+}
+table.product-portfolio td:nth-child(7) {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  color: var(--ink);
+}
+table.product-portfolio tbody tr:hover { background: rgba(30,58,95,0.025); }
+table.product-portfolio tbody tr:last-child td,
+table.product-portfolio tbody tr:nth-last-child(2) td {
+  border-top: 2px solid var(--hairline-strong);
+  background: rgba(0,0,0,0.02);
+  font-weight: 600;
+}
+
+table.scenario-rollup th:first-child,
+table.scenario-rollup td:first-child {
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+table.scenario-rollup td:last-child {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  color: var(--ink);
+  font-weight: 600;
+}
+table.scenario-rollup tbody tr:last-child td {
+  background: rgba(180,30,30,0.04);
+}
+table.scenario-rollup tbody tr:first-child td {
+  background: rgba(30,120,60,0.04);
+}
+
+@media (max-width: 800px) {
+  table.product-portfolio { font-size: 11px; }
+  table.product-portfolio td, table.product-portfolio th { padding: var(--s-1) var(--s-2); }
+  table.product-portfolio td:nth-child(7) { font-size: 11px; }
+  table.scenario-rollup { font-size: 11px; }
+}
+
+/* -----------------------------------------------------------------------------
  * Print stylesheet
  * --------------------------------------------------------------------------- */
 @media print {

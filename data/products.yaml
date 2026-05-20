@@ -1,0 +1,322 @@
+# Roche Pharmaceuticals Division — Top products
+# FY2025 (full-year 2025) revenue from Roche FY25 IR Update, 29 January 2026
+# Source: https://www.roche.com/investors/updates/inv-update-2026-01-29
+# Sales are in CHF millions. US growth is at CHF (reported), not CER.
+# Last updated: 2026-05-20
+
+division:
+  pharma_total_fy25: 47669
+  pharma_growth_cer_fy25: 0.09
+  pharma_growth_chf_fy25: 0.03
+  us_pharma_total_fy25: 25355
+  us_pharma_share_fy25: 0.532
+  us_growth_cer_fy25: 0.08
+  source: "Roche FY25 IR Update, 29 Jan 2026 (https://www.roche.com/investors/updates/inv-update-2026-01-29)"
+
+products:
+  - name: Ocrevus
+    inn: ocrelizumab
+    indication: Multiple sclerosis (RMS, PPMS)
+    mechanism: Anti-CD20 monoclonal antibody (IV and SC formulations)
+    fy25_global_chfm: 7010
+    fy25_us_chfm: 4874
+    us_share: 0.695
+    growth_cer_fy25: 0.09
+    growth_chf_fy25: 0.07
+    franchise_role: Largest single product; cornerstone of growth-driver portfolio
+    exposures:
+      mfn: not_in_scope_dec_2025
+      ira_round_3: not_selected
+      ira_forward_eligibility: high  # high WAC, single-source, Part B/D
+      section_232: high  # primarily Swiss-origin manufacturing
+      reference_pricing_contagion: very_high  # high WAC + confidential ex-US nets
+      biosimilar: late_2030s  # anti-CD20 class; Briumvi as competitor not biosimilar
+    notes: |
+      Genentech-launched. Ocrevus Zunovo SC formulation launched 2025 extends franchise.
+      Roche FY25 named as a "top-5 growth driver" with combined-five revenue CHF 21.4B.
+      Highest US absolute revenue in the portfolio.
+
+  - name: Hemlibra
+    inn: emicizumab
+    indication: Haemophilia A (prophylaxis)
+    mechanism: Bispecific antibody (factor IXa/X)
+    fy25_global_chfm: 4754
+    fy25_us_chfm: 2665
+    us_share: 0.561
+    growth_cer_fy25: 0.11
+    growth_chf_fy25: 0.06
+    franchise_role: Specialty growth; top-5 growth driver
+    exposures:
+      mfn: not_in_scope_dec_2025
+      ira_round_3: not_selected
+      ira_forward_eligibility: moderate  # specialty Part D; small patient population may limit selection
+      section_232: high  # Swiss-origin manufacturing
+      reference_pricing_contagion: very_high  # ~$500-700K annual WAC, confidential rebates large
+      biosimilar: post_2030  # biologic, complex
+    notes: |
+      Factor-VIII alternative; high WAC justifies large confidential rebate program in EU/UK.
+      The reference-pricing exposure is acute given small ex-US patient population.
+
+  - name: Vabysmo
+    inn: faricimab
+    indication: Wet AMD, DME, RVO
+    mechanism: Bispecific anti-VEGF-A/anti-Ang-2
+    fy25_global_chfm: 4102
+    fy25_us_chfm: 2857
+    us_share: 0.697
+    growth_cer_fy25: 0.12
+    growth_chf_fy25: 0.03
+    franchise_role: Fastest-growing major; top-5 growth driver
+    exposures:
+      mfn: not_in_scope_dec_2025
+      ira_round_3: not_selected
+      ira_forward_eligibility: high  # Part B candidate; high Medicare spend
+      section_232: high  # Swiss-origin
+      reference_pricing_contagion: high
+      biosimilar: post_2032
+    notes: |
+      Direct competition with Eylea (Regeneron) and Eylea HD. Susvimo refillable port adds franchise value.
+      US dominance reflects Genentech launch pathway and Medicare Part B dynamics for intravitreal therapies.
+      Most likely next-round IRA Part B candidate among Roche portfolio.
+
+  - name: Tecentriq
+    inn: atezolizumab
+    indication: Multiple oncology indications (NSCLC, TNBC, HCC, others)
+    mechanism: PD-L1 checkpoint inhibitor
+    fy25_global_chfm: 3566
+    fy25_us_chfm: 1640
+    us_share: 0.460
+    growth_cer_fy25: 0.03
+    growth_chf_fy25: -0.02
+    franchise_role: Mature oncology; lower-growth
+    exposures:
+      mfn: not_in_scope_dec_2025
+      ira_round_3: not_selected
+      ira_forward_eligibility: moderate  # Part B oncology; multiple indications complicate selection
+      section_232: high  # Swiss-origin
+      reference_pricing_contagion: moderate  # Part B negotiated, less rebate-dependent
+      biosimilar: late_2020s  # antibody patent expiry approaching
+    notes: |
+      Already in slow decline. Subcutaneous Tecentriq Hybreza adds convenience advantage vs Keytruda.
+      Lower US share than other major Roche oncology — reflects global launch and Keytruda dominance in US.
+
+  - name: Xolair
+    inn: omalizumab
+    indication: Severe allergic asthma, chronic urticaria, food allergies
+    mechanism: Anti-IgE monoclonal antibody
+    fy25_global_chfm: 3075
+    fy25_us_chfm: 3075
+    us_share: 1.000  # Roche reports US only; Novartis books ex-US
+    growth_cer_fy25: 0.32
+    growth_chf_fy25: 0.32
+    franchise_role: US-only reporting; top-5 growth driver via food-allergy indication
+    exposures:
+      mfn: not_in_scope_dec_2025
+      ira_round_3: SELECTED  # CMS announcement 27 Jan 2026; MFP effective 1 Jan 2028
+      ira_forward_eligibility: locked_in
+      section_232: high  # Swiss-origin biologic
+      reference_pricing_contagion: moderate  # IRA price will become a reference benchmark
+      biosimilar: 2026_Q3  # Celltrion's Omlyclo launch
+    notes: |
+      Co-marketed with Novartis (Roche books US only). +32% in 2025 driven by food allergy indication.
+      The locked-in IRA hit. Biosimilar erosion begins Sept 2026 even before IRA MFP effective.
+      Source for Round 3 selection: CMS press release 27 Jan 2026.
+
+  - name: Perjeta
+    inn: pertuzumab
+    indication: HER2+ breast cancer (with Herceptin + chemo)
+    mechanism: HER2 dimerization inhibitor
+    fy25_global_chfm: 2968
+    fy25_us_chfm: 1268
+    us_share: 0.427
+    growth_cer_fy25: -0.13
+    growth_chf_fy25: 0.00
+    franchise_role: Being cannibalized by Phesgo (SC combo)
+    exposures:
+      mfn: not_in_scope_dec_2025
+      ira_round_3: not_selected
+      ira_forward_eligibility: low  # declining, Phesgo absorbing patients
+      section_232: high
+      reference_pricing_contagion: moderate
+      biosimilar: ongoing  # internal cannibalization > external biosim
+    notes: |
+      The Perjeta + Phesgo combined franchise is ~CHF 5.4B annually, roughly flat.
+      Decline mode; revenue substituting to Phesgo at lower WAC but better margin (SC vs IV).
+
+  - name: Actemra
+    inn: tocilizumab
+    indication: Rheumatoid arthritis, GCA, CRS, COVID-19
+    mechanism: Anti-IL-6 receptor
+    fy25_global_chfm: 2470
+    fy25_us_chfm: 1206
+    us_share: 0.488
+    growth_cer_fy25: -0.02
+    growth_chf_fy25: -0.04
+    franchise_role: Biosimilar-eroded
+    exposures:
+      mfn: not_in_scope_dec_2025
+      ira_round_3: not_selected
+      ira_forward_eligibility: low  # biosimilars already in market
+      section_232: high
+      reference_pricing_contagion: low  # biosimilar competition already compresses confidential nets
+      biosimilar: live  # multiple US biosimilars
+    notes: |
+      Decline mode. Biosimilar erosion already absorbed into baseline. Limited forward-scenario sensitivity.
+
+  - name: Phesgo
+    inn: pertuzumab + trastuzumab (fixed-dose SC)
+    indication: HER2+ breast cancer
+    mechanism: HER2 dimerization inhibitor + HER2 antibody (combination SC)
+    fy25_global_chfm: 2441
+    fy25_us_chfm: 708
+    us_share: 0.290
+    growth_cer_fy25: 0.48
+    growth_chf_fy25: 0.31
+    franchise_role: Top-5 growth driver; Perjeta substitute
+    exposures:
+      mfn: not_in_scope_dec_2025
+      ira_round_3: not_selected
+      ira_forward_eligibility: moderate  # combination product, smaller per-drug Part B spend
+      section_232: high
+      reference_pricing_contagion: moderate
+      biosimilar: indirect  # exposed via Herceptin biosimilar component
+    notes: |
+      Low US share reflects EU/JP earlier SC-combo adoption.
+      Lower COGS (SC vs IV) plus Herceptin biosim pressure on IV alternative — net favourable economics.
+      Strong forward growth trajectory.
+
+  - name: Kadcyla
+    inn: trastuzumab emtansine
+    indication: HER2+ early/metastatic breast cancer
+    mechanism: HER2-directed antibody-drug conjugate
+    fy25_global_chfm: 2025
+    fy25_us_chfm: 768
+    us_share: 0.379
+    growth_cer_fy25: 0.07
+    growth_chf_fy25: 0.06
+    franchise_role: Mature ADC franchise
+    exposures:
+      mfn: not_in_scope_dec_2025
+      ira_round_3: not_selected
+      ira_forward_eligibility: moderate
+      section_232: high
+      reference_pricing_contagion: low_moderate
+      biosimilar: post_2030
+
+  - name: Evrysdi
+    inn: risdiplam
+    indication: Spinal muscular atrophy
+    mechanism: Oral SMN2 splicing modifier
+    fy25_global_chfm: 1757
+    fy25_us_chfm: 612
+    us_share: 0.348
+    growth_cer_fy25: 0.13
+    growth_chf_fy25: 0.10
+    franchise_role: Growth specialty; oral SMA franchise
+    exposures:
+      mfn: not_in_scope_dec_2025
+      ira_round_3: not_selected
+      ira_forward_eligibility: moderate  # oral, single-source, high Part D
+      section_232: low  # small molecule, manufacturing flexible
+      reference_pricing_contagion: moderate
+      biosimilar: post_2030
+    notes: |
+      Oral SMA option vs Spinraza (Biogen) intrathecal and Zolgensma gene therapy.
+      Heavy ex-US share (EMEA, JP).
+
+  - name: Alecensa
+    inn: alectinib
+    indication: ALK+ non-small cell lung cancer
+    mechanism: ALK tyrosine-kinase inhibitor (oral)
+    fy25_global_chfm: 1562
+    fy25_us_chfm: 565
+    us_share: 0.362
+    growth_cer_fy25: 0.06
+    growth_chf_fy25: 0.14
+    franchise_role: Targeted oncology growth
+    exposures:
+      mfn: not_in_scope_dec_2025
+      ira_round_3: not_selected
+      ira_forward_eligibility: moderate
+      section_232: low  # small molecule
+      reference_pricing_contagion: moderate
+      biosimilar: post_2030  # patent runway
+    notes: |
+      China contribution growing (NRDL listed).
+
+  - name: Polivy
+    inn: polatuzumab vedotin
+    indication: Diffuse large B-cell lymphoma
+    mechanism: Anti-CD79b antibody-drug conjugate
+    fy25_global_chfm: 1470
+    fy25_us_chfm: 688
+    us_share: 0.468
+    growth_cer_fy25: 0.38
+    growth_chf_fy25: 0.28
+    franchise_role: Fast-growing oncology ADC
+    exposures:
+      mfn: not_in_scope_dec_2025
+      ira_round_3: not_selected
+      ira_forward_eligibility: moderate
+      section_232: high  # ADC manufacturing complex, Swiss-origin
+      reference_pricing_contagion: moderate
+      biosimilar: post_2030
+    notes: |
+      China NRDL listing 2023 driving global growth.
+
+# ---------------------------------------------------------------------------
+# Pipeline assets — not in FY25 revenue but central to 2027-2031 outlook
+# ---------------------------------------------------------------------------
+pipeline:
+  - name: Trontinemab
+    indication: Alzheimer's disease (mild-moderate)
+    mechanism: Brain-shuttle anti-amyloid (transferrin receptor delivery)
+    phase: Phase 3 (TRONTIER 1, TRONTIER 2)
+    readout_target: 2028+
+    peak_addressable_chfb: "5-15"  # at full label, modest penetration
+    peak_constrained_chfb: "3-7"   # if launched into IRA-eligible mode
+    exposures:
+      mfn: launch_dependent
+      ira_eligibility: high  # high Part D spend, single-source, biologic 11-yr eligibility
+      reference_pricing_contagion: very_high  # launch pricing sets global benchmark
+    notes: |
+      Defines the "trontinemab launch architecture" asymmetry — CHF 20-30B NPV swing.
+      Brain-shuttle platform value extends to FcRn, sortilin programs beyond trontinemab itself.
+      Black swan exposure: TRONTIER platform safety failure (see black-swans #4).
+
+  - name: Itovebi
+    inn: inavolisib
+    indication: PIK3CA-mutated HR+/HER2- breast cancer
+    mechanism: PI3K alpha-selective inhibitor (oral)
+    phase: Approved Oct 2024
+    notes: |
+      Recently launched. Early ramp not yet a top-20 contributor.
+
+# ---------------------------------------------------------------------------
+# Portfolio rollups for scenario modeling
+# ---------------------------------------------------------------------------
+rollups:
+  top_5_growth_drivers:
+    drugs: [Phesgo, Xolair, Ocrevus, Hemlibra, Vabysmo]
+    fy25_chfb: 21.4  # Roche-disclosed combined total
+    fy25_us_chfb: 14.18  # sum of US lines
+    pct_of_pharma: 0.449
+    source: "Roche FY25 IR Update, 29 Jan 2026"
+
+  top_10:
+    fy25_chfb: 33.0  # approximate sum of top-10 by global sales
+    pct_of_pharma: 0.692
+
+  high_wac_biologics_ex_us:
+    drugs: [Ocrevus, Hemlibra, Vabysmo, Tecentriq, Phesgo, Perjeta]
+    fy25_ex_us_chfb: 7.3  # approximate sum of (global - US) for these six
+    note: |
+      Primary reference-pricing-contagion exposure: high-WAC biologics where confidential
+      ex-US net prices anchor the affordability case. Spillover impact = 20-40% × this base.
+
+  us_pharma_concentration_top_5:
+    fy25_us_chfb: 15.21  # Ocrevus 4.874 + Hemlibra 2.665 + Vabysmo 2.857 + Xolair 3.075 + Tecentriq 1.640
+    pct_of_us_pharma: 0.600
+    note: |
+      60% of US Pharma revenue is concentrated in the top-5 single-source biologics.
+      Section 232 and MFN scope-creep both have asymmetric impact on this concentration.

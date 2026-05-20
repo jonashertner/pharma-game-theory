@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Financial translation — Roche pharma-pricing negotiation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/passcode.js"></script>
+<script src="assets/commandk.js" defer></script>
+<script src="assets/toc.js" defer></script>
+
+</head>
+<body>
+
+<input type="checkbox" id="mobile-menu-toggle" class="mobile-toggle" aria-label="Toggle menu">
+
+<header class="site-header">
+  <div class="inner">
+    <a href="index.html" class="brand">Roche negotiation</a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="one-pager.html">One-pager</a>
+        <a href="briefing.html">Executive briefing</a>
+        <a href="bottom-line.html">Bottom line</a>
+        <a href="black-swans.html">Black swans</a>
+        <a href="financial-translation.html" class="active">Financial translation</a>
+        <a href="simulation.html">Live simulation</a>
+        <a href="playground.html">Playground</a>
+        <a href="actors.html">Actors</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="palette-trigger" class="palette-trigger" type="button" aria-label="Search the site">
+        <span class="label">Search</span>
+        <kbd>⌘K</kbd>
+      </button>
+      <label for="mobile-menu-toggle" class="menu-toggle" aria-label="Open menu" role="button" tabindex="0">
+        <span class="menu-toggle-label">Menu</span>
+        <span class="bars" aria-hidden="true"></span>
+      </label>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" aria-label="Mobile navigation">
+      <div class="mobile-group-head">Read</div>
+      <a href="one-pager.html">One-pager</a>
+      <a href="briefing.html">Executive briefing</a>
+      <a href="bottom-line.html">Bottom line</a>
+      <a href="black-swans.html">Black swans</a>
+      <a href="financial-translation.html" class="active">Financial translation</a>
+      <a href="index.html">Overview</a>
+      <a href="recommendation.html">Recommendation</a>
+      <a href="item-1.html">Item 1 unpacked</a>
+      <a href="adversarial.html">Red team</a>
+      <a href="cross-domain.html">Cross-domain</a>
+      <a href="cross-domain-depth.html">Cross-domain (depth)</a>
+      <a href="ai-implications.html">AI implications</a>
+      <a href="dynamics.html">Dynamics</a>
+      <a href="disclosures.html">Disclosures</a>
+      <a href="mfn-deals.html">MFN deals</a>
+      <a href="global-pricing.html">Global pricing</a>
+      <div class="mobile-group-head">Explore</div>
+      <a href="simulation.html">Live simulation</a>
+      <a href="playground.html">Playground</a>
+      <div class="mobile-group-head">Reference</div>
+      <a href="actors.html">Actors</a>
+      <a href="positions.html">Positions</a>
+      <a href="prompts.html">Prompts</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="method.html">Method</a>
+      <div class="meta-line">snapshot 20 May 2026</div>
+</nav>
+
+<main id="main-content" class="wide" tabindex="-1">
+<a href="index.html" class="back-link">Overview</a>
+
+<div class="prose-article financial-translation-article">
+<h1 id="financial-translation-drugs-exposures-scenarios">Financial translation &mdash; drugs, exposures, scenarios</h1>
+<div class="memo-meta">
+<p><strong>To:</strong> Roche Executive Committee &middot; <strong>From:</strong> Strategic-analysis working group &middot; <strong>Date:</strong> 20 May 2026 &middot; <strong>Read time:</strong> 15 minutes</p>
+</div>
+<h2 id="what-this-is">What this is</h2>
+<p>The <a href="dynamics.html">model layer</a> outputs ordinal payoff weights. The <a href="bottom-line.html">bottom-line analysis</a> compresses those into three CHF NPV asymmetries (reference-pricing contagion CHF 25&ndash;60B, trontinemab launch architecture CHF 20&ndash;30B, stranded US capex CHF 4&ndash;10B). This memo defends &mdash; or refines &mdash; those numbers bottom-up. It maps each of the 13 model issues onto Roche&apos;s top-12 marketed drugs and the trontinemab pipeline, computes 2027&ndash;2031 revenue paths under each decision-tree branch, and rolls up to portfolio impact.</p>
+<p><strong>Sourcing standard.</strong> Every FY2025 revenue figure is from the Roche FY25 IR Update of 29 January 2026 (<a href="https://www.roche.com/investors/updates/inv-update-2026-01-29">source</a>). Forward-year projections are derived from disclosed growth rates &times; explicit assumption sets; assumptions are tabled in the appendix. Where a per-drug US share is computed from disclosed lines it is shown precisely; where it is estimated, it is flagged.</p>
+<h2 id="the-portfolio-at-a-glance-fy2025">The portfolio at a glance &mdash; FY2025</h2>
+<p>Pharmaceuticals Division total: <strong>CHF 47,669m</strong> (+9% CER, +3% CHF). US Pharma: <strong>CHF 25,355m</strong> (+8% CER), <strong>53.2% of Pharma</strong>. The top-5 growth drivers combined: <strong>CHF 21.4B</strong>, 45% of Pharma. The top-12 below cover <strong>CHF 37.2B</strong>, <strong>78% of Pharma</strong>.</p>
+<table class="product-portfolio">
+<thead>
+<tr>
+<th>#</th><th>Drug</th><th>FY25 global</th><th>+/&minus; CER</th><th>FY25 US</th><th>US share</th><th>Primary exposure</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><strong>Ocrevus</strong></td><td>7,010</td><td>+9%</td><td>4,874</td><td>69.5%</td><td>Refp contagion (very high); Section 232 (high)</td></tr>
+<tr><td>2</td><td><strong>Hemlibra</strong></td><td>4,754</td><td>+11%</td><td>2,665</td><td>56.1%</td><td>Refp contagion (very high); Section 232 (high)</td></tr>
+<tr><td>3</td><td><strong>Vabysmo</strong></td><td>4,102</td><td>+12%</td><td>2,857</td><td>69.7%</td><td>Refp contagion (high); future IRA Part B candidate</td></tr>
+<tr><td>4</td><td><strong>Tecentriq</strong></td><td>3,566</td><td>+3%</td><td>1,640</td><td>46.0%</td><td>Biosimilar (late 2020s); declining baseline</td></tr>
+<tr><td>5</td><td><strong>Xolair</strong></td><td>3,075</td><td>+32%</td><td>3,075</td><td>100%*</td><td><strong>IRA Round 3 locked in</strong>; biosimilar Sept 2026</td></tr>
+<tr><td>6</td><td><strong>Perjeta</strong></td><td>2,968</td><td>&minus;13%</td><td>1,268</td><td>42.7%</td><td>Internal cannibalisation by Phesgo</td></tr>
+<tr><td>7</td><td><strong>Actemra</strong></td><td>2,470</td><td>&minus;2%</td><td>1,206</td><td>48.8%</td><td>Biosimilar (live); already in decline</td></tr>
+<tr><td>8</td><td><strong>Phesgo</strong></td><td>2,441</td><td>+48%</td><td>708</td><td>29.0%</td><td>Refp contagion (moderate); Perjeta substitute</td></tr>
+<tr><td>9</td><td><strong>Kadcyla</strong></td><td>2,025</td><td>+7%</td><td>768</td><td>37.9%</td><td>Refp contagion (low-moderate)</td></tr>
+<tr><td>10</td><td><strong>Evrysdi</strong></td><td>1,757</td><td>+13%</td><td>612</td><td>34.8%</td><td>Refp contagion (moderate); ex-US heavy</td></tr>
+<tr><td>11</td><td><strong>Alecensa</strong></td><td>1,562</td><td>+6%</td><td>565</td><td>36.2%</td><td>Refp contagion (moderate); long runway</td></tr>
+<tr><td>12</td><td><strong>Polivy</strong></td><td>1,470</td><td>+38%</td><td>688</td><td>46.8%</td><td>Section 232 (high — ADC); China NRDL exposure</td></tr>
+<tr><td colspan="2"><em>Top-12 total</em></td><td><em>37,200</em></td><td></td><td><em>20,926</em></td><td><em>56.3%</em></td><td></td></tr>
+<tr><td colspan="2"><em>% of Pharma Division</em></td><td><em>78.0%</em></td><td></td><td><em>82.5%</em></td><td></td><td></td></tr>
+</tbody>
+</table>
+
+<p><small>* Xolair: Roche books US revenue only; Novartis books ex-US. Combined Xolair franchise is materially larger; only the Roche line is shown.</small></p>
+<p><strong>The concentration story.</strong> The top-5 single-source biologics &mdash; Ocrevus, Hemlibra, Vabysmo, Xolair, Tecentriq &mdash; account for <strong>CHF 15.2B of US Pharma revenue, or 60% of the US Pharma total</strong>. Any scenario that perturbs these five disproportionately moves the portfolio. The remaining 40% is more diversified and more biosimilar-eroded; its forward-scenario sensitivity is lower.</p>
+<h2 id="the-five-exposures-how-the-13-model-issues-map-to-drug-economics">The five exposures &mdash; how the 13 model issues map to drug economics</h2>
+<p>The model&apos;s 13 negotiation issues collapse into five distinct CHF-impact mechanisms when translated to product economics.</p>
+<h3 id="exposure-a-ira-maximum-fair-price">Exposure A &mdash; IRA Maximum Fair Price</h3>
+<p><strong>Mapped from:</strong> Issue 2 (IRA MFP), partly Issue 10 (patent / pill-penalty), partly Issue 11 (IP).</p>
+<p><strong>Mechanism.</strong> Selected drug pays MFP as net price to Medicare beneficiaries; effective 7-year (small molecule) or 11-year (biologic) post-launch eligibility window; CMS-disclosed price cuts in Round 1 ranged from 38&ndash;79% off WAC.</p>
+<p><strong>Roche current exposure.</strong> <strong>Xolair only</strong> (Round 3, MFP effective 1 January 2028). Estimated MFP cut 50&ndash;65% off WAC based on Round 1/2 precedent. Annual revenue impact at Xolair scale: <strong>CHF 1.0&ndash;1.5B/year US revenue lost from 1 Jan 2028</strong>, partially offset by volume retention and partially compounded by Sept 2026 biosimilar entry.</p>
+<p><strong>Forward exposure.</strong> Future rounds: <strong>Vabysmo</strong> is the most likely next-round Part B selection (high Medicare spend, single-source, anti-VEGF class). <strong>Hemlibra</strong> is plausible Round 5+ selection if specialty Part D thresholds tighten. <strong>Ocrevus</strong> is plausible Round 6+ if biosimilar timing slips.</p>
+<h3 id="exposure-b-section-232-tariff">Exposure B &mdash; Section 232 tariff</h3>
+<p><strong>Mapped from:</strong> Issue 3 (Section 232), Issue 4 (manufacturing footprint).</p>
+<p><strong>Mechanism.</strong> Tariff on Swiss-origin biologics imported into the US. Current rate under MFN-deal track: <strong>0% through 20 January 2029</strong>. Statutory rate without deal: 100%. With US&ndash;Switzerland framework but no MFN deal: 15% ceiling.</p>
+<p><strong>Roche current exposure.</strong> All five top biologics (Ocrevus, Hemlibra, Vabysmo, Tecentriq, Xolair) plus Phesgo and Perjeta are largely Swiss-origin (Basel, Kaiseraugst, Penzberg). US revenue at risk = CHF 18B (sum of US lines for these seven). At 15% landed-cost surcharge (the no-deal fallback), the gross-margin hit would be <strong>CHF 2.7B/year</strong>. At 100% (full Section 232), economically unviable on these volumes &mdash; product would shift channels or pricing would be re-engineered.</p>
+<p><strong>Forward exposure.</strong> The 20 Jan 2029 sunset is a cliff. Renewal under a successor administration vs sunset is binary. The $50B US capex plan is designed to shift the manufacturing centre of gravity by 2029&ndash;2031, but the build is in tranches and is not complete by sunset.</p>
+<h3 id="exposure-c-mfn-coverage-and-trumprx-dtc">Exposure C &mdash; MFN coverage and TrumpRx DTC</h3>
+<p><strong>Mapped from:</strong> Issue 1 (MFN coverage), Issue 6 (TrumpRx).</p>
+<p><strong>Mechanism.</strong> MFN-implied net price applies to Medicaid (current scope) or expands to Medicare/commercial (forward scope creep). TrumpRx DTC channel offers manufacturer-discount platform.</p>
+<p><strong>Roche current exposure.</strong> <strong>None of the top-7 biologics is in MFN scope as of December 2025.</strong> Only Xofluza was ceded for Medicaid MFN access. The exposure here is forward, not current.</p>
+<p><strong>Forward exposure.</strong> If MFN scope expands to commercial markets (2028+ policy possibility), Vabysmo / Ocrevus / Hemlibra could be pulled in. At MFN-implied prices (referencing G7 average), the net-price haircut is 30&ndash;50% vs current WAC. The 2028 election outcome dominates this exposure.</p>
+<h3 id="exposure-d-international-reference-pricing-contagion">Exposure D &mdash; International reference-pricing contagion</h3>
+<p><strong>Mapped from:</strong> Issue 7 (international reference-pricing protection), Issue 12 (diplomatic carve-outs).</p>
+<p><strong>Mechanism.</strong> If US net prices (whether IRA-set, MFN-implied, or TrumpRx-disclosed) become legible to EU AMNOG, UK NICE, Swiss BAG, JP NHI, or other reference-pricing jurisdictions, the <strong>confidential-rebate architecture</strong> that supports current ex-US net prices erodes. The mechanism operates either as gradual leakage (each AMNOG cycle resets downward) or as forced disclosure (EU pharmaceutical strategy mandates transparency).</p>
+<p><strong>Roche current exposure.</strong> <strong>The largest single exposure.</strong> High-WAC biologics ex-US = <strong>CHF 7.3B/year</strong> (sum of global &minus; US for the top six biologics). Spillover impact ranges:</p>
+<ul>
+<li><em>Gradual spillover (low):</em> 15&ndash;25% net-price erosion on confidential-rebate biologics &asymp; <strong>CHF 1.1&ndash;1.8B/year</strong> EBIT impact.</li>
+<li><em>Aggressive spillover (central):</em> 30&ndash;40% net-price erosion &asymp; <strong>CHF 2.2&ndash;2.9B/year</strong>.</li>
+<li><em>EU forced disclosure (tail):</em> full confidential-net exposure on broader ex-US specialty portfolio &asymp; <strong>CHF 4&ndash;7B/year</strong>.</li>
+</ul>
+<p>Plus second-order US drag: if reference-pricing contagion pulls down ex-US prices, US commercial channels following Medicare/Medicaid benchmarks see additional 0.5&times;&ndash;1.0&times; of the ex-US impact. Total annual EBIT swing thus <strong>CHF 2&ndash;11B/year</strong> depending on spillover scenario.</p>
+<h3 id="exposure-e-biosimilar-loss-of-exclusivity">Exposure E &mdash; Biosimilar / loss-of-exclusivity</h3>
+<p><strong>Mapped from:</strong> Issue 10 (patent / pill-penalty), Issue 11 (IP), market mechanics.</p>
+<p><strong>Mechanism.</strong> Patent expiry and biosimilar entry erode net price and volume. Acute erosion in first 3 years post-LOE; baseline reset thereafter.</p>
+<p><strong>Roche current exposure.</strong> Drugs already eroded: Avastin, Herceptin, MabThera/Rituxan (down 17&ndash;22% in 2025), Actemra (multiple biosimilars), Lucentis (Susvimo plus competitor biosims). Drugs facing entry in window: <strong>Xolair (Sept 2026 biosim launch)</strong>. Drugs with long runway: Vabysmo (post-2032), Hemlibra (post-2030), Ocrevus (late 2030s in EU, biosim signal building in US).</p>
+<p><strong>Forward exposure.</strong> The Ocrevus biosim signal in 2030&ndash;2032 is the largest single LOE event in the portfolio &mdash; CHF 5B+ revenue at risk over 3 years post-entry depending on biosimilar uptake curves and Ocrevus SC formulation defensibility.</p>
+<h2 id="per-drug-deep-dives-the-five-highest-leverage-products">Per-drug deep dives &mdash; the five highest-leverage products</h2>
+<h3 id="ocrevus-chf-70b-70-us-the-cornerstone">Ocrevus &mdash; CHF 7.0B, 70% US, the cornerstone</h3>
+<p>Ocrevus is <strong>20% of Roche US Pharma revenue all by itself</strong>. The 2027&ndash;2031 base case assumes +6% CER growth (conservative vs the FY25 +9%) to a 2031 run-rate of CHF 9.4B, of which ~CHF 6.5B US.</p>
+<p><strong>Scenario impacts (5-year cumulative revenue, CHF):</strong></p>
+<ul>
+<li><em>Branch A (firewall executes):</em> base case CHF 41B cumulative 2027&ndash;2031. Minor refp contagion, no MFN scope creep, Section 232 stays at 0%. Ocrevus SC franchise extends value.</li>
+<li><em>Branch B (conditional):</em> base &minus; CHF 0.5&ndash;1B cumulative.</li>
+<li><em>Branch C (defer to Q3 2026):</em> base &minus; CHF 1&ndash;2B cumulative (window of vulnerability extended).</li>
+<li><em>Branch D (reject firewall):</em> base &minus; CHF 4&ndash;8B cumulative if severe spillover; up to &minus;CHF 12B if EU forced disclosure occurs.</li>
+</ul>
+<p><strong>Why Ocrevus carries the most contagion risk in absolute terms.</strong> The combination of (a) highest US revenue line in the portfolio, (b) high confidential ex-US net prices (CHF 2.1B ex-US revenue at large per-patient WAC), and (c) Genentech-launched single-net-price model means a single AMNOG reset cascades quickly. The 2030&ndash;2032 biosimilar signal compounds the urgency &mdash; refp contagion in 2027&ndash;2029 reduces NPV that would otherwise be defended by SC formulation extension and lifecycle management.</p>
+<h3 id="hemlibra-chf-475b-56-us-the-specialty-bellwether">Hemlibra &mdash; CHF 4.75B, 56% US, the specialty bellwether</h3>
+<p>Hemlibra&apos;s ~$500&ndash;700K/patient annual WAC sits at the extreme end of the confidential-rebate architecture. Ex-US net prices are a fraction of WAC. Forced disclosure or aggressive spillover hits Hemlibra harder in percentage terms than any other product.</p>
+<p><strong>Scenario impacts (5-year cumulative revenue, CHF):</strong></p>
+<ul>
+<li><em>Branch A:</em> base case CHF 28B cumulative 2027&ndash;2031 (+10% CER assumed).</li>
+<li><em>Branch D:</em> &minus;CHF 3&ndash;6B cumulative in severe-spillover; &minus;CHF 8&ndash;12B in forced-disclosure tail.</li>
+</ul>
+<p><strong>Forward IRA risk.</strong> Hemlibra is a plausible Round 5+ specialty Part D candidate if CMS extends selection thresholds to small-population specialty drugs. The Round 3 selection of Xolair (a smaller population than typical Round 1/2 selections) signals CMS appetite for specialty.</p>
+<h3 id="vabysmo-chf-41b-70-us-the-ira-part-b-target">Vabysmo &mdash; CHF 4.1B, 70% US, the IRA Part B target</h3>
+<p>The fastest-growing major (+12% CER). Most likely next-round IRA Part B candidate among Roche products: high Medicare Part B spend, single-source mechanism, growing patient population.</p>
+<p><strong>Scenario impacts (5-year cumulative revenue, CHF):</strong></p>
+<ul>
+<li><em>Branch A:</em> base case CHF 27B cumulative (+12% CER held for 3 years, slowing to +6%).</li>
+<li><em>Branch D + Vabysmo IRA Round 5 selection:</em> &minus;CHF 6&ndash;9B cumulative.</li>
+</ul>
+<p><strong>Susvimo franchise defense.</strong> The Susvimo refillable port extends franchise NPV but does not block IRA selection on the underlying anti-VEGF mechanism. The defensive move is <strong>launch differentiation under a new code</strong> rather than reliance on patent extension.</p>
+<h3 id="xolair-chf-308b-us-the-locked-in-ira-hit">Xolair &mdash; CHF 3.08B US, the locked-in IRA hit</h3>
+<p>Xolair&apos;s IRA Round 3 selection is settled. MFP effective 1 January 2028. Biosimilar Omlyclo expected September 2026 &mdash; biosim erosion begins <em>before</em> IRA MFP takes effect.</p>
+<p><strong>Scenario impacts (5-year cumulative revenue, CHF):</strong></p>
+<ul>
+<li><em>All branches:</em> CHF 8&ndash;11B cumulative 2027&ndash;2031 (down from a CHF 15B+ trajectory absent IRA + biosim).</li>
+<li>Branch differentials are small for Xolair &mdash; the hit is locked in; the firewall annex does not change this.</li>
+</ul>
+<p><strong>Calibration value.</strong> Xolair is the test case for forward IRA cuts. If Xolair&apos;s effective net-price cut comes in at the low end of the Round 1/2 range (~40&ndash;50%), forward-IRA scenarios for Vabysmo/Hemlibra should be modelled toward the lower end; if at the high end (~70&ndash;80%), forward scenarios should be modelled toward the upper end.</p>
+<h3 id="the-perjeta-phesgo-franchise-chf-54b-combined-stable">The Perjeta + Phesgo franchise &mdash; CHF 5.4B combined, stable</h3>
+<p>Perjeta is declining (&minus;13% CER) as Phesgo absorbs patients (+48% CER). Combined franchise stable at CHF 5.4B. The SC combo product has materially better COGS (subcutaneous vs IV infusion logistics) and similar net price &mdash; <em>gross margin</em> on the franchise is improving even though gross revenue is flat.</p>
+<p><strong>Scenario impacts.</strong> Lower than other top-5 because (a) combined franchise less exposed to refp contagion than the pure biologics, (b) US share is only 29% for Phesgo, lower asymmetry. Branch A vs D differential ~CHF 2&ndash;4B cumulative.</p>
+<h2 id="the-scenario-engine-portfolio-rollup">The scenario engine &mdash; portfolio rollup</h2>
+<p>Mapping the five exposures across the top-12 marketed portfolio plus trontinemab pipeline under each decision-tree branch:</p>
+<table class="scenario-rollup">
+<thead>
+<tr>
+<th>Branch</th>
+<th>Refp contagion</th>
+<th>Section 232</th>
+<th>MFN expansion</th>
+<th>Forward IRA</th>
+<th>Trontinemab launch</th>
+<th>5-yr cumulative impact vs base</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A &mdash; Endorse all</strong></td>
+<td>Blocked</td>
+<td>0% to sunset</td>
+<td>Held at MFN-Medicaid only</td>
+<td>Xolair only (locked)</td>
+<td>Optionality preserved</td>
+<td><strong>Base (CHF 0)</strong></td>
+</tr>
+<tr>
+<td><strong>B &mdash; Conditional</strong></td>
+<td>Partial block</td>
+<td>0% to sunset</td>
+<td>Held</td>
+<td>Xolair only</td>
+<td>Optionality preserved</td>
+<td>&minus;CHF 3&ndash;6B</td>
+</tr>
+<tr>
+<td><strong>C &mdash; Defer to Q3 2026</strong></td>
+<td>Gradual spillover starts</td>
+<td>0% to sunset</td>
+<td>Held</td>
+<td>Xolair only</td>
+<td>Delay decision absorbs cost</td>
+<td>&minus;CHF 6&ndash;12B</td>
+</tr>
+<tr>
+<td><strong>D &mdash; Reject firewall</strong></td>
+<td>Severe to forced</td>
+<td>0% to sunset (capex justified)</td>
+<td>Stays in scope</td>
+<td>Xolair + Vabysmo Round 5</td>
+<td>Constrained launch</td>
+<td>&minus;CHF 18&ndash;32B (without forced disclosure); &minus;CHF 35&ndash;55B (with)</td>
+</tr>
+</tbody>
+</table>
+
+<p>Plus the trontinemab pipeline asymmetry, which is largely orthogonal to the four-branch firewall decision:</p>
+<ul>
+<li><em>Trontinemab launches at full label, pre-IRA-eligible window:</em> CHF 25&ndash;40B NPV captured (2028&ndash;2035).</li>
+<li><em>Trontinemab launches into IRA-eligible mode:</em> CHF 12&ndash;20B NPV captured.</li>
+<li><em>Trontinemab Phase 3 fails on safety (black swan #4):</em> CHF 25&ndash;40B written off plus platform franchise impact.</li>
+</ul>
+<p>And the US capex strategic-purpose asymmetry, also orthogonal:</p>
+<ul>
+<li><em>Section 232 renewed past 2029 (2028 populist successor scenario):</em> +CHF 6&ndash;12B capex revaluation as tariff insurance.</li>
+<li><em>Section 232 sunsets without renewal:</em> &minus;CHF 4&ndash;10B carrying-cost-only asset.</li>
+</ul>
+<h2 id="calibration-vs-the-bottom-line-claims">Calibration vs the bottom-line claims</h2>
+<p>The <a href="bottom-line.html">bottom-line analysis</a> claimed three asymmetry ranges. The financial-translation math supports them with the following refinements:</p>
+<ol>
+<li>
+<p><strong>Reference-pricing contagion: claimed CHF 25&ndash;60B NPV swing &rarr; refined to CHF 18&ndash;55B over 2027&ndash;2031</strong>, with the band splitting as:
+   - <em>Mild spillover:</em> CHF 18&ndash;28B (the central case under Branch D).
+   - <em>Severe spillover or forced disclosure:</em> CHF 35&ndash;55B.
+   - The CHF 60B upper bound is only reachable in a forced-disclosure scenario that combines black swan #3 (EU transparency mandate) with Branch D. Probability-weighted, the <em>expected</em> contagion exposure is closer to CHF 22&ndash;30B.</p>
+</li>
+<li>
+<p><strong>Trontinemab launch architecture: claimed CHF 20&ndash;30B NPV swing &rarr; confirmed at CHF 15&ndash;35B</strong>, with the band splitting as:
+   - <em>Launch pre-IRA-eligible vs IRA-constrained:</em> CHF 15&ndash;20B.
+   - <em>Launch successful vs Phase 3 platform failure:</em> CHF 25&ndash;40B.
+   - The two scenarios are not additive; treat as alternative paths.</p>
+</li>
+<li>
+<p><strong>Strategic purpose of the $50B US capex: claimed CHF 4&ndash;10B NPV swing &rarr; confirmed at CHF 4&ndash;12B</strong>, with upside skew if 2028 election produces extended tariff regime.</p>
+</li>
+</ol>
+<p><strong>Net.</strong> The bottom-line ranges hold up against bottom-up product math, with the contagion claim trimmed slightly at the high end (the CHF 60B was only reachable in tail-conditional scenarios). The trontinemab and capex ranges are confirmed.</p>
+<h2 id="what-this-changes-for-the-2026-board-agenda">What this changes for the 2026 board agenda</h2>
+<p>Three implications fall directly out of the financial-translation work:</p>
+<ol>
+<li>
+<p><strong>The top-5 single-source biologics are 60% of US Pharma revenue.</strong> This concentration is the lever the firewall annex protects. The <a href="item-1.html">Item 1 unpacked</a> action plan should reference this concentration explicitly as the asset under protection &mdash; not the contagion risk abstractly.</p>
+</li>
+<li>
+<p><strong>Vabysmo is the most likely next-round IRA Part B selection.</strong> A 2026 work-stream should pre-stage Vabysmo&apos;s forward-IRA defence: differentiation through Susvimo, indication sequencing, payer-channel optionality, and pre-negotiation with CMS through industry channels.</p>
+</li>
+<li>
+<p><strong>The Perjeta &rarr; Phesgo substitution is a quiet win &mdash; it should not be quietly absorbed.</strong> The franchise economics improved meaningfully (lower COGS, similar net price) without any 2026 decision. Communicate this to investors as a portfolio-management capability example, supporting the credibility of forward franchise-defence claims (Ocrevus SC, Tecentriq Hybreza, Vabysmo Susvimo).</p>
+</li>
+</ol>
+<h2 id="assumptions-appendix">Assumptions appendix</h2>
+<p>All forward projections use these defaults unless flagged otherwise in-text.</p>
+<ul>
+<li><strong>Discount rate:</strong> 10% (Roche WACC consensus range 8&ndash;11%; using midpoint).</li>
+<li><strong>CHF/USD:</strong> held at FY25 level for simplicity; FX is a layer above the strategic scenarios.</li>
+<li><strong>Base-case growth (top-12):</strong> drug-specific from FY25 CER &times; convergence to long-run +4% by 2030. Specifically:</li>
+<li>Ocrevus: +9% &rarr; +6% by 2030</li>
+<li>Hemlibra: +11% &rarr; +6% by 2030</li>
+<li>Vabysmo: +12% &rarr; +8% by 2030</li>
+<li>Tecentriq: +3% &rarr; flat by 2028</li>
+<li>Xolair: +32% &rarr; &minus;15% post-biosim (Sept 2026) &rarr; &minus;30% post-IRA (Jan 2028)</li>
+<li>Perjeta: &minus;13% &rarr; cannibalisation complete by 2028</li>
+<li>Actemra: &minus;2% &rarr; &minus;8% biosim erosion</li>
+<li>Phesgo: +48% &rarr; +15% by 2029 as substitution completes</li>
+<li>Kadcyla, Polivy, Evrysdi, Alecensa: drug-specific moderate growth</li>
+<li><strong>IRA price cuts:</strong> modelled at 55% off WAC (midpoint of Round 1/2 disclosed range 38&ndash;79%) for any selected drug.</li>
+<li><strong>Section 232 scenarios:</strong></li>
+<li>Branch A&ndash;C: 0% to 20 January 2029, then 0% if renewed under successor (treated as 50/50 absent successor signal).</li>
+<li>Branch D: 0% to sunset, then 15% post-sunset (US-Switzerland framework rate without MFN-deal preference).</li>
+<li><strong>Reference-pricing contagion scenarios:</strong></li>
+<li><em>Mild:</em> 20% net-price erosion on ex-US confidential-rebate biologics, gradual over 3-year window.</li>
+<li><em>Severe:</em> 35% net-price erosion plus 50% US commercial drag.</li>
+<li><em>Forced disclosure:</em> 50% net-price erosion plus 80% US commercial drag, compressed into 12&ndash;18 months.</li>
+<li><strong>Trontinemab penetration:</strong></li>
+<li><em>Pre-IRA-eligible launch:</em> 8% peak penetration of mild-moderate AD market by year 5, $30K annual WAC, 65% gross margin.</li>
+<li><em>IRA-constrained launch:</em> 5% peak penetration, $22K post-MFP WAC, 60% gross margin.</li>
+<li><strong>Biosimilar erosion curves:</strong> 30% volume loss + 25% price erosion in year 1; 60% volume loss + 35% price erosion in year 3 (anti-CD20 / anti-IgE archetype).</li>
+<li><strong>US-Pharma share by drug:</strong> disclosed in Roche FY25 IR Update except where flagged.</li>
+</ul>
+<hr>
+<p><strong>See also:</strong> <a href="bottom-line.html">Bottom line</a> &middot; <a href="black-swans.html">Black swans</a> &middot; <a href="briefing.html">Executive briefing</a> &middot; <a href="item-1.html">Item 1 firewall annex unpacked</a> &middot; data file: <a href="https://github.com/jonashertner/pharma-game-theory/blob/main/data/products.yaml"><code>data/products.yaml</code></a></p>
+</div>
+
+
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <span>Independent public-source analysis · snapshot 20 May 2026 · restricted access</span>
+    <span>Not an official Roche document · <a href="method.html">method &amp; limits</a></span>
+  </div>
+</footer>
+
+<script>
+// Close mobile menu when a link is tapped.
+document.querySelectorAll(".mobile-nav a").forEach(a => {
+  a.addEventListener("click", () => {
+    document.getElementById("mobile-menu-toggle").checked = false;
+  });
+});
+</script>
+
+</body>
+</html>

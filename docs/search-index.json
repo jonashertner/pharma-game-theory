@@ -1,5 +1,10 @@
 [
 {
+"page": "one-pager.html",
+"title": "One-pager",
+"sections": []
+},
+{
 "page": "briefing.html",
 "title": "Executive briefing",
 "sections": [
@@ -168,6 +173,102 @@
 {
 "id": "robust-position-moves-consolidated",
 "label": "Robust-position moves &mdash; consolidated",
+"level": 2
+}
+]
+},
+{
+"page": "financial-translation.html",
+"title": "Financial translation",
+"sections": [
+{
+"id": "what-this-is",
+"label": "What this is",
+"level": 2
+},
+{
+"id": "the-portfolio-at-a-glance-fy2025",
+"label": "The portfolio at a glance &mdash; FY2025",
+"level": 2
+},
+{
+"id": "the-five-exposures-how-the-13-model-issues-map-to-drug-economics",
+"label": "The five exposures &mdash; how the 13 model issues map to drug economics",
+"level": 2
+},
+{
+"id": "exposure-a-ira-maximum-fair-price",
+"label": "Exposure A &mdash; IRA Maximum Fair Price",
+"level": 3
+},
+{
+"id": "exposure-b-section-232-tariff",
+"label": "Exposure B &mdash; Section 232 tariff",
+"level": 3
+},
+{
+"id": "exposure-c-mfn-coverage-and-trumprx-dtc",
+"label": "Exposure C &mdash; MFN coverage and TrumpRx DTC",
+"level": 3
+},
+{
+"id": "exposure-d-international-reference-pricing-contagion",
+"label": "Exposure D &mdash; International reference-pricing contagion",
+"level": 3
+},
+{
+"id": "exposure-e-biosimilar-loss-of-exclusivity",
+"label": "Exposure E &mdash; Biosimilar / loss-of-exclusivity",
+"level": 3
+},
+{
+"id": "per-drug-deep-dives-the-five-highest-leverage-products",
+"label": "Per-drug deep dives &mdash; the five highest-leverage products",
+"level": 2
+},
+{
+"id": "ocrevus-chf-70b-70-us-the-cornerstone",
+"label": "Ocrevus &mdash; CHF 7.0B, 70% US, the cornerstone",
+"level": 3
+},
+{
+"id": "hemlibra-chf-475b-56-us-the-specialty-bellwether",
+"label": "Hemlibra &mdash; CHF 4.75B, 56% US, the specialty bellwether",
+"level": 3
+},
+{
+"id": "vabysmo-chf-41b-70-us-the-ira-part-b-target",
+"label": "Vabysmo &mdash; CHF 4.1B, 70% US, the IRA Part B target",
+"level": 3
+},
+{
+"id": "xolair-chf-308b-us-the-locked-in-ira-hit",
+"label": "Xolair &mdash; CHF 3.08B US, the locked-in IRA hit",
+"level": 3
+},
+{
+"id": "the-perjeta-phesgo-franchise-chf-54b-combined-stable",
+"label": "The Perjeta + Phesgo franchise &mdash; CHF 5.4B combined, stable",
+"level": 3
+},
+{
+"id": "the-scenario-engine-portfolio-rollup",
+"label": "The scenario engine &mdash; portfolio rollup",
+"level": 2
+},
+{
+"id": "calibration-vs-the-bottom-line-claims",
+"label": "Calibration vs the bottom-line claims",
+"level": 2
+},
+{
+"id": "what-this-changes-for-the-2026-board-agenda",
+"label": "What this changes for the 2026 board agenda",
+"level": 2
+},
+{
+"id": "assumptions-appendix",
+"label": "Assumptions appendix",
 "level": 2
 }
 ]
