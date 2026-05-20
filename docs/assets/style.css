@@ -1336,6 +1336,250 @@ table td.num, table th.num, .num,
 }
 
 /* -----------------------------------------------------------------------------
+ * Executive briefing — board-handout-ready single-page artifact
+ * --------------------------------------------------------------------------- */
+.briefing-card {
+  background: var(--surface);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-lg);
+  padding: var(--s-7) var(--s-7);
+  margin: 0 0 var(--s-8) 0;
+  font-family: var(--font-serif);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+}
+.briefing-card h1 {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.022em;
+  line-height: 1.12;
+  margin: 0 0 var(--s-3) 0;
+  border: none;
+}
+.briefing-card h2 {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: var(--s-7) 0 var(--s-3) 0;
+  border-top: 1px solid var(--hairline);
+  padding-top: var(--s-4);
+  letter-spacing: 0.12em;
+}
+.briefing-card h2:first-of-type, .briefing-card .briefing-meta + h2 { border-top: none; padding-top: 0; margin-top: var(--s-4); }
+.briefing-card .briefing-meta {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-bottom: var(--s-5);
+  padding-bottom: var(--s-3);
+  border-bottom: 1px solid var(--hairline);
+}
+.briefing-card p {
+  font-family: var(--font-serif);
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-bottom: var(--s-3);
+}
+.briefing-card ol, .briefing-card ul {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.briefing-card ol > li, .briefing-card ul > li { margin-bottom: var(--s-2); }
+
+/* Agenda table */
+table.agenda-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--s-4) 0 var(--s-3) 0;
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+table.agenda-table th {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--hairline-strong);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  font-weight: 600;
+}
+table.agenda-table th:first-child { width: 32px; }
+table.agenda-table th:last-child { width: 130px; text-align: center; }
+table.agenda-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--hairline);
+  vertical-align: top;
+  color: var(--ink);
+  line-height: 1.45;
+}
+table.agenda-table td:first-child {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 14px;
+}
+table.agenda-table td:last-child {
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+.action-required { color: var(--accent); }
+.action-discretionary { color: var(--warning); }
+.action-note { color: var(--muted); }
+
+/* Action calendar */
+table.action-calendar {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--s-4) 0 var(--s-5) 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+}
+table.action-calendar th {
+  text-align: left;
+  padding: 9px 12px;
+  background: var(--surface-2);
+  border-bottom: 2px solid var(--hairline-strong);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+}
+table.action-calendar th:first-child { width: 130px; }
+table.action-calendar th:nth-child(3) { width: 240px; }
+table.action-calendar th:nth-child(4) { width: 110px; }
+table.action-calendar td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--hairline);
+  vertical-align: top;
+  line-height: 1.4;
+}
+table.action-calendar td:first-child {
+  font-family: var(--font-mono);
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+table.action-calendar td:nth-child(3) {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--muted);
+}
+table.action-calendar tr:hover td { background: var(--surface-2); }
+
+/* Badges in the action calendar */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 10px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  border: 1px solid currentColor;
+}
+.badge.gate { color: var(--accent); }
+.badge.cliff { color: var(--negative); border-color: var(--negative); font-weight: 700; }
+.badge.external { color: var(--muted); }
+.badge.roche { color: #c1614b; }
+.badge.cross { color: #6b53a4; }
+.badge.ai { color: var(--accent-2); }
+.badge.anchor { color: var(--ink); }
+
+/* Decision tree */
+.decision-tree {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  margin: var(--s-5) 0;
+}
+.branch {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-lg);
+  padding: var(--s-5) var(--s-6);
+}
+.branch-endorse    { border-left-color: var(--positive); }
+.branch-conditional{ border-left-color: var(--accent); }
+.branch-defer      { border-left-color: var(--warning); }
+.branch-reject     { border-left-color: var(--negative); }
+.branch-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  margin-bottom: var(--s-2);
+  color: var(--ink);
+}
+.branch-endorse .branch-label    { color: var(--positive); }
+.branch-conditional .branch-label{ color: var(--accent); }
+.branch-defer .branch-label      { color: var(--warning); }
+.branch-reject .branch-label     { color: var(--negative); }
+.branch-condition {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-2);
+  margin-bottom: var(--s-3);
+  padding-bottom: var(--s-3);
+  border-bottom: 1px solid var(--hairline);
+}
+.branch-action {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.55;
+}
+.branch-action strong { color: var(--ink); font-weight: 600; }
+.branch-action ul {
+  margin: var(--s-2) 0;
+  padding-left: 22px;
+}
+.branch-action li { margin-bottom: var(--s-2); }
+.branch-action ul ul {
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+/* Briefing-specific responsive */
+@media (max-width: 800px) {
+  .briefing-card { padding: var(--s-5) var(--s-5); }
+  .briefing-card h1 { font-size: 26px; }
+  table.agenda-table { font-size: 13px; }
+  table.agenda-table th:last-child { width: 100px; }
+  table.action-calendar { font-size: 12px; }
+  table.action-calendar th:first-child,
+  table.action-calendar td:first-child { width: auto; }
+  table.action-calendar th:nth-child(3),
+  table.action-calendar td:nth-child(3) { display: none; }
+}
+
+/* Print stylesheet for the executive briefing */
+@media print {
+  .briefing-card { box-shadow: none; border: 2px solid black; padding: 18px; page-break-after: avoid; }
+  table.action-calendar { font-size: 10pt; }
+  .branch { page-break-inside: avoid; }
+}
+
+/* -----------------------------------------------------------------------------
  * Print stylesheet
  * --------------------------------------------------------------------------- */
 @media print {

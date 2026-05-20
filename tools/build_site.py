@@ -65,6 +65,7 @@ DISPLAY_NAMES = {
 # on wide laptops; all items are accessible via the Menu overlay and Cmd+K.
 NAV_GROUPS = [
     ("Read", [
+        ("briefing.html", "Executive briefing", True),
         ("index.html", "Overview", True),
         ("recommendation.html", "Recommendation", True),
         ("item-1.html", "Item 1 unpacked", False),
@@ -671,6 +672,26 @@ def build_cross_domain_depth() -> str:
 """
     return layout(title="Cross-domain depth", page_id="cross-domain-depth.html",
                   body=body, main_class="prose")
+
+
+def build_briefing() -> str:
+    """Executive briefing — single board-handout-ready synthesis page."""
+    p = ROOT / "memo" / "executive-briefing.md"
+    raw_md = p.read_text()
+    # The briefing-card div opens with raw HTML; markdown extra extension handles
+    # mixed Markdown-in-HTML correctly when md_in_html is enabled.
+    rendered = markdown.markdown(
+        raw_md,
+        extensions=["extra", "sane_lists", "tables", "toc", "md_in_html"],
+        output_format="html5",
+    )
+    body = f"""
+<div class="prose-article briefing-article">
+{rendered}
+</div>
+"""
+    return layout(title="Executive briefing", page_id="briefing.html",
+                  body=body, main_class="wide", include_pagination=False)
 
 
 def build_item_one() -> str:
@@ -1319,6 +1340,7 @@ def main() -> int:
         print(f"  copied  docs/simulations/{src.name}")
 
     pages = {
+        "briefing.html": build_briefing(),
         "index.html": build_index(),
         "recommendation.html": build_recommendation(),
         "recommendation-detail.html": build_recommendation_detail(),

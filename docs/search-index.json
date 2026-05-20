@@ -1,5 +1,26 @@
 [
 {
+"page": "briefing.html",
+"title": "Executive briefing",
+"sections": [
+{
+"id": "action-calendar-20262030",
+"label": "Action calendar 2026&ndash;2030",
+"level": 2
+},
+{
+"id": "decision-tree-what-each-board-response-triggers",
+"label": "Decision tree &mdash; what each board response triggers",
+"level": 2
+},
+{
+"id": "supporting-reading",
+"label": "Supporting reading",
+"level": 2
+}
+]
+},
+{
 "page": "index.html",
 "title": "Overview",
 "sections": []
