@@ -1580,6 +1580,207 @@ table.action-calendar tr:hover td { background: var(--surface-2); }
 }
 
 /* -----------------------------------------------------------------------------
+ * Bottom-line synthesis — sharpened single-claim strategic analysis
+ * --------------------------------------------------------------------------- */
+.bottom-line-card {
+  background: var(--surface);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-lg);
+  padding: var(--s-7) var(--s-7);
+  margin: 0 0 var(--s-8) 0;
+  font-family: var(--font-serif);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+}
+.bottom-line-card h1 {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.022em;
+  line-height: 1.12;
+  margin: 0 0 var(--s-3) 0;
+  border: none;
+}
+.bottom-line-card h2 {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: var(--s-7) 0 var(--s-3) 0;
+  border-top: 1px solid var(--hairline);
+  padding-top: var(--s-4);
+}
+.bottom-line-card h2:first-of-type,
+.bottom-line-card .bottom-line-meta + h2,
+.bottom-line-card .apex-claim + h2 { border-top: none; padding-top: 0; margin-top: var(--s-5); }
+.bottom-line-card h3 {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: var(--s-5) 0 var(--s-2) 0;
+  letter-spacing: -0.01em;
+}
+.bottom-line-card .bottom-line-meta {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-bottom: var(--s-5);
+  padding-bottom: var(--s-3);
+  border-bottom: 1px solid var(--hairline);
+}
+.bottom-line-card p {
+  font-family: var(--font-serif);
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-bottom: var(--s-3);
+}
+.bottom-line-card ol, .bottom-line-card ul {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.55;
+}
+.bottom-line-card ol > li, .bottom-line-card ul > li { margin-bottom: var(--s-2); }
+
+/* The apex claim — the one sentence the reader should remember */
+.apex-claim {
+  background: linear-gradient(180deg, rgba(30,58,95,0.04), rgba(30,58,95,0.02));
+  border-left: 3px solid var(--accent);
+  border-radius: 4px 8px 8px 4px;
+  padding: var(--s-5) var(--s-6);
+  margin: var(--s-5) 0 var(--s-6) 0;
+}
+.apex-claim p {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+.apex-claim p strong { font-weight: 600; }
+
+/* -----------------------------------------------------------------------------
+ * Black-swans — categorised event cards
+ * --------------------------------------------------------------------------- */
+.black-swans-article .memo-meta {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-bottom: var(--s-6);
+  padding-bottom: var(--s-3);
+  border-bottom: 1px solid var(--hairline);
+}
+.black-swans-article h2 {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin: var(--s-7) 0 var(--s-4) 0;
+  padding-bottom: var(--s-2);
+  border-bottom: 1px solid var(--hairline);
+}
+.black-swans-article h3 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: var(--s-6) 0 var(--s-2) 0;
+  letter-spacing: -0.015em;
+}
+.black-swan-card {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px 8px 8px 4px;
+  padding: var(--s-5) var(--s-6);
+  margin: 0 0 var(--s-5) 0;
+  font-family: var(--font-serif);
+}
+.black-swan-card p {
+  font-family: var(--font-serif);
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin-bottom: var(--s-3);
+}
+.black-swan-card p:last-child { margin-bottom: 0; }
+.black-swan-card ul {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: var(--s-3);
+}
+.black-swan-card ul li { margin-bottom: var(--s-1); }
+.black-swan-card strong { color: var(--ink); font-weight: 600; }
+
+/* Positive-tail card gets a different accent */
+.black-swans-article h2:last-of-type + h3 + .black-swan-card,
+.black-swans-article #positive-tail ~ .black-swan-card,
+.black-swan-card.positive { border-left-color: var(--positive); }
+
+/* Robust-position summary table */
+.black-swans-article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--s-3) 0 var(--s-5) 0;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+}
+.black-swans-article table th {
+  text-align: left;
+  padding: var(--s-2) var(--s-3);
+  border-bottom: 2px solid var(--hairline-strong);
+  color: var(--muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+}
+.black-swans-article table td {
+  padding: var(--s-2) var(--s-3);
+  border-bottom: 1px solid var(--hairline);
+  vertical-align: top;
+  font-family: var(--font-serif);
+  font-size: 14.5px;
+  line-height: 1.45;
+}
+.black-swans-article table td:nth-child(1),
+.black-swans-article table td:nth-child(3),
+.black-swans-article table td:nth-child(4) {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--ink-2);
+}
+.black-swans-article table td:nth-child(2) { width: 55%; }
+
+/* Responsive — bottom-line + black-swans */
+@media (max-width: 800px) {
+  .bottom-line-card { padding: var(--s-5) var(--s-5); }
+  .bottom-line-card h1 { font-size: 26px; }
+  .apex-claim { padding: var(--s-4) var(--s-4); }
+  .apex-claim p { font-size: 17px; }
+  .black-swan-card { padding: var(--s-4) var(--s-4); }
+  .black-swans-article h3 { font-size: 19px; }
+  .black-swans-article table { font-size: 12px; }
+  .black-swans-article table td:nth-child(3),
+  .black-swans-article table td:nth-child(4) { font-size: 11px; }
+}
+
+@media print {
+  .bottom-line-card { box-shadow: none; border: 2px solid black; padding: 18px; }
+  .apex-claim { background: none; border-left: 4px solid black; }
+  .black-swan-card { page-break-inside: avoid; border: 1px solid black; border-left: 4px solid black; box-shadow: none; }
+}
+
+/* -----------------------------------------------------------------------------
  * Print stylesheet
  * --------------------------------------------------------------------------- */
 @media print {

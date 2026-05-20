@@ -66,6 +66,8 @@ DISPLAY_NAMES = {
 NAV_GROUPS = [
     ("Read", [
         ("briefing.html", "Executive briefing", True),
+        ("bottom-line.html", "Bottom line", True),
+        ("black-swans.html", "Black swans", True),
         ("index.html", "Overview", True),
         ("recommendation.html", "Recommendation", True),
         ("item-1.html", "Item 1 unpacked", False),
@@ -142,7 +144,7 @@ def layout(*, title: str, page_id: str, body: str, main_class: str = "prose",
         overlay_groups.append("\n      ".join(m_links))
     desktop_nav = "\n        ".join(inline_links)
     mobile_nav = "\n      ".join(overlay_groups)
-    snapshot = "19 May 2026"
+    snapshot = "20 May 2026"
 
     pagination = _pagination(page_id) if include_pagination and page_id != "index.html" else ""
 
@@ -691,6 +693,40 @@ def build_briefing() -> str:
 </div>
 """
     return layout(title="Executive briefing", page_id="briefing.html",
+                  body=body, main_class="wide", include_pagination=False)
+
+
+def build_bottom_line() -> str:
+    """Bottom-line strategic synthesis — sharpened single-claim analysis."""
+    p = ROOT / "memo" / "bottom-line.md"
+    rendered = markdown.markdown(
+        p.read_text(),
+        extensions=["extra", "sane_lists", "tables", "toc", "md_in_html"],
+        output_format="html5",
+    )
+    body = f"""
+<div class="prose-article bottom-line-article">
+{rendered}
+</div>
+"""
+    return layout(title="Bottom line", page_id="bottom-line.html",
+                  body=body, main_class="wide", include_pagination=False)
+
+
+def build_black_swans() -> str:
+    """Black-swan analysis — nine events with structured robust-position moves."""
+    p = ROOT / "memo" / "black-swans.md"
+    rendered = markdown.markdown(
+        p.read_text(),
+        extensions=["extra", "sane_lists", "tables", "toc", "md_in_html"],
+        output_format="html5",
+    )
+    body = f"""
+<div class="prose-article black-swans-article">
+{rendered}
+</div>
+"""
+    return layout(title="Black swans", page_id="black-swans.html",
                   body=body, main_class="wide", include_pagination=False)
 
 
@@ -1341,6 +1377,8 @@ def main() -> int:
 
     pages = {
         "briefing.html": build_briefing(),
+        "bottom-line.html": build_bottom_line(),
+        "black-swans.html": build_black_swans(),
         "index.html": build_index(),
         "recommendation.html": build_recommendation(),
         "recommendation-detail.html": build_recommendation_detail(),

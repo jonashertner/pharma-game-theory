@@ -46,6 +46,133 @@
 ]
 },
 {
+"page": "bottom-line.html",
+"title": "Bottom line",
+"sections": [
+{
+"id": "what-was-actually-won-in-december-2025",
+"label": "What was actually won in December 2025",
+"level": 2
+},
+{
+"id": "why-the-next-four-years-are-larger-not-smaller",
+"label": "Why the next four years are larger, not smaller",
+"level": 2
+},
+{
+"id": "asymmetry-1-reference-pricing-contagion-chf-2560b-npv-swing",
+"label": "Asymmetry 1 &mdash; Reference-pricing contagion (CHF 25&ndash;60B NPV swing)",
+"level": 3
+},
+{
+"id": "asymmetry-2-trontinemab-launch-architecture-chf-2030b-npv-swing",
+"label": "Asymmetry 2 &mdash; Trontinemab launch architecture (CHF 20&ndash;30B NPV swing)",
+"level": 3
+},
+{
+"id": "asymmetry-3-the-strategic-purpose-of-the-50b-us-capex-chf-410b-npv-swing",
+"label": "Asymmetry 3 &mdash; The strategic purpose of the $50B US capex (CHF 4&ndash;10B NPV swing)",
+"level": 3
+},
+{
+"id": "what-would-prove-this-analysis-wrong",
+"label": "What would prove this analysis wrong",
+"level": 2
+},
+{
+"id": "the-implication-for-the-board",
+"label": "The implication for the board",
+"level": 2
+}
+]
+},
+{
+"page": "black-swans.html",
+"title": "Black swans",
+"sections": [
+{
+"id": "what-this-is-and-what-it-is-not",
+"label": "What this is, and what it is not",
+"level": 2
+},
+{
+"id": "structural-unwinds",
+"label": "Structural unwinds",
+"level": 2
+},
+{
+"id": "black-swan-1-the-horizon-collapses",
+"label": "Black swan 1 &mdash; The horizon collapses",
+"level": 3
+},
+{
+"id": "black-swan-2-the-mqd-wins-at-scotus",
+"label": "Black swan 2 &mdash; The MQD wins at SCOTUS",
+"level": 3
+},
+{
+"id": "black-swan-3-the-transparency-mandate",
+"label": "Black swan 3 &mdash; The transparency mandate",
+"level": 3
+},
+{
+"id": "tech-science-shocks",
+"label": "Tech / science shocks",
+"level": 2
+},
+{
+"id": "black-swan-4-trontier-fails-on-safety",
+"label": "Black swan 4 &mdash; TRONTIER fails on safety",
+"level": 3
+},
+{
+"id": "black-swan-5-the-biologics-gambit-decays",
+"label": "Black swan 5 &mdash; The biologics gambit decays",
+"level": 3
+},
+{
+"id": "black-swan-6-the-cluster",
+"label": "Black swan 6 &mdash; The cluster",
+"level": 3
+},
+{
+"id": "geopolitical-shocks",
+"label": "Geopolitical shocks",
+"level": 2
+},
+{
+"id": "black-swan-7-the-strait-closes",
+"label": "Black swan 7 &mdash; The Strait closes",
+"level": 3
+},
+{
+"id": "black-swan-8-2028-doubles-down",
+"label": "Black swan 8 &mdash; 2028 doubles down",
+"level": 3
+},
+{
+"id": "positive-tail",
+"label": "Positive tail",
+"level": 2
+},
+{
+"id": "black-swan-9-trontier-reads-early",
+"label": "Black swan 9 &mdash; TRONTIER reads early",
+"level": 3
+},
+{
+"id": "synthesis-what-the-nine-events-have-in-common",
+"label": "Synthesis &mdash; what the nine events have in common",
+"level": 2
+},
+{
+"id": "robust-position-moves-consolidated",
+"label": "Robust-position moves &mdash; consolidated",
+"level": 2
+}
+]
+},
+{
 "page": "index.html",
 "title": "Overview",
 "sections": []
